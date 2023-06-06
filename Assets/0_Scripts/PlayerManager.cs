@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,7 +19,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     public static List<PlayerInput> Players = new();
-    public static List<string> JsonInputs = new();
+    //public static List<string> JsonInputs = new();
     public static bool AllLimbsAssigned;
     private static int[] _referenceTableLimbsToPlayerID = new int[4];
     private static int[] _referenceTableLimbsToInputID = new int[4];
@@ -74,7 +75,15 @@ public class PlayerManager : MonoBehaviour
     {
         //add player to list of all players
         Players.Add(player);
-        JsonInputs.Add(player.actions.SaveBindingOverridesAsJson());
+        string Json = player.actions.ToJson();
+        InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
+        inputActionAsset.LoadFromJson(Json);
+        
+        
+        ///
+        player.actions = inputActionAsset;
+        ///
+        //JsonInputs.Add(player.actions.SaveBindingOverridesAsJson());
         
         //call an event to show player connected in UI
         onPlayerJoinUiEvent.Raise(this, Players.Count - 1, null, null);

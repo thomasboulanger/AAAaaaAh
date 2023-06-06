@@ -234,21 +234,24 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         /// Initiate an interactive rebind that lets the player actuate a control to choose a new binding
         /// for the action.
         /// </summary>
-        public void StartInteractiveRebind()
+        public void StartInteractiveRebind(int playerIndex)
         {
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
 
+            InputActionAsset currentInputActionAsset = PlayerManager.Players[playerIndex].actions;
+            var actionToRebind = currentInputActionAsset.FindAction(action.id);
+            
             // If the binding is a composite, we need to rebind each part in turn.
-            if (action.bindings[bindingIndex].isComposite)
+            if (actionToRebind.bindings[bindingIndex].isComposite)
             {
                 var firstPartIndex = bindingIndex + 1;
-                if (firstPartIndex < action.bindings.Count && action.bindings[firstPartIndex].isPartOfComposite)
-                    PerformInteractiveRebind(action, firstPartIndex, allCompositeParts: true);
+                if (firstPartIndex < actionToRebind.bindings.Count && actionToRebind.bindings[firstPartIndex].isPartOfComposite)
+                    PerformInteractiveRebind(actionToRebind, firstPartIndex, allCompositeParts: true);
             }
             else
             {
-                PerformInteractiveRebind(action, bindingIndex);
+                PerformInteractiveRebind(actionToRebind, bindingIndex);
             }
         }
 
