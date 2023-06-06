@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{72FDA342-8C36-4667-9850-BDAB359031F1}" SchemaVersion="110">
+	<Switches>
+		<WorkUnit Name="Default Work Unit" ID="{72FDA342-8C36-4667-9850-BDAB359031F1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="musique" ID="{4410150F-D6DB-42CD-B474-90CC54007B3D}" ShortID="155067983">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="15"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<SwitchGroup Name="Musique_intensity_SG" ID="{29503C0C-1B38-4602-9534-8CC0557D2D21}">
+							<PropertyList>
+								<Property Name="UseGameParameter" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Switch Name="Int_1" ID="{FAAC63A9-550F-4171-924B-791462A4D97B}"/>
+								<Switch Name="Int_2" ID="{E45167D9-3FAD-4015-98A1-27CEB57265F3}"/>
+								<Switch Name="Int_3" ID="{E6FB045A-79E4-413D-A67C-8EA734F99BD3}"/>
+							</ChildrenList>
+							<SwitchOnRTPC>
+								<GameParameterRef Name="Music_intensity_RTPC" ID="{AA5ED0A1-4738-4F46-85F6-D04C5495B015}"/>
+								<Curve Name="" ID="{C783141E-5A58-4D2E-946E-698FC26B4093}">
+									<PropertyList>
+										<Property Name="Flags" Type="int32" Value="65537"/>
+									</PropertyList>
+									<PointList>
+										<Point>
+											<XPos>0</XPos>
+											<YPos>0</YPos>
+											<Flags>5</Flags>
+										</Point>
+										<Point>
+											<XPos>0.2</XPos>
+											<YPos>1</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>0.4</XPos>
+											<YPos>2</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>0.7</XPos>
+											<YPos>3</YPos>
+											<Flags>0</Flags>
+										</Point>
+										<Point>
+											<XPos>1</XPos>
+											<YPos>0</YPos>
+											<Flags>37</Flags>
+										</Point>
+									</PointList>
+								</Curve>
+							</SwitchOnRTPC>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="player" ID="{302677A7-DBCC-4CD3-BA87-10ED4C995AC7}" ShortID="908687736">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="26"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<SwitchGroup Name="grab_SG" ID="{916CB8AC-106D-4F45-89F0-1531BD602A1C}">
+							<ChildrenList>
+								<Switch Name="wood" ID="{88854C8D-F02D-48BE-8CEC-14E47F4C14B8}"/>
+								<Switch Name="rocks" ID="{9107A2A0-E697-4FAA-9A95-8101EA200D87}"/>
+								<Switch Name="fruit" ID="{993A966C-B986-4D01-839D-DF1B758E2195}"/>
+							</ChildrenList>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="demon" ID="{47882454-AEF1-4878-BE1A-E23FED87E2BD}" ShortID="931140556">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="23"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A22A7BFF-5984-D7CD-8DB7-109E50C5D07D}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<Custom>
+					<Plugin Id="96668503" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="99354421" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="193158995" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="750170263" Name="Peak Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="863241337" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="1003400538" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="1028855844" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="48620415" Name="Have_U_Ever_Been_Outside" LibName="Wwise RoomVerb" LibId="7733251"/>
+					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="1706684651" Name="Plate_Medium" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="177416562" Name="expiration">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1028855844"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="213475909" Name="SFX_BUS"/>
+				<Bus Id="737767022" Name="scream">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="193158995"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="968010305" Name="props"/>
+				<Bus Id="1129636538" Name="demon">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1003400538"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1230623502" Name="Cinematic_Reverbs">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="48620415"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1587507860" Name="mouvements"/>
+				<Bus Id="1816140719" Name="inspiration">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="96668503"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1838596016" Name="Cinematic">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1958747292" Name="Cinematic_sfx">
+					<AuxBusRefs>
+						<AuxBusRef Id="1530676313" Name="Exterior_rev"/>
+						<AuxBusRef Id="1617151415" Name="Interior_rev"/>
+					</AuxBusRefs>
+				</Bus>
+				<Bus Id="2157941935" Name="habilities"/>
+				<Bus Id="2213089996" Name="musictounity">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="99354421"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="2422710169" Name="parpaing"/>
+				<Bus Id="2530157555" Name="environnement"/>
+				<Bus Id="2981377429" Name="Ambiance"/>
+				<Bus Id="3017987732" Name="Cinematic_music">
+					<AuxBusRefs>
+						<AuxBusRef Id="1530676313" Name="Exterior_rev"/>
+						<AuxBusRef Id="1617151415" Name="Interior_rev"/>
+					</AuxBusRefs>
+				</Bus>
+				<Bus Id="3140998137" Name="respiration">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="863241337"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="3170124113" Name="voice"/>
+				<Bus Id="3247222208" Name="UI_BUS"/>
+				<Bus Id="3803692087" Name="Master Audio Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="750170263"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="3991942870" Name="Music"/>
+			</Busses>
+			<AuxBusses>
+				<AuxBus Id="1530676313" Name="Exterior_rev">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="48620415"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+				<AuxBus Id="1617151415" Name="Interior_rev">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1706684651"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
+			<GameParameters>
+				<GameParameter Id="195392438" Name="Music_intensity_RTPC"/>
+				<GameParameter Id="200528452" Name="SidechainMusicOnSFX"/>
+				<GameParameter Id="292950853" Name="MeterControl_unity"/>
+				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
+				<GameParameter Id="954052721" Name="Cinematic_music_rvb_exterior_send"/>
+				<GameParameter Id="1277843105" Name="Demon_Metering_Cri"/>
+				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
+				<GameParameter Id="2541357373" Name="Distance_from_player"/>
+				<GameParameter Id="2654583815" Name="SFX_Volume_RTPC"/>
+				<GameParameter Id="2692577935" Name="distance_from_demon"/>
+				<GameParameter Id="3131952431" Name="Music_Volume_RTPC"/>
+				<GameParameter Id="3257517905" Name="Demon_Meter_Inspiration"/>
+				<GameParameter Id="3427559369" Name="cinematic_sfx_rvb_exterior_send"/>
+				<GameParameter Id="3485972731" Name="Demon_Metering_Respiration"/>
+				<GameParameter Id="3531663695" Name="cinematic_sfx_rvb_interior_send"/>
+				<GameParameter Id="3667051259" Name="Demon_Volume_RTPC"/>
+				<GameParameter Id="3847844583" Name="Cinematic_music_rvb_interior_send"/>
+				<GameParameter Id="4047153977" Name="UI_Bus_Volume_RTPC"/>
+				<GameParameter Id="4146223432" Name="Demon_Meter_Expiration"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="426307960" Name="grab_SG">
+					<Switches>
+						<Switch Id="1784735005" Name="fruit"/>
+						<Switch Id="1863277117" Name="rocks"/>
+						<Switch Id="2058049674" Name="wood"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3793758265" Name="Musique_intensity_SG">
+					<GameParameterRef Id="195392438"/>
+					<Switches>
+						<Switch Id="806725996" Name="Int_1"/>
+						<Switch Id="806725998" Name="Int_3"/>
+						<Switch Id="806725999" Name="Int_2"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{7F5C35DF-EC6B-F46E-C2A7-077918F613ED}">
+			<ShortName>AAAaaaAAh_MainSB</ShortName>
+			<Path>AAAaaaAAh_MainSB.bnk</Path>
+			<Media>
+				<File Id="193205" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa4\Kompa4_intensity3.wav</ShortName>
+					<CachePath>SFX/Kompa4/Kompa4_intensity3_983551D2.wem</CachePath>
+				</File>
+				<File Id="781487" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_05.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="8377730" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_07.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="12248994" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="13977824" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="18205929" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_inspi_03.wav</ShortName>
+					<CachePath>SFX/baptiste_inspi_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="28999613" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_08.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="46330691" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_02.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="54439328" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_01.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="55019956" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_02.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="65127018" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_expi_01.wav</ShortName>
+					<CachePath>SFX/baptiste_expi_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="65331105" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_jackhammer_02.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_jackhammer_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="66666554" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_03.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="69044696" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_hammer_01.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_hammer_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="72498812" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_05.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="74737737" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="76152452" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_03.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="85643450" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="97425024" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_cascade.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_cascade_10C4C929.wem</CachePath>
+				</File>
+				<File Id="103043612" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_03.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="108674122" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_expi_03.wav</ShortName>
+					<CachePath>SFX/baptiste_expi_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="109524271" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="111519357" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_06.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="118094154" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="122723685" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="123598460" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_hammer_02.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_hammer_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="127659371" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_06.wav</ShortName>
+					<CachePath>SFX/roman_scream_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="136290319" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa4\Kompa4_intro.wav</ShortName>
+					<CachePath>SFX/Kompa4/Kompa4_intro_983551D2.wem</CachePath>
+				</File>
+				<File Id="138170974" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_01.wav</ShortName>
+					<CachePath>SFX/roman_scream_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="142642044" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_wood_moving_loop.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_wood_moving_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="148274533" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_07.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="163509513" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_06.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="165764196" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="175169595" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="184850092" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_06.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="187522487" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_woodwork_03.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_woodwork_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="201525448" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_drill_02.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_drill_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="216229163" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_04.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="217215457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="224800918" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_01.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="231732966" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="232181947" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_03.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="239060118" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="240435164" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_10.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="244752207" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_08.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="281775075" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_Foule_bar_loop.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_Foule_bar_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="285697430" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_02.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="292065262" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_inspi_04.wav</ShortName>
+					<CachePath>SFX/baptiste_inspi_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="293814505" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="295759851" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_04.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="309754520" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_hammer_05.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_hammer_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="311582546" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="312365852" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_08.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="324330998" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_Door_open_bar.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_Door_open_bar_10C4C929.wem</CachePath>
+				</File>
+				<File Id="325202478" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_page_tournee_03.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_page_tournee_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="330585469" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="335631537" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_earthquake_high_rumble.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_earthquake_high_rumble_10C4C929.wem</CachePath>
+				</File>
+				<File Id="338918256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_jackhammer_01.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_jackhammer_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="339898700" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_03.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="344824246" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_07.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="365540200" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_jackhammer_03.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_jackhammer_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="368243078" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_inspi_01.wav</ShortName>
+					<CachePath>SFX/baptiste_inspi_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="368485799" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="370890124" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="372705985" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_03.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="373798867" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_jungle_day_loop.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_day_loop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="388051232" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_02.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="388213827" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_glass_moving_loop.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_glass_moving_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="395872111" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="395922434" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_expi_04.wav</ShortName>
+					<CachePath>SFX/baptiste_expi_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="396087992" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_02.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="399343924" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_05.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="402341570" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="412812065" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_01.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="447675570" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_04.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="457964915" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="462483311" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_drill_04.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_drill_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="479761798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_01.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="481572255" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="487296066" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="495112281" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa4\Kompa4_intensity1.wav</ShortName>
+					<CachePath>SFX/Kompa4/Kompa4_intensity1_983551D2.wem</CachePath>
+				</File>
+				<File Id="514985283" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_expi_02.wav</ShortName>
+					<CachePath>SFX/baptiste_expi_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="539139584" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_08.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="544162007" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="546115841" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_01.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="549811890" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_village.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_village_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="561777606" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_03.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="564848205" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="573898258" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_06.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="574035487" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_04.wav</ShortName>
+					<CachePath>SFX/roman_scream_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="577683847" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_book_fall_whoosh.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_book_fall_whoosh_50FC1289.wem</CachePath>
+				</File>
+				<File Id="591181880" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_05.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="605223296" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="609672572" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_06.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="617686766" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_05.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="617814915" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_04.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="629407672" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_06.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="646097358" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_08.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="655254932" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="660583654" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_07.wav</ShortName>
+					<CachePath>SFX/roman_scream_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="674091117" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="679853481" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_04.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="680406388" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_09.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_09_10C4C929.wem</CachePath>
+				</File>
+				<File Id="686920445" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_03.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="689647992" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_06.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="696173233" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_07.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="703851034" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="706481931" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_03.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="712916640" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_hammer_04.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_hammer_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="715054576" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_02.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="721274767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_05.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="724312231" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_04.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="741647488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_07.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="746831967" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="767198254" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="772028236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="774583605" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_04.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="778380381" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_01.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="783920694" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_10.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="788914309" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_Select_02.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_Select_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="789158108" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_01.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="792235428" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_drill_01.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_drill_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="797534564" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 1_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 1_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="799628147" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_mid_distance_05.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="800520853" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_page_tournee_01.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_page_tournee_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="806201314" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_jungle_night_loop.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_night_loop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="809642619" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_07.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="811206191" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_drill_03.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_drill_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="812635969" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_02.wav</ShortName>
+					<CachePath>SFX/roman_scream_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="818846709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_07.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="824358557" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 2_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 2_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="833040475" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_launch_05.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_launch_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="834030510" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_03.wav</ShortName>
+					<CachePath>SFX/roman_scream_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="835675195" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_02.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="844617548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_06.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="852972280" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_04.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="868016181" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_bbrglm_09.wav</ShortName>
+					<CachePath>SFX/roman_bbrglm_09_10C4C929.wem</CachePath>
+				</File>
+				<File Id="884576573" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_hammer_03.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_hammer_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="893147923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_page_tournee_02.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_page_tournee_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="902033649" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>roman_scream_05.wav</ShortName>
+					<CachePath>SFX/roman_scream_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="910182252" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_os_weird_birds_11.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_11_10C4C929.wem</CachePath>
+				</File>
+				<File Id="916003473" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>baptiste_inspi_02.wav</ShortName>
+					<CachePath>SFX/baptiste_inspi_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="917730565" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_01.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="923013965" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_woodwork_01.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_woodwork_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="933035219" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa4\Kompa4_intensity2.wav</ShortName>
+					<CachePath>SFX/Kompa4/Kompa4_intensity2_983551D2.wem</CachePath>
+				</File>
+				<File Id="935187466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_truelle_hit_simple_05.wav</ShortName>
+					<CachePath>SFX/sfx_ui_truelle_hit_simple_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="937158538" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_07.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="939956630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_loin_02.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_loin_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="941774025" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_woodwork_02.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_woodwork_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="953863872" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_environnement_ambiance_jungle_bed_loop.wav</ShortName>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_bed_loop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="956443433" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_wood_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_wood_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="965128467" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_plate_moving_loop.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_plate_moving_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="996303712" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_book_falling_03.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_book_falling_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="997261233" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_earthquake_low_rumble.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_earthquake_low_rumble_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1001148685" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_roman_scream_rvb_proche_04.wav</ShortName>
+					<CachePath>SFX/sfx_roman_scream_rvb_proche_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1005892363" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_demon_pop.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_demon_pop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1014474565" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 4_01.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 4_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1026825959" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_rock_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_rock_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1027147110" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_book_falling_01.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_book_falling_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1032333880" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_Arm 3_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_Arm 3_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1044104203" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_book_falling_02.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_book_falling_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1044935901" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_sorcier_impact.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_sorcier_impact_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1050952435" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_os_drill_05.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_os_drill_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1054365039" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro\sfx_Door_open_sorcier.wav</ShortName>
+					<CachePath>SFX/Intro/sfx_Door_open_sorcier_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1058719933" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_player_grab_fruit_06.wav</ShortName>
+					<CachePath>SFX/sfx_player_grab_fruit_06_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="826679493" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
+				</Custom>
+			</Plugins>
+			<Events>
+				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="OneShot" DurationMin="125.61696" DurationMax="125.61696">
+					<MediaRefs>
+						<MediaRef Id="28999613"/>
+						<MediaRef Id="72498812"/>
+						<MediaRef Id="285697430"/>
+						<MediaRef Id="295759851"/>
+						<MediaRef Id="344824246"/>
+						<MediaRef Id="372705985"/>
+						<MediaRef Id="373798867"/>
+						<MediaRef Id="546115841"/>
+						<MediaRef Id="629407672"/>
+						<MediaRef Id="680406388"/>
+						<MediaRef Id="783920694"/>
+						<MediaRef Id="806201314"/>
+						<MediaRef Id="910182252"/>
+						<MediaRef Id="953863872"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1772480721" Name="Play_ambiance_cascade" DurationType="OneShot" DurationMin="83.32619" DurationMax="83.32619">
+					<MediaRefs>
+						<MediaRef Id="97425024"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2942461358" Name="Play_cri" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="781487"/>
+						<MediaRef Id="46330691"/>
+						<MediaRef Id="54439328"/>
+						<MediaRef Id="55019956"/>
+						<MediaRef Id="66666554"/>
+						<MediaRef Id="76152452"/>
+						<MediaRef Id="111519357"/>
+						<MediaRef Id="127659371"/>
+						<MediaRef Id="138170974"/>
+						<MediaRef Id="148274533"/>
+						<MediaRef Id="163509513"/>
+						<MediaRef Id="216229163"/>
+						<MediaRef Id="574035487"/>
+						<MediaRef Id="591181880"/>
+						<MediaRef Id="617814915"/>
+						<MediaRef Id="660583654"/>
+						<MediaRef Id="689647992"/>
+						<MediaRef Id="696173233"/>
+						<MediaRef Id="706481931"/>
+						<MediaRef Id="778380381"/>
+						<MediaRef Id="799628147"/>
+						<MediaRef Id="812635969"/>
+						<MediaRef Id="834030510"/>
+						<MediaRef Id="902033649"/>
+						<MediaRef Id="917730565"/>
+						<MediaRef Id="937158538"/>
+						<MediaRef Id="939956630"/>
+						<MediaRef Id="1001148685"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="712233415" Name="Play_Cris_et_groml" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="781487"/>
+						<MediaRef Id="46330691"/>
+						<MediaRef Id="54439328"/>
+						<MediaRef Id="55019956"/>
+						<MediaRef Id="66666554"/>
+						<MediaRef Id="76152452"/>
+						<MediaRef Id="111519357"/>
+						<MediaRef Id="127659371"/>
+						<MediaRef Id="138170974"/>
+						<MediaRef Id="148274533"/>
+						<MediaRef Id="163509513"/>
+						<MediaRef Id="216229163"/>
+						<MediaRef Id="240435164"/>
+						<MediaRef Id="396087992"/>
+						<MediaRef Id="412812065"/>
+						<MediaRef Id="561777606"/>
+						<MediaRef Id="574035487"/>
+						<MediaRef Id="591181880"/>
+						<MediaRef Id="617686766"/>
+						<MediaRef Id="617814915"/>
+						<MediaRef Id="646097358"/>
+						<MediaRef Id="660583654"/>
+						<MediaRef Id="689647992"/>
+						<MediaRef Id="696173233"/>
+						<MediaRef Id="706481931"/>
+						<MediaRef Id="724312231"/>
+						<MediaRef Id="778380381"/>
+						<MediaRef Id="799628147"/>
+						<MediaRef Id="809642619"/>
+						<MediaRef Id="812635969"/>
+						<MediaRef Id="834030510"/>
+						<MediaRef Id="844617548"/>
+						<MediaRef Id="868016181"/>
+						<MediaRef Id="902033649"/>
+						<MediaRef Id="917730565"/>
+						<MediaRef Id="937158538"/>
+						<MediaRef Id="939956630"/>
+						<MediaRef Id="1001148685"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="826679493"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="3945663264" Name="Play_expi" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.3911111" DurationMax="0.6248753">
+					<MediaRefs>
+						<MediaRef Id="65127018"/>
+						<MediaRef Id="108674122"/>
+						<MediaRef Id="395922434"/>
+						<MediaRef Id="514985283"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3235881831" Name="Play_grab_arm_01" DurationType="OneShot" DurationMin="0.11574783" DurationMax="0.31639615">
+					<MediaRefs>
+						<MediaRef Id="85643450"/>
+						<MediaRef Id="165764196"/>
+						<MediaRef Id="217215457"/>
+						<MediaRef Id="293814505"/>
+						<MediaRef Id="395872111"/>
+						<MediaRef Id="797534564"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1784735005"/>
+							<MediaRefs>
+								<MediaRef Id="109524271"/>
+								<MediaRef Id="481572255"/>
+								<MediaRef Id="539139584"/>
+								<MediaRef Id="655254932"/>
+								<MediaRef Id="686920445"/>
+								<MediaRef Id="741647488"/>
+								<MediaRef Id="774583605"/>
+								<MediaRef Id="1058719933"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="118094154"/>
+								<MediaRef Id="244752207"/>
+								<MediaRef Id="311582546"/>
+								<MediaRef Id="457964915"/>
+								<MediaRef Id="674091117"/>
+								<MediaRef Id="818846709"/>
+								<MediaRef Id="835675195"/>
+								<MediaRef Id="956443433"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1863277117"/>
+							<MediaRefs>
+								<MediaRef Id="8377730"/>
+								<MediaRef Id="74737737"/>
+								<MediaRef Id="175169595"/>
+								<MediaRef Id="312365852"/>
+								<MediaRef Id="330585469"/>
+								<MediaRef Id="605223296"/>
+								<MediaRef Id="703851034"/>
+								<MediaRef Id="1026825959"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3235881828" Name="Play_grab_arm_02" DurationType="OneShot" DurationMin="0.11497914" DurationMax="0.31639615">
+					<MediaRefs>
+						<MediaRef Id="13977824"/>
+						<MediaRef Id="402341570"/>
+						<MediaRef Id="544162007"/>
+						<MediaRef Id="746831967"/>
+						<MediaRef Id="772028236"/>
+						<MediaRef Id="824358557"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1784735005"/>
+							<MediaRefs>
+								<MediaRef Id="109524271"/>
+								<MediaRef Id="481572255"/>
+								<MediaRef Id="539139584"/>
+								<MediaRef Id="655254932"/>
+								<MediaRef Id="686920445"/>
+								<MediaRef Id="741647488"/>
+								<MediaRef Id="774583605"/>
+								<MediaRef Id="1058719933"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="118094154"/>
+								<MediaRef Id="244752207"/>
+								<MediaRef Id="311582546"/>
+								<MediaRef Id="457964915"/>
+								<MediaRef Id="674091117"/>
+								<MediaRef Id="818846709"/>
+								<MediaRef Id="835675195"/>
+								<MediaRef Id="956443433"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1863277117"/>
+							<MediaRefs>
+								<MediaRef Id="8377730"/>
+								<MediaRef Id="74737737"/>
+								<MediaRef Id="175169595"/>
+								<MediaRef Id="312365852"/>
+								<MediaRef Id="330585469"/>
+								<MediaRef Id="605223296"/>
+								<MediaRef Id="703851034"/>
+								<MediaRef Id="1026825959"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3235881829" Name="Play_grab_arm_03" DurationType="OneShot" DurationMin="0.14022917" DurationMax="0.31639615">
+					<MediaRefs>
+						<MediaRef Id="122723685"/>
+						<MediaRef Id="370890124"/>
+						<MediaRef Id="487296066"/>
+						<MediaRef Id="564848205"/>
+						<MediaRef Id="721274767"/>
+						<MediaRef Id="1032333880"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1784735005"/>
+							<MediaRefs>
+								<MediaRef Id="109524271"/>
+								<MediaRef Id="481572255"/>
+								<MediaRef Id="539139584"/>
+								<MediaRef Id="655254932"/>
+								<MediaRef Id="686920445"/>
+								<MediaRef Id="741647488"/>
+								<MediaRef Id="774583605"/>
+								<MediaRef Id="1058719933"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="118094154"/>
+								<MediaRef Id="244752207"/>
+								<MediaRef Id="311582546"/>
+								<MediaRef Id="457964915"/>
+								<MediaRef Id="674091117"/>
+								<MediaRef Id="818846709"/>
+								<MediaRef Id="835675195"/>
+								<MediaRef Id="956443433"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1863277117"/>
+							<MediaRefs>
+								<MediaRef Id="8377730"/>
+								<MediaRef Id="74737737"/>
+								<MediaRef Id="175169595"/>
+								<MediaRef Id="312365852"/>
+								<MediaRef Id="330585469"/>
+								<MediaRef Id="605223296"/>
+								<MediaRef Id="703851034"/>
+								<MediaRef Id="1026825959"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3235881826" Name="Play_grab_arm_04" DurationType="OneShot" DurationMin="0.12772916" DurationMax="0.31639615">
+					<MediaRefs>
+						<MediaRef Id="12248994"/>
+						<MediaRef Id="231732966"/>
+						<MediaRef Id="239060118"/>
+						<MediaRef Id="368485799"/>
+						<MediaRef Id="767198254"/>
+						<MediaRef Id="1014474565"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1784735005"/>
+							<MediaRefs>
+								<MediaRef Id="109524271"/>
+								<MediaRef Id="481572255"/>
+								<MediaRef Id="539139584"/>
+								<MediaRef Id="655254932"/>
+								<MediaRef Id="686920445"/>
+								<MediaRef Id="741647488"/>
+								<MediaRef Id="774583605"/>
+								<MediaRef Id="1058719933"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="2058049674" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="118094154"/>
+								<MediaRef Id="244752207"/>
+								<MediaRef Id="311582546"/>
+								<MediaRef Id="457964915"/>
+								<MediaRef Id="674091117"/>
+								<MediaRef Id="818846709"/>
+								<MediaRef Id="835675195"/>
+								<MediaRef Id="956443433"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="426307960" Id="1863277117"/>
+							<MediaRefs>
+								<MediaRef Id="8377730"/>
+								<MediaRef Id="74737737"/>
+								<MediaRef Id="175169595"/>
+								<MediaRef Id="312365852"/>
+								<MediaRef Id="330585469"/>
+								<MediaRef Id="605223296"/>
+								<MediaRef Id="703851034"/>
+								<MediaRef Id="1026825959"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3691122520" Name="Play_gronchon" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.3998186" DurationMax="3.8693879">
+					<MediaRefs>
+						<MediaRef Id="240435164"/>
+						<MediaRef Id="396087992"/>
+						<MediaRef Id="412812065"/>
+						<MediaRef Id="561777606"/>
+						<MediaRef Id="617686766"/>
+						<MediaRef Id="646097358"/>
+						<MediaRef Id="724312231"/>
+						<MediaRef Id="809642619"/>
+						<MediaRef Id="844617548"/>
+						<MediaRef Id="868016181"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3371369987" Name="Play_inspi" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.53147393" DurationMax="0.72253966">
+					<MediaRefs>
+						<MediaRef Id="18205929"/>
+						<MediaRef Id="292065262"/>
+						<MediaRef Id="368243078"/>
+						<MediaRef Id="916003473"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
+					<MediaRefs>
+						<MediaRef Id="495112281"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1527726673" Name="Play_kompa4_playlist" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="193205"/>
+						<MediaRef Id="136290319"/>
+						<MediaRef Id="495112281"/>
+						<MediaRef Id="933035219"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="132030432" Name="Play_sfx_book_fall_whoosh" DurationType="OneShot" DurationMin="0.7971901" DurationMax="0.7971901">
+					<MediaRefs>
+						<MediaRef Id="577683847"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="476147777" Name="Play_sfx_book_falling_01" DurationType="OneShot" DurationMin="0.29197916" DurationMax="0.29197916">
+					<MediaRefs>
+						<MediaRef Id="1027147110"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="476147778" Name="Play_sfx_book_falling_02" DurationType="OneShot" DurationMin="0.32466668" DurationMax="0.32466668">
+					<MediaRefs>
+						<MediaRef Id="1044104203"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="476147779" Name="Play_sfx_book_falling_03" DurationType="OneShot" DurationMin="0.39964584" DurationMax="0.39964584">
+					<MediaRefs>
+						<MediaRef Id="996303712"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="719951123" Name="Play_sfx_demon_pop" DurationType="OneShot" DurationMin="0.14016667" DurationMax="0.14016667">
+					<MediaRefs>
+						<MediaRef Id="1005892363"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1761288071" Name="Play_sfx_Door_open_bar" DurationType="OneShot" DurationMin="2.1897082" DurationMax="2.1897082">
+					<MediaRefs>
+						<MediaRef Id="324330998"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1506045805" Name="Play_sfx_Door_open_sorcier" DurationType="OneShot" DurationMin="2.2740834" DurationMax="2.2740834">
+					<MediaRefs>
+						<MediaRef Id="1054365039"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="828663824" Name="Play_sfx_earthquake_high_rumble" DurationType="OneShot" DurationMin="11.953396" DurationMax="11.953396">
+					<MediaRefs>
+						<MediaRef Id="335631537"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1053108714" Name="Play_sfx_earthquake_low_rumble" DurationType="OneShot" DurationMin="15.530397" DurationMax="15.530397">
+					<MediaRefs>
+						<MediaRef Id="997261233"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3156448948" Name="Play_sfx_Foule_bar_loop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="281775075"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="835076108" Name="Play_sfx_glass_moving_loop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="388213827"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1007424866" Name="Play_sfx_page_tournee_01" DurationType="OneShot" DurationMin="0.9352292" DurationMax="0.9352292">
+					<MediaRefs>
+						<MediaRef Id="800520853"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1007424865" Name="Play_sfx_page_tournee_02" DurationType="OneShot" DurationMin="0.8837917" DurationMax="0.8837917">
+					<MediaRefs>
+						<MediaRef Id="893147923"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1007424864" Name="Play_sfx_page_tournee_03" DurationType="OneShot" DurationMin="1.4607708" DurationMax="1.4607708">
+					<MediaRefs>
+						<MediaRef Id="325202478"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1457769688" Name="Play_sfx_plate_moving_loop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="965128467"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4074007912" Name="Play_sfx_sorcier_impact" DurationType="OneShot" DurationMin="0.9520625" DurationMax="0.9520625">
+					<MediaRefs>
+						<MediaRef Id="1044935901"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3159973417" Name="Play_sfx_ui_truelle_hit_Select" DurationType="OneShot" DurationMin="0.58094406" DurationMax="0.7210566">
+					<MediaRefs>
+						<MediaRef Id="103043612"/>
+						<MediaRef Id="184850092"/>
+						<MediaRef Id="224800918"/>
+						<MediaRef Id="399343924"/>
+						<MediaRef Id="679853481"/>
+						<MediaRef Id="788914309"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3640008787" Name="Play_sfx_ui_truelle_hit_simple" DurationType="OneShot" DurationMin="0.19192858" DurationMax="0.26768738">
+					<MediaRefs>
+						<MediaRef Id="339898700"/>
+						<MediaRef Id="609672572"/>
+						<MediaRef Id="715054576"/>
+						<MediaRef Id="789158108"/>
+						<MediaRef Id="852972280"/>
+						<MediaRef Id="935187466"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2461968334" Name="Play_sfx_ui_truelle_launch" DurationType="OneShot" DurationMin="0.39745075" DurationMax="0.46896785">
+					<MediaRefs>
+						<MediaRef Id="232181947"/>
+						<MediaRef Id="388051232"/>
+						<MediaRef Id="447675570"/>
+						<MediaRef Id="479761798"/>
+						<MediaRef Id="573898258"/>
+						<MediaRef Id="833040475"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3037215863" Name="Play_sfx_wood_moving_loop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="142642044"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2059424370" Name="Play_Village_Blend" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="65331105"/>
+						<MediaRef Id="69044696"/>
+						<MediaRef Id="123598460"/>
+						<MediaRef Id="187522487"/>
+						<MediaRef Id="201525448"/>
+						<MediaRef Id="309754520"/>
+						<MediaRef Id="338918256"/>
+						<MediaRef Id="365540200"/>
+						<MediaRef Id="462483311"/>
+						<MediaRef Id="549811890"/>
+						<MediaRef Id="712916640"/>
+						<MediaRef Id="792235428"/>
+						<MediaRef Id="811206191"/>
+						<MediaRef Id="884576573"/>
+						<MediaRef Id="923013965"/>
+						<MediaRef Id="941774025"/>
+						<MediaRef Id="1050952435"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
+				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
+				<GameParameter Id="2692577935" Name="distance_from_demon"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="426307960" Name="grab_SG">
+					<Switches>
+						<Switch Id="1784735005" Name="fruit"/>
+						<Switch Id="1863277117" Name="rocks"/>
+						<Switch Id="2058049674" Name="wood"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3157003241" Type="User" Language="SFX">
+			<ShortName>test</ShortName>
+			<Path>test.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{9B796CF0-E97E-4E1A-B308-879A5154AC92}</FileHash>
+</SoundBanksInfo>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B451D419-3AB4-4225-99C7-938071E09B33}" SchemaVersion="110">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{B451D419-3AB4-4225-99C7-938071E09B33}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Music" ID="{BCDC7646-E03C-4F10-B7D2-FE8C7D7F2790}" ShortID="462337031">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<GameParameter Name="Music_intensity_RTPC" ID="{AA5ED0A1-4738-4F46-85F6-D04C5495B015}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="InitialValue" Type="Real64" Value="0.21"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="SidechainMusicOnSFX" ID="{7C95B781-62FF-4BB5-8CFE-3F0580A988E2}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="26"/>
+								<Property Name="InitialValue" Type="Real64" Value="-48"/>
+								<Property Name="Max" Type="Real64" Value="0"/>
+								<Property Name="Min" Type="Real64" Value="-48"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Music_Volume_RTPC" ID="{C4E6F9F6-854F-4A8C-9263-FE409502C7A0}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="MeterControl_unity" ID="{34C6CE7B-D8D0-4C19-8CF4-80A715C3BB78}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="15"/>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Demon" ID="{E0270FB7-32C3-4FB1-8D7D-1DF27B31DBA2}" ShortID="380940490">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<GameParameter Name="Demon_Metering_Respiration" ID="{209A3D55-EFFB-43F2-A40A-24484F760274}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Demon_Volume_RTPC" ID="{49B13E3F-1562-4267-A763-BADE27A09621}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Demon_Metering_Cri" ID="{5308E03D-1734-4B02-AE9E-6073BC561907}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="InitialValue" Type="Real64" Value="-48"/>
+								<Property Name="Max" Type="Real64" Value="0"/>
+								<Property Name="Min" Type="Real64" Value="-48"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Demon_Meter_Expiration" ID="{45FF2A2D-8350-4BF5-B881-8AFBF39639BE}"/>
+						<GameParameter Name="Demon_Meter_Inspiration" ID="{3DBE4546-3136-4DD1-9C6D-3C1D37AA2632}"/>
+						<GameParameter Name="distance_from_demon" ID="{AA48304B-0CDD-4E0A-9B16-2D9D7CDBA276}">
+							<PropertyList>
+								<Property Name="BindToBuiltInParam" Type="int16" Value="1"/>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="demon_respiration_volume_RTPC" ID="{5A1816C3-62D3-48D6-8C9B-C4826A52AB52}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="SFX" ID="{7D151051-C649-4F00-AF28-95CE81A496B5}" ShortID="100717623">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="17"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<GameParameter Name="SFX_Volume_RTPC" ID="{2F130A27-8DA9-416A-B423-2AB8D58BA25F}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Distance_from_player" ID="{D33C7B44-0D41-4540-808E-F32C7F819558}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{00139F44-B9E5-4850-9F36-894C0B4A7A1A}" ShortID="301725051">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<GameParameter Name="UI_Bus_Volume_RTPC" ID="{8F79083F-4DAD-4328-B90D-8A515AA67A1B}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Cinematic" ID="{94AC9712-883A-41AD-8E48-4E97E36D7209}" ShortID="881935449">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="24"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<GameParameter Name="Cinematic_music_lowpass" ID="{EC2087C5-5348-4BB1-B5B3-4F19BA4B6CB6}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="cinematic_music_level" ID="{AF5FAD1A-1A4E-4A21-8A26-1E16F7CB1637}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="cinematic_sfx_rvb_interior_send" ID="{49947CF1-558A-4690-8CE8-A540FD18B2A2}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="cinematic_sfx_rvb_exterior_send" ID="{ECFB2B9E-DD6B-440F-A99D-706FD264F8DD}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Cinematic_music_rvb_interior_send" ID="{999E6330-2A20-49BF-A7C2-94AED69A4BC5}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Cinematic_music_rvb_exterior_send" ID="{44B26CD8-BE5D-4B10-BA42-8B7CC9DAF970}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<GameParameter Name="cinematic_sfx_level_meter_RTPC" ID="{3118D331-45D6-4129-B178-48B2D0ABA72F}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="-48"/>
+						<Property Name="Max" Type="Real64" Value="0"/>
+						<Property Name="Min" Type="Real64" Value="-48"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

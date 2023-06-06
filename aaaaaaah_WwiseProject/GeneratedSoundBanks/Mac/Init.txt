@@ -1,0 +1,66 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	3793758265	Musique_intensity_SG			\Default Work Unit\musique\Musique_intensity_SG	
+
+Switch	ID	Name	Switch Group			Notes
+	806725996	Int_1	Musique_intensity_SG			
+	806725998	Int_3	Musique_intensity_SG			
+	806725999	Int_2	Musique_intensity_SG			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	200528452	SidechainMusicOnSFX			\Default Work Unit\Music\SidechainMusicOnSFX	
+	541209909	cinematic_sfx_level_meter_RTPC			\Default Work Unit\cinematic_sfx_level_meter_RTPC	
+	954052721	Cinematic_music_rvb_exterior_send			\Default Work Unit\Cinematic\Cinematic_music_rvb_exterior_send	
+	1277843105	Demon_Metering_Cri			\Default Work Unit\Demon\Demon_Metering_Cri	
+	2605468616	demon_respiration_volume_RTPC			\Default Work Unit\Demon\demon_respiration_volume_RTPC	
+	2654583815	SFX_Volume_RTPC			\Default Work Unit\SFX\SFX_Volume_RTPC	
+	3131952431	Music_Volume_RTPC			\Default Work Unit\Music\Music_Volume_RTPC	
+	3427559369	cinematic_sfx_rvb_exterior_send			\Default Work Unit\Cinematic\cinematic_sfx_rvb_exterior_send	
+	3531663695	cinematic_sfx_rvb_interior_send			\Default Work Unit\Cinematic\cinematic_sfx_rvb_interior_send	
+	3667051259	Demon_Volume_RTPC			\Default Work Unit\Demon\Demon_Volume_RTPC	
+	3847844583	Cinematic_music_rvb_interior_send			\Default Work Unit\Cinematic\Cinematic_music_rvb_interior_send	
+	4047153977	UI_Bus_Volume_RTPC			\Default Work Unit\UI\UI_Bus_Volume_RTPC	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	177416562	expiration			\Default Work Unit\Master Audio Bus\SFX_BUS\demon\respiration\expiration	
+	213475909	SFX_BUS			\Default Work Unit\Master Audio Bus\SFX_BUS	
+	737767022	scream			\Default Work Unit\Master Audio Bus\SFX_BUS\demon\scream	
+	968010305	props			\Default Work Unit\Master Audio Bus\SFX_BUS\environnement\props	
+	1129636538	demon			\Default Work Unit\Master Audio Bus\SFX_BUS\demon	
+	1230623502	Cinematic_Reverbs			\Default Work Unit\Master Audio Bus\Cinematic_Reverbs	
+	1587507860	mouvements			\Default Work Unit\Master Audio Bus\SFX_BUS\parpaing\mouvements	
+	1816140719	inspiration			\Default Work Unit\Master Audio Bus\SFX_BUS\demon\respiration\inspiration	
+	1838596016	Cinematic			\Default Work Unit\Master Audio Bus\Cinematic	
+	1958747292	Cinematic_sfx			\Default Work Unit\Master Audio Bus\Cinematic\Cinematic_sfx	
+	2157941935	habilities			\Default Work Unit\Master Audio Bus\SFX_BUS\parpaing\habilities	
+	2213089996	musictounity			\Default Work Unit\Master Audio Bus\Music\musictounity	
+	2422710169	parpaing			\Default Work Unit\Master Audio Bus\SFX_BUS\parpaing	
+	2530157555	environnement			\Default Work Unit\Master Audio Bus\SFX_BUS\environnement	
+	2981377429	Ambiance			\Default Work Unit\Master Audio Bus\SFX_BUS\environnement\Ambiance	
+	3017987732	Cinematic_music			\Default Work Unit\Master Audio Bus\Cinematic\Cinematic_music	
+	3140998137	respiration			\Default Work Unit\Master Audio Bus\SFX_BUS\demon\respiration	
+	3170124113	voice			\Default Work Unit\Master Audio Bus\SFX_BUS\parpaing\voice	
+	3247222208	UI_BUS			\Default Work Unit\Master Audio Bus\UI_BUS	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	1530676313	Exterior_rev			\Default Work Unit\Master Audio Bus\Cinematic_Reverbs\Exterior_rev	
+	1617151415	Interior_rev			\Default Work Unit\Master Audio Bus\Cinematic_Reverbs\Interior_rev	
+
+Effect plug-ins	ID	Name	Type				Notes
+	48620415	Have_U_Ever_Been_Outside	Wwise RoomVerb			
+	96668503	Meter (Custom)	Wwise Meter			
+	99354421	Meter (Custom)	Wwise Meter			
+	193158995	Meter (Custom)	Wwise Meter			
+	750170263	Peak Limiter (Custom)	Wwise Peak Limiter			
+	789575649	Meter (Custom)	Wwise Meter			
+	863241337	Meter (Custom)	Wwise Meter			
+	1003400538	Meter (Custom)	Wwise Meter			
+	1028855844	Meter (Custom)	Wwise Meter			
+	1459522457	Brick_Wall_Minus_1dB_Peak_Fast_Release	Wwise Peak Limiter			
+	1706684651	Plate_Medium	Wwise RoomVerb			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

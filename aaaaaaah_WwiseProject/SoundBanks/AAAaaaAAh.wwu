@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{753FC624-8B6D-432D-AF01-87B6130D13A7}" SchemaVersion="110">
+	<SoundBanks>
+		<WorkUnit Name="AAAaaaAAh" ID="{753FC624-8B6D-432D-AF01-87B6130D13A7}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="21"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<SoundBank Name="AAAaaaAAh_MainSB" ID="{3D7C4E59-CB44-49AB-8499-F2EE4D57B2C7}">
+					<ObjectInclusionList>
+						<ObjectRef Name="environnement" ID="{E5ABC453-3D40-42C7-BAB7-1504781D825F}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="UI" ID="{687E9166-DC96-4329-BD16-581BEA1FF2C9}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="parpaing" ID="{ADF96FF9-C882-43F5-86E5-0F42145B0099}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Cinematics" ID="{FB61ED0D-CFB0-449B-B2DD-A214917F86B7}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music" ID="{827EE8D2-32C5-45F3-9DA6-4A1CFD289CDF}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="demon" ID="{C81EBC64-B141-4C3F-A089-3C682EFD3DEA}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

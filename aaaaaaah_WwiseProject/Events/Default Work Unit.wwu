@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4367F40B-C6D8-4D36-B947-8CD55887ABF4}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{4367F40B-C6D8-4D36-B947-8CD55887ABF4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_testsine" ID="{00111666-914B-4CB9-A631-70B2884DC079}">
+					<ChildrenList>
+						<Action Name="" ID="{C636C0FC-2459-414B-83BD-F55F19423C3D}" ShortID="351882404">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="test sine" ID="{75B09267-5A42-4CB2-A131-E98F86821BE0}" WorkUnitID="{93DAC361-3891-425D-81EA-EEF47670E864}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_kompawav" ID="{228AC560-1A70-4BD2-814B-D82E756607BE}">
+					<ChildrenList>
+						<Action Name="" ID="{98C8D08A-54B6-4108-B454-76ABBAC19E00}" ShortID="901922975">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="kompawav" ID="{5372B195-97BD-4C63-9911-F664961E9ED0}" WorkUnitID="{93DAC361-3891-425D-81EA-EEF47670E864}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

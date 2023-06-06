@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{681D328B-EA27-4CD7-98CA-913A4900C5FA}" SchemaVersion="110">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{681D328B-EA27-4CD7-98CA-913A4900C5FA}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{2D381C3A-0F0A-4F10-BE25-5F746872E635}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Cris_et_groml" ID="{83CE9626-14BA-40A9-AA5F-8376CA1A4B70}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_inspi" ID="{D9D808C7-8F9B-4BA6-B8DA-C95198933BF4}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_expi" ID="{CF06A8AD-D8FE-42BA-AC19-3817D19E9953}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="cinematic_sfx_level_meter_RTPC" ID="{3118D331-45D6-4129-B178-48B2D0ABA72F}"/>
+							<Value>-18.9473684210526</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Demon_Volume_RTPC" ID="{49B13E3F-1562-4267-A763-BADE27A09621}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="UI_Bus_Volume_RTPC" ID="{8F79083F-4DAD-4328-B90D-8A515AA67A1B}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="cinematic_sfx_rvb_exterior_send" ID="{ECFB2B9E-DD6B-440F-A99D-706FD264F8DD}"/>
+							<Value>1.13470589821198E-311</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Distance_from_player" ID="{D33C7B44-0D41-4540-808E-F32C7F819558}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="cinematic_sfx_rvb_interior_send" ID="{49947CF1-558A-4690-8CE8-A540FD18B2A2}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="demon_respiration_volume_RTPC" ID="{5A1816C3-62D3-48D6-8C9B-C4826A52AB52}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Cinematic_music_rvb_interior_send" ID="{999E6330-2A20-49BF-A7C2-94AED69A4BC5}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="cinematic_music_level" ID="{AF5FAD1A-1A4E-4A21-8A26-1E16F7CB1637}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Demon_Metering_Cri" ID="{5308E03D-1734-4B02-AE9E-6073BC561907}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Cinematic_music_rvb_exterior_send" ID="{44B26CD8-BE5D-4B10-BA42-8B7CC9DAF970}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Cinematic_music_lowpass" ID="{EC2087C5-5348-4BB1-B5B3-4F19BA4B6CB6}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SidechainMusicOnSFX" ID="{7C95B781-62FF-4BB5-8CFE-3F0580A988E2}"/>
+							<Value>-30.1109530583215</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="distance_from_demon" ID="{AA48304B-0CDD-4E0A-9B16-2D9D7CDBA276}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Music_intensity_RTPC" ID="{AA5ED0A1-4738-4F46-85F6-D04C5495B015}"/>
+							<Value>0.258488499452355</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Int_1" ID="{FAAC63A9-550F-4171-924B-791462A4D97B}"/>
+						<CurrentSwitchRef Name="wood" ID="{88854C8D-F02D-48BE-8CEC-14E47F4C14B8}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>
