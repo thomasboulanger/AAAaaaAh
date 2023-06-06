@@ -40,7 +40,17 @@ public class UIHommingTruelle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isStuckInUI) return;
+        if (_isStuckInUI)
+        {
+            if(GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs) return;
+            
+            _timerBeforeDestroy -= Time.fixedDeltaTime;
+            if (!(_timerBeforeDestroy < 0)) return;
+            _rb.isKinematic = false;
+            _rb.useGravity = true;
+            Destroy(gameObject,2);
+            return;
+        }
         _timerBeforeDestroy -= Time.fixedDeltaTime;
         if (_timerBeforeDestroy < 0) Destroy(gameObject);
     }
@@ -48,6 +58,7 @@ public class UIHommingTruelle : MonoBehaviour
     public void TruelleHitButton()
     {
         _isStuckInUI = true;
+        _timerBeforeDestroy = 3.5f;
         onTruelleHitUIEvent.Raise(this, null, null, null);
         GetComponent<Collider>().enabled = false;
         _rb.isKinematic = true;
