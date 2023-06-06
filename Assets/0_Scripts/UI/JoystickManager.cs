@@ -80,7 +80,7 @@ public class JoystickManager : MonoBehaviour
 
     public void UpdateCursorPosition(Component sender, object data1, object playerID, object limbID)
     {
-        if(cursorCanvasState != GameManager.UICanvaState) return;
+        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
         if (playerID is not int) return;
         if (limbID is not int) return;
         if (cursorID != (int) playerID) return;
@@ -152,7 +152,7 @@ public class JoystickManager : MonoBehaviour
     {
         if (_tLerp < 1.1f && isLocked) Transition();
 
-        if(cursorCanvasState != GameManager.UICanvaState) return;
+        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
         if (_inputTrigger && _triggerOnce)
         {
             _triggerOnce = false;
@@ -181,7 +181,7 @@ public class JoystickManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(cursorCanvasState != GameManager.UICanvaState) return;
+        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
         if (_rb.angularVelocity.magnitude < 2f)
             _rb.rotation = Quaternion.Lerp(_rb.rotation, Quaternion.Euler(Vector3.zero),
                 Time.deltaTime * rotationLerpSpeed);
