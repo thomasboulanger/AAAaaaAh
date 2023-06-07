@@ -34,19 +34,18 @@ public class PlayerInputsScript : MonoBehaviour
     private Vector2 _limbVector2D;
     private float _grabValue;
     private bool _colorChangeButton;
-
-
+    
     private PlayerInputsScript[] _playerInputArray;
+    
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
-
-    private void Start()
-    {
-        _playerInputArray = GetComponents<PlayerInputsScript>();
-    }
-
-
+    private void Start() => _playerInputArray = GetComponents<PlayerInputsScript>();
+    
     private void Update()
     {
+        //temp solution//
+        if (GameManager.InGame && _playerInputArray[0].inputScriptID == _playerInputArray[1].inputScriptID)
+            _playerInputArray[1].inputScriptID = 5;
+        
         //get value of player inputs
         _limbVector2D = _playerInput.actions[_moveInputStr].ReadValue<Vector2>();
         _grabValue = _playerInput.actions[_grabInputStr].ReadValue<float>();

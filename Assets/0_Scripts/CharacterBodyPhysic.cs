@@ -150,17 +150,23 @@ public class CharacterBodyPhysic : MonoBehaviour
         //applying the final force to the rigidbody
         _charRb.AddForce(addForceToBody);
         _charRb.AddForce(_gravityForce, ForceMode.Acceleration);
+        
         //update last frame array
         for (int i = 0; i < _limbsGrabbed.Length; i++)
             _oldLimbsGrabbed[i] = _limbsGrabbed[i];
+        
         _directionAngle = Mathf.Lerp(_directionAngle, transform.position.x - _incrementedValue, .5f);
 
         //handle body rotation
-        if (grabCount < 1) return;
+        if (grabCount < 1)
+        {
+            _incrementedValue += _incrementedValue < sumOfBodyRotationValues.x ? deltatime : -deltatime;
+            return;
+        }
 
         float tmp = sumOfBodyRotationValues.x / grabCount;
         _incrementedValue += _incrementedValue < tmp ? deltatime : -deltatime;
-        _charRb.rotation = Quaternion.Euler(0, -180, Mathf.Clamp(_directionAngle * 80, -90, 90));
+        _charRb.rotation = Quaternion.Euler(0, -180, _directionAngle * 80);
     }
 
     private void SetMedianDestionationTarget(int lastFrameGrabLimbIndex)
