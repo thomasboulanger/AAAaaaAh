@@ -15,7 +15,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private GameEvent fadeOutEvent;
-    [SerializeField] private GameEvent onLimbGrabEvent;
+    [SerializeField] private GameEvent onOverrideGrabEvent;
 
     private Transform[] _limbsTransforms = new Transform[4];
     private Transform[] _virtualTransforms = new Transform[4];
@@ -44,29 +44,57 @@ public class CheckpointManager : MonoBehaviour
 
     public void ReturnToLastCheckpoint()
     {
+        //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
+
+        //iterate on all limbs to get their offset with character body
         for (int i = 0; i < _tempLimbsOffsetPosition.Length; i++)
             _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
+
+        //move the body to last checkpoint position
         transform.position = _latestCheckpoint;
+
+        //iterate on all limbs, move limb position to body position + offset
         for (int i = 0; i < _limbsTransforms.Length; i++)
         {
             _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
             _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
-            onLimbGrabEvent.Raise(this, false, 5, i);
         }
+        
+        //ungrab event 
+        onOverrideGrabEvent.Raise(this, null, null, null);
     }
 
     public void ReturnToFirstCheckpoint()
     {
+        //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
+
+        //iterate on all limbs to get their offset with character body
         for (int i = 0; i < _tempLimbsOffsetPosition.Length; i++)
             _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
+
+        //move the body to last checkpoint position
         transform.position = _firstCheckpoint;
+
+        //iterate on all limbs, move limb position to body position + offset
         for (int i = 0; i < _limbsTransforms.Length; i++)
         {
             _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
             _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
-            onLimbGrabEvent.Raise(this, false, 5, i);
         }
+        
+        //ungrab event 
+        onOverrideGrabEvent.Raise(this, null, null, null);
+        
+        //reload the level
+        GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
+        
+        //reset checkpoint values
+        _latestCheckpointIndex = 0;
+        _latestCheckpoint = _firstCheckpoint;
+        
+        //si y a un sac -> retirer les fruits
+        //reset d autres variables/cas s il y en a...
     }
 }

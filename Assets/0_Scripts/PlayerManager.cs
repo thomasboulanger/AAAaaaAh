@@ -19,6 +19,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     public static List<PlayerInput> Players = new();
+
     //public static List<string> JsonInputs = new();
     public static bool AllLimbsAssigned;
     private static int[] _referenceTableLimbsToPlayerID = new int[4];
@@ -26,13 +27,16 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private AudioManager audioManager;
 
-    [Header("place here the scriptableObj of input event")] 
-    [SerializeField] private GameEvent playerInputUpdate;
+    [Header("place here the scriptableObj of input event")] [SerializeField]
+    private GameEvent playerInputUpdate;
+
     [SerializeField] private GameEvent onPlayerMoveCursor;
     [SerializeField] private GameEvent onPlayerJoinUiEvent;
     [SerializeField] private GameEvent onPlayerUpdateSingleCursor;
-    [Space] [Header("Name of Input Actions for Player Controller")] 
-    [SerializeField] private string moveLimbRight;
+
+    [Space] [Header("Name of Input Actions for Player Controller")] [SerializeField]
+    private string moveLimbRight;
+
     [SerializeField] private string grabRight;
     [SerializeField] private string moveLimbLeft;
     [SerializeField] private string grabLeft;
@@ -78,13 +82,13 @@ public class PlayerManager : MonoBehaviour
         string Json = player.actions.ToJson();
         InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
         inputActionAsset.LoadFromJson(Json);
-        
-        
+
+
         ///
         player.actions = inputActionAsset;
         ///
         //JsonInputs.Add(player.actions.SaveBindingOverridesAsJson());
-        
+
         //call an event to show player connected in UI
         onPlayerJoinUiEvent.Raise(this, Players.Count - 1, null, null);
 
@@ -125,7 +129,8 @@ public class PlayerManager : MonoBehaviour
     public void StartGame()
     {
         GameManager.InGame = true;
-
+        GetComponent<GameManager>().LoadLevel();
+        
         //iterate on through all players
         for (int j = 0; j < Players.Count; j++)
         {
@@ -138,7 +143,9 @@ public class PlayerManager : MonoBehaviour
                 if (_referenceTableLimbsToPlayerID[i] == j)
                 {
                     //get the script index (0 or 1) then assign the limb it control
-                    playerInputArray[_referenceTableLimbsToInputID[i]].AssignInputID(i); // bug // // // // // find a way to discriminate between playerinputscripts and cancel only one
+                    playerInputArray[_referenceTableLimbsToInputID[i]]
+                        .AssignInputID(
+                            i); // bug // // // // // find a way to discriminate between playerinputscripts and cancel only one
                     limbControllerList[i].GetComponent<LimbController>().UpdatePlayerID(j);
                 }
             }
