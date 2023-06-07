@@ -71,7 +71,7 @@ public class PithonsManager : MonoBehaviour
 
             Vector3 pos1 = points[i+1].position;
             float distance = Vector3.Distance(pos, pos1);
-            float parralel = (Mathf.Abs((Vector3.Dot((pos1 - pos).normalized, transform.forward)))*shapeKeyPower)*-1;
+            float parralel = (Mathf.Abs((Vector3.Dot((pos1 - pos).normalized, transform.up)))*shapeKeyPower)*-1;
             GameObject corde = Instantiate(ropeGO, pos, Quaternion.identity, transformList);
             corde.GetComponentInChildren<SkinnedMeshRenderer>().SetBlendShapeWeight(0, parralel);
             corde.transform.LookAt(pos1);
