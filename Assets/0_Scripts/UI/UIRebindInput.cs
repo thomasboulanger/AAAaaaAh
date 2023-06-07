@@ -11,7 +11,6 @@ public class UIRebindInput : MonoBehaviour
         if (!collision.transform.CompareTag("UIInteractable")) return;
         
         collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
-
         
         PlayerManager.Players[playerIndexToRebind].actions.Disable();
         rebindScript.StartInteractiveRebind(playerIndexToRebind);
