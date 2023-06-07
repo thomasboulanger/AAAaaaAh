@@ -26,12 +26,13 @@ public class Mouche : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) 
-   
+
+
         transform.position = limbControllerList[j].position;
-        transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0,0,0);
+        transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
         _timer += Time.deltaTime;
-        if (_timer > _timerLimit)
+        //if (_timer > _timerLimit)
+        if (Input.GetKeyDown(KeyCode.W))
         {
             _randomX = Random.Range(-10f, 10f);
             _randomY = Random.Range(-10f, 10f);
