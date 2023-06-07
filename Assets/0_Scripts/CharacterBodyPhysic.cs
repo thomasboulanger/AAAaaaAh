@@ -33,10 +33,11 @@ public class CharacterBodyPhysic : MonoBehaviour
     private bool _isFalling;
     private float _yAxisModifier = .6f;
     private float _goalAngle;
-    private float _incrementedValue;
+    private float _goalRotation;
     public float _directionAngle;
     private Vector3 _gravityForce = -Vector3.up;
     private bool _hasInitializedCheckpointLogic;
+    private float _lerpStrength;
 
     private void Awake() => _charRb = GetComponent<Rigidbody>();
 
@@ -45,7 +46,9 @@ public class CharacterBodyPhysic : MonoBehaviour
     private void Init()
     {
         _hasInitializedCheckpointLogic = false;
+        _lerpStrength = .4f;
     }
+
     private void FixedUpdate()
     {
         //check the game state
@@ -53,9 +56,9 @@ public class CharacterBodyPhysic : MonoBehaviour
         if (!_hasInitializedCheckpointLogic)
         {
             _hasInitializedCheckpointLogic = true;
-            transform.GetComponent<CheckpointManager>().Init(LimbsTransforms,virtualTransforms);
+            transform.GetComponent<CheckpointManager>().Init(LimbsTransforms, virtualTransforms);
         }
-        
+
         //initialize variable
         Vector3 addForceToBody = Vector3.zero;
         int grabCount = _limbsGrabbed.Count(element => element);
@@ -77,7 +80,7 @@ public class CharacterBodyPhysic : MonoBehaviour
                 virtualTransforms[i].position = LimbsTransforms[i].position;
                 virtualTransforms[i].rotation = LimbsTransforms[i].rotation;
                 virtualTransforms[i].localScale = LimbsTransforms[i].localScale;
-                if (grabCount == 1) _directionAngle = transform.position.x - _incrementedValue;
+                if (grabCount == 1) _directionAngle = transform.rotation.z;
             }
         }
 
@@ -150,23 +153,19 @@ public class CharacterBodyPhysic : MonoBehaviour
         //applying the final force to the rigidbody
         _charRb.AddForce(addForceToBody);
         _charRb.AddForce(_gravityForce, ForceMode.Acceleration);
-        
+
         //update last frame array
         for (int i = 0; i < _limbsGrabbed.Length; i++)
             _oldLimbsGrabbed[i] = _limbsGrabbed[i];
-        
-        _directionAngle = Mathf.Lerp(_directionAngle, transform.position.x - _incrementedValue, .5f);
+
 
         //handle body rotation
-        if (grabCount < 1)
-        {
-            _incrementedValue += _incrementedValue < sumOfBodyRotationValues.x ? deltatime : -deltatime;
-            return;
-        }
+        if (grabCount < 1) return;
+        
+        _goalRotation = Vector3.Angle(transform.position, sumOfBodyRotationValues / grabCount);
+        _directionAngle = Mathf.Lerp(_directionAngle, _goalRotation, .4f);
 
-        float tmp = sumOfBodyRotationValues.x / grabCount;
-        _incrementedValue += _incrementedValue < tmp ? deltatime : -deltatime;
-        _charRb.rotation = Quaternion.Euler(0, -180, _directionAngle * 80);
+        transform.rotation = Quaternion.Euler(0, -180, Mathf.Clamp(_directionAngle, -75, 75));
     }
 
     private void SetMedianDestionationTarget(int lastFrameGrabLimbIndex)
