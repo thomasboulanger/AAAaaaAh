@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -16,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static bool InGame;
     public static bool GameOver;
     public static bool HasWin;
+
+    [SerializeField] private GameObject level;
 
     public enum UIStateEnum
     {
@@ -74,5 +75,11 @@ public class GameManager : MonoBehaviour
     public static void PlayerHaveReachedTheEnd()
     {
         //player has passed the trigger box at the end of the level, now it has to seat and fire fruits on the demon
+    }
+
+    public void LoadLevel()
+    {
+        if(GameObject.FindGameObjectWithTag("LevelContainer")) Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
+        GameObject go = Instantiate(level, transform.position, Quaternion.identity);
     }
 }

@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 6718840250444823050}
   - component: {fileID: 6718840250444823053}
   - component: {fileID: 6718840250444823052}
+  - component: {fileID: 5201408651257336434}
   - component: {fileID: 6718840250444823051}
   - component: {fileID: 7364060889696993051}
   m_Layer: 3
@@ -473,6 +474,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _directionAngle: 0
 --- !u!114 &6718840250444823052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +503,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5201408651257336434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351165542593046278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb8059ad17d6854e9ce74f4dfe7c29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutEvent: {fileID: 11400000, guid: 81dbcea135bc9b7489c76a8bf9699136, type: 2}
+  onOverrideGrabEvent: {fileID: 11400000, guid: eef441589847fef49980c0d9392a0626,
+    type: 2}
 --- !u!54 &6718840250444823051
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -51,15 +51,8 @@ public class PlayerInputsScript : MonoBehaviour
         _limbVector2D = _playerInput.actions[_moveInputStr].ReadValue<Vector2>();
         _grabValue = _playerInput.actions[_grabInputStr].ReadValue<float>();
         if (_playerInput.actions[_colorButtonStr].WasPressedThisFrame()) _colorChangeButton = !_colorChangeButton;
-        
-        // if(_playerInput.actions["TmpRestart"].WasPressedThisFrame())
-        // {
-        //     PlayerManager.RestartLevel(1);
-        //     GameManager.InGame = false;
-        // }
-        
 
-        
+        //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
         {
             onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);

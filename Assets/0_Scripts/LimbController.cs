@@ -191,6 +191,12 @@ public class LimbController : MonoBehaviour
         }
     }
 
+    public void OnOverrideGrab(Component sender, object unUsed, object unUsed2, object unUsed3)
+    {
+        _isGrabbing = false;
+        onLimbGrabEvent.Raise(this, false, playerID, limbID);
+    }
+    
     public void BagMovingLimb(Vector3 moveValue, Vector3 offset, float distance)
     {
         //_rb.AddForce(moveValue);

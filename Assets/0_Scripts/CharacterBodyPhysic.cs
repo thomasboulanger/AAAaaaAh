@@ -5,6 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -35,14 +36,26 @@ public class CharacterBodyPhysic : MonoBehaviour
     private float _incrementedValue;
     public float _directionAngle;
     private Vector3 _gravityForce = -Vector3.up;
+    private bool _hasInitializedCheckpointLogic;
 
     private void Awake() => _charRb = GetComponent<Rigidbody>();
 
+    private void Start() => Init();
+
+    private void Init()
+    {
+        _hasInitializedCheckpointLogic = false;
+    }
     private void FixedUpdate()
     {
         //check the game state
         if (!GameManager.InGame) return;
-
+        if (!_hasInitializedCheckpointLogic)
+        {
+            _hasInitializedCheckpointLogic = true;
+            transform.GetComponent<CheckpointManager>().Init(LimbsTransforms,virtualTransforms);
+        }
+        
         //initialize variable
         Vector3 addForceToBody = Vector3.zero;
         int grabCount = _limbsGrabbed.Count(element => element);

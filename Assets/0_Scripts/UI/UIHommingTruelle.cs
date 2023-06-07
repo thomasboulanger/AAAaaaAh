@@ -21,10 +21,7 @@ public class UIHommingTruelle : MonoBehaviour
     private bool _isStuckInUI;
     private float _timerBeforeDestroy = 1.5f;
 
-    public void Init(Vector3 targetDestinantion)
-    {
-        _destination = targetDestinantion;
-    }
+    public void Init(Vector3 targetDestinantion) => _destination = targetDestinantion;
 
     private void Start()
     {
@@ -42,15 +39,16 @@ public class UIHommingTruelle : MonoBehaviour
     {
         if (_isStuckInUI)
         {
-            if(GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs) return;
-            
+            if (GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs) return;
+
             _timerBeforeDestroy -= Time.fixedDeltaTime;
             if (!(_timerBeforeDestroy < 0)) return;
             _rb.isKinematic = false;
             _rb.useGravity = true;
-            Destroy(gameObject,2);
+            Destroy(gameObject, 2);
             return;
         }
+
         _timerBeforeDestroy -= Time.fixedDeltaTime;
         if (_timerBeforeDestroy < 0) Destroy(gameObject);
     }

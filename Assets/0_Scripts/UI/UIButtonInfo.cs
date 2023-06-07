@@ -15,7 +15,6 @@ public class UIButtonInfo : MonoBehaviour
     public int indexToMoveTo;
     [SerializeField] private GameEvent onPlayerChangePanel;
 
-
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
