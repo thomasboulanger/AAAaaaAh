@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -42,7 +41,7 @@ public class CheckpointManager : MonoBehaviour
         _firstCheckpoint = pos;
     }
 
-    public void ReturnToLastCheckpoint()
+    public void OnReturnToLastCheckpoint(Component sender, object unUsed, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
@@ -60,12 +59,12 @@ public class CheckpointManager : MonoBehaviour
             _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
             _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
         }
-        
+
         //ungrab event 
         onOverrideGrabEvent.Raise(this, null, null, null);
     }
 
-    public void ReturnToFirstCheckpoint()
+    public void OnReturnToFirstCheckpoint(Component sender, object unUsed, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
@@ -83,17 +82,17 @@ public class CheckpointManager : MonoBehaviour
             _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
             _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
         }
-        
+
         //ungrab event 
         onOverrideGrabEvent.Raise(this, null, null, null);
-        
+
         //reload the level
         GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
-        
+
         //reset checkpoint values
         _latestCheckpointIndex = 0;
         _latestCheckpoint = _firstCheckpoint;
-        
+
         //si y a un sac -> retirer les fruits
         //reset d autres variables/cas s il y en a...
     }

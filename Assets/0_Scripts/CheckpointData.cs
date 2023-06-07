@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -13,7 +12,6 @@ using UnityEngine;
 /// </summary>
 public class CheckpointData : MonoBehaviour
 {
-   public bool checkpointIsStartLevel;
    public int checkpointNumber;
 
    private void OnTriggerEnter(Collider other)
