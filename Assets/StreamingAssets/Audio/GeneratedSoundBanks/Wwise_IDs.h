@@ -39,36 +39,70 @@ namespace AK
         static const AkUniqueID PLAY_SFX_BOOK_LAND_02 = 996801680U;
         static const AkUniqueID PLAY_SFX_BOOK_ON_BROUETTE = 4065284992U;
         static const AkUniqueID PLAY_SFX_BORDEL_BAR = 2624975544U;
+        static const AkUniqueID PLAY_SFX_BULLE_APPEAR_DEMON = 2229526358U;
         static const AkUniqueID PLAY_SFX_COULE_BETON_LOOP = 3500553996U;
         static const AkUniqueID PLAY_SFX_DEMON_POP = 719951123U;
         static const AkUniqueID PLAY_SFX_DEMON_POP_01 = 205446663U;
         static const AkUniqueID PLAY_SFX_DOOR_OPEN_BAR = 1761288071U;
         static const AkUniqueID PLAY_SFX_DOOR_OPEN_SORCIER = 1506045805U;
+        static const AkUniqueID PLAY_SFX_DOOR_OPENING_BAR = 4293286017U;
+        static const AkUniqueID PLAY_SFX_DOOR_OPENING_SORCIER = 815864483U;
         static const AkUniqueID PLAY_SFX_EARTHQUAKE_HIGH_RUMBLE = 828663824U;
         static const AkUniqueID PLAY_SFX_EARTHQUAKE_LOW_RUMBLE = 1053108714U;
         static const AkUniqueID PLAY_SFX_FOULE_BAR_LOOP = 3156448948U;
         static const AkUniqueID PLAY_SFX_GLASS_MOVING_LOOP = 835076108U;
+        static const AkUniqueID PLAY_SFX_ILLUMINATION = 807833519U;
         static const AkUniqueID PLAY_SFX_PAGE_TOURNEE_01 = 1007424866U;
         static const AkUniqueID PLAY_SFX_PAGE_TOURNEE_02 = 1007424865U;
         static const AkUniqueID PLAY_SFX_PAGE_TOURNEE_03 = 1007424864U;
+        static const AkUniqueID PLAY_SFX_PARPAING_POP_01 = 3490358120U;
+        static const AkUniqueID PLAY_SFX_PARPAING_POP_02 = 3490358123U;
         static const AkUniqueID PLAY_SFX_PENTACLE_DEMON = 1589057308U;
+        static const AkUniqueID PLAY_SFX_PENTACLE_DEMON_01 = 2323431106U;
         static const AkUniqueID PLAY_SFX_PLATE_MOVING_LOOP = 1457769688U;
+        static const AkUniqueID PLAY_SFX_POINTE_LIVRE = 4270089378U;
+        static const AkUniqueID PLAY_SFX_SORCIER_FALL_01 = 1205431081U;
+        static const AkUniqueID PLAY_SFX_SORCIER_FALL_02 = 1205431082U;
         static const AkUniqueID PLAY_SFX_SORCIER_IMPACT = 4074007912U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SELECT = 3159973417U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SIMPLE = 3640008787U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_LAUNCH = 2461968334U;
         static const AkUniqueID PLAY_SFX_VOIX_BAR_1 = 1948879598U;
+        static const AkUniqueID PLAY_SFX_VOIX_BOURRES_01 = 2336868947U;
+        static const AkUniqueID PLAY_SFX_VOIX_BOURRES_02 = 2336868944U;
+        static const AkUniqueID PLAY_SFX_VOIX_BOURRES_03 = 2336868945U;
+        static const AkUniqueID PLAY_SFX_VOIX_CHANTE_01 = 1848917152U;
+        static const AkUniqueID PLAY_SFX_VOIX_CHANTE_02 = 1848917155U;
+        static const AkUniqueID PLAY_SFX_VOIX_DUBITATIF_DROITE_01 = 4018848995U;
+        static const AkUniqueID PLAY_SFX_VOIX_DUBITATIF_DROITE_02 = 4018848992U;
+        static const AkUniqueID PLAY_SFX_VOIX_DUBITATIF_GAUCHE_01 = 3088050361U;
+        static const AkUniqueID PLAY_SFX_VOIX_DUBITATIF_GAUCHE_02 = 3088050362U;
+        static const AkUniqueID PLAY_SFX_VOIX_ENJAILLE_01 = 4020951407U;
+        static const AkUniqueID PLAY_SFX_VOIX_ENJAILLE_02 = 4020951404U;
+        static const AkUniqueID PLAY_SFX_VOIX_ENJAILLE_03 = 4020951405U;
+        static const AkUniqueID PLAY_SFX_VOIX_ID_GENIALE_01 = 499003994U;
+        static const AkUniqueID PLAY_SFX_VOIX_ID_GENIALE_02 = 499003993U;
+        static const AkUniqueID PLAY_SFX_VOIX_ID_GENIALE_03 = 499003992U;
+        static const AkUniqueID PLAY_SFX_VOIX_ILLUMINATION = 993173474U;
+        static const AkUniqueID PLAY_SFX_VOIX_PARPAING_01 = 1938418787U;
+        static const AkUniqueID PLAY_SFX_VOIX_PARPAING_02 = 1938418784U;
+        static const AkUniqueID PLAY_SFX_VOIX_PARPAING_03 = 1938418785U;
         static const AkUniqueID PLAY_SFX_VOIX_PARPAINGS_CHANT_GRIMOIRE = 4290062164U;
         static const AkUniqueID PLAY_SFX_VOIX_PARPAINGS_INTERROGATIONS_01 = 361840345U;
         static const AkUniqueID PLAY_SFX_VOIX_PARPAINGS_INTERROGATIONS_02 = 361840346U;
         static const AkUniqueID PLAY_SFX_VOIX_PARPAINGS_INTERROGATIONS_03 = 361840347U;
         static const AkUniqueID PLAY_SFX_VOIX_PARPAINGS_INTERROGATIONS_04 = 361840348U;
+        static const AkUniqueID PLAY_SFX_VOIX_ROT_01 = 3494755256U;
+        static const AkUniqueID PLAY_SFX_VOIX_ROT_02 = 3494755259U;
         static const AkUniqueID PLAY_SFX_VOIX_SORCIER_CHANTE = 100777798U;
         static const AkUniqueID PLAY_SFX_VOIX_SORCIER_INTERROGATION = 3233058376U;
         static const AkUniqueID PLAY_SFX_VOIX_SORCIER_OOH = 2213771679U;
         static const AkUniqueID PLAY_SFX_VOIX_SORCIER_WOOZA = 787735135U;
+        static const AkUniqueID PLAY_SFX_VOIX_SORT_BETONNEUE = 777481321U;
         static const AkUniqueID PLAY_SFX_WOOD_MOVING_LOOP = 3037215863U;
         static const AkUniqueID PLAY_VILLAGE_BLEND = 2059424370U;
+        static const AkUniqueID PLAY_VILLAGE_BLEND_01 = 3752548176U;
+        static const AkUniqueID PLAY_VILLAGE_BLEND_CALME = 333016909U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -101,8 +135,10 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID CINEMATIC_ELOIGNEMENT_DEMON = 2761015712U;
         static const AkUniqueID CINEMATIC_MUSIC_LEVEL = 2243908779U;
         static const AkUniqueID CINEMATIC_MUSIC_LOWPASS = 484419736U;
+        static const AkUniqueID CINEMATIC_MUSIC_PLAYBACK_SPEED = 4010915728U;
         static const AkUniqueID CINEMATIC_MUSIC_RVB_EXTERIOR_SEND = 954052721U;
         static const AkUniqueID CINEMATIC_MUSIC_RVB_INTERIOR_SEND = 3847844583U;
         static const AkUniqueID CINEMATIC_SFX_LEVEL_METER_RTPC = 541209909U;

@@ -1017,6 +1017,41 @@
 											</RTPC>
 										</Local>
 									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{F79818F8-69EC-4499-8702-4EFCAE0B9A1A}" ShortID="71878476">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="PlaybackSpeed"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="cinematic_music_playback_speed" ID="{47FB78A7-3928-4ABA-BA97-58B44067DD04}" WorkUnitID="{B451D419-3AB4-4225-99C7-938071E09B33}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{BC583E5E-A75D-4FBF-925C-61E077C75021}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>1</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>4</XPos>
+																		<YPos>4</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>

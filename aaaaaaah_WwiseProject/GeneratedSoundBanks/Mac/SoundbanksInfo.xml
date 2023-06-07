@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2E027FB8-8C9D-2846-94DA-8B859961DF24}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{0A137785-CE65-9ADE-4C5B-637191BE9551}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -157,6 +157,7 @@
 				<GameParameter Id="2605468616" Name="demon_respiration_volume_RTPC"/>
 				<GameParameter Id="2654583815" Name="SFX_Volume_RTPC"/>
 				<GameParameter Id="2692577935" Name="distance_from_demon"/>
+				<GameParameter Id="2761015712" Name="cinematic_eloignement_demon"/>
 				<GameParameter Id="3131952431" Name="Music_Volume_RTPC"/>
 				<GameParameter Id="3257517905" Name="Demon_Meter_Inspiration"/>
 				<GameParameter Id="3427559369" Name="cinematic_sfx_rvb_exterior_send"/>
@@ -164,6 +165,7 @@
 				<GameParameter Id="3531663695" Name="cinematic_sfx_rvb_interior_send"/>
 				<GameParameter Id="3667051259" Name="Demon_Volume_RTPC"/>
 				<GameParameter Id="3847844583" Name="Cinematic_music_rvb_interior_send"/>
+				<GameParameter Id="4010915728" Name="cinematic_music_playback_speed"/>
 				<GameParameter Id="4047153977" Name="UI_Bus_Volume_RTPC"/>
 				<GameParameter Id="4146223432" Name="Demon_Meter_Expiration"/>
 			</GameParameters>
@@ -185,7 +187,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{55C90B07-4780-824F-38CD-13CD8389BB90}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{2E192A07-1B79-8BC1-C798-770C15AD4C73}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -225,6 +227,10 @@
 					<ShortName>sfx_roman_scream_rvb_mid_distance_02.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_02_10C4C929.wem</CachePath>
 				</File>
+				<File Id="50208417" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_parpaing_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_parpaing_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="54439328" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_01.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_01_10C4C929.wem</CachePath>
@@ -253,6 +259,10 @@
 					<ShortName>Village\sfx_environnement_os_hammer_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_hammer_01_10C4C929.wem</CachePath>
 				</File>
+				<File Id="69961032" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_bourres_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_bourres_01_10C4C929.wem</CachePath>
+				</File>
 				<File Id="72498812" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_05.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_05_10C4C929.wem</CachePath>
@@ -268,6 +278,10 @@
 				<File Id="85643450" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 1_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 1_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="90246859" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_dubitatif_gauche_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_dubitatif_gauche_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="97425024" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_cascade.wav</ShortName>
@@ -329,6 +343,10 @@
 					<ShortName>sfx_player_grab_Arm 1_06.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 1_06_10C4C929.wem</CachePath>
 				</File>
+				<File Id="166986547" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_parpaing_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_parpaing_01_10C4C929.wem</CachePath>
+				</File>
 				<File Id="175169595" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_rock_04.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_rock_04_10C4C929.wem</CachePath>
@@ -341,9 +359,21 @@
 					<ShortName>Village\sfx_environnement_os_woodwork_03.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="196156663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_id_geniale_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_id_geniale_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="201525448" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_drill_02.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_drill_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="203838653" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_bourres_03.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_bourres_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="211746917" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_parpaing_03.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_parpaing_03_10C4C929.wem</CachePath>
 				</File>
 				<File Id="216229163" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_loin_04.wav</ShortName>
@@ -377,9 +407,21 @@
 					<ShortName>sfx_player_grab_wood_08.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_wood_08_10C4C929.wem</CachePath>
 				</File>
+				<File Id="252977312" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_id_geniale_03.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_id_geniale_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="258017064" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_enjaille_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_enjaille_01_10C4C929.wem</CachePath>
+				</File>
 				<File Id="281775075" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_Foule_bar_loop.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_Foule_bar_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="284279149" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_bourres_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_bourres_02_10C4C929.wem</CachePath>
 				</File>
 				<File Id="285697430" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_02.wav</ShortName>
@@ -396,6 +438,10 @@
 				<File Id="295759851" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_04.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="302370794" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Village\sfx_environnement_village.wav</ShortName>
+					<CachePath>SFX/Village/sfx_environnement_village_084E39E6.wem</CachePath>
 				</File>
 				<File Id="309754520" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_hammer_05.wav</ShortName>
@@ -421,6 +467,10 @@
 					<ShortName>sfx_player_grab_rock_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_rock_05_10C4C929.wem</CachePath>
 				</File>
+				<File Id="335323631" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_chante_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_chante_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="335631537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_earthquake_high_rumble.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_earthquake_high_rumble_10C4C929.wem</CachePath>
@@ -433,6 +483,10 @@
 					<ShortName>sfx_ui_truelle_hit_simple_03.wav</ShortName>
 					<CachePath>SFX/sfx_ui_truelle_hit_simple_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="339994643" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_dubitatif_gauche_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_dubitatif_gauche_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="344824246" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_07.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_07_10C4C929.wem</CachePath>
@@ -440,6 +494,10 @@
 				<File Id="365540200" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_jackhammer_03.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_jackhammer_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="365918153" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_door_opening_bar.wav</ShortName>
+					<CachePath>SFX/sfx_door_opening_bar_10C4C929.wem</CachePath>
 				</File>
 				<File Id="368243078" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>baptiste_inspi_01.wav</ShortName>
@@ -460,6 +518,10 @@
 				<File Id="373798867" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_jungle_day_loop.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_jungle_day_loop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="382103618" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_enjaille_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_enjaille_02_10C4C929.wem</CachePath>
 				</File>
 				<File Id="388051232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_launch_02.wav</ShortName>
@@ -500,6 +562,10 @@
 				<File Id="423303131" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_book_on_brouette.wav</ShortName>
 					<CachePath>SFX/sfx_book_on_brouette_10C4C929.wem</CachePath>
+				</File>
+				<File Id="423899479" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_bourres_05.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_bourres_05_10C4C929.wem</CachePath>
 				</File>
 				<File Id="447675570" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_launch_04.wav</ShortName>
@@ -549,9 +615,17 @@
 					<ShortName>sfx_player_grab_fruit_08.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_fruit_08_10C4C929.wem</CachePath>
 				</File>
+				<File Id="541546087" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_id_geniale_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_id_geniale_01_10C4C929.wem</CachePath>
+				</File>
 				<File Id="544162007" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 2_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 2_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="545312572" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_parpaing_pop_01.wav</ShortName>
+					<CachePath>SFX/sfx_parpaing_pop_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="546115841" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_01.wav</ShortName>
@@ -560,6 +634,10 @@
 				<File Id="549811890" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_village.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_village_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="559228601" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_bulle_appear_demon.wav</ShortName>
+					<CachePath>SFX/sfx_bulle_appear_demon_10C4C929.wem</CachePath>
 				</File>
 				<File Id="561777606" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_bbrglm_03.wav</ShortName>
@@ -581,6 +659,10 @@
 					<ShortName>sfx_bordel_bar.wav</ShortName>
 					<CachePath>SFX/sfx_bordel_bar_10C4C929.wem</CachePath>
 				</File>
+				<File Id="577411623" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_pointe_livre.wav</ShortName>
+					<CachePath>SFX/sfx_pointe_livre_10C4C929.wem</CachePath>
+				</File>
 				<File Id="577683847" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_book_fall_whoosh.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_book_fall_whoosh_50FC1289.wem</CachePath>
@@ -589,9 +671,17 @@
 					<ShortName>sfx_amb_jungle_night.wav</ShortName>
 					<CachePath>SFX/sfx_amb_jungle_night_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="585445997" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_bourres_04.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_bourres_04_10C4C929.wem</CachePath>
+				</File>
 				<File Id="591181880" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_loin_05.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_loin_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="603231969" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_sorcier_fall_01.wav</ShortName>
+					<CachePath>SFX/sfx_sorcier_fall_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="605223296" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_rock_03.wav</ShortName>
@@ -608,6 +698,10 @@
 				<File Id="617814915" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_04.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="629115909" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_parpaing_pop_02.wav</ShortName>
+					<CachePath>SFX/sfx_parpaing_pop_02_10C4C929.wem</CachePath>
 				</File>
 				<File Id="629407672" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_06.wav</ShortName>
@@ -641,6 +735,10 @@
 					<ShortName>sfx_player_grab_fruit_03.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_fruit_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="687597548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_illumination.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_illumination_10C4C929.wem</CachePath>
+				</File>
 				<File Id="689647992" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_loin_06.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_loin_06_10C4C929.wem</CachePath>
@@ -661,6 +759,10 @@
 					<ShortName>Village\sfx_environnement_os_hammer_04.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_hammer_04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="713085772" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_sorcier_fall_02.wav</ShortName>
+					<CachePath>SFX/sfx_sorcier_fall_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="715054576" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_hit_simple_02.wav</ShortName>
 					<CachePath>SFX/sfx_ui_truelle_hit_simple_02_10C4C929.wem</CachePath>
@@ -680,6 +782,10 @@
 				<File Id="746831967" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 2_04.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 2_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="764230919" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_enjaille_03.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_enjaille_03_10C4C929.wem</CachePath>
 				</File>
 				<File Id="767198254" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 4_06.wav</ShortName>
@@ -777,6 +883,10 @@
 					<ShortName>sfx_book_jump_02.wav</ShortName>
 					<CachePath>SFX/sfx_book_jump_02_10C4C929.wem</CachePath>
 				</File>
+				<File Id="839000097" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_illumination.wav</ShortName>
+					<CachePath>SFX/sfx_illumination_10C4C929.wem</CachePath>
+				</File>
 				<File Id="844617548" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_bbrglm_06.wav</ShortName>
 					<CachePath>SFX/roman_bbrglm_06_10C4C929.wem</CachePath>
@@ -785,6 +895,10 @@
 					<ShortName>sfx_ui_truelle_hit_simple_04.wav</ShortName>
 					<CachePath>SFX/sfx_ui_truelle_hit_simple_04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="861512285" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_door_opening_sorcier.wav</ShortName>
+					<CachePath>SFX/sfx_door_opening_sorcier_10C4C929.wem</CachePath>
+				</File>
 				<File Id="863824102" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_voix_sorcier_Ooh.wav</ShortName>
 					<CachePath>SFX/sfx_voix_sorcier_Ooh_10C4C929.wem</CachePath>
@@ -792,6 +906,14 @@
 				<File Id="868016181" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_bbrglm_09.wav</ShortName>
 					<CachePath>SFX/roman_bbrglm_09_10C4C929.wem</CachePath>
+				</File>
+				<File Id="868448004" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_dubitatif_droite_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_dubitatif_droite_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="874462412" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_dubitatif_droite_02.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_dubitatif_droite_02_BE5559BA.wem</CachePath>
 				</File>
 				<File Id="884576573" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_hammer_03.wav</ShortName>
@@ -832,6 +954,10 @@
 				<File Id="923013965" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_woodwork_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="932065712" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_chante_01.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_chante_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="933035219" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Kompa4\Kompa4_intensity2.wav</ShortName>
@@ -905,6 +1031,10 @@
 					<ShortName>sfx_player_grab_Arm 3_06.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 3_06_10C4C929.wem</CachePath>
 				</File>
+				<File Id="1037170581" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>voix\sfx_voix_sort_betonneue.wav</ShortName>
+					<CachePath>SFX/voix/sfx_voix_sort_betonneue_10C4C929.wem</CachePath>
+				</File>
 				<File Id="1044104203" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_book_falling_02.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_book_falling_02_10C4C929.wem</CachePath>
@@ -936,7 +1066,9 @@
 			</Media>
 			<Plugins>
 				<Custom>
+					<Plugin Id="225181628" Name="Compressor (Custom)" LibName="Wwise Compressor" LibId="7077891"/>
 					<Plugin Id="826679493" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
+					<Plugin Id="827150038" Name="Compressor (Custom)" LibName="Wwise Compressor" LibId="7077891"/>
 				</Custom>
 			</Plugins>
 			<Events>
@@ -1044,8 +1176,18 @@
 				</Event>
 				<Event Id="2650298779" Name="Play_CRIS_groml_cinematic" DurationType="Infinite">
 					<MediaRefs>
+						<MediaRef Id="781487"/>
+						<MediaRef Id="54439328"/>
+						<MediaRef Id="111519357"/>
 						<MediaRef Id="127659371"/>
-						<MediaRef Id="812635969"/>
+						<MediaRef Id="138170974"/>
+						<MediaRef Id="163509513"/>
+						<MediaRef Id="591181880"/>
+						<MediaRef Id="689647992"/>
+						<MediaRef Id="778380381"/>
+						<MediaRef Id="799628147"/>
+						<MediaRef Id="902033649"/>
+						<MediaRef Id="917730565"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3945663264" Name="Play_expi" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.3911111" DurationMax="0.6248753">
@@ -1320,12 +1462,12 @@
 						<MediaRef Id="996303712"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1243735442" Name="Play_sfx_book_jump_01" DurationType="OneShot" DurationMin="0.17027083" DurationMax="0.17027083">
+				<Event Id="1243735442" Name="Play_sfx_book_jump_01" DurationType="OneShot" DurationMin="0.15169406" DurationMax="0.15169406">
 					<MediaRefs>
 						<MediaRef Id="1028225682"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1243735441" Name="Play_sfx_book_jump_02" DurationType="OneShot" DurationMin="0.19108333" DurationMax="0.19108333">
+				<Event Id="1243735441" Name="Play_sfx_book_jump_02" DurationType="OneShot" DurationMin="0.17023589" DurationMax="0.17023589">
 					<MediaRefs>
 						<MediaRef Id="838015710"/>
 					</MediaRefs>
@@ -1335,12 +1477,12 @@
 						<MediaRef Id="495477748"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="996801683" Name="Play_sfx_book_land_01" DurationType="OneShot" DurationMin="0.114875" DurationMax="0.114875">
+				<Event Id="996801683" Name="Play_sfx_book_land_01" DurationType="OneShot" DurationMin="0.102341995" DurationMax="0.102341995">
 					<MediaRefs>
 						<MediaRef Id="901573532"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="996801680" Name="Play_sfx_book_land_02" DurationType="OneShot" DurationMin="0.16535416" DurationMax="0.16535416">
+				<Event Id="996801680" Name="Play_sfx_book_land_02" DurationType="OneShot" DurationMin="0.1275055" DurationMax="0.1275055">
 					<MediaRefs>
 						<MediaRef Id="1069757865"/>
 					</MediaRefs>
@@ -1353,6 +1495,11 @@
 				<Event Id="2624975544" Name="Play_sfx_bordel_bar" DurationType="OneShot" DurationMin="7.7906456" DurationMax="7.7906456">
 					<MediaRefs>
 						<MediaRef Id="574889975"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2229526358" Name="Play_sfx_bulle_appear_demon" DurationType="OneShot" DurationMin="0.71870834" DurationMax="0.71870834">
+					<MediaRefs>
+						<MediaRef Id="559228601"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3500553996" Name="Play_sfx_coule_beton_loop" DurationType="Infinite">
@@ -1380,6 +1527,16 @@
 						<MediaRef Id="1054365039"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4293286017" Name="Play_sfx_door_opening_bar" DurationType="OneShot" DurationMin="0.6738125" DurationMax="0.6738125">
+					<MediaRefs>
+						<MediaRef Id="365918153"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="815864483" Name="Play_sfx_door_opening_sorcier" DurationType="OneShot" DurationMin="0.42472917" DurationMax="0.42472917">
+					<MediaRefs>
+						<MediaRef Id="861512285"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="828663824" Name="Play_sfx_earthquake_high_rumble" DurationType="OneShot" DurationMin="11.953396" DurationMax="11.953396">
 					<MediaRefs>
 						<MediaRef Id="335631537"/>
@@ -1400,6 +1557,11 @@
 						<MediaRef Id="388213827"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="807833519" Name="Play_sfx_illumination" DurationType="OneShot" DurationMin="3.3011668" DurationMax="3.3011668">
+					<MediaRefs>
+						<MediaRef Id="839000097"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1007424866" Name="Play_sfx_page_tournee_01" DurationType="OneShot" DurationMin="0.9352292" DurationMax="0.9352292">
 					<MediaRefs>
 						<MediaRef Id="800520853"/>
@@ -1415,7 +1577,22 @@
 						<MediaRef Id="325202478"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3490358120" Name="Play_sfx_parpaing_pop_01" DurationType="OneShot" DurationMin="0.477" DurationMax="0.477">
+					<MediaRefs>
+						<MediaRef Id="545312572"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3490358123" Name="Play_sfx_parpaing_pop_02" DurationType="OneShot" DurationMin="0.715625" DurationMax="0.715625">
+					<MediaRefs>
+						<MediaRef Id="629115909"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1589057308" Name="Play_sfx_pentacle_demon" DurationType="OneShot" DurationMin="2.2374167" DurationMax="2.2374167">
+					<MediaRefs>
+						<MediaRef Id="4431289"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2323431106" Name="Play_sfx_pentacle_demon_01" DurationType="OneShot" DurationMin="2.2374167" DurationMax="2.2374167">
 					<MediaRefs>
 						<MediaRef Id="4431289"/>
 					</MediaRefs>
@@ -1423,6 +1600,21 @@
 				<Event Id="1457769688" Name="Play_sfx_plate_moving_loop" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="965128467"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4270089378" Name="Play_sfx_pointe_livre" DurationType="OneShot" DurationMin="0.53170836" DurationMax="0.53170836">
+					<MediaRefs>
+						<MediaRef Id="577411623"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1205431081" Name="Play_sfx_sorcier_fall_01" DurationType="OneShot" DurationMin="0.4523125" DurationMax="0.4523125">
+					<MediaRefs>
+						<MediaRef Id="603231969"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1205431082" Name="Play_sfx_sorcier_fall_02" DurationType="OneShot" DurationMin="1.5726042" DurationMax="1.5726042">
+					<MediaRefs>
+						<MediaRef Id="713085772"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="4074007912" Name="Play_sfx_sorcier_impact" DurationType="OneShot" DurationMin="0.9520625" DurationMax="0.9520625">
@@ -1465,6 +1657,101 @@
 						<MediaRef Id="1064631213"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2336868947" Name="Play_sfx_voix_bourres_01" DurationType="OneShot" DurationMin="5.5228333" DurationMax="5.5228333">
+					<MediaRefs>
+						<MediaRef Id="69961032"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2336868944" Name="Play_sfx_voix_bourres_02" DurationType="OneShot" DurationMin="2.1061876" DurationMax="2.1061876">
+					<MediaRefs>
+						<MediaRef Id="284279149"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2336868945" Name="Play_sfx_voix_bourres_03" DurationType="OneShot" DurationMin="1.6291875" DurationMax="1.6291875">
+					<MediaRefs>
+						<MediaRef Id="423899479"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1848917152" Name="Play_sfx_voix_chante_01" DurationType="OneShot" DurationMin="11.055375" DurationMax="11.055375">
+					<MediaRefs>
+						<MediaRef Id="932065712"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1848917155" Name="Play_sfx_voix_chante_02" DurationType="OneShot" DurationMin="9.295771" DurationMax="9.295771">
+					<MediaRefs>
+						<MediaRef Id="335323631"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4018848995" Name="Play_sfx_voix_dubitatif_droite_01" DurationType="OneShot" DurationMin="1.6351042" DurationMax="1.6351042">
+					<MediaRefs>
+						<MediaRef Id="868448004"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4018848992" Name="Play_sfx_voix_dubitatif_droite_02" DurationType="OneShot" DurationMin="0.3826463" DurationMax="0.3826463">
+					<MediaRefs>
+						<MediaRef Id="874462412"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3088050361" Name="Play_sfx_voix_dubitatif_gauche_01" DurationType="OneShot" DurationMin="0.22147916" DurationMax="0.22147916">
+					<MediaRefs>
+						<MediaRef Id="90246859"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3088050362" Name="Play_sfx_voix_dubitatif_gauche_02" DurationType="OneShot" DurationMin="0.153375" DurationMax="0.153375">
+					<MediaRefs>
+						<MediaRef Id="339994643"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4020951407" Name="Play_sfx_voix_enjaille_01" DurationType="OneShot" DurationMin="3.1846876" DurationMax="3.1846876">
+					<MediaRefs>
+						<MediaRef Id="258017064"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4020951404" Name="Play_sfx_voix_enjaille_02" DurationType="OneShot" DurationMin="4.474854" DurationMax="4.474854">
+					<MediaRefs>
+						<MediaRef Id="382103618"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4020951405" Name="Play_sfx_voix_enjaille_03" DurationType="OneShot" DurationMin="4.8318334" DurationMax="4.8318334">
+					<MediaRefs>
+						<MediaRef Id="764230919"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="499003994" Name="Play_sfx_voix_id_geniale_01" DurationType="OneShot" DurationMin="0.19475" DurationMax="0.19475">
+					<MediaRefs>
+						<MediaRef Id="541546087"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="499003993" Name="Play_sfx_voix_id_geniale_02" DurationType="OneShot" DurationMin="0.1794375" DurationMax="0.1794375">
+					<MediaRefs>
+						<MediaRef Id="196156663"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="499003992" Name="Play_sfx_voix_id_geniale_03" DurationType="OneShot" DurationMin="0.2711875" DurationMax="0.2711875">
+					<MediaRefs>
+						<MediaRef Id="252977312"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="993173474" Name="Play_sfx_voix_illumination" DurationType="OneShot" DurationMin="1.7235209" DurationMax="1.7235209">
+					<MediaRefs>
+						<MediaRef Id="687597548"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1938418787" Name="Play_sfx_voix_parpaing_01" DurationType="OneShot" DurationMin="0.7495625" DurationMax="0.7495625">
+					<MediaRefs>
+						<MediaRef Id="166986547"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1938418784" Name="Play_sfx_voix_parpaing_02" DurationType="OneShot" DurationMin="0.40910417" DurationMax="0.40910417">
+					<MediaRefs>
+						<MediaRef Id="50208417"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1938418785" Name="Play_sfx_voix_parpaing_03" DurationType="OneShot" DurationMin="0.8880625" DurationMax="0.8880625">
+					<MediaRefs>
+						<MediaRef Id="211746917"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4290062164" Name="Play_sfx_voix_parpaings_chant_grimoire" DurationType="OneShot" DurationMin="12.676063" DurationMax="12.676063">
 					<MediaRefs>
 						<MediaRef Id="952311299"/>
@@ -1490,6 +1777,16 @@
 						<MediaRef Id="509904952"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3494755256" Name="Play_sfx_voix_rot_01" DurationType="OneShot" DurationMin="0.84175" DurationMax="0.84175">
+					<MediaRefs>
+						<MediaRef Id="203838653"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3494755259" Name="Play_sfx_voix_rot_02" DurationType="OneShot" DurationMin="1.243375" DurationMax="1.243375">
+					<MediaRefs>
+						<MediaRef Id="585445997"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="100777798" Name="Play_sfx_voix_sorcier_chante" DurationType="OneShot" DurationMin="6.7605624" DurationMax="6.7605624">
 					<MediaRefs>
 						<MediaRef Id="834822878"/>
@@ -1508,6 +1805,11 @@
 				<Event Id="787735135" Name="Play_sfx_voix_sorcier_wooza" DurationType="OneShot" DurationMin="0.3700625" DurationMax="0.3700625">
 					<MediaRefs>
 						<MediaRef Id="810739492"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="777481321" Name="Play_sfx_voix_sort_betonneue" DurationType="OneShot" DurationMin="1.581875" DurationMax="1.581875">
+					<MediaRefs>
+						<MediaRef Id="1037170581"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3037215863" Name="Play_sfx_wood_moving_loop" DurationType="Infinite">
@@ -1536,11 +1838,49 @@
 						<MediaRef Id="1050952435"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3752548176" Name="Play_Village_Blend_01" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="65331105"/>
+						<MediaRef Id="69044696"/>
+						<MediaRef Id="123598460"/>
+						<MediaRef Id="187522487"/>
+						<MediaRef Id="201525448"/>
+						<MediaRef Id="309754520"/>
+						<MediaRef Id="338918256"/>
+						<MediaRef Id="365540200"/>
+						<MediaRef Id="462483311"/>
+						<MediaRef Id="549811890"/>
+						<MediaRef Id="712916640"/>
+						<MediaRef Id="792235428"/>
+						<MediaRef Id="811206191"/>
+						<MediaRef Id="884576573"/>
+						<MediaRef Id="923013965"/>
+						<MediaRef Id="941774025"/>
+						<MediaRef Id="1050952435"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="225181628"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="333016909" Name="Play_Village_Blend_calme" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="302370794"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="827150038"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
 				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
 				<GameParameter Id="2692577935" Name="distance_from_demon"/>
+				<GameParameter Id="2761015712" Name="cinematic_eloignement_demon"/>
+				<GameParameter Id="4010915728" Name="cinematic_music_playback_speed"/>
 			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="426307960" Name="grab_SG">
@@ -1557,5 +1897,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F24E596A-2149-8AAE-33B2-94B8570CBABE}</FileHash>
+	<FileHash>{4DFF8543-8327-AE62-9E2A-C396AE3D834C}</FileHash>
 </SoundBanksInfo>

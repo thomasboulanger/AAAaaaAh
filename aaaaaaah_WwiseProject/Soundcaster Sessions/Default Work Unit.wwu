@@ -25,7 +25,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Demon_Volume_RTPC" ID="{49B13E3F-1562-4267-A763-BADE27A09621}"/>
-							<Value>100</Value>
+							<Value>1</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="UI_Bus_Volume_RTPC" ID="{8F79083F-4DAD-4328-B90D-8A515AA67A1B}"/>
@@ -56,6 +56,10 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="cinematic_music_playback_speed" ID="{47FB78A7-3928-4ABA-BA97-58B44067DD04}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="Demon_Metering_Cri" ID="{5308E03D-1734-4B02-AE9E-6073BC561907}"/>
 							<Value>-48</Value>
 						</RTPCValue>
@@ -70,6 +74,10 @@
 						<RTPCValue>
 							<GameParameterRef Name="SidechainMusicOnSFX" ID="{7C95B781-62FF-4BB5-8CFE-3F0580A988E2}"/>
 							<Value>-30.1109530583215</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="cinematic_eloignement_demon" ID="{D64DB38C-6DA3-4C41-8C4E-2F200B8DC6E5}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="distance_from_demon" ID="{AA48304B-0CDD-4E0A-9B16-2D9D7CDBA276}"/>
