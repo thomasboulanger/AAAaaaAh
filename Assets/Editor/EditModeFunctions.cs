@@ -47,6 +47,50 @@ public class EditModeFunctions : EditorWindow
         {
             ScotchMaker(true);
         }
+
+        GUILayout.Label("Pitons", EditorStyles.boldLabel);
+
+        if (GUILayout.Button("Generate selcted pithon"))
+        {
+            SelectedPithon();
+        }
+
+        if (GUILayout.Button("Generate all pithon"))
+        {
+            AllPithon(false);
+        }
+        if (GUILayout.Button("destroy all pithon"))
+        {
+            AllPithon(true);
+        }
+    }
+
+    private void SelectedPithon()
+    {
+        foreach (Transform item in Selection.transforms)
+        {
+            PithonsManager pithonsInst;
+            item.TryGetComponent<PithonsManager>(out pithonsInst);
+            if (pithonsInst != null)
+            {
+                pithonsInst.Generate();
+            }
+        }
+    }
+
+    private void AllPithon(bool destroy)
+    {
+        foreach (PithonsManager item in GameObject.FindObjectsOfType<PithonsManager>())
+        {
+            if (destroy)
+            {
+                item.DestroyPreviusAssets();
+            }
+            else
+            {
+                item.Generate();
+            }
+        }
     }
 
     private void PlaceStepsButton()
