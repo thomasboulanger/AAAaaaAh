@@ -7,6 +7,8 @@
 
 using System;
 using System.Linq;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -34,10 +36,9 @@ public class CharacterBodyPhysic : MonoBehaviour
     private float _yAxisModifier = .6f;
     private float _goalAngle;
     private float _goalRotation;
-    public float _directionAngle;
     private Vector3 _gravityForce = -Vector3.up;
     private bool _hasInitializedCheckpointLogic;
-    private float _lerpStrength;
+    private float _lerpStrength = 4f;
 
     private void Awake() => _charRb = GetComponent<Rigidbody>();
 
@@ -46,7 +47,6 @@ public class CharacterBodyPhysic : MonoBehaviour
     private void Init()
     {
         _hasInitializedCheckpointLogic = false;
-        _lerpStrength = .4f;
     }
 
     private void FixedUpdate()
@@ -62,7 +62,6 @@ public class CharacterBodyPhysic : MonoBehaviour
         //initialize variable
         Vector3 addForceToBody = Vector3.zero;
         int grabCount = _limbsGrabbed.Count(element => element);
-        Vector3 sumOfBodyRotationValues = Vector3.zero;
         float deltatime = Time.deltaTime;
 
         //iterate on all limbs
@@ -80,7 +79,6 @@ public class CharacterBodyPhysic : MonoBehaviour
                 virtualTransforms[i].position = LimbsTransforms[i].position;
                 virtualTransforms[i].rotation = LimbsTransforms[i].rotation;
                 virtualTransforms[i].localScale = LimbsTransforms[i].localScale;
-                if (grabCount == 1) _directionAngle = transform.rotation.z;
             }
         }
 
@@ -92,8 +90,6 @@ public class CharacterBodyPhysic : MonoBehaviour
 
             if (_limbsGrabbed[i])
             {
-                sumOfBodyRotationValues += virtualTransforms[i].position;
-
                 //place the limb in his "lock" position in case it moved too far from his own range (in case of body rotation)
                 LimbsTransforms[i].position = virtualTransforms[i].position;
 
@@ -159,13 +155,50 @@ public class CharacterBodyPhysic : MonoBehaviour
             _oldLimbsGrabbed[i] = _limbsGrabbed[i];
 
 
-        //handle body rotation
-        if (grabCount < 1) return;
-        
-        _goalRotation = Vector3.Angle(transform.position, sumOfBodyRotationValues / grabCount);
-        _directionAngle = Mathf.Lerp(_directionAngle, _goalRotation, .4f);
+        Vector3 medianDirection = GetDirection();
 
-        transform.rotation = Quaternion.Euler(0, -180, Mathf.Clamp(_directionAngle, -75, 75));
+        // Vector3 targetDirection = medianDirection - transform.position;
+        // // Calculate the angle between the two vectors
+        // float angle = Vector3.Angle(new Vector3(0f,180f,transform.position.z), targetDirection);
+        //
+        // if (grabCount < 1) return;
+        // // Lerp towards the target rotation
+        // transform.rotation = Quaternion.Lerp(transform.rotation,  Quaternion.Euler(targetDirection), 1f * Time.deltaTime);
+        // //transform.rotation = Quaternion.Euler(0f,180f, transform.rotation.z/*Mathf.Clamp(angle, -75, 75)*/);
+
+
+        Vector3 lookingDirection = (transform.position - medianDirection).normalized;
+        float angle = Vector3.Angle(Vector3.right, lookingDirection);
+        if (transform.position.y > medianDirection.y) angle = -angle;
+        angle += 90;
+        if (angle > 90) angle -= 90 - angle;
+        if (angle < -90) angle += Mathf.Abs(angle) - 90;
+        Quaternion targetRotation = Quaternion.Euler(0, 180, angle);
+        if (grabCount < 1) return;
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _lerpStrength * deltatime);
+
+        // //handle body rotation
+        // if (grabCount < 1) return;
+        //
+        // _goalRotation = Vector3.Angle(transform.position, sumOfBodyRotationValues / grabCount);
+        // _directionAngle = Mathf.Lerp(_directionAngle, _goalRotation, .4f);
+        //
+        // transform.rotation = Quaternion.Euler(0, -180, Mathf.Clamp(_directionAngle, -75, 75));
+    }
+
+    private Vector3 GetDirection()
+    {
+        Vector3 direction = Vector3.zero;
+        int count = 0;
+        for (int i = 0; i < _limbsGrabbed.Length; i++)
+        {
+            if (!_limbsGrabbed[i]) continue;
+            direction += virtualTransforms[i].position;
+            count++;
+        }
+
+        if (count == 0) return transform.position;
+        return direction / count;
     }
 
     private void SetMedianDestionationTarget(int lastFrameGrabLimbIndex)
