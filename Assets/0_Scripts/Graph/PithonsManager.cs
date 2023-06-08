@@ -13,7 +13,7 @@ public class PithonsManager : MonoBehaviour
     [SerializeField] private float distanceForwardShow = 3f;
     [SerializeField] private float automaticRegenDelay = 0f;
     [SerializeField] private float shapeKeyPower = 100f;
-    [SerializeField] private bool automaticRegen = false;
+    public bool automaticRegen = false;
 
     public List<Transform> spawnedItems = new List<Transform>();
 

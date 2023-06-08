@@ -3,7 +3,12 @@ guid: 0942fa1c416e2824ba3552c6b6a00e6a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BakedBush
+    second: {fileID: 2100000, guid: 0b6527e464ea3a946b10fc2d998af147, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
