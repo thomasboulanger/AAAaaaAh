@@ -203,14 +203,14 @@ public class JoystickManager : MonoBehaviour
     {
         controllerRef.ResetOutline(objToReplace, Color.white);
         onPlayerAssignLimb.Raise(this, objToReplace.GetComponent<LimbSelectorCall>().currentLimbIndex, 5, 5);
-        objToReplace.GetComponent<LimbSelectorCall>().currentPlayerIDAssigned = 5;
+        objToReplace.GetComponent<LimbSelectorCall>().currentPlayerIndexAssigned = 5;
         objToReplace.GetComponent<MeshRenderer>().material.SetColor("_BCTint", Color.white);
     }
 
     private void AssignOneLimb(int currentLimbID, LimbSelectorCall currentObj)
     {
         onPlayerAssignLimb.Raise(this, currentLimbID, cursorID, inputID);
-        currentObj.currentPlayerIDAssigned = cursorID;
+        currentObj.currentPlayerIndexAssigned = cursorID;
         currentObj.GetComponent<MeshRenderer>().material.SetColor("_BCTint", _actualColor);
 
         //set joystick position to the center of the check box (init timer)
@@ -249,8 +249,8 @@ public class JoystickManager : MonoBehaviour
             LimbSelectorCall currentObj = _collidingObjRef.GetComponent<LimbSelectorCall>();
 
             //check if a selected limb is already selected by another player
-            if (currentObj.currentPlayerIDAssigned != 5)
-                onCheckCursorOverrideLimbSelector.Raise(this, currentObj.currentPlayerIDAssigned, _collidingObjRef,
+            if (currentObj.currentPlayerIndexAssigned != 5)
+                onCheckCursorOverrideLimbSelector.Raise(this, currentObj.currentPlayerIndexAssigned, _collidingObjRef,
                     inputID);
 
             //check if a limb is already assigned of that controller

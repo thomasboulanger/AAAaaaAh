@@ -13,6 +13,6 @@ using UnityEngine;
 public class LimbSelectorCall : MonoBehaviour
 {
     public int currentLimbIndex;
-    public int currentPlayerIDAssigned = 5;
+    public int currentPlayerIndexAssigned = 5;
     public string outlineNameStr = "";
 }

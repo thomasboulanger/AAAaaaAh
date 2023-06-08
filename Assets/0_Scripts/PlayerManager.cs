@@ -5,9 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -82,12 +80,7 @@ public class PlayerManager : MonoBehaviour
         string Json = player.actions.ToJson();
         InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
         inputActionAsset.LoadFromJson(Json);
-
-
-        ///
         player.actions = inputActionAsset;
-        ///
-        //JsonInputs.Add(player.actions.SaveBindingOverridesAsJson());
 
         //call an event to show player connected in UI
         onPlayerJoinUiEvent.Raise(this, Players.Count - 1, null, null);
@@ -140,14 +133,10 @@ public class PlayerManager : MonoBehaviour
             //iterate through _referenceTableLimbsToPlayerID to find which is equal to our current player
             for (int i = 0; i < _referenceTableLimbsToPlayerID.Length; i++)
             {
-                if (_referenceTableLimbsToPlayerID[i] == j)
-                {
-                    //get the script index (0 or 1) then assign the limb it control
-                    playerInputArray[_referenceTableLimbsToInputID[i]]
-                        .AssignInputID(
-                            i); // bug // // // // // find a way to discriminate between playerinputscripts and cancel only one
-                    limbControllerList[i].GetComponent<LimbController>().UpdatePlayerID(j);
-                }
+                if (_referenceTableLimbsToPlayerID[i] != j) continue;
+                //get the script index (0 or 1) then assign the limb it control
+                playerInputArray[_referenceTableLimbsToInputID[i]].AssignInputID(i); 
+                limbControllerList[i].GetComponent<LimbController>().UpdatePlayerID(j);
             }
         }
 

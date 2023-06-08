@@ -55,7 +55,7 @@ public class ControlerIconManager : MonoBehaviour
 
         foreach (GameObject element in _limbBoxArray)
         {
-            if (element.GetComponent<LimbSelectorCall>().currentPlayerIDAssigned == playerID)
+            if (element.GetComponent<LimbSelectorCall>().currentPlayerIndexAssigned == playerID)
             {
                 element.GetComponent<MeshRenderer>().material.SetColor("_BCTint", col);
                 outlineMaterial.SetColor(element.GetComponent<LimbSelectorCall>().outlineNameStr, col);

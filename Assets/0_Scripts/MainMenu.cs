@@ -6,23 +6,12 @@
 //thomas.boulanger.auditeur@lecnam.net
 
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Main Menu and UI script Manager used for UI / canvas / Button and settings
 /// </summary>
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Button playersNumberSelectionButton;
-
-    private void Update()
-    {
-        PlayersNumberSelection();
-    }
-
-    private void PlayersNumberSelection() => playersNumberSelectionButton.interactable =
-        PlayerManager.Players.Count > 1 && PlayerManager.AllLimbsAssigned && !GameManager.InGame;
-
     #region OptionRegion
 
     public void SetFullscreen(bool fullscreen)
