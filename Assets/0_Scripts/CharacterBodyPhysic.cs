@@ -5,10 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using System.Linq;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -41,7 +38,6 @@ public class CharacterBodyPhysic : MonoBehaviour
     private float _lerpStrength = 4f;
 
     private void Awake() => _charRb = GetComponent<Rigidbody>();
-
     private void Start() => Init();
 
     private void Init()
@@ -78,7 +74,6 @@ public class CharacterBodyPhysic : MonoBehaviour
                 _destinationTargetForBody[i] = _charRb.position;
                 virtualTransforms[i].position = LimbsTransforms[i].position;
                 virtualTransforms[i].rotation = LimbsTransforms[i].rotation;
-                virtualTransforms[i].localScale = LimbsTransforms[i].localScale;
             }
         }
 
@@ -154,36 +149,15 @@ public class CharacterBodyPhysic : MonoBehaviour
         for (int i = 0; i < _limbsGrabbed.Length; i++)
             _oldLimbsGrabbed[i] = _limbsGrabbed[i];
 
-
+        //handle body rotation
         Vector3 medianDirection = GetDirection();
-
-        // Vector3 targetDirection = medianDirection - transform.position;
-        // // Calculate the angle between the two vectors
-        // float angle = Vector3.Angle(new Vector3(0f,180f,transform.position.z), targetDirection);
-        //
-        // if (grabCount < 1) return;
-        // // Lerp towards the target rotation
-        // transform.rotation = Quaternion.Lerp(transform.rotation,  Quaternion.Euler(targetDirection), 1f * Time.deltaTime);
-        // //transform.rotation = Quaternion.Euler(0f,180f, transform.rotation.z/*Mathf.Clamp(angle, -75, 75)*/);
-
-
         Vector3 lookingDirection = (transform.position - medianDirection).normalized;
         float angle = Vector3.Angle(Vector3.right, lookingDirection);
-        if (transform.position.y > medianDirection.y) angle = -angle;
-        angle += 90;
-        if (angle > 90) angle -= 90 - angle;
-        if (angle < -90) angle += Mathf.Abs(angle) - 90;
+        angle = Mathf.PingPong(angle, 180);
+        angle = -angle + 90;
         Quaternion targetRotation = Quaternion.Euler(0, 180, angle);
         if (grabCount < 1) return;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, _lerpStrength * deltatime);
-
-        // //handle body rotation
-        // if (grabCount < 1) return;
-        //
-        // _goalRotation = Vector3.Angle(transform.position, sumOfBodyRotationValues / grabCount);
-        // _directionAngle = Mathf.Lerp(_directionAngle, _goalRotation, .4f);
-        //
-        // transform.rotation = Quaternion.Euler(0, -180, Mathf.Clamp(_directionAngle, -75, 75));
     }
 
     private Vector3 GetDirection()
