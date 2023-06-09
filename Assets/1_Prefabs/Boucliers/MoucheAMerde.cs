@@ -6,6 +6,7 @@ using UnityEngine;
 public class MoucheAMerde : MonoBehaviour
 {
     public Transform body;
+    public Transform fly;
     public float maxSpeed = 100;
     public float maxAmplitude = 4;
     private Vector3 _path;
@@ -45,6 +46,7 @@ public class MoucheAMerde : MonoBehaviour
 
     public float speedMultiplier;
     public float lerpSpeed = 0.2f;
+    public float lerpSpeed2 = 10f;
     public float zRotPower = 5f;
 
     private Vector3 _previousPosition;
@@ -180,10 +182,10 @@ public class MoucheAMerde : MonoBehaviour
 
         //transform.eulerAngles = new Vector3(0, 0, _angle);
         //transform.rotation = Quaternion.LerpUnclamped( transform.rotation, Quaternion.Euler( new Vector3(0, 0, _angle)), lerpSpeed * dt);// modif maros pour l'angle--------------------
-        Debug.Log((pos.y - _previousPosition.y) * zRotPower);
 
-        transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, pos.y - _previousPosition.y * zRotPower)), lerpSpeed * dt); //-----
-
+        Vector3 cachedLocalRot = fly.transform.localEulerAngles;
+        fly.transform.localRotation = Quaternion.LerpUnclamped(fly.transform.localRotation, Quaternion.Euler(new Vector3((_previousPosition.y - pos.y) * zRotPower, cachedLocalRot.y, cachedLocalRot.z)), lerpSpeed2 * dt); //-----
+        transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, 0)), lerpSpeed * dt);
         _previousPosition = pos;
 
         if (Vector3.Magnitude(pos - bodypos) > 20)

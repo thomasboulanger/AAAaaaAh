@@ -98,6 +98,7 @@ public class PithonsManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (Application.isPlaying || points == null) return;
         for (int i = 0; i < points.Count; i++)
         {
             Vector3 pos = points[i].position;

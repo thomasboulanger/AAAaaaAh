@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
+  fly: {fileID: 2450448519767166754}
   maxSpeed: 1
   maxAmplitude: 10
   bodyRB: {fileID: 0}
@@ -144,9 +145,9 @@ MonoBehaviour:
   - {fileID: 0}
   oscillationSpeedMultiplier: 10
   speedMultiplier: 10
-  lerpSpeed: 5
-  zRotPower: 100
-  zClamp: 20
+  lerpSpeed: 3
+  lerpSpeed2: 3
+  zRotPower: 833.3335
 --- !u!33 &8530228624551117166
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -260,22 +261,22 @@ PrefabInstance:
     - target: {fileID: 7864406306803100841, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.70710653
       objectReference: {fileID: 0}
     - target: {fileID: 7864406306803100841, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7864406306803100841, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0.7071071
       objectReference: {fileID: 0}
     - target: {fileID: 7864406306803100841, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7864406306803100841, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
         type: 3}
