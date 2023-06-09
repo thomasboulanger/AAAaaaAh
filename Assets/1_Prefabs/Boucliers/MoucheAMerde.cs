@@ -44,19 +44,20 @@ public class MoucheAMerde : MonoBehaviour
     private float _speedToTarget;
 
     public float speedMultiplier;
-    private float _angle;
     public float lerpSpeed = 0.2f;
+    public float zRotPower = 5f;
 
     private Vector3 _previousPosition;
 
     void Start()
     {
+        Vector3 pos = transform.position; //modif maros pour limiter l'impact perf
         _previousA = 0;
         _a = Random.Range(-maxAmplitude, maxAmplitude);
         _initialA = _a;
-        _initialLength = Vector3.Distance(body.position, transform.position);
-        _initialPosition = transform.position;
-        _previousPosition = transform.position;
+        _initialLength = Vector3.Distance(body.position, pos);
+        _initialPosition = pos;
+        _previousPosition = pos;
 
         if (_a > _previousA)
         {
@@ -82,13 +83,14 @@ public class MoucheAMerde : MonoBehaviour
 
     void Update()
     {
+        Vector3 pos = transform.position;// limiter l'impact perf
+        Vector3 bodypos = body.position;
 
 
-
-        _path = body.position - _initialPosition;
-        _p = body.position + Vector3.Project(transform.position - body.position, -_path);
-        _a = _initialA * (Vector3.Distance(body.position, _p) / _initialLength);
-        Debug.Log(Vector3.Distance(body.position, _p) / _initialLength);
+        _path = bodypos - _initialPosition;
+        _p = bodypos + Vector3.Project(pos - bodypos, -_path);
+        _a = _initialA * (Vector3.Distance(bodypos, _p) / _initialLength);
+        //Debug.Log(Vector3.Distance(bodypos, _p) / _initialLength);
         _limitVector = _a * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0));
 
 
@@ -131,28 +133,29 @@ public class MoucheAMerde : MonoBehaviour
             _speedToTarget = 2f;
         }
 
-        _timer += Time.deltaTime;
-        _speedToTarget += _speedAddition * _speedIncrement * Time.deltaTime;
+        float dt = Time.deltaTime;//modif maros pour calmer l'esprit du chef prog
 
-        transform.position += _speedToTarget * Vector3.Normalize(_path) * Time.deltaTime;
+        _timer += dt;
+        _speedToTarget += _speedAddition * _speedIncrement * dt;
 
+        pos += _speedToTarget * Vector3.Normalize(_path) * dt;//opti
 
-        if (_a > 0 && _a > _previousA && Vector3.Dot(transform.position - _p, _limitVector) > 0 && Vector3.Magnitude(transform.position - _p) / Vector3.Magnitude(_limitVector) > 1) { _case1 = true; }
+        if (_a > 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1) { _case1 = true; }
         else { _case1 = false; }
-        if (_a > 0 && _a < _previousA && Vector3.Dot(transform.position - _p, _limitVector) > 0 && Vector3.Magnitude(transform.position - _p) / Vector3.Magnitude(_limitVector) < 1) { _case2 = true; }
+        if (_a > 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1) { _case2 = true; }
         else { _case2 = false; }
-        if (_a < 0 && _a < _previousA && Vector3.Dot(transform.position - _p, _limitVector) > 0 && Vector3.Magnitude(transform.position - _p) / Vector3.Magnitude(_limitVector) > 1) { _case3 = true; }
+        if (_a < 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1) { _case3 = true; }
         else { _case3 = false; }
-        if (_a < 0 && _a > _previousA && Vector3.Dot(transform.position - _p, _limitVector) > 0 && Vector3.Magnitude(transform.position - _p) / Vector3.Magnitude(_limitVector) < 1) { _case4 = true; }
+        if (_a < 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1) { _case4 = true; }
         else { _case4 = false; }
 
         if (_case1 || _case2 || _case3 || _case4)
         {
 
             _previousA = _a;
-            _a = Random.Range(-maxAmplitude / 10 - maxAmplitude * Vector3.Distance(body.position, _p) / 10, maxAmplitude / 10 + maxAmplitude * Vector3.Distance(body.position, _p) / 10);
+            _a = Random.Range(-maxAmplitude / 10 - maxAmplitude * Vector3.Distance(bodypos, _p) / 10, maxAmplitude / 10 + maxAmplitude * Vector3.Distance(bodypos, _p) / 10);
             _initialA = _a;
-            _initialLength = Vector3.Distance(body.position, _p);
+            _initialLength = Vector3.Distance(bodypos, _p);
             if (_a > _previousA)
             {
                 _sign = 1;
@@ -166,22 +169,29 @@ public class MoucheAMerde : MonoBehaviour
         }
 
 
-        _oscillationTimer += Time.deltaTime;
-        _oscillationSpeedToTarget += _oscillationSpeedAddition * _oscillationSpeedIncrement * Time.deltaTime;
+        _oscillationTimer += dt;
+        _oscillationSpeedToTarget += _oscillationSpeedAddition * _oscillationSpeedIncrement * dt;
 
-        transform.position += _sign * _oscillationSpeedToTarget * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0)) * Time.deltaTime;
+        pos += _sign * _oscillationSpeedToTarget * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0)) * dt;
 
         //_angle = Vector3.SignedAngle(Vector3.right, _oscillationSpeedToTarget * Vector3.Normalize(_limitVector) + _speedToTarget * Vector3.Normalize(_path), Vector3.forward);
-        _angle = Vector3.SignedAngle(Vector3.right, transform.position - _previousPosition, Vector3.forward);
+
+        //float _angle = Vector3.SignedAngle(Vector3.right, transform.position - _previousPosition, Vector3.forward); //du coup plus besoin-----------------------------------------------
+
         //transform.eulerAngles = new Vector3(0, 0, _angle);
-        transform.rotation = Quaternion.LerpUnclamped( transform.rotation, Quaternion.Euler( new Vector3(0, 0, _angle)), lerpSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.LerpUnclamped( transform.rotation, Quaternion.Euler( new Vector3(0, 0, _angle)), lerpSpeed * dt);// modif maros pour l'angle--------------------
+        Debug.Log((pos.y - _previousPosition.y) * zRotPower);
 
-        _previousPosition = transform.position;
+        transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, pos.y - _previousPosition.y * zRotPower)), lerpSpeed * dt); //-----
 
-        if (Vector3.Magnitude(transform.position - body.position) > 20)
+        _previousPosition = pos;
+
+        if (Vector3.Magnitude(pos - bodypos) > 20)
         {
             Destroy(transform.gameObject);
         }
+
+        transform.position = pos;//opti
     }
 
     private void OnTriggerEnter(Collider other)
