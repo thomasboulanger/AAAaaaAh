@@ -17,6 +17,7 @@ public class LimbController : MonoBehaviour
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
+    [SerializeField] private GameEvent onLimbGrabTutorialBlockEvent;
 
     [Header("The ID of limb that player with same ID will control")] [SerializeField]
     private int playerID;
@@ -38,7 +39,6 @@ public class LimbController : MonoBehaviour
     private bool _isGrabbing;
     private bool _isGrabbingEnvironment;
     private bool _isGrabbingFruit;
-    private bool _isGrabbingBag;
     private Rigidbody _rb;
     private Vector3 _stackableMoveValue;
     private bool _triggerGrabOnce;
@@ -121,14 +121,6 @@ public class LimbController : MonoBehaviour
 
             //move transform with the player input value
             Vector3 goalPos = (localLimbPos - transform.position) * limbSpeed * Time.deltaTime;
-            
-            if (_isGrabbingBag)
-            {
-                _bag.SetPositionValue(goalPos, limbID); 
-                if (!_rb.isKinematic) _rb.isKinematic = true;
-                return;
-            }
-
             _rb.AddForce(goalPos);
         }
         else if (data1 is float)
@@ -139,14 +131,12 @@ public class LimbController : MonoBehaviour
             if (!_isGrabbing)
             {
                 if (_isGrabbingFruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
-                else if (_isGrabbingBag) _bag.ReleaseBag(limbID);
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
 
                 _triggerGrabOnce = false;
                 _isGrabbingEnvironment = false;
                 _isGrabbingFruit = false;
-                _isGrabbingBag = false;
             }
             else if (!_triggerGrabOnce)
             {
@@ -170,15 +160,13 @@ public class LimbController : MonoBehaviour
                     _fruit = closestObj;
                 }
                 else if (closestObj.CompareTag("Environment"))
-                    _isGrabbingEnvironment = true;
-                else if (closestObj.CompareTag("Bag"))
                 {
-                    _isGrabbingBag = true;
-                    _bag = closestObj.GetComponent<Bag>();
-                    _bag.OnGrabBag(limbID);
+                    _isGrabbingEnvironment = true;
+                    if(closestObj.name.Contains("Tutorial"))
+                        onLimbGrabTutorialBlockEvent.Raise(this,true,this.playerID,limbID);
                 }
 
-                if (_isGrabbingFruit || _isGrabbingEnvironment || _isGrabbingBag)
+                if (_isGrabbingFruit || _isGrabbingEnvironment)
                 {
                     onLimbGrabShaderEvent.Raise(this, true, (float) data1, null);
                     onLimbGrabSoundEvent.Raise(this, _isGrabbingEnvironment ? 0 : _isGrabbingFruit ? 1 : 2, limbID,

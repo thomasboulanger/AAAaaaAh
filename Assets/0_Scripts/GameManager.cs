@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     public static bool InGame;
     public static bool GameOver;
     public static bool HasWin;
-
-    [SerializeField] private GameObject level;
-
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -29,17 +26,15 @@ public class GameManager : MonoBehaviour
         Start,
         RebindInputs
     }
-
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
-    public float levelTimer;
-    private float _currentTime;
-
+    [SerializeField] private GameObject level;
+    [SerializeField] private GameObject limbSelectionPanel;
+    
     private void Start() => Init();
 
     private void Init()
     {
-        _currentTime = levelTimer;
         InGame = false;
         GameOver = false;
         HasWin = false;
@@ -55,16 +50,7 @@ public class GameManager : MonoBehaviour
 
         UICanvaState = UIStateEnum.PressStartToAddPlayers;
     }
-
-    private void Update()
-    {
-        if (!InGame) return;
-        float deltatime = Time.deltaTime;
-
-        _currentTime -= deltatime;
-        if (_currentTime < 0) GameOver = true;
-    }
-
+    
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
@@ -72,7 +58,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("moved to panel " + (int) data1);
     }
 
-    public static void PlayerHaveReachedTheEnd()
+    public void PlayerHaveReachedTheEnd()
     {
         //player has passed the trigger box at the end of the level, now it has to seat and fire fruits on the demon
     }

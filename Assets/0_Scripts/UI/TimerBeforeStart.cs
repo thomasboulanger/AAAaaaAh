@@ -17,13 +17,19 @@ public class TimerBeforeStart : MonoBehaviour
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private TMP_Text titleTimerText;
     [SerializeField] private GameObject uiPanelToFall;
+    [SerializeField] private GameObject tutorialBlocks;
 
     private bool _allLimbsLock;
     private float _countDown;
     private float _countDownToIntDisplay;
     private PlayerManager _playerManager;
+    private Transform _initialTransform;
 
-    private void Awake() => _playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
+    private void Awake() 
+    {
+        _playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
+        _initialTransform = uiPanelToFall.transform;
+    }
     private void Start() => Init();
 
     private void Init()
@@ -32,6 +38,10 @@ public class TimerBeforeStart : MonoBehaviour
         titleTimerText.gameObject.SetActive(false);
         countDownText.gameObject.SetActive(false);
         uiPanelToFall.SetActive(true);
+        uiPanelToFall.transform.position = _initialTransform.transform.position;
+        uiPanelToFall.transform.rotation = _initialTransform.transform.rotation;
+        uiPanelToFall.transform.localScale = _initialTransform.transform.localScale;
+        tutorialBlocks.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -54,6 +64,7 @@ public class TimerBeforeStart : MonoBehaviour
 
     private void LaunchTutorial()
     {
+        GameManager.UICanvaState = GameManager.UIStateEnum.PreStart;
         _playerManager.StartGame();
         countDownText.gameObject.SetActive(false);
         titleTimerText.gameObject.SetActive(false);
@@ -64,6 +75,7 @@ public class TimerBeforeStart : MonoBehaviour
     IEnumerator DesactivateFallPanelAfterDelay()
     {
         yield return new WaitForSeconds(5);
+        tutorialBlocks.gameObject.SetActive(true);
         uiPanelToFall.SetActive(false);
     }
 
