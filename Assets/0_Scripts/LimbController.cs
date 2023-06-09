@@ -5,11 +5,13 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System.Collections;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// This script receive player's input and move its dedicated sphere which move the limb attached to it
+/// This script receive player's input and move its dedicated sphere which move the limb attached to it (and do some other stuffs about grab etc)
 /// </summary>
 public class LimbController : MonoBehaviour
 {
@@ -35,6 +37,7 @@ public class LimbController : MonoBehaviour
     [SerializeField] private float playerInputSpeedDivider = 100;
     [SerializeField] private LayerMask grabInteractableLayerMask;
     [SerializeField] private float grabRadius;
+    [SerializeField] private TMP_Text tutorialBlicksGrabCountText;
 
     private Transform _limbCenterTransform;
     private Vector3 _moveValue = Vector3.zero;
@@ -48,8 +51,7 @@ public class LimbController : MonoBehaviour
     private bool _triggerSetInitialPosOnce;
     private Vector3 _initialPos;
     private GameObject _fruit;
-    private Bag _bag;
-    private bool _firstInteractionWIthBag;
+    private Color _tutorialBlockColor;
 
     private void Awake()
     {
@@ -72,13 +74,6 @@ public class LimbController : MonoBehaviour
         if (inputID is not int) return;
         if (this.playerID != (int) playerID) return;
         if (limbID != (int) inputID) return;
-
-        if (GameManager.InGame && !_firstInteractionWIthBag && GameObject.Find("Bag"))
-        {
-            GameObject.FindGameObjectWithTag("Bag").GetComponent<Bag>()
-                .SetLimbAndCenterTransforms(_limbCenterTransform, this, limbID);
-            _firstInteractionWIthBag = true;
-        }
 
         if (data1 is Vector2)
         {
@@ -126,10 +121,11 @@ public class LimbController : MonoBehaviour
             if (!_isGrabbing)
             {
                 if (_isGrabbingFruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
-                if (_tutorialBlock[limbID].name.Contains("Tutorial"))
+                if (_tutorialBlock[limbID] != null)
                 {
                     _tutorialBlock[limbID] = null;
                     _tutorialBlocksGrabbed[limbID] = false;
+                    _tutorialBlock[limbID].GetComponent<Renderer>().material.color = _tutorialBlockColor;
                 }
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
@@ -166,6 +162,8 @@ public class LimbController : MonoBehaviour
                     {
                         _tutorialBlocksGrabbed[limbID] = true;
                         _tutorialBlock[limbID] = closestObj.gameObject;
+                        _tutorialBlockColor = _tutorialBlock[limbID].GetComponent<Renderer>().material.color;
+                        _tutorialBlock[limbID].GetComponent<Renderer>().material.color = Color.green;
                     }
                 }
 
@@ -196,8 +194,6 @@ public class LimbController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!GameManager.InGame) return;
-
         //if the position is out of the limb radius, clamp the transform to the limb radius
         if (Mathf.Abs((transform.position - _limbCenterTransform.position).sqrMagnitude) > limbLength * limbLength)
         {
@@ -205,19 +201,42 @@ public class LimbController : MonoBehaviour
             transform.position = _limbCenterTransform.position + direction * limbLength;
         }
 
-        //tutorial block grab check only
+        //check on tutorial part only
         CheckForAllTutorialBlockGrabbed();
     }
 
     private void CheckForAllTutorialBlockGrabbed()
     {
         bool tmpComparator = false;
+        int counter = 0;
+
         foreach (bool element in _tutorialBlocksGrabbed)
+        {
             if (!element)
                 tmpComparator = true;
+            else counter++;
+        }
 
+        //condition to enter once per frame and not 4 times
+        if (playerID == 0 && limbID == 0)
+        {
+            tutorialBlicksGrabCountText.gameObject.SetActive(true);
+
+            if (GameManager.UICanvaState == GameManager.UIStateEnum.PreStart)
+                tutorialBlicksGrabCountText.text = counter + "/4";
+            else tutorialBlicksGrabCountText.gameObject.SetActive(false);
+            
+        }
+        
         if (tmpComparator) return;
+        StartCoroutine(SmallDelayBeforeStart());
+    }
+
+    IEnumerator SmallDelayBeforeStart()
+    {
+        yield return new WaitForSeconds(.75f);
         onAllTutorialBlocksAreGrabbed.Raise(this, true, this.playerID, limbID);
+        _tutorialBlock[limbID].gameObject.GetComponent<Renderer>().material.color = _tutorialBlockColor;
         _tutorialBlock[limbID].SetActive(false);
         _tutorialBlocksGrabbed[limbID] = false;
         _isGrabbing = false;
