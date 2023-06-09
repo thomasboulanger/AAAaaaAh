@@ -13,7 +13,7 @@ public class PithonsManager : MonoBehaviour
     [SerializeField] private float distanceForwardShow = 3f;
     [SerializeField] private float automaticRegenDelay = 0f;
     [SerializeField] private float shapeKeyPower = 100f;
-    [SerializeField] private bool automaticRegen = false;
+    public bool automaticRegen = false;
 
     public List<Transform> spawnedItems = new List<Transform>();
 
@@ -21,15 +21,15 @@ public class PithonsManager : MonoBehaviour
 
 
 
-    
 
-    private float t=0;
+
+    private float t = 0;
 
     // Update is called once per frame
     void Update()
     {
         if (Application.isPlaying || !automaticRegen) return;
-        if (t<automaticRegenDelay)
+        if (t < automaticRegenDelay)
         {
             t += Time.deltaTime;
         }
@@ -52,7 +52,10 @@ public class PithonsManager : MonoBehaviour
     {
         foreach (Transform item in spawnedItems)
         {
-            DestroyImmediate(item.gameObject, true);
+            if (item != null)
+            {
+                DestroyImmediate(item.gameObject, true);
+            }
         }
         spawnedItems.Clear();
     }
@@ -69,9 +72,9 @@ public class PithonsManager : MonoBehaviour
 
             if (i == points.Count - 1) continue;
 
-            Vector3 pos1 = points[i+1].position;
+            Vector3 pos1 = points[i + 1].position;
             float distance = Vector3.Distance(pos, pos1);
-            float parralel = (Mathf.Abs((Vector3.Dot((pos1 - pos).normalized, transform.up)))*shapeKeyPower)*-1;
+            float parralel = (Mathf.Abs((Vector3.Dot((pos1 - pos).normalized, transform.up))) * shapeKeyPower) * -1;
             GameObject corde = Instantiate(ropeGO, pos, Quaternion.identity, transformList);
             corde.GetComponentInChildren<SkinnedMeshRenderer>().SetBlendShapeWeight(0, parralel);
             corde.transform.LookAt(pos1);
@@ -79,7 +82,7 @@ public class PithonsManager : MonoBehaviour
             corde.transform.localEulerAngles = new Vector3(0, corde.transform.localEulerAngles.y, corde.transform.localEulerAngles.z);
             corde.transform.Rotate(90, 0, 0, Space.Self);
 
-            corde.transform.localScale = new Vector3(distance*5, 1, 1);
+            corde.transform.localScale = new Vector3(distance * 5, 1, 1);
             spawnedItems.Add(corde.transform);
         }
     }
@@ -101,8 +104,8 @@ public class PithonsManager : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(pos, gizmosSize);
             //angle piton
-            Gizmos.DrawLine(pos, points[i].forward*distanceForwardShow + pos);
-            if (i == points.Count-1) continue;
+            Gizmos.DrawLine(pos, points[i].forward * distanceForwardShow + pos);
+            if (i == points.Count - 1) continue;
             Gizmos.color = Color.black;
             Gizmos.DrawLine(pos, points[i + 1].position);
         }

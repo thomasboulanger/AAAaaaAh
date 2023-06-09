@@ -54,7 +54,6 @@ public class EditModeFunctions : EditorWindow
         {
             SelectedPithon();
         }
-
         if (GUILayout.Button("Generate all pithon"))
         {
             AllPithon(false);
@@ -62,6 +61,25 @@ public class EditModeFunctions : EditorWindow
         if (GUILayout.Button("destroy all pithon"))
         {
             AllPithon(true);
+        }
+
+        GUILayout.Label("Pitons automatic regen", EditorStyles.boldLabel);
+
+        if (GUILayout.Button("Disable automatic regen all"))
+        {
+            ToogleRegenPithon(true, false);
+        }
+        if (GUILayout.Button("Disable automatic regen selected"))
+        {
+            ToogleRegenPithon(true, true);
+        }
+        if (GUILayout.Button("toogle automatic regen all"))
+        {
+            ToogleRegenPithon(false, false);
+        }
+        if (GUILayout.Button("toogle automatic regen selected"))
+        {
+            ToogleRegenPithon(false, true);
         }
     }
 
@@ -75,6 +93,54 @@ public class EditModeFunctions : EditorWindow
             {
                 pithonsInst.Generate();
             }
+        }
+    }
+
+    private void ToogleRegenPithon(bool disableOnly, bool selected)
+    {
+        if (selected)
+        {
+            foreach (Transform item in Selection.transforms)
+            {
+                PithonsManager pithons;
+                item.TryGetComponent<PithonsManager>(out pithons);
+                if (pithons != null)
+                {
+                    PithonToggle(pithons, disableOnly);
+                }
+                else
+                {
+                    foreach (Transform childWd in item)
+                    {
+                        PithonsManager pithonchild;
+                        childWd.TryGetComponent<PithonsManager>(out pithonchild);
+                        if (pithonchild != null)
+                        {
+                            PithonToggle(pithonchild, disableOnly);
+
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            foreach (PithonsManager item in GameObject.FindObjectsOfType<PithonsManager>())
+            {
+                PithonToggle(item, disableOnly);
+            }
+        }
+    }
+
+    void PithonToggle(PithonsManager item, bool disableOnly)
+    {
+        if (disableOnly)
+        {
+            item.automaticRegen = false;
+        }
+        else
+        {
+            item.automaticRegen = !item.automaticRegen;
         }
     }
 
