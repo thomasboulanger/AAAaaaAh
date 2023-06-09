@@ -156,6 +156,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1082591ec60b24246bf7e56cb75ca6a0, type: 3}
+--- !u!137 &2823205125734780856 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3887185075125053422, guid: 1082591ec60b24246bf7e56cb75ca6a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 7864406306889881514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7053360561812040443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1082591ec60b24246bf7e56cb75ca6a0,
@@ -174,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4fb6c7c64334c4894fcf43f059b5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skinnedMesh: {fileID: 0}
+  _skinnedMesh: {fileID: 2823205125734780856}
   wingsFlap:
     serializedVersion: 2
     m_Curve:
@@ -406,6 +412,11 @@ MonoBehaviour:
   - {r: 0.12415449, g: 0.8490566, b: 0.29180855, a: 0}
   - {r: 0.8962264, g: 0.13105197, b: 0.655909, a: 0}
   - {r: 0.1802243, g: 0.23532131, b: 0.8490566, a: 0}
+  - {r: 0.057671774, g: 0.4528302, b: 0.116138734, a: 0}
+  - {r: 0.33962262, g: 0.036845855, b: 0.19818833, a: 0}
+  - {r: 0.8553069, g: 0.8867924, b: 0.17150229, a: 0}
+  - {r: 0.7830189, g: 0.38948673, b: 0.06278926, a: 0}
+  - {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
 --- !u!4 &7685747507422179393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1082591ec60b24246bf7e56cb75ca6a0,
