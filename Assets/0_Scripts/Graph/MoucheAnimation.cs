@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SkinnedMeshRenderer))]
 public class MoucheAnimation : MonoBehaviour
 {
-    [SerializeField] private SkinnedMeshRenderer _skinnedMesh;
+    [SerializeField] private SkinnedMeshRenderer skinnedMesh;
 
     [Header("ShapeKey animations curves")]
     [SerializeField] private AnimationCurve wingsFlap;
@@ -25,6 +25,9 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private float positionPower = 1;
     [SerializeField] private float rotationSpeed = 1;
     [SerializeField] private float rotationPower = 1;
+    [SerializeField] private float randPositionSpeed = 0.2f;
+    [SerializeField] private float randPositionSpeed2 = 0.2f;
+    [SerializeField] private float randPositionPower = 0.2f;
     [Header("powers of flap1, flap2, idle1, idle2, tilt")]
     [Range(0,200)]
     [SerializeField] private float[] shapeKeyPowers = new float[5] { 100, 100, 100, 100, 100 };
@@ -35,17 +38,17 @@ public class MoucheAnimation : MonoBehaviour
     private float[] timers = new float[7];
     private Vector3 localRot;
     private float dt;
+    private Vector3 noiseVector;
+    private Vector3 movementVector;
 
     void Start()
     {
         
-
-
         localRot = transform.localEulerAngles;
 
-        if (_skinnedMesh == null) _skinnedMesh = GetComponent<SkinnedMeshRenderer>(); // au cas ou c pas assign
+        if (skinnedMesh == null) skinnedMesh = GetComponent<SkinnedMeshRenderer>(); // au cas ou c pas assign
         //randomize mat
-        _skinnedMesh.material.SetColor("_ORMADodge", possibleColors[Random.Range(0, possibleColors.Length)]);
+        skinnedMesh.material.SetColor("_ORMADodge", possibleColors[Random.Range(0, possibleColors.Length)]);
 
         //random animation at start
         for (int i = 0; i < timers.Length; i++)
@@ -63,13 +66,17 @@ public class MoucheAnimation : MonoBehaviour
     {
         dt = Time.deltaTime;
 
-        _skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
-        _skinnedMesh.SetBlendShapeWeight(1, wingsFlap.Evaluate(timers[1]) * shapeKeyPowers[1]);
-        _skinnedMesh.SetBlendShapeWeight(2, idle.Evaluate(timers[2]) * shapeKeyPowers[2]);
-        _skinnedMesh.SetBlendShapeWeight(3, idle.Evaluate(timers[3]) * shapeKeyPowers[3]);
-        _skinnedMesh.SetBlendShapeWeight(4, tilt.Evaluate(timers[4]) * shapeKeyPowers[4]);
+        skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
+        skinnedMesh.SetBlendShapeWeight(1, wingsFlap.Evaluate(timers[1]) * shapeKeyPowers[1]);
+        skinnedMesh.SetBlendShapeWeight(2, idle.Evaluate(timers[2]) * shapeKeyPowers[2]);
+        skinnedMesh.SetBlendShapeWeight(3, idle.Evaluate(timers[3]) * shapeKeyPowers[3]);
+        skinnedMesh.SetBlendShapeWeight(4, tilt.Evaluate(timers[4]) * shapeKeyPowers[4]);
 
-        transform.localPosition = new Vector3(transform.localPosition.x, positionY.Evaluate(timers[5]) * positionPower, transform.localPosition.z);
+        Vector3 zocilation = new Vector3(0, positionY.Evaluate(timers[5]) * positionPower, 0);
+        noiseVector = Vector3.Lerp(noiseVector, RandomDirection(), dt * randPositionSpeed);
+        movementVector = Vector3.Lerp(movementVector,(movementVector + noiseVector).normalized,dt * randPositionSpeed2);
+
+        transform.localPosition = zocilation+movementVector*randPositionPower;
         transform.localEulerAngles = new Vector3(localRot.x, localRot.y, rotationZ.Evaluate(timers[6]) * rotationPower);
 
         IncrementTimers();
@@ -110,5 +117,15 @@ public class MoucheAnimation : MonoBehaviour
                 Debug.LogWarning("a bah cringe");
                 return 0;
         }
+    }
+
+    Vector3 RandomDirection()
+    {
+        return new Vector3(TrueRandomValue01(), TrueRandomValue01(), TrueRandomValue01()).normalized;
+    }
+
+    float TrueRandomValue01()
+    {
+        return (Random.value - 0.5f) * 2f;
     }
 }

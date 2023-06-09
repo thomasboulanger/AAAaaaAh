@@ -49,6 +49,9 @@ public class MoucheAMerde : MonoBehaviour
     public float lerpSpeed2 = 10f;
     public float zRotPower = 5f;
 
+    public float mainLerpPower = 5f;
+
+
     private Vector3 _previousPosition;
 
     void Start()
@@ -193,7 +196,7 @@ public class MoucheAMerde : MonoBehaviour
             Destroy(transform.gameObject);
         }
 
-        transform.position = pos;//opti
+        transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);//opti + lerp
     }
 
     private void OnTriggerEnter(Collider other)
