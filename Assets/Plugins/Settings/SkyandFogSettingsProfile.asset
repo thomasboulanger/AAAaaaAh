@@ -78,11 +78,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   planetaryRadius:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 6378100
   planetCenterPosition:
     m_OverrideState: 0
-    m_Value: {x: 0, y: -6378100, z: 0}
+    m_Value: {x: 0, y: -6378093, z: 0}
   airDensityR:
     m_OverrideState: 0
     m_Value: 0.04534
@@ -97,7 +97,7 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   airMaximumAltitude:
     m_OverrideState: 0
-    m_Value: 55261.973
+    m_Value: 55261.97
   aerosolDensity:
     m_OverrideState: 1
     m_Value: 0.163
@@ -154,7 +154,7 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0.5104327, b: 1, a: 1}
   horizonZenithShift:
     m_OverrideState: 1
-    m_Value: -0.179
+    m_Value: -0.91
   m_SkyVersion: 1
   m_ObsoleteEarthPreset:
     m_OverrideState: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   gradientDiffusion:
     m_OverrideState: 1
-    m_Value: 4.65
+    m_Value: 1323.32
 --- !u!114 &-4151792930034644520
 MonoBehaviour:
   m_ObjectHideFlags: 3
