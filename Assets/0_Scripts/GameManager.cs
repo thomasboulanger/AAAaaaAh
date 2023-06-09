@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static bool InGame;
     public static bool GameOver;
     public static bool HasWin;
+
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -26,11 +27,13 @@ public class GameManager : MonoBehaviour
         Start,
         RebindInputs
     }
+
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
     [SerializeField] private GameObject level;
     [SerializeField] private GameObject limbSelectionPanel;
-    
+    [SerializeField] private GameObject tutorialCharacterCage;
+
     private void Start() => Init();
 
     private void Init()
@@ -50,12 +53,27 @@ public class GameManager : MonoBehaviour
 
         UICanvaState = UIStateEnum.PressStartToAddPlayers;
     }
-    
+
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
         UICanvaState = (UIStateEnum) data1;
         Debug.Log("moved to panel " + (int) data1);
+    }
+
+    //event to launch the game for real (after the tutorial part)
+    public void AllTutorialBlocksAreGrabbed(Component sender, object data1, object playerID, object limbID)
+    {
+        if (data1 is not bool) return;
+        if (playerID is not int) return;
+        if (limbID is not int) return;
+        
+        //test to execute it once as it will be called 4 times
+        if ((int) playerID != 0) return;
+        if ((int) limbID != 0) return;
+        
+        UICanvaState = UIStateEnum.Start;
+        tutorialCharacterCage.SetActive(false);
     }
 
     public void PlayerHaveReachedTheEnd()
@@ -65,7 +83,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        if(GameObject.FindGameObjectWithTag("LevelContainer")) Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
+        if (GameObject.FindGameObjectWithTag("LevelContainer"))
+            Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
         GameObject go = Instantiate(level, transform.position, Quaternion.identity);
     }
 }

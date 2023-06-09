@@ -13,11 +13,14 @@ using UnityEngine;
 /// </summary>
 public class LimbController : MonoBehaviour
 {
+    private static bool[] _tutorialBlocksGrabbed = new bool[4];
+    private static GameObject[] _tutorialBlock = new GameObject[4];
+
     [SerializeField] private GameEvent onLimbGrabEvent;
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
-    [SerializeField] private GameEvent onLimbGrabTutorialBlockEvent;
+    [SerializeField] private GameEvent onAllTutorialBlocksAreGrabbed;
 
     [Header("The ID of limb that player with same ID will control")] [SerializeField]
     private int playerID;
@@ -87,23 +90,15 @@ public class LimbController : MonoBehaviour
             {
                 if (!_rb.isKinematic) _rb.isKinematic = true;
                 return;
-            } 
-            
+            }
+
             //rotate the sphere that the limb on character rotate his dedicated limb in the right direction
             float angle;
-            if (limbIsLeg)
-            {
-                angle = Vector3.Angle(Vector3.down, lookingDirection);
-                if (transform.position.x < _limbCenterTransform.position.x) angle = -angle;
-            }
-            else
-            {
-                angle = Vector3.Angle(Vector3.right, lookingDirection);
-                if (transform.position.y < _limbCenterTransform.position.y) angle = -angle;
-            }
-
+            angle = Vector3.Angle(limbIsLeg ? Vector3.down : Vector3.right, lookingDirection);
+            if (limbIsLeg
+                    ? transform.position.x < _limbCenterTransform.position.x
+                    : transform.position.y < _limbCenterTransform.position.y) angle = -angle;
             transform.rotation = Quaternion.Euler(0, 0, angle);
-
 
             _rb.isKinematic = false;
 
@@ -131,6 +126,11 @@ public class LimbController : MonoBehaviour
             if (!_isGrabbing)
             {
                 if (_isGrabbingFruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
+                if (_tutorialBlock[limbID].name.Contains("Tutorial"))
+                {
+                    _tutorialBlock[limbID] = null;
+                    _tutorialBlocksGrabbed[limbID] = false;
+                }
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
 
@@ -162,8 +162,11 @@ public class LimbController : MonoBehaviour
                 else if (closestObj.CompareTag("Environment"))
                 {
                     _isGrabbingEnvironment = true;
-                    if(closestObj.name.Contains("Tutorial"))
-                        onLimbGrabTutorialBlockEvent.Raise(this,true,this.playerID,limbID);
+                    if (closestObj.name.Contains("Tutorial"))
+                    {
+                        _tutorialBlocksGrabbed[limbID] = true;
+                        _tutorialBlock[limbID] = closestObj.gameObject;
+                    }
                 }
 
                 if (_isGrabbingFruit || _isGrabbingEnvironment)
@@ -184,20 +187,39 @@ public class LimbController : MonoBehaviour
         _isGrabbing = false;
         onLimbGrabEvent.Raise(this, false, playerID, limbID);
     }
-    
+
     public void BagMovingLimb(Vector3 moveValue, Vector3 offset, float distance)
     {
         //_rb.AddForce(moveValue);
         transform.position = moveValue + offset;
     }
-    
+
     private void LateUpdate()
     {
+        if (!GameManager.InGame) return;
+
         //if the position is out of the limb radius, clamp the transform to the limb radius
         if (Mathf.Abs((transform.position - _limbCenterTransform.position).sqrMagnitude) > limbLength * limbLength)
         {
             Vector3 direction = (transform.position - _limbCenterTransform.position).normalized;
             transform.position = _limbCenterTransform.position + direction * limbLength;
         }
+
+        //tutorial block grab check only
+        CheckForAllTutorialBlockGrabbed();
+    }
+
+    private void CheckForAllTutorialBlockGrabbed()
+    {
+        bool tmpComparator = false;
+        foreach (bool element in _tutorialBlocksGrabbed)
+            if (!element)
+                tmpComparator = true;
+
+        if (tmpComparator) return;
+        onAllTutorialBlocksAreGrabbed.Raise(this, true, this.playerID, limbID);
+        _tutorialBlock[limbID].SetActive(false);
+        _tutorialBlocksGrabbed[limbID] = false;
+        _isGrabbing = false;
     }
 }

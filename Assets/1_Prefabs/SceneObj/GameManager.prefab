@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2786674968771254231}
   - component: {fileID: 2360036376277093452}
   - component: {fileID: 5514398255819284055}
+  - component: {fileID: 961322794}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -146,7 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ae69e012e27e34d91195eda1da33d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimer: 0
+  level: {fileID: 96673092478901167, guid: ff8e7e978a055e643846f7890c0c5ec0, type: 3}
+  limbSelectionPanel: {fileID: 0}
+  tutorialCharacterCage: {fileID: 0}
 --- !u!114 &2129611534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +463,34 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: OnWiggleLimb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &961322794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 6b28d4bbed6de9a47a3570516692661f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3755835576101235687}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AllTutorialBlocksAreGrabbed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

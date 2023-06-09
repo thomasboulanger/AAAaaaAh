@@ -15,8 +15,5 @@ public class UIRebindInput : MonoBehaviour
         PlayerManager.Players[playerIndexToRebind].actions.Disable();
         rebindScript.StartInteractiveRebind(playerIndexToRebind);
         PlayerManager.Players[playerIndexToRebind].actions.Enable();
-
-        //string toto = _playerInput.actions.SaveBindingOverridesAsJson();
-        //_playerInput.actions.LoadBindingOverridesFromJson(toto);
     }
 }
