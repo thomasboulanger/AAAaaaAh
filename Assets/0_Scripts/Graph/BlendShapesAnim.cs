@@ -76,11 +76,11 @@ public class BlendShapesAnim : MonoBehaviour
         }
     }
 
-    public void respicheck(int expiinspi)
+    public void RespiCheck(int expiInspi)
     {
         if (screams) return;
 
-        if (expiinspi == 0)
+        if (expiInspi == 0)
         {
             audioManager.ExpirationSound(gameObject);
         }

@@ -8,7 +8,7 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private Vector3[] _mediumNoise = new Vector3[10];
     [SerializeField] private Vector3[] _largeNoise = new Vector3[10];
     [SerializeField] private Vector3[] _expertise = new Vector3[10];
-    [SerializeField] private RTPCMeterCriRespi rtpcScript;
+    [SerializeField] private RTPCMeterInspiExpi rtpcScript;
     [SerializeField] private bool useSound;
     [SerializeField] private float soundMultiplier = 20f;
     [SerializeField] private Vector3 offset = Vector3.zero;
@@ -29,20 +29,13 @@ public class CameraShake : MonoBehaviour
     {
         if (useSound)
         {
-            transform.localPosition = Vector3.Lerp
-            (
-                _basePos + offset,
-                _basePos + offset + new Vector3
-                (
-                    Random.Range(-1f, 1f),
-                    Random.Range(-1f, 1f),
-                    Random.Range(-1f, 1f)
-                ) * (rtpcScript.lerpedValue * soundMultiplier),
-                Time.deltaTime * speed);
-            return;
+            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier, Time.deltaTime * speed);
+        }
+        else
+        {
+            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * power, Time.deltaTime * speed);
         }
 
-        transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * power, Time.deltaTime * speed);
 
         _i++;
         if (_i > 9) _i = 0;
