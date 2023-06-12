@@ -93,6 +93,12 @@ public class MoucheAMerde : MonoBehaviour
 
 
         _path = bodypos - _initialPosition;
+
+        //------------------------------------------------AUDIO-------------------------
+        float distancePlayerMouche = Vector3.Distance(bodypos, transform.position);
+
+
+        //---------------------
         _p = bodypos + Vector3.Project(pos - bodypos, -_path);
         _a = _initialA * (Vector3.Distance(bodypos, _p) / _initialLength);
         //Debug.Log(Vector3.Distance(bodypos, _p) / _initialLength);
