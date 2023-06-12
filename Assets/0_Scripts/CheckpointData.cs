@@ -16,7 +16,7 @@ public class CheckpointData : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-      if(!other.transform.CompareTag("Player")) return;
+      if(!other.transform.CompareTag("Player") || !other.GetComponent<CheckpointManager>()) return;
       other.GetComponent<CheckpointManager>().SetNewCheckpoint(transform.position, checkpointNumber);
    }
 }

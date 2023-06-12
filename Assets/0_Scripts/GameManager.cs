@@ -5,6 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -67,16 +68,12 @@ public class GameManager : MonoBehaviour
         if (data1 is not bool) return;
         if (playerID is not int) return;
         if (limbID is not int) return;
-        
-        //test to execute it once as it will be called 4 times
-        if ((int) playerID != 0) return;
-        if ((int) limbID != 0) return;
-        
-        UICanvaState = UIStateEnum.Start;
+
+        PlayerChangePanel(this, 6, null, null);
         tutorialCharacterCage.SetActive(false);
     }
 
-    public void PlayerHaveReachedTheEnd()
+    public void PlayerHaveReachedTheEnd(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //player has passed the trigger box at the end of the level, now it has to seat and fire fruits on the demon
     }
@@ -85,6 +82,6 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("LevelContainer"))
             Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
-        GameObject go = Instantiate(level, transform.position, Quaternion.identity);
+        Instantiate(level, transform.position, Quaternion.identity);
     }
 }

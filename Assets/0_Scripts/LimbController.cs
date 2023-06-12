@@ -16,28 +16,24 @@ using UnityEngine;
 public class LimbController : MonoBehaviour
 {
     private static bool[] _tutorialBlocksGrabbed = new bool[4];
-    private static GameObject[] _tutorialBlock = new GameObject[4];
+    private static Renderer[] _tutorialBlock = new Renderer[4];
 
     [SerializeField] private GameEvent onLimbGrabEvent;
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
     [SerializeField] private GameEvent onAllTutorialBlocksAreGrabbed;
-
-    [Header("The ID of limb that player with same ID will control")] [SerializeField]
-    private int playerID;
-
+    [Header("The ID of limb that player with same ID will control")]
+    [SerializeField] private int playerID;
     [SerializeField] private int limbID;
-
-    [Space] [Header("The range that the player can move his limb")] [SerializeField]
-    private float limbLength;
-
+    [Space] [Header("The range that the player can move his limb")] 
+    [SerializeField] private float limbLength;
     [SerializeField] private bool limbIsLeg;
     [SerializeField] private float limbSpeed = 10000;
     [SerializeField] private float playerInputSpeedDivider = 100;
     [SerializeField] private LayerMask grabInteractableLayerMask;
     [SerializeField] private float grabRadius;
-    [SerializeField] private TMP_Text tutorialBlicksGrabCountText;
+    [SerializeField] private TMP_Text tutorialBlocksGrabCountText;
 
     private Transform _limbCenterTransform;
     private Vector3 _moveValue = Vector3.zero;
@@ -48,15 +44,17 @@ public class LimbController : MonoBehaviour
     private Rigidbody _rb;
     private Vector3 _stackableMoveValue;
     private bool _triggerGrabOnce;
-    private bool _triggerSetInitialPosOnce;
     private Vector3 _initialPos;
     private GameObject _fruit;
     private Color _tutorialBlockColor;
+    private bool _triggerSetInitialPosOnce;
+
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _initialPos = transform.position;
+        tutorialBlocksGrabCountText.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -95,7 +93,7 @@ public class LimbController : MonoBehaviour
                     : transform.position.y < _limbCenterTransform.position.y) angle = -angle;
             transform.rotation = Quaternion.Euler(0, 0, angle);
 
-            _rb.isKinematic = false;
+            if (_rb.isKinematic) _rb.isKinematic = false;
 
             //stop the limb doing shit with his position at frame one
             if (!_triggerSetInitialPosOnce)
@@ -103,8 +101,7 @@ public class LimbController : MonoBehaviour
                 _stackableMoveValue = _initialPos;
                 _triggerSetInitialPosOnce = true;
             }
-
-
+            
             _stackableMoveValue += _moveValue;
             _stackableMoveValue = Vector3.ClampMagnitude(_stackableMoveValue, limbLength);
             Vector3 localLimbPos = _stackableMoveValue + _limbCenterTransform.position;
@@ -120,12 +117,14 @@ public class LimbController : MonoBehaviour
 
             if (!_isGrabbing)
             {
+                //was grabbing a fruit
                 if (_isGrabbingFruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
-                if (_tutorialBlock[limbID] != null)
+                
+                //was grabbing environment (check if the environment Obj was a tutorial block)
+                if (_tutorialBlocksGrabbed[limbID])
                 {
-                    _tutorialBlock[limbID] = null;
+                    _tutorialBlock[limbID].material.color = _tutorialBlockColor;
                     _tutorialBlocksGrabbed[limbID] = false;
-                    _tutorialBlock[limbID].GetComponent<Renderer>().material.color = _tutorialBlockColor;
                 }
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
@@ -152,8 +151,8 @@ public class LimbController : MonoBehaviour
                 if (closestObj.CompareTag("Fruit"))
                 {
                     _isGrabbingFruit = true;
-                    closestObj.transform.GetComponentInParent<FruitSelector>().GrabFruit(gameObject);
                     _fruit = closestObj;
+                    _fruit.GetComponentInParent<FruitSelector>().GrabFruit(gameObject);
                 }
                 else if (closestObj.CompareTag("Environment"))
                 {
@@ -161,9 +160,9 @@ public class LimbController : MonoBehaviour
                     if (closestObj.name.Contains("Tutorial"))
                     {
                         _tutorialBlocksGrabbed[limbID] = true;
-                        _tutorialBlock[limbID] = closestObj.gameObject;
-                        _tutorialBlockColor = _tutorialBlock[limbID].GetComponent<Renderer>().material.color;
-                        _tutorialBlock[limbID].GetComponent<Renderer>().material.color = Color.green;
+                        _tutorialBlock[limbID] = closestObj.GetComponent<Renderer>();
+                        _tutorialBlockColor = _tutorialBlock[limbID].material.color;
+                        _tutorialBlock[limbID].material.color = Color.green;
                     }
                 }
 
@@ -180,18 +179,13 @@ public class LimbController : MonoBehaviour
         }
     }
 
-    public void OnOverrideGrab(Component sender, object unUsed, object unUsed2, object unUsed3)
+    public void OnOverrideGrab(Component sender, object data, object unUsed2, object unUsed3)
     {
-        _isGrabbing = false;
-        onLimbGrabEvent.Raise(this, false, playerID, limbID);
+        // if(data is not bool) return;
+        // _isGrabbing = (bool) data;
+        // onLimbGrabEvent.Raise(this, _isGrabbing, playerID, limbID);
     }
-
-    public void BagMovingLimb(Vector3 moveValue, Vector3 offset, float distance)
-    {
-        //_rb.AddForce(moveValue);
-        transform.position = moveValue + offset;
-    }
-
+    
     private void LateUpdate()
     {
         //if the position is out of the limb radius, clamp the transform to the limb radius
@@ -201,6 +195,7 @@ public class LimbController : MonoBehaviour
             transform.position = _limbCenterTransform.position + direction * limbLength;
         }
 
+        if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
         //check on tutorial part only
         CheckForAllTutorialBlockGrabbed();
     }
@@ -208,37 +203,36 @@ public class LimbController : MonoBehaviour
     private void CheckForAllTutorialBlockGrabbed()
     {
         bool tmpComparator = false;
-        int counter = 0;
+        int counter= _tutorialBlocksGrabbed.Count(element => element);
 
         foreach (bool element in _tutorialBlocksGrabbed)
-        {
-            if (!element)
-                tmpComparator = true;
-            else counter++;
-        }
-
-        //condition to enter once per frame and not 4 times
-        if (playerID == 0 && limbID == 0)
-        {
-            tutorialBlicksGrabCountText.gameObject.SetActive(true);
-
-            if (GameManager.UICanvaState == GameManager.UIStateEnum.PreStart)
-                tutorialBlicksGrabCountText.text = counter + "/4";
-            else tutorialBlicksGrabCountText.gameObject.SetActive(false);
-            
-        }
+            if (!element) tmpComparator = true;
         
+        tutorialBlocksGrabCountText.gameObject.SetActive(true);
+        tutorialBlocksGrabCountText.text = counter + "/4";
+
         if (tmpComparator) return;
-        StartCoroutine(SmallDelayBeforeStart());
+        onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
+        tutorialBlocksGrabCountText.gameObject.SetActive(false);
+        for (int i = 0; i < _tutorialBlock.Length; i++)
+        {
+            _tutorialBlock[i].material.color = _tutorialBlockColor;
+            _tutorialBlock[i].gameObject.SetActive(false);
+            _tutorialBlocksGrabbed[i] = false;
+        }
+        //(SmallDelayBeforeStart());
     }
 
-    IEnumerator SmallDelayBeforeStart()
-    {
-        yield return new WaitForSeconds(.75f);
-        onAllTutorialBlocksAreGrabbed.Raise(this, true, this.playerID, limbID);
-        _tutorialBlock[limbID].gameObject.GetComponent<Renderer>().material.color = _tutorialBlockColor;
-        _tutorialBlock[limbID].SetActive(false);
-        _tutorialBlocksGrabbed[limbID] = false;
-        _isGrabbing = false;
-    }
+    // IEnumerator SmallDelayBeforeStart()
+    // {
+    //     yield return new WaitForSeconds(.75f);
+    //     onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
+    //     tutorialBlocksGrabCountText.gameObject.SetActive(false);
+    //     for (int i = 0; i < _tutorialBlock.Length; i++)
+    //     {
+    //         _tutorialBlock[i].material.color = _tutorialBlockColor;
+    //         _tutorialBlock[i].gameObject.SetActive(false);
+    //         _tutorialBlocksGrabbed[i] = false;
+    //     }
+    // }
 }
