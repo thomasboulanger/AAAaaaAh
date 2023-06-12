@@ -122,7 +122,6 @@ public class PlayerManager : MonoBehaviour
     public void StartGame()
     {
         GameManager.InGame = true;
-        GameManager.UICanvaState = GameManager.UIStateEnum.Start;
         GetComponent<GameManager>().LoadLevel();
         
         //iterate on through all players

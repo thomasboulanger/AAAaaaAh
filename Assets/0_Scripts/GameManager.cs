@@ -5,6 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         if (playerID is not int) return;
         if (limbID is not int) return;
 
-        UICanvaState = UIStateEnum.Start;
+        PlayerChangePanel(this, 6, null, null);
         tutorialCharacterCage.SetActive(false);
     }
 
@@ -81,6 +82,6 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("LevelContainer"))
             Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
-        GameObject go = Instantiate(level, transform.position, Quaternion.identity);
+        Instantiate(level, transform.position, Quaternion.identity);
     }
 }

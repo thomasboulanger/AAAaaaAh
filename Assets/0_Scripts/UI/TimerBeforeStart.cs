@@ -14,29 +14,28 @@ using UnityEngine;
 /// </summary>
 public class TimerBeforeStart : MonoBehaviour
 {
+    [SerializeField] private GameEvent onPlayerChangePanel;
     [SerializeField] private TMP_Text countDownText;
-    [SerializeField] private TMP_Text titleTimerText;
     [SerializeField] private GameObject uiPanelToFall;
     [SerializeField] private GameObject tutorialBlocks;
 
-    private bool _allLimbsLock;
     private float _countDown;
     private float _countDownToIntDisplay;
     private PlayerManager _playerManager;
     private Transform _initialTransform;
     private bool _triggerOnceLaunchLevel;
 
-    private void Awake() 
+    private void Awake()
     {
         _playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         _initialTransform = uiPanelToFall.transform;
     }
+
     private void Start() => Init();
 
     private void Init()
     {
         _countDown = 4;
-        titleTimerText.gameObject.SetActive(false);
         countDownText.gameObject.SetActive(false);
         uiPanelToFall.SetActive(true);
         uiPanelToFall.transform.position = _initialTransform.transform.position;
@@ -55,22 +54,19 @@ public class TimerBeforeStart : MonoBehaviour
             return;
         }
 
-        CheckForAllLimbsLock();
-        if (_allLimbsLock) _countDown -= Time.deltaTime;
+        if (CheckForAllLimbsLock()) _countDown -= Time.deltaTime;
         else _countDown = 4;
 
-        titleTimerText.gameObject.SetActive(_allLimbsLock);
-        countDownText.gameObject.SetActive(_allLimbsLock);
+        countDownText.gameObject.SetActive(CheckForAllLimbsLock());
         _countDownToIntDisplay = (int) _countDown;
         countDownText.text = _countDownToIntDisplay.ToString();
     }
 
     private void LaunchTutorial()
     {
-        GameManager.UICanvaState = GameManager.UIStateEnum.PreStart;
+        onPlayerChangePanel.Raise(this, 5, null, null);
         _playerManager.StartGame();
         countDownText.gameObject.SetActive(false);
-        titleTimerText.gameObject.SetActive(false);
         uiPanelToFall.GetComponent<Rigidbody>().isKinematic = false;
         StartCoroutine(DesactivateFallPanelAfterDelay());
     }
@@ -82,6 +78,9 @@ public class TimerBeforeStart : MonoBehaviour
         uiPanelToFall.SetActive(false);
     }
 
-    private void CheckForAllLimbsLock() => _allLimbsLock =
-        PlayerManager.Players.Count > 1 && PlayerManager.AllLimbsAssigned && GameManager.UICanvaState == GameManager.UIStateEnum.Play;
+    private bool CheckForAllLimbsLock()
+    {
+        return PlayerManager.Players.Count > 1 && PlayerManager.AllLimbsAssigned &&
+               GameManager.UICanvaState == GameManager.UIStateEnum.Play;
+    }
 }

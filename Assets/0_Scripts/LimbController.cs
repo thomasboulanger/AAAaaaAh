@@ -16,7 +16,7 @@ using UnityEngine;
 public class LimbController : MonoBehaviour
 {
     private static bool[] _tutorialBlocksGrabbed = new bool[4];
-    private static GameObject[] _tutorialBlock = new GameObject[4];
+    private static Renderer[] _tutorialBlock = new Renderer[4];
 
     [SerializeField] private GameEvent onLimbGrabEvent;
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
@@ -123,7 +123,7 @@ public class LimbController : MonoBehaviour
                 //was grabbing environment (check if the environment Obj was a tutorial block)
                 if (_tutorialBlocksGrabbed[limbID])
                 {
-                    _tutorialBlock[limbID].GetComponent<Renderer>().material.color = _tutorialBlockColor;
+                    _tutorialBlock[limbID].material.color = _tutorialBlockColor;
                     _tutorialBlocksGrabbed[limbID] = false;
                 }
 
@@ -160,9 +160,9 @@ public class LimbController : MonoBehaviour
                     if (closestObj.name.Contains("Tutorial"))
                     {
                         _tutorialBlocksGrabbed[limbID] = true;
-                        _tutorialBlock[limbID] = closestObj;
-                        _tutorialBlockColor = _tutorialBlock[limbID].GetComponent<Renderer>().material.color;
-                        _tutorialBlock[limbID].GetComponent<Renderer>().material.color = Color.green;
+                        _tutorialBlock[limbID] = closestObj.GetComponent<Renderer>();
+                        _tutorialBlockColor = _tutorialBlock[limbID].material.color;
+                        _tutorialBlock[limbID].material.color = Color.green;
                     }
                 }
 
@@ -195,7 +195,7 @@ public class LimbController : MonoBehaviour
             transform.position = _limbCenterTransform.position + direction * limbLength;
         }
 
-        if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart || playerID != 0 || limbID != 0) return;
+        if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
         //check on tutorial part only
         CheckForAllTutorialBlockGrabbed();
     }
@@ -203,40 +203,36 @@ public class LimbController : MonoBehaviour
     private void CheckForAllTutorialBlockGrabbed()
     {
         bool tmpComparator = false;
-        int counter = 0;
+        int counter= _tutorialBlocksGrabbed.Count(element => element);
 
         foreach (bool element in _tutorialBlocksGrabbed)
-        {
-            if (!element)
-                tmpComparator = true;
-            else counter++;
-        }
+            if (!element) tmpComparator = true;
         
         tutorialBlocksGrabCountText.gameObject.SetActive(true);
         tutorialBlocksGrabCountText.text = counter + "/4";
-        
+
         if (tmpComparator) return;
         onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
         tutorialBlocksGrabCountText.gameObject.SetActive(false);
         for (int i = 0; i < _tutorialBlock.Length; i++)
         {
-            _tutorialBlock[i].GetComponent<Renderer>().material.color = _tutorialBlockColor;
-            _tutorialBlock[i].SetActive(false);
+            _tutorialBlock[i].material.color = _tutorialBlockColor;
+            _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
         //(SmallDelayBeforeStart());
     }
 
-    IEnumerator SmallDelayBeforeStart()
-    {
-        yield return new WaitForSeconds(.75f);
-        onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
-        tutorialBlocksGrabCountText.gameObject.SetActive(false);
-        for (int i = 0; i < _tutorialBlock.Length; i++)
-        {
-            _tutorialBlock[i].GetComponent<Renderer>().material.color = _tutorialBlockColor;
-            _tutorialBlock[i].SetActive(false);
-            _tutorialBlocksGrabbed[i] = false;
-        }
-    }
+    // IEnumerator SmallDelayBeforeStart()
+    // {
+    //     yield return new WaitForSeconds(.75f);
+    //     onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
+    //     tutorialBlocksGrabCountText.gameObject.SetActive(false);
+    //     for (int i = 0; i < _tutorialBlock.Length; i++)
+    //     {
+    //         _tutorialBlock[i].material.color = _tutorialBlockColor;
+    //         _tutorialBlock[i].gameObject.SetActive(false);
+    //         _tutorialBlocksGrabbed[i] = false;
+    //     }
+    // }
 }
