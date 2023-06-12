@@ -54,6 +54,10 @@ public class MoucheAMerde : MonoBehaviour
 
     private Vector3 _previousPosition;
 
+    //Audio : Wwise RTPC & variable distances
+    [SerializeField] private AK.Wwise.RTPC RTPCdistancePlayerMouche;
+    private float distancePlayerMouche = 0f;
+
     void Start()
     {
         Vector3 pos = transform.position; //modif maros pour limiter l'impact perf
@@ -84,6 +88,8 @@ public class MoucheAMerde : MonoBehaviour
         _speedToTarget = 0.5f;
         _speedAddition = 1;
         _speedIncrement = Random.Range(0f * speedMultiplier, 0.0001f * speedMultiplier);
+        // Audio loop
+        AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
     }
 
     void Update()
@@ -95,8 +101,9 @@ public class MoucheAMerde : MonoBehaviour
         _path = bodypos - _initialPosition;
 
         //------------------------------------------------AUDIO-------------------------
-        float distancePlayerMouche = Vector3.Distance(bodypos, transform.position);
-
+        distancePlayerMouche = Vector3.Distance(bodypos, transform.position);
+        Debug.Log(distancePlayerMouche);
+        RTPCdistancePlayerMouche.SetValue(gameObject, distancePlayerMouche);
 
         //---------------------
         _p = bodypos + Vector3.Project(pos - bodypos, -_path);
@@ -210,12 +217,16 @@ public class MoucheAMerde : MonoBehaviour
         if (other.transform.tag == "Bouclier")
         {
             Destroy(transform.gameObject);
+            //audio destruction mouche
+            AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
         }
         else if (other.transform.tag == "Player")
         {
             Debug.Log("poutprout");
             bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
             Destroy(gameObject);
+            //Audio puch mouche
+            AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
 
         }
 
