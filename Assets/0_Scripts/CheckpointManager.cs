@@ -61,7 +61,7 @@ public class CheckpointManager : MonoBehaviour
         }
 
         //ungrab event 
-        onOverrideGrabEvent.Raise(this, null, null, null);
+        onOverrideGrabEvent.Raise(this, false, null, null);
     }
 
     public void OnReturnToFirstCheckpoint(Component sender, object unUsed, object unUsed2, object unUsed3)
@@ -84,7 +84,7 @@ public class CheckpointManager : MonoBehaviour
         }
 
         //ungrab event 
-        onOverrideGrabEvent.Raise(this, null, null, null);
+        onOverrideGrabEvent.Raise(this, false, null, null);
 
         //reload the level
         GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();

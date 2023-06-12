@@ -24,6 +24,7 @@ public class TimerBeforeStart : MonoBehaviour
     private float _countDownToIntDisplay;
     private PlayerManager _playerManager;
     private Transform _initialTransform;
+    private bool _triggerOnceLaunchLevel;
 
     private void Awake() 
     {
@@ -48,6 +49,8 @@ public class TimerBeforeStart : MonoBehaviour
     {
         if (_countDown < 0)
         {
+            if (_triggerOnceLaunchLevel) return;
+            _triggerOnceLaunchLevel = true;
             LaunchTutorial();
             return;
         }
@@ -74,11 +77,11 @@ public class TimerBeforeStart : MonoBehaviour
 
     IEnumerator DesactivateFallPanelAfterDelay()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(.5f);
         tutorialBlocks.gameObject.SetActive(true);
         uiPanelToFall.SetActive(false);
     }
 
     private void CheckForAllLimbsLock() => _allLimbsLock =
-        PlayerManager.Players.Count > 1 && PlayerManager.AllLimbsAssigned && !GameManager.InGame;
+        PlayerManager.Players.Count > 1 && PlayerManager.AllLimbsAssigned && GameManager.UICanvaState == GameManager.UIStateEnum.Play;
 }

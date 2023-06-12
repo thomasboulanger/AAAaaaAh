@@ -81,7 +81,7 @@ public class Bag : MonoBehaviour
         for (int i = 0; i < _limbsGrabbingBag.Length; i++)
         {
             if (!_limbsGrabbingBag[i]) continue;
-            _limbControllers[i].BagMovingLimb(transform.position, _offsetVector[i], _offsetDistance[i]);
+            //_limbControllers[i].BagMovingLimb(transform.position, _offsetVector[i], _offsetDistance[i]);
         }
 
         transform.rotation = _currentRot;
