@@ -15,11 +15,15 @@ public class TestingPoubelle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKey(KeyCode.B))
         {
             GameObject testInstance = Instantiate(test, transform.position, transform.rotation);
 
             poubelleRef.InitializeMovement(testInstance.transform);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            poubelleRef.EjectFruits();
         }
     }
 }
