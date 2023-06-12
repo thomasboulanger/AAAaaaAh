@@ -58,11 +58,11 @@ public class PoubelleVisualManager : MonoBehaviour
         {
             if (!canClose)
             {
-                timerPoubelle += dt;
+                timerPoubelle += dt * couvercleSpeed;
             }
         }
 
-        Quaternion rotaBenne = Quaternion.Lerp(couvercle.localRotation, canClose ? _closedRotation : _openedRotation, dt * couvercleSpeed);
+        Quaternion rotaBenne = Quaternion.Lerp(couvercle.localRotation, canClose ? _closedRotation : _openedRotation, dt);
         couvercle.localRotation = rotaBenne;
 
         for (int i = 0; i < fruits.Count; i++)
