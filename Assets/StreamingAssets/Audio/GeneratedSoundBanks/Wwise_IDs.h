@@ -183,6 +183,7 @@ namespace AK
         static const AkUniqueID HABILITIES = 2157941935U;
         static const AkUniqueID INSPIRATION = 1816140719U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MOUCHE = 3928171036U;
         static const AkUniqueID MOUVEMENTS = 1587507860U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID MUSICTOUNITY = 2213089996U;

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{088F6E44-76EE-3148-0204-EB0A7FC4D728}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BD0676FF-6D8D-684B-C513-C620CA1B7756}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -127,6 +127,7 @@
 						</Custom>
 					</PluginRefs>
 				</Bus>
+				<Bus Id="3928171036" Name="Mouche"/>
 				<Bus Id="3991942870" Name="Music">
 					<PluginRefs>
 						<Custom>
@@ -194,7 +195,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{47C897D7-65E1-1A4D-F121-2FE116C81EBB}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{35E9608D-E525-5730-04CC-F92D98E42979}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -1971,6 +1972,7 @@
 			<GameParameters>
 				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
 				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
+				<GameParameter Id="2541357373" Name="Distance_from_player"/>
 				<GameParameter Id="2692577935" Name="distance_from_demon"/>
 				<GameParameter Id="2761015712" Name="cinematic_eloignement_demon"/>
 				<GameParameter Id="4010915728" Name="cinematic_music_playback_speed"/>
@@ -1990,5 +1992,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EC3DB258-CA20-97BD-C5E6-EBCD45944274}</FileHash>
+	<FileHash>{93F663F6-BAD3-585A-5914-229D89E5A337}</FileHash>
 </SoundBanksInfo>
