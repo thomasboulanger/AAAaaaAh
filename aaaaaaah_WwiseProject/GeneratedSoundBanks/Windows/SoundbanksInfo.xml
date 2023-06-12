@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{54EECD9C-1C41-ADA3-6BB0-8CE846E8E0B6}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{088F6E44-76EE-3148-0204-EB0A7FC4D728}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,6 +21,7 @@
 					<Plugin Id="789575649" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="863241337" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="1003400538" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="1004268985" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="1028855844" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 				</Custom>
 				<ShareSets>
@@ -126,7 +127,13 @@
 						</Custom>
 					</PluginRefs>
 				</Bus>
-				<Bus Id="3991942870" Name="Music"/>
+				<Bus Id="3991942870" Name="Music">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1004268985"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
 			</Busses>
 			<AuxBusses>
 				<AuxBus Id="1530676313" Name="Exterior_rev">
@@ -187,7 +194,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{2E192A07-1B79-8BC1-C798-770C15AD4C73}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{47C897D7-65E1-1A4D-F121-2FE116C81EBB}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -335,6 +342,14 @@
 					<ShortName>sfx_roman_scream_rvb_proche_07.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_proche_07_10C4C929.wem</CachePath>
 				</File>
+				<File Id="154341191" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_05.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="158503567" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_02.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="163509513" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_06.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_06_10C4C929.wem</CachePath>
@@ -441,7 +456,7 @@
 				</File>
 				<File Id="302370794" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_village.wav</ShortName>
-					<CachePath>SFX/Village/sfx_environnement_village_084E39E6.wem</CachePath>
+					<CachePath>SFX/Village/sfx_environnement_village_BF9A3598.wem</CachePath>
 				</File>
 				<File Id="309754520" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_hammer_05.wav</ShortName>
@@ -491,6 +506,10 @@
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_07.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_07_10C4C929.wem</CachePath>
 				</File>
+				<File Id="353305862" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_03.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_03_10C4C929.wem</CachePath>
+				</File>
 				<File Id="365540200" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_jackhammer_03.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_jackhammer_03_10C4C929.wem</CachePath>
@@ -506,6 +525,10 @@
 				<File Id="368485799" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 4_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 4_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="369197349" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_06.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_06_10C4C929.wem</CachePath>
 				</File>
 				<File Id="370890124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 3_01.wav</ShortName>
@@ -523,6 +546,10 @@
 					<ShortName>voix\sfx_voix_enjaille_02.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_enjaille_02_10C4C929.wem</CachePath>
 				</File>
+				<File Id="386840007" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="388051232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_launch_02.wav</ShortName>
 					<CachePath>SFX/sfx_ui_truelle_launch_02_10C4C929.wem</CachePath>
@@ -530,6 +557,10 @@
 				<File Id="388213827" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_glass_moving_loop.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_glass_moving_loop_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="390338802" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_01.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="395872111" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 1_03.wav</ShortName>
@@ -566,6 +597,10 @@
 				<File Id="423899479" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_bourres_05.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_bourres_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="445324034" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_04.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_04_10C4C929.wem</CachePath>
 				</File>
 				<File Id="447675570" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_launch_04.wav</ShortName>
@@ -722,6 +757,10 @@
 				<File Id="674091117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_wood_04.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_wood_04_10C4C929.wem</CachePath>
+				</File>
+				<File Id="676384594" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_04.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_04_10C4C929.wem</CachePath>
 				</File>
 				<File Id="679853481" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_hit_Select_04.wav</ShortName>
@@ -891,6 +930,10 @@
 					<ShortName>roman_bbrglm_06.wav</ShortName>
 					<CachePath>SFX/roman_bbrglm_06_10C4C929.wem</CachePath>
 				</File>
+				<File Id="845419896" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_02.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="852972280" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_hit_simple_04.wav</ShortName>
 					<CachePath>SFX/sfx_ui_truelle_hit_simple_04_10C4C929.wem</CachePath>
@@ -951,6 +994,10 @@
 					<ShortName>sfx_roman_scream_rvb_proche_01.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_proche_01_10C4C929.wem</CachePath>
 				</File>
+				<File Id="918775831" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_03.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_03_10C4C929.wem</CachePath>
+				</File>
 				<File Id="923013965" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_woodwork_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_01_10C4C929.wem</CachePath>
@@ -995,6 +1042,10 @@
 					<ShortName>Intro\sfx_plate_moving_loop.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_plate_moving_loop_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="967665823" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_buzz.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_buzz_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="996303712" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_book_falling_03.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_book_falling_03_10C4C929.wem</CachePath>
@@ -1014,6 +1065,10 @@
 				<File Id="1014474565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 4_01.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 4_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1022901008" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_05.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_05_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1026825959" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_rock_06.wav</ShortName>
@@ -1042,6 +1097,14 @@
 				<File Id="1044935901" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_sorcier_impact.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_sorcier_impact_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1047651452" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_06.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1048767699" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_01.wav</ShortName>
+					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1050952435" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_drill_05.wav</ShortName>
@@ -1424,6 +1487,14 @@
 						<MediaRef Id="916003473"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1315062901" Name="Play_kompa1" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="193205"/>
+						<MediaRef Id="136290319"/>
+						<MediaRef Id="495112281"/>
+						<MediaRef Id="933035219"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
 					<MediaRefs>
 						<MediaRef Id="495112281"/>
@@ -1435,6 +1506,28 @@
 						<MediaRef Id="136290319"/>
 						<MediaRef Id="495112281"/>
 						<MediaRef Id="933035219"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3672501366" Name="Play_mouche_fly_loop" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="386840007"/>
+						<MediaRef Id="967665823"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2563752858" Name="Play_mouche_punch" DurationType="OneShot" DurationMin="0.23286228" DurationMax="0.4543761">
+					<MediaRefs>
+						<MediaRef Id="154341191"/>
+						<MediaRef Id="158503567"/>
+						<MediaRef Id="353305862"/>
+						<MediaRef Id="369197349"/>
+						<MediaRef Id="390338802"/>
+						<MediaRef Id="445324034"/>
+						<MediaRef Id="676384594"/>
+						<MediaRef Id="845419896"/>
+						<MediaRef Id="918775831"/>
+						<MediaRef Id="1022901008"/>
+						<MediaRef Id="1047651452"/>
+						<MediaRef Id="1048767699"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="425169085" Name="Play_sfx_amb_jungle_night" DurationType="Infinite">
@@ -1897,5 +1990,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0825179F-48F9-E870-94EC-7A859A2AEA15}</FileHash>
+	<FileHash>{EC3DB258-CA20-97BD-C5E6-EBCD45944274}</FileHash>
 </SoundBanksInfo>
