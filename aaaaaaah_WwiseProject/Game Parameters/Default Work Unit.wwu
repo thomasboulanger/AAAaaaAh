@@ -36,8 +36,9 @@
 						<GameParameter Name="MeterControl_unity" ID="{34C6CE7B-D8D0-4C19-8CF4-80A715C3BB78}">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="15"/>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-								<Property Name="Max" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="-48"/>
+								<Property Name="Max" Type="Real64" Value="0"/>
+								<Property Name="Min" Type="Real64" Value="-48"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 						</GameParameter>

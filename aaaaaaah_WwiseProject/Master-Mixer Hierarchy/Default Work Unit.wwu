@@ -28,6 +28,13 @@
 								<Property Name="Color" Type="int16" Value="1"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Meter (Custom)" ID="{7A6F4CF9-103C-475F-8E31-97945A3B980D}" ShortID="1004268985" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3"/>
+									</Custom>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
 								<Bus Name="musictounity" ID="{B2E55220-9C0E-4F51-85B6-FAE4558BF7CC}">
 									<ReferenceList>
@@ -68,17 +75,17 @@
 																				<XPos>-15</XPos>
 																				<YPos>0</YPos>
 																				<Flags>0</Flags>
-																				<SegmentShape>Exp1</SegmentShape>
+																				<SegmentShape>Exp3</SegmentShape>
 																			</Point>
 																			<Point>
-																				<XPos>-10.04283</XPos>
-																				<YPos>-6.68458</YPos>
+																				<XPos>-8.93209</XPos>
+																				<YPos>-5.6942</YPos>
 																				<Flags>0</Flags>
 																				<SegmentShape>Log2</SegmentShape>
 																			</Point>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>-200</YPos>
+																				<YPos>-13.00372</YPos>
 																				<Flags>37</Flags>
 																			</Point>
 																		</PointList>
