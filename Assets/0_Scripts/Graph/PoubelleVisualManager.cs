@@ -6,18 +6,18 @@ using UnityEngine;
 
 public class PoubelleVisualManager : MonoBehaviour
 {
+    [Header("Valeurs a set")]
     [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
     [SerializeField] private Transform corp;
-    [SerializeField] private List<Transform> fruits = new List<Transform>();
-    [SerializeField] private List<float> fruitTimers = new List<float>();
-    [SerializeField] private List<Vector3> basePos = new List<Vector3>();
-    [SerializeField] private List<bool> hasBouped = new List<bool>();
 
-    [SerializeField] private float speed = 2f;
-    [SerializeField] private float waitTimePoubelle = 2f;
+    [Header("Valeurs de tweak")]
+
+    [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
+
+    [Header("Courbe d'anims")]
 
     [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private AnimationCurve bloupCurve;
@@ -25,15 +25,19 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
 
+    [Header("purement debug")]
+
+    [SerializeField] private float timerPoubelle;
+    [SerializeField] private List<Transform> fruits = new List<Transform>();
+    [SerializeField] private List<float> fruitTimers = new List<float>();
+    [SerializeField] private List<Vector3> basePos = new List<Vector3>();
+    [SerializeField] private List<bool> hasBouped = new List<bool>();
 
     private Animator _animator;
-
-    public float timerPoubelle;
-
     private Quaternion _openedRotation;
     private Quaternion _closedRotation;
+    private Quaternion lastRotation;
 
-    // Start is called before the first frame update
     void Start()
     {
         _openedRotation = couvercle.localRotation;
@@ -45,59 +49,57 @@ public class PoubelleVisualManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<Transform> toRemove = new List<Transform>();
+        //init des valeurs utilisées
+        List<Transform> teRemoveFromLists = new List<Transform>();
         float dt = Time.deltaTime;
 
         Vector3 dansPoubelleStored = dansPoubelle.position;
         Vector3 topPointStored = topPoint.position;
 
-        bool canClose = timerPoubelle > waitTimePoubelle;
-
-
-        if (fruits.Count == 0)
+        if (fruits.Count > 0)
         {
-            if (!canClose)
+            couvercle.localRotation = Quaternion.Lerp(couvercle.localRotation, _openedRotation, dt * couvercleSpeed);//ouvrir le couvercle
+        }
+        else
+        {
+            if (timerPoubelle < 1f)
             {
                 timerPoubelle += dt * couvercleSpeed;
+                couvercle.localRotation = Quaternion.LerpUnclamped(lastRotation, fruits.Count == 0 ? _closedRotation : _openedRotation, couvercleAnim.Evaluate(timerPoubelle)); //fermer le couvercle avec timer et courbe
             }
         }
-
-        Quaternion rotaBenne = Quaternion.Lerp(couvercle.localRotation, canClose ? _closedRotation : _openedRotation, dt);
-        couvercle.localRotation = rotaBenne;
 
         for (int i = 0; i < fruits.Count; i++)
         {
             if (fruitTimers[i] >= 1f)
             {
+                lastRotation = couvercle.localRotation;//setup fermeture couvercle
+                timerPoubelle = 0;
                 //--------------------------------------------------------
                 Destroy(fruits[i].gameObject);
                 //--------------------------------------------------------
-                toRemove.Add(fruits[i]);
+                teRemoveFromLists.Add(fruits[i]);// on a joute le fruit pour la supression des listes
                 continue;
             }
 
-            fruitTimers[i] += dt * speed;
-
-
-            fruits[i].transform.position = Vector3.Lerp(basePos[i], Vector3.Lerp(topPointStored, dansPoubelleStored, destinationCurve.Evaluate(fruitTimers[i])), speedCurve.Evaluate(fruitTimers[i]));
-            if (fruitTimers[i]> 0.8f && !hasBouped[i])
+            fruitTimers[i] += dt * fruitSpeed;
+            fruits[i].transform.position = Vector3.Lerp(basePos[i], Vector3.Lerp(topPointStored, dansPoubelleStored, destinationCurve.Evaluate(fruitTimers[i])), speedCurve.Evaluate(fruitTimers[i]));//deplacement fruit
+            if (fruitTimers[i] > 0.8f && !hasBouped[i])
             {
                 hasBouped[i] = true;
-                _animator.SetTrigger("boup");
+                _animator.SetTrigger("boup");//fruit rentre dans la poubelle : animation
             }
         }
-        
-        foreach (Transform item in toRemove)
+
+        foreach (Transform item in teRemoveFromLists)
         {
             int index = fruits.IndexOf(item);
-
-            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index);
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); //on suprime tt les fruits détruits cette frame
         }
     }
 
-    public void InitializeMovement(Transform fruit)// il faut désactiver le fruits vanat de l'evoyer ici
+    public void InitializeMovement(Transform fruit)// il faut désactiver le fruits avant de l'evoyer ici
     {
-        fruits.Add(fruit);fruitTimers.Add(0);basePos.Add(fruit.position);hasBouped.Add(false);
-        timerPoubelle = 0;
+        fruits.Add(fruit); fruitTimers.Add(0); basePos.Add(fruit.position); hasBouped.Add(false); //ajout du fruit dans les listes
     }
 }

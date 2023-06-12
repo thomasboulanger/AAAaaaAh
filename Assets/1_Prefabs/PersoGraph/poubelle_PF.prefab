@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487813826483950046}
   m_LocalRotation: {x: -0.00000005960463, y: -0, z: -0.00000011920926, w: 1}
-  m_LocalPosition: {x: -0, y: -0.384, z: 1.457}
+  m_LocalPosition: {x: -0, y: -0.046, z: 1.457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,9 +119,9 @@ MonoBehaviour:
   fruitTimers: []
   basePos: []
   hasBouped: 
-  speed: 2
-  waitTimePoubelle: 2
-  couvercleSpeed: 2
+  speed: 1
+  waitTimePoubelle: 1
+  couvercleSpeed: 3.5
   speedCurve:
     serializedVersion: 2
     m_Curve:
@@ -134,6 +134,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.5101814
+      value: 1.0013971
+      inSlope: 0.08667047
+      outSlope: 0.08667047
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10667301
     - serializedVersion: 3
       time: 1
       value: 1
@@ -230,6 +239,100 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  destinationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.37453008
+    - serializedVersion: 3
+      time: 0.35905623
+      value: -0.003807568
+      inSlope: 0.013641522
+      outSlope: 0.013641522
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.29392037
+      outWeight: 0.91952664
+    - serializedVersion: 3
+      time: 0.61222583
+      value: 0.9659696
+      inSlope: 1.4124457
+      outSlope: 1.4124457
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.22013235
+      outWeight: 0.21772173
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0.008700958
+      outSlope: -0.008700958
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.46743247
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  couvercleAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.06870511
+      value: -0.1130493
+      inSlope: 2.7651122
+      outSlope: 2.7651122
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.055964876
+    - serializedVersion: 3
+      time: 0.37103704
+      value: 0.7271375
+      inSlope: 4.814201
+      outSlope: 4.814201
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08932034
+      outWeight: 0.15707153
+    - serializedVersion: 3
+      time: 0.5776713
+      value: 1.0444603
+      inSlope: 0.29474667
+      outSlope: 0.29474667
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timerPoubelle: 0
 --- !u!95 &6757741322449256745
 Animator:
   serializedVersion: 4
