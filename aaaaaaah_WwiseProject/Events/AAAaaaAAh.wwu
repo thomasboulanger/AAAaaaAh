@@ -123,6 +123,42 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_mouche_punch" ID="{5622BC7D-5F4F-4695-A9F4-7194174788CC}">
+							<ChildrenList>
+								<Action Name="" ID="{1863F45B-2F93-482E-A5A3-9C10CF759C1B}" ShortID="889306195">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_environnement_mouche_fly_loop_punch_hit" ID="{904424D8-095E-49A3-A283-0FED2AFF1ED6}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{08A34AA5-9908-4B4C-A17B-1B0B69E2E385}" ShortID="503148070">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_environnement_mouche_fly_loop_punch_voice" ID="{9F85FA58-ECB0-4A2F-A564-BA54D1DCC0F9}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_mouche_fly_loop" ID="{E970C411-7D4A-4469-9F6D-2D58F10D5E83}">
+							<ChildrenList>
+								<Action Name="" ID="{E94A083E-786E-4E22-A76A-B90730CDE7DE}" ShortID="1023152149">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_environnement_mouche_fly_loop" ID="{BE3E2AF2-C226-4E6C-A747-57CDFAA1170C}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{AEE39C44-DF35-43B1-972A-9A353561B1D9}" ShortID="539716549">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_environnement_mouche_fly_loop_buzz" ID="{D28EAC04-904D-417D-ABC1-C4FBC4411033}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="parpaing" ID="{ADF96FF9-C882-43F5-86E5-0F42145B0099}" ShortID="866466010">
@@ -217,6 +253,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="kompa4" ID="{357CC06F-1AB8-432C-9730-9BFD88BA2ABF}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_kompa1" ID="{201F9D9E-8BC0-4450-9DB7-C92E8B1C2048}">
+							<ChildrenList>
+								<Action Name="" ID="{4345D241-FAFC-4738-933F-5537E1171EE4}" ShortID="126787189">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="kompa1" ID="{0A03CFB5-7ECF-4ECE-B63C-CC7623F20C49}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

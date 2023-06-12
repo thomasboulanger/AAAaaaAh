@@ -5784,6 +5784,511 @@
 										</ActorMixer>
 									</ChildrenList>
 								</ActorMixer>
+								<ActorMixer Name="mouche" ID="{0C723359-D2A0-4B7C-81BB-38F5A0F3827E}" ShortID="921189010">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_environnement_mouche_fly_loop" ID="{BE3E2AF2-C226-4E6C-A747-57CDFAA1170C}" ShortID="373579130">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{6246849E-E3C3-4462-89A6-67A843DA441E}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="102"/>
+																	<Property Name="Min" Type="Real64" Value="-77"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_environnement_mouche_fly_loop" ID="{5BE7B342-E61D-4408-8271-7ED72B1A7B5E}">
+													<Language>SFX</Language>
+													<AudioFile>mouche\sfx_environnement_mouche_fly_loop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="386840007"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_environnement_mouche_fly_loop" ID="{5BE7B342-E61D-4408-8271-7ED72B1A7B5E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_environnement_mouche_fly_loop_buzz" ID="{D28EAC04-904D-417D-ABC1-C4FBC4411033}" ShortID="94844352">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{E5EC20FB-C1B5-485D-A2AD-82411EC1CAE7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="101"/>
+																	<Property Name="Min" Type="Real64" Value="-51"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_environnement_mouche_fly_loop_buzz" ID="{FD3EEF1F-B673-4078-9337-2C24710EB420}">
+													<Language>SFX</Language>
+													<AudioFile>mouche\sfx_environnement_mouche_fly_loop_buzz.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="967665823"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_environnement_mouche_fly_loop_buzz" ID="{FD3EEF1F-B673-4078-9337-2C24710EB420}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="sfx_environnement_mouche_fly_loop_punch_hit" ID="{904424D8-095E-49A3-A283-0FED2AFF1ED6}" ShortID="331549965">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{38185D17-5D77-4B70-89AE-0DBE8202931C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="76"/>
+																	<Property Name="Min" Type="Real64" Value="-51"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{FAF68ADC-745E-48B8-9752-03319245F827}"/>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_01" ID="{895AE82A-D006-4B1E-81D5-77E2FF97BAD1}" ShortID="225573358">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_01" ID="{B6A0CB19-28BC-4405-81FF-BE1E99BD0F76}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1048767699"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_01" ID="{B6A0CB19-28BC-4405-81FF-BE1E99BD0F76}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_02" ID="{7054ED3D-163A-4CCF-B8E8-813969251607}" ShortID="566115624">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_02" ID="{2A66E68A-D0EF-4C0C-A660-F37E31682EA5}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="845419896"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_02" ID="{2A66E68A-D0EF-4C0C-A660-F37E31682EA5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_03" ID="{5A98F140-31A7-4EC1-B014-DCFFE7493B71}" ShortID="755604743">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_03" ID="{49F62BD7-3F91-474D-8376-F5ED75478768}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="353305862"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_03" ID="{49F62BD7-3F91-474D-8376-F5ED75478768}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_04" ID="{0AA1B92E-EDF6-4F8C-846B-751A0380860C}" ShortID="58955440">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_04" ID="{0D0386CA-2188-4911-B79B-46A8C8907481}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="676384594"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_04" ID="{0D0386CA-2188-4911-B79B-46A8C8907481}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_05" ID="{3D7EDB7A-59E3-4914-92B1-5B6240C67B5A}" ShortID="327984904">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_05" ID="{EA0D1686-75B2-493E-B324-7C911ADD6962}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1022901008"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_05" ID="{EA0D1686-75B2-493E-B324-7C911ADD6962}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_hit_06" ID="{A09EADD9-31B0-4FD3-89E7-8CBB4B033482}" ShortID="989476943">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_hit_06" ID="{3EF16F90-1A48-48DD-9632-764A5596A1D0}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_hit_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1047651452"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_hit_06" ID="{3EF16F90-1A48-48DD-9632-764A5596A1D0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="sfx_environnement_mouche_fly_loop_punch_voice" ID="{9F85FA58-ECB0-4A2F-A564-BA54D1DCC0F9}" ShortID="676500100">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+												<Property Name="InitialDelay" Type="Real64">
+													<ValueList>
+														<Value>0.1</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{4CA8AF5E-C760-4FC2-BDAF-51925F6ACCB3}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.1"/>
+																	<Property Name="Min" Type="Real64" Value="-0.05"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{F5558646-D526-4693-8431-D589E3A1E43D}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="25"/>
+																	<Property Name="Min" Type="Real64" Value="-25"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_01" ID="{57392FC8-A103-4580-A9AF-F83C10058FA6}" ShortID="713773280">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_01" ID="{1565A6DC-A1F9-43E2-81A9-AD0C62149013}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="390338802"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_01" ID="{1565A6DC-A1F9-43E2-81A9-AD0C62149013}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_02" ID="{62875FBF-66BD-49E8-AD54-409A930B13D3}" ShortID="220159642">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_02" ID="{6102323E-5942-4C47-B9D0-BD0232245CD0}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="158503567"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_02" ID="{6102323E-5942-4C47-B9D0-BD0232245CD0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_03" ID="{D28A5F62-FA31-4057-80C9-A1F4C7369E73}" ShortID="226177019">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_03" ID="{D24C552C-3008-4776-B9F8-BFD54F1C119D}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="918775831"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_03" ID="{D24C552C-3008-4776-B9F8-BFD54F1C119D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_04" ID="{DDC42F02-ED9E-4D42-B975-4739E9BEC888}" ShortID="420370502">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_04" ID="{57E49F60-6C4E-48ED-B81A-A0C03A378225}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="445324034"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_04" ID="{57E49F60-6C4E-48ED-B81A-A0C03A378225}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_05" ID="{6FD8958D-78C7-4984-A6DA-66D7DCDA3B21}" ShortID="666242681">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_05" ID="{7DF449CC-51D4-44EF-9CD0-91AF04BCDB5F}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="154341191"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_05" ID="{7DF449CC-51D4-44EF-9CD0-91AF04BCDB5F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_environnement_mouche_fly_loop_punch_voice_06" ID="{62A25BDB-AFC7-4FF5-8CDF-BB73350D309A}" ShortID="8409344">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_environnement_mouche_fly_loop_punch_voice_06" ID="{6BF1F074-1622-47AA-B9C9-331B6B64A012}">
+															<Language>SFX</Language>
+															<AudioFile>mouche\sfx_environnement_mouche_fly_loop_punch_voice_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="369197349"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_06" ID="{6BF1F074-1622-47AA-B9C9-331B6B64A012}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="Parpaing" ID="{24FB64B8-537F-42D4-A673-9D13B6211ABB}" ShortID="956217903">
@@ -9123,6 +9628,7 @@
 													<ChildrenList>
 														<RandomSequenceContainer Name="CRIS_&amp;_groml" ID="{17E501D6-8780-4496-BF64-E587619F42D5}" ShortID="1071088234">
 															<PropertyList>
+																<Property Name="OverrideOutput" Type="bool" Value="True"/>
 																<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 																<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 																<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
@@ -9146,7 +9652,7 @@
 																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 																</Reference>
 																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																	<ObjectRef Name="scream" ID="{3EA769D5-A65D-44D5-9481-7273BFB17E37}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 																</Reference>
 															</ReferenceList>
 															<ChildrenList>
