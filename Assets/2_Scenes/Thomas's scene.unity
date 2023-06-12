@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11601.215, g: 7308.676, b: 7448.282, a: 1}
+  m_IndirectSpecularColor: {r: 10834.943, g: 6810.242, b: 6738.716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4972,17 +4972,17 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12317163
+      value: -0.12317165
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017600883
+      value: 0.000000017600875
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021845639
+      value: 0.0000000021845636
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -5156,8 +5156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e289228180d114792a06b22b4dec66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerChangePanel: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2,
+    type: 2}
   countDownText: {fileID: 63899083}
-  titleTimerText: {fileID: 2019637434}
   uiPanelToFall: {fileID: 1566325847625029793}
   tutorialBlocks: {fileID: 845361241}
 --- !u!4 &1775847125274735665
@@ -5774,6 +5775,11 @@ PrefabInstance:
       propertyPath: trackedPositionList.Array.data[3]
       value: 
       objectReference: {fileID: 2107439832}
+    - target: {fileID: 6718840250444823053, guid: ed26549cbb2755440a721b8114b392ff,
+        type: 3}
+      propertyPath: range
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6718840250444823053, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
       propertyPath: virtualTransforms.Array.data[0]
@@ -6563,17 +6569,17 @@ PrefabInstance:
     - target: {fileID: 4983645215492319575, guid: 8cc0f97fa87116c4ca9f943320609ee2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12317163
+      value: -0.12317165
       objectReference: {fileID: 0}
     - target: {fileID: 4983645215492319575, guid: 8cc0f97fa87116c4ca9f943320609ee2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017600883
+      value: 0.000000017600875
       objectReference: {fileID: 0}
     - target: {fileID: 4983645215492319575, guid: 8cc0f97fa87116c4ca9f943320609ee2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000021845639
+      value: 0.0000000021845636
       objectReference: {fileID: 0}
     - target: {fileID: 4983645215492319575, guid: 8cc0f97fa87116c4ca9f943320609ee2,
         type: 3}
