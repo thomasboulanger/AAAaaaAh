@@ -134,8 +134,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   fly: {fileID: 2450448519767166754}
-  maxSpeed: 1
-  maxAmplitude: 10
+  coneBeginingRadius: 10
+  coneEndRadius: 1
+  destroyDistance: 15
+  oscillationChangeTimer: {x: 0.2, y: 0.4}
+  oscillationSpeedLimit: {x: 0.1, y: 2}
+  oscillationSpeedIncrement: {x: 0.5, y: 1}
+  linearSpeedChangeTimer: {x: 0.2, y: 0.4}
+  linearSpeedLimit: {x: 0.1, y: 2}
+  linearSpeedIncrement: {x: 0.5, y: 1}
   bodyRB: {fileID: 0}
   force: 5
   bouclierList:
@@ -143,8 +150,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  oscillationSpeedMultiplier: 10
-  speedMultiplier: 10
   lerpSpeed: 3
   lerpSpeed2: 3
   zRotPower: 833.3335
