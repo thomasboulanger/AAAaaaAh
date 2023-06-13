@@ -37,15 +37,6 @@ public class PoubelleVisualManager : MonoBehaviour
     [Header("for debug purpose only")] [SerializeField]
     private float timerPoubelle;
 
-<<<<<<< Updated upstream
-    [SerializeField] private float timerPoubelle;
-    [SerializeField] private List<Transform> fruits = new List<Transform>();
-    [SerializeField] private List<float> fruitTimers = new List<float>();
-    [SerializeField] private List<Vector3> basePos = new List<Vector3>();
-    [SerializeField] private List<bool> hasBouped = new List<bool>();
-    [SerializeField] private List<Transform> storedFruits = new List<Transform>();
-    [SerializeField] private List<Vector3> midlePosesOffsets = new List<Vector3>();
-=======
     [SerializeField] private List<Transform> fruits = new();
     [SerializeField] private List<float> fruitTimers = new();
     [SerializeField] private List<Vector3> basePos = new();
@@ -55,7 +46,6 @@ public class PoubelleVisualManager : MonoBehaviour
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
     [SerializeField]
     private List<Vector3> middlePosOffsets = new();
->>>>>>> Stashed changes
 
     private Animator _animator;
     private Quaternion _openedRotation;
@@ -63,15 +53,9 @@ public class PoubelleVisualManager : MonoBehaviour
     private Quaternion _lastRotation;
     private bool _ejectFruits;
     private bool _finished;
-<<<<<<< Updated upstream
-    private int ejectedFruits;
-    private bool _ejectSingleFruit;
-    private Vector3 fruitPos;
-=======
     private int index;
 
     void Start() => Init();
->>>>>>> Stashed changes
 
     private void Init()
     {
@@ -83,31 +67,11 @@ public class PoubelleVisualManager : MonoBehaviour
 
     void Update()
     {
-<<<<<<< Updated upstream
-        //init des valeurs utilisées
-        List<Transform> teRemoveFromLists = new List<Transform>();
-        float dt = Time.deltaTime;
-
-        Vector3 endPos;
-        Vector3 midlePos;
-
-        if (_ejectFruits && !_ejectSingleFruit)
-        {
-            endPos = insideMonster.position;
-            midlePos = midlePoint.position;
-        }
-        else
-        {
-            endPos = dansPoubelle.position;
-            midlePos = topPoint.position;
-        }
-=======
         //initialization
         List<Transform> toRemoveFromLists = new List<Transform>();
         float deltaTime = Time.deltaTime;
         Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
         Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
->>>>>>> Stashed changes
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -131,17 +95,9 @@ public class PoubelleVisualManager : MonoBehaviour
                 //setup to close garbage can lid
                 _lastRotation = couvercle.localRotation;
                 timerPoubelle = 0;
-<<<<<<< Updated upstream
-                //--------------------------------------------------------
-                if (!_ejectSingleFruit)
-                {
-                    fruits[i].gameObject.SetActive(false); // on laisse le fruit activé si il a été drop----------------------------------
-                }
-=======
 
                 //deactivate current fruit
                 fruits[i].gameObject.SetActive(false);
->>>>>>> Stashed changes
 
                 //adding current fruit for suppression from lists
                 toRemoveFromLists.Add(fruits[i]);
@@ -151,12 +107,7 @@ public class PoubelleVisualManager : MonoBehaviour
             Vector3 middlePosOffseted = middlePos + middlePosOffsets[i] *
                 (_ejectFruits ? randomizeTrajectoryPowerDropping : randomizeTrajectoryPower);
 
-<<<<<<< Updated upstream
-            fruitTimers[i] += dt * fruitSpeed;
-            fruits[i].transform.position = Vector3.Lerp(basePos[i], Vector3.Lerp(midlePosOffseted, _ejectSingleFruit ? fruitPos: endPos, destinationCurve.Evaluate(fruitTimers[i])), (_ejectFruits? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));//deplacement fruit
-=======
             fruitTimers[i] += deltaTime * fruitSpeed;
->>>>>>> Stashed changes
 
             //fruit movement
             fruits[i].transform.position = Vector3.Lerp
@@ -191,31 +142,15 @@ public class PoubelleVisualManager : MonoBehaviour
             {
                 _finished = false;
                 _ejectFruits = false;
-
-                if (_ejectSingleFruit)
-                {
-                    _ejectSingleFruit = false;
-                    storedFruits.RemoveAt(0);
-                }
-                else
-                {
-                    storedFruits.Clear();
-                }
+                storedFruits.Clear();
                 continue;
             }
+
             if (_ejectFruits) continue;
             storedFruits.Add(toRemoveFromLists[i]);
         }
     }
 
-<<<<<<< Updated upstream
-    public void InitializeMovement(Transform fruit, bool ejecting)// il faut désactiver le fruits avant de l'evoyer ici
-    {
-        fruits.Add(fruit); fruitTimers.Add(0); basePos.Add(fruit.position); hasBouped.Add(false); //ajout du fruit dans les listes
-        midlePosesOffsets.Add(RandomizedVector());//offset randoms
-
-        if (!ejecting) fruitPos = fruit.position;
-=======
     //deactivate the fruit before sending it here
     public void InitializeMovement(Transform fruit)
     {
@@ -236,25 +171,13 @@ public class PoubelleVisualManager : MonoBehaviour
                 Random.Range(-1f, 1f)
             ).normalized
         );
->>>>>>> Stashed changes
     }
 
-    public void EjectFruits(bool allfruits)
+    public void EjectFruits()
     {
         if (storedFruits?.Any() != true) return;
         _ejectFruits = true;
-        if (allfruits)
-        {
-            StartCoroutine(RandomDelayedFruits());
-        }
-        else
-        {
-            _ejectSingleFruit = true;
-            storedFruits[0].gameObject.SetActive(true);
-            InitializeMovement(storedFruits[0], true);
-            _finished = true;
-        }
-
+        StartCoroutine(RandomDelayedFruits());
     }
 
     IEnumerator RandomDelayedFruits()
@@ -262,17 +185,10 @@ public class PoubelleVisualManager : MonoBehaviour
         const float timer = 1f;
         for (int i = 0; i < storedFruits.Count; i++)
         {
-<<<<<<< Updated upstream
-            storedFruits[ejectedFruits].gameObject.SetActive(true);
-            InitializeMovement(storedFruits[ejectedFruits], true);
-            if (ejectedFruits == storedFruits.Count - 1) continue;
-            yield return new WaitForSeconds(timer / Mathf.Clamp(ejectedFruits / 2, 1, 999999));
-=======
             storedFruits[i].gameObject.SetActive(true);
             InitializeMovement(storedFruits[i]);
             if (i == storedFruits.Count - 1) continue;
             yield return new WaitForSeconds(timer / Mathf.Clamp(i / 2, 1, 999999));
->>>>>>> Stashed changes
         }
 
         _finished = true;
