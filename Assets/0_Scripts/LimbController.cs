@@ -22,7 +22,6 @@ public class LimbController : MonoBehaviour
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
-    [SerializeField] private GameEvent onAllTutorialBlocksAreGrabbed;
     [SerializeField] private GameEvent onFirstTutorialPartAchieved;
 
     [Header("The ID of limb that player with same ID will control")]
@@ -198,7 +197,6 @@ public class LimbController : MonoBehaviour
         }
 
         if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
-        //check on tutorial part only
         CheckForAllTutorialBlockGrabbed();
     }
 
@@ -215,7 +213,6 @@ public class LimbController : MonoBehaviour
         tutorialBlocksGrabCountText.text = counter + "/4";
 
         if (tmpComparator) return;
-        onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
         tutorialBlocksGrabCountText.gameObject.SetActive(false);
         for (int i = 0; i < _tutorialBlock.Length; i++)
         {

@@ -21,6 +21,8 @@ public class TutorialLauncher : MonoBehaviour
     [SerializeField] private TMP_Text countDownText;
     [SerializeField] private List<GameObject> uiObjectToDispawnAtTutorial;
     [SerializeField] private GameObject tutorialBlocks;
+    [SerializeField] private GameObject tutorialCage;
+    [SerializeField] private GameObject uiHintToMoveJoysticks;
     [SerializeField] private GameObject uiArrows;
     [SerializeField] private GameObject uiHintPartTwo;
 
@@ -28,7 +30,7 @@ public class TutorialLauncher : MonoBehaviour
     private float _countDownToIntDisplay;
     private PlayerManager _playerManager;
     private bool _triggerOnceLaunchLevel;
-    private bool _triggerOnceLaunchTutorialPartTwo;
+    private GameObject[] _joysticks = new GameObject[8];
 
 
     private void Awake()
@@ -45,14 +47,19 @@ public class TutorialLauncher : MonoBehaviour
         foreach (GameObject obj in uiObjectToDispawnAtTutorial)
             obj.SetActive(true);
 
-        tutorialBlocks.gameObject.SetActive(false);
-        uiArrows.gameObject.SetActive(false);
-        uiHintPartTwo.gameObject.SetActive(false);
+        tutorialBlocks.SetActive(false);
+        tutorialCage.SetActive(true);
+        uiHintToMoveJoysticks.SetActive(false);
+        uiArrows.SetActive(false);
+        uiHintPartTwo.SetActive(false);
     }
 
     private void Update()
     {
-        TutorialPartOne();
+        if (GameManager.UICanvaState == GameManager.UIStateEnum.Play) uiHintToMoveJoysticks.SetActive(true);
+        else uiHintToMoveJoysticks.SetActive(false);
+
+        if(!_triggerOnceLaunchLevel) TutorialPartOne();
         //if(_triggerOnceLaunchTutorialPartTwo) TutorialPartTwo();
     }
 
@@ -60,7 +67,6 @@ public class TutorialLauncher : MonoBehaviour
     {
         if (_countDown < 0)
         {
-            if (_triggerOnceLaunchLevel) return;
             _triggerOnceLaunchLevel = true;
             LaunchTutorial();
             return;
@@ -69,13 +75,9 @@ public class TutorialLauncher : MonoBehaviour
         if (CheckForAllLimbsLock()) _countDown -= Time.deltaTime;
         else _countDown = 4;
 
+        uiHintToMoveJoysticks.SetActive(!CheckForAllLimbsLock());
         countDownText.gameObject.SetActive(CheckForAllLimbsLock());
-        _countDownToIntDisplay = (int) _countDown;
-        countDownText.text = _countDownToIntDisplay.ToString();
-    }
-
-    private void TutorialPartTwo()
-    {
+        countDownText.text = ((int) _countDown).ToString();
     }
 
     private bool CheckForAllLimbsLock()
@@ -89,32 +91,28 @@ public class TutorialLauncher : MonoBehaviour
         onPlayerChangePanel.Raise(this, 5, null, null);
         _playerManager.StartGame();
         countDownText.gameObject.SetActive(false);
-        StartCoroutine(DeactivateFallPanelAfterDelay());
-    }
-
-    IEnumerator DeactivateFallPanelAfterDelay()
-    {
-        yield return new WaitForSeconds(2);
+        
+        //can be a coroutine from there
         tutorialBlocks.gameObject.SetActive(true);
         foreach (GameObject obj in uiObjectToDispawnAtTutorial)
             obj.SetActive(false);
+
+        _joysticks = GameObject.FindGameObjectsWithTag("Cursor");
+        foreach (GameObject obj in _joysticks)
+            if (!obj.transform.name.Contains("Cursor"))
+                obj.SetActive(false);
     }
 
     public void OnFirstTutorialPartAchieved(Component sender, object unUsed1, object playerID, object inputID)
     {
-        if (playerID is not int) return;
-        if (inputID is not int) return;
-        if ((int) playerID != 0) return;
-        if ((int) inputID != 0) return;
-
+        tutorialCage.SetActive(false);
         uiArrows.gameObject.SetActive(true);
         onPlayerChangePanel.Raise(this, 6, null, null);
-        _triggerOnceLaunchTutorialPartTwo = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.transform.CompareTag("Player") && _triggerOnceLaunchTutorialPartTwo) return;
+        if (!other.transform.CompareTag("Player")) return;
         uiArrows.gameObject.SetActive(false);
         uiHintPartTwo.gameObject.SetActive(true);
     }

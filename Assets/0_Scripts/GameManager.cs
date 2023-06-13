@@ -62,17 +62,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("moved to panel " + (int) data1);
     }
 
-    //event to launch the game for real (after the tutorial part)
-    public void AllTutorialBlocksAreGrabbed(Component sender, object data1, object playerID, object limbID)
-    {
-        if (data1 is not bool) return;
-        if (playerID is not int) return;
-        if (limbID is not int) return;
-
-        PlayerChangePanel(this, 6, null, null);
-        tutorialCharacterCage.SetActive(false);
-    }
-
     public void PlayerHaveReachedTheEnd(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //player has passed the trigger box at the end of the level, now it has to seat and fire fruits on the demon

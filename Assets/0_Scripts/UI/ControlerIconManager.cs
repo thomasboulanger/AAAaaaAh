@@ -36,7 +36,7 @@ public class ControlerIconManager : MonoBehaviour
     {
         JoystickManager joystick;
         joystick = Instantiate(joystickPrefab, anchorTransform.position, Quaternion.identity);
-        joystick.name = "Joystick P" + playerID + 1 + " " + (isRightJoystick ? "R" : "L");
+        joystick.name = "Joystick P" + (playerID + 1) + " " + (isRightJoystick ? "R" : "L");
         joystick.controllerRef = this;
         joystick.SetIDs(playerID, isRightJoystick ? 0 : 1);
 
