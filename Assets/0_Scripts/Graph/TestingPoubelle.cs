@@ -19,11 +19,15 @@ public class TestingPoubelle : MonoBehaviour
         {
             GameObject testInstance = Instantiate(test, transform.position, transform.rotation);
 
-            poubelleRef.InitializeMovement(testInstance.transform);
+            poubelleRef.InitializeMovement(testInstance.transform, false);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            poubelleRef.EjectFruits();
+            poubelleRef.EjectFruits(true);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            poubelleRef.EjectFruits(false);
         }
     }
 }

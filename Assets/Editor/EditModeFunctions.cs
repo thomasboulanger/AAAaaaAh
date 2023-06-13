@@ -56,11 +56,15 @@ public class EditModeFunctions : EditorWindow
         }
         if (GUILayout.Button("Generate all pithon"))
         {
-            AllPithon(false);
+            AllPithon(false, false);
         }
         if (GUILayout.Button("destroy all pithon"))
         {
-            AllPithon(true);
+            AllPithon(true, false);
+        }
+        if (GUILayout.Button("NUKE"))
+        {
+            AllPithon(true, true);
         }
 
         GUILayout.Label("Pitons automatic regen", EditorStyles.boldLabel);
@@ -144,13 +148,13 @@ public class EditModeFunctions : EditorWindow
         }
     }
 
-    private void AllPithon(bool destroy)
+    private void AllPithon(bool destroy, bool nuke)
     {
         foreach (PithonsManager item in GameObject.FindObjectsOfType<PithonsManager>())
         {
             if (destroy)
             {
-                item.DestroyPreviusAssets();
+                item.DestroyPreviusAssets(nuke);
             }
             else
             {
