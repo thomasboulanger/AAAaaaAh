@@ -19,7 +19,8 @@ public class CharacterBodyPhysic : MonoBehaviour
     [SerializeField] private float force = 50;
     [SerializeField] private float range = 2;
     [SerializeField] private float xThreshold = 1;
-    [SerializeField] private float GravityForce = -25;
+    [SerializeField] private float gravityForce = 5;
+    [SerializeField] private float dragForce = .1f;
     [SerializeField] private float yAxisMultiplier = 10;
     [SerializeField] private Transform[] virtualTransforms = new Transform[4];
 
@@ -129,8 +130,8 @@ public class CharacterBodyPhysic : MonoBehaviour
             _charRb.constraints = RigidbodyConstraints.FreezePositionZ |
                                   RigidbodyConstraints.FreezeRotationX |
                                   RigidbodyConstraints.FreezeRotationY;
-            if (_gravityForce == Vector3.zero) _gravityForce = -Vector3.up;
-            _gravityForce += new Vector3(0, GravityForce * Time.deltaTime, 0);
+            _charRb.drag = dragForce;
+            _gravityForce += new Vector3(0, -gravityForce * Time.deltaTime, 0);
         }
         else
         {
@@ -139,6 +140,7 @@ public class CharacterBodyPhysic : MonoBehaviour
                                   RigidbodyConstraints.FreezeRotationY |
                                   RigidbodyConstraints.FreezeRotationZ;
             _gravityForce = Vector3.zero;
+            _charRb.drag = 10;
         }
 
         //applying the final force to the rigidbody
