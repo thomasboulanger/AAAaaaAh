@@ -8,7 +8,6 @@ public class PithonsManager : MonoBehaviour
     [SerializeField] private GameObject pithonGO;
     [SerializeField] private GameObject ropeGO;
 
-    [SerializeField] private Transform transformList;
     [SerializeField] private float gizmosSize = 0.1f;
     [SerializeField] private float distanceForwardShow = 3f;
     [SerializeField] private float automaticRegenDelay = 0f;
@@ -44,30 +43,56 @@ public class PithonsManager : MonoBehaviour
     public void Generate()
     {
         GetPoints();
-        DestroyPreviusAssets();
+        DestroyPreviusAssets(false);
         SpawnAssets();
     }
 
-    public void DestroyPreviusAssets()
+    public void DestroyPreviusAssets(bool nuke)
     {
         foreach (Transform item in spawnedItems)
         {
             if (item != null)
             {
+                RopeColliderGenerator rcg;
+                item.TryGetComponent<RopeColliderGenerator>(out rcg);
+                if (rcg != null)
+                {
+                    rcg.DestroyColliders();
+                }
                 DestroyImmediate(item.gameObject, true);
             }
         }
         spawnedItems.Clear();
+
+
+        if (nuke)
+        {
+            GameObject transformList;
+            GameObject ropesColliderList;
+            transformList = GameObject.Find("pithonHolder");
+            ropesColliderList = GameObject.Find("RopesColliderContainer");
+            if (transformList != null) DestroyImmediate(transformList, true);
+            if (ropesColliderList != null) DestroyImmediate(ropesColliderList, true);
+        }
+
     }
 
     void SpawnAssets()
     {
+        GameObject transformList;
+        transformList = GameObject.Find("pithonHolder");
+        if (transformList == null)
+        {
+            transformList = new GameObject("pithonHolder");
+            transformList.name = "pithonHolder";
+        }
+
         for (int i = 0; i < points.Count; i++)
         {
             Vector3 pos = points[i].position;
             Quaternion rotation = points[i].rotation;
 
-            GameObject piton = Instantiate(pithonGO, pos, rotation, transformList);
+            GameObject piton = Instantiate(pithonGO, pos, rotation, transformList.transform);
             spawnedItems.Add(piton.transform);
 
             if (i == points.Count - 1) continue;
@@ -75,14 +100,15 @@ public class PithonsManager : MonoBehaviour
             Vector3 pos1 = points[i+1].position;
             float distance = Vector3.Distance(pos, pos1);
             float parralel = (Mathf.Abs((Vector3.Dot((pos1 - pos).normalized, transform.up)))*shapeKeyPower)*-1;
-            GameObject corde = Instantiate(ropeGO, pos, Quaternion.identity, transformList);
-            corde.GetComponentInChildren<SkinnedMeshRenderer>().SetBlendShapeWeight(0, parralel);
+            GameObject corde = Instantiate(ropeGO, pos, Quaternion.identity, transformList.transform);
+
             corde.transform.LookAt(pos1);
             corde.transform.Rotate(0, -90, 0, Space.Self);
             corde.transform.localEulerAngles = new Vector3(0, corde.transform.localEulerAngles.y, corde.transform.localEulerAngles.z);
             corde.transform.Rotate(90, 0, 0, Space.Self);
-
             corde.transform.localScale = new Vector3(distance*5, 1, 1);
+            corde.GetComponentInChildren<RopeColliderGenerator>().SetRopeProfile(parralel);
+
             spawnedItems.Add(corde.transform);
         }
     }

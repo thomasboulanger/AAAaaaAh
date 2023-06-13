@@ -15,6 +15,7 @@ public class Shaker : MonoBehaviour
     [SerializeField] private bool useSound;
     [SerializeField] private float soundMultiplier = 20f;
     [SerializeField] private float soundMultiplierBuildings = 20f;
+
     [SerializeField] private Vector3 offset = Vector3.zero;
     [Range(0, 2)] [SerializeField] private int noiseSelector;
 
