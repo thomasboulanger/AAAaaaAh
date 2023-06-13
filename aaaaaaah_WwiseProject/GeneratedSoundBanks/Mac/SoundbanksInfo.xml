@@ -9,13 +9,14 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8F4A811E-D08F-607E-6B6E-8C1459249221}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{7A92640F-8F72-7531-9B13-46BE4B486490}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
 				<Custom>
 					<Plugin Id="96668503" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="99354421" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="172582374" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="193158995" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="750170263" Name="Peak Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="789575649" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
@@ -106,6 +107,11 @@
 				<Bus Id="2530157555" Name="environnement"/>
 				<Bus Id="2981377429" Name="Ambiance"/>
 				<Bus Id="3017987732" Name="Cinematic_music">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="172582374"/>
+						</Custom>
+					</PluginRefs>
 					<AuxBusRefs>
 						<AuxBusRef Id="1530676313" Name="Exterior_rev"/>
 						<AuxBusRef Id="1617151415" Name="Interior_rev"/>
@@ -1992,5 +1998,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E8A43E13-464F-76F2-DDE5-EA0871036B0B}</FileHash>
+	<FileHash>{9BE11896-B6A3-ED1B-6146-6DA4D9DF6370}</FileHash>
 </SoundBanksInfo>
