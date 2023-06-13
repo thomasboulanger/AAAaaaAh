@@ -203,11 +203,12 @@ public class LimbController : MonoBehaviour
     private void CheckForAllTutorialBlockGrabbed()
     {
         bool tmpComparator = false;
-        int counter= _tutorialBlocksGrabbed.Count(element => element);
+        int counter = _tutorialBlocksGrabbed.Count(element => element);
 
         foreach (bool element in _tutorialBlocksGrabbed)
-            if (!element) tmpComparator = true;
-        
+            if (!element)
+                tmpComparator = true;
+
         tutorialBlocksGrabCountText.gameObject.SetActive(true);
         tutorialBlocksGrabCountText.text = counter + "/4";
 
@@ -220,19 +221,5 @@ public class LimbController : MonoBehaviour
             _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
-        //(SmallDelayBeforeStart());
     }
-
-    // IEnumerator SmallDelayBeforeStart()
-    // {
-    //     yield return new WaitForSeconds(.75f);
-    //     onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
-    //     tutorialBlocksGrabCountText.gameObject.SetActive(false);
-    //     for (int i = 0; i < _tutorialBlock.Length; i++)
-    //     {
-    //         _tutorialBlock[i].material.color = _tutorialBlockColor;
-    //         _tutorialBlock[i].gameObject.SetActive(false);
-    //         _tutorialBlocksGrabbed[i] = false;
-    //     }
-    // }
 }
