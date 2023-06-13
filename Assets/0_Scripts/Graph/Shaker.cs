@@ -1,18 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShake : MonoBehaviour
+public class Shaker : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float power = 1f;
+    [SerializeField] private float powerBuildings = 1f;
     [SerializeField] private Vector3[] _mediumNoise = new Vector3[10];
     [SerializeField] private Vector3[] _largeNoise = new Vector3[10];
     [SerializeField] private Vector3[] _expertise = new Vector3[10];
     [SerializeField] private RTPCMeterInspiExpi rtpcScript;
     [SerializeField] private bool useSound;
     [SerializeField] private float soundMultiplier = 20f;
+    [SerializeField] private float soundMultiplierBuildings = 20f;
     [SerializeField] private Vector3 offset = Vector3.zero;
     [Range(0, 2)] [SerializeField] private int noiseSelector;
+
+    public List<GameObject> buildingsToMove = new List<GameObject>();
+
+    [SerializeField] private AudioManager _am;
     private int _i;
 
     private Vector3 _basePos;
@@ -27,6 +33,8 @@ public class CameraShake : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(_am.listenMusicRtpc.GetValue(gameObject));
+
         if (useSound)
         {
             transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier, Time.deltaTime * speed);
