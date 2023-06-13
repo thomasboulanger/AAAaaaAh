@@ -581,6 +581,18 @@
 								</Bus>
 								<Bus Name="Cinematic_music" ID="{4904B0B3-91DD-41D1-A93F-E32FE1B6188F}">
 									<ReferenceList>
+										<Reference Name="Effect0">
+											<Custom>
+												<Effect Name="Meter (Custom)" ID="{542358EB-B897-4204-8E2F-0DDDB975E882}" ShortID="172582374" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+													<PropertyList>
+														<Property Name="ReleaseTime" Type="Real32" Value="0.06"/>
+													</PropertyList>
+													<PluginData>
+	<GameParameter Name="MeterControl_unity" ID="{34C6CE7B-D8D0-4C19-8CF4-80A715C3BB78}"/>
+</PluginData>
+												</Effect>
+											</Custom>
+										</Reference>
 										<Reference Name="UserAuxSend0">
 											<ObjectRef Name="Interior_rev" ID="{4979E2C1-2ECD-4F03-A071-0F8ECCE34D34}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 										</Reference>
