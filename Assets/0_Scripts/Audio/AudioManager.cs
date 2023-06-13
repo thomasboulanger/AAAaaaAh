@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     [Space]
     [Header("Select RTPC")]
-    [SerializeField] private AK.Wwise.RTPC listenMusicRtpc;
+    public AK.Wwise.RTPC listenMusicRtpc;
     [SerializeField]
     private AK.Wwise.RTPC listenScreamRtpc;
 
