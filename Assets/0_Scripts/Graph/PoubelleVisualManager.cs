@@ -1,39 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Animator))]
-
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")]
-    [SerializeField] private Transform topPoint;
+    [Header("Valeurs a set")] [SerializeField]
+    private Transform topPoint;
+
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
-    [SerializeField] private Transform corp;
 
-    [Header("CinematiqueFin")]
-    [SerializeField] private Transform midlePoint;
+    [Header("CinematiqueFin")] [SerializeField]
+    private Transform midlePoint;
+
     [SerializeField] private Transform insideMonster;
 
-    [Header("Valeurs de tweak")]
+    [Header("Valeurs de tweak")] [SerializeField]
+    private float fruitSpeed = 2f;
 
-    [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
     [SerializeField] private float randomizeTrajectoryPowerDropping = 1f;
 
-    [Header("Courbe d'anims")]
+    [Header("Courbe d'anims")] [SerializeField]
+    private AnimationCurve speedCurve;
 
-    [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private AnimationCurve speedCurveDropping;
     [SerializeField] private AnimationCurve bloupCurve;
-    [SerializeField] private AnimationCurve offsetCurve;//avec top point
+    [SerializeField] private AnimationCurve offsetCurve; //avec top point
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
 
-    [Header("purement debug")]
+    [Header("for debug purpose only")] [SerializeField]
+    private float timerPoubelle;
 
+<<<<<<< Updated upstream
     [SerializeField] private float timerPoubelle;
     [SerializeField] private List<Transform> fruits = new List<Transform>();
     [SerializeField] private List<float> fruitTimers = new List<float>();
@@ -41,6 +45,17 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private List<bool> hasBouped = new List<bool>();
     [SerializeField] private List<Transform> storedFruits = new List<Transform>();
     [SerializeField] private List<Vector3> midlePosesOffsets = new List<Vector3>();
+=======
+    [SerializeField] private List<Transform> fruits = new();
+    [SerializeField] private List<float> fruitTimers = new();
+    [SerializeField] private List<Vector3> basePos = new();
+    [SerializeField] private List<bool> hasBouped = new();
+    [SerializeField] private List<Transform> storedFruits = new();
+
+    [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
+    [SerializeField]
+    private List<Vector3> middlePosOffsets = new();
+>>>>>>> Stashed changes
 
     private Animator _animator;
     private Quaternion _openedRotation;
@@ -48,20 +63,27 @@ public class PoubelleVisualManager : MonoBehaviour
     private Quaternion _lastRotation;
     private bool _ejectFruits;
     private bool _finished;
+<<<<<<< Updated upstream
     private int ejectedFruits;
     private bool _ejectSingleFruit;
     private Vector3 fruitPos;
+=======
+    private int index;
 
-    void Start()
+    void Start() => Init();
+>>>>>>> Stashed changes
+
+    private void Init()
     {
         _openedRotation = couvercle.localRotation;
         couvercle.localEulerAngles = new Vector3(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
-        _closedRotation = couvercle.localRotation;
+        _closedRotation = Quaternion.Euler(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
         _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+<<<<<<< Updated upstream
         //init des valeurs utilisées
         List<Transform> teRemoveFromLists = new List<Transform>();
         float dt = Time.deltaTime;
@@ -79,17 +101,26 @@ public class PoubelleVisualManager : MonoBehaviour
             endPos = dansPoubelle.position;
             midlePos = topPoint.position;
         }
+=======
+        //initialization
+        List<Transform> toRemoveFromLists = new List<Transform>();
+        float deltaTime = Time.deltaTime;
+        Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
+        Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
+>>>>>>> Stashed changes
 
+        //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
-        {
-            couvercle.localRotation = Quaternion.Lerp(couvercle.localRotation, _openedRotation, dt * couvercleSpeed);//ouvrir le couvercle
-        }
+            couvercle.localRotation =
+                Quaternion.Lerp(couvercle.localRotation, _openedRotation, deltaTime * couvercleSpeed);
         else
         {
+            //close the garbage can lid with timer and animation curve
             if (timerPoubelle < 1f)
             {
-                timerPoubelle += dt * couvercleSpeed;
-                couvercle.localRotation = Quaternion.LerpUnclamped(_lastRotation, fruits.Count == 0 ? _closedRotation : _openedRotation, couvercleAnim.Evaluate(timerPoubelle)); //fermer le couvercle avec timer et courbe
+                timerPoubelle += deltaTime * couvercleSpeed;
+                couvercle.localRotation = Quaternion.LerpUnclamped(_lastRotation,
+                    fruits.Count == 0 ? _closedRotation : _openedRotation, couvercleAnim.Evaluate(timerPoubelle));
             }
         }
 
@@ -97,36 +128,64 @@ public class PoubelleVisualManager : MonoBehaviour
         {
             if (fruitTimers[i] >= 1f)
             {
-                _lastRotation = couvercle.localRotation;//setup fermeture couvercle
+                //setup to close garbage can lid
+                _lastRotation = couvercle.localRotation;
                 timerPoubelle = 0;
+<<<<<<< Updated upstream
                 //--------------------------------------------------------
                 if (!_ejectSingleFruit)
                 {
                     fruits[i].gameObject.SetActive(false); // on laisse le fruit activé si il a été drop----------------------------------
                 }
+=======
 
-                //Destroy(fruits[i].gameObject);
-                //--------------------------------------------------------
-                teRemoveFromLists.Add(fruits[i]);// on a joute le fruit pour la supression des listes
+                //deactivate current fruit
+                fruits[i].gameObject.SetActive(false);
+>>>>>>> Stashed changes
+
+                //adding current fruit for suppression from lists
+                toRemoveFromLists.Add(fruits[i]);
                 continue;
             }
 
-            Vector3 midlePosOffseted = midlePos + midlePosesOffsets[i] * (_ejectFruits ? randomizeTrajectoryPowerDropping : randomizeTrajectoryPower);
+            Vector3 middlePosOffseted = middlePos + middlePosOffsets[i] *
+                (_ejectFruits ? randomizeTrajectoryPowerDropping : randomizeTrajectoryPower);
 
+<<<<<<< Updated upstream
             fruitTimers[i] += dt * fruitSpeed;
             fruits[i].transform.position = Vector3.Lerp(basePos[i], Vector3.Lerp(midlePosOffseted, _ejectSingleFruit ? fruitPos: endPos, destinationCurve.Evaluate(fruitTimers[i])), (_ejectFruits? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));//deplacement fruit
+=======
+            fruitTimers[i] += deltaTime * fruitSpeed;
+>>>>>>> Stashed changes
 
-            if (fruitTimers[i] > (!_ejectFruits ? 0.8f : 0.2f) && !hasBouped[i])
-            {
-                hasBouped[i] = true;
-                _animator.SetTrigger("boup");//fruit rentre/sort de la poubelle : animation
-            }
+            //fruit movement
+            fruits[i].transform.position = Vector3.Lerp
+            (
+                basePos[i],
+                Vector3.Lerp
+                (
+                    middlePosOffseted,
+                    endPos,
+                    destinationCurve.Evaluate(fruitTimers[i])
+                ),
+                (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i])
+            );
+
+            if (!(fruitTimers[i] > (!_ejectFruits ? 0.8f : 0.2f)) || hasBouped[i]) continue;
+
+            //fruit in/out of the garbage can lid -> animation
+            hasBouped[i] = true;
+            _animator.SetTrigger("boup");
         }
 
-        foreach (Transform item in teRemoveFromLists)
+        for (int i = 0; i < toRemoveFromLists.Count; i++)
         {
-            int index = fruits.IndexOf(item);
-            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); midlePosesOffsets.RemoveAt(index); //on suprime tt les fruits détruits cette frame
+            //clear our lists of all fruits that have been deleted this frame
+            fruits.RemoveAt(i);
+            fruitTimers.RemoveAt(i);
+            basePos.RemoveAt(i);
+            hasBouped.RemoveAt(i);
+            middlePosOffsets.RemoveAt(i);
 
             if (_finished && fruits.Count == 0)
             {
@@ -145,21 +204,44 @@ public class PoubelleVisualManager : MonoBehaviour
                 continue;
             }
             if (_ejectFruits) continue;
-            storedFruits.Add(item);//on l'ajoute au fruits sauves
+            storedFruits.Add(toRemoveFromLists[i]);
         }
     }
 
+<<<<<<< Updated upstream
     public void InitializeMovement(Transform fruit, bool ejecting)// il faut désactiver le fruits avant de l'evoyer ici
     {
         fruits.Add(fruit); fruitTimers.Add(0); basePos.Add(fruit.position); hasBouped.Add(false); //ajout du fruit dans les listes
         midlePosesOffsets.Add(RandomizedVector());//offset randoms
 
         if (!ejecting) fruitPos = fruit.position;
+=======
+    //deactivate the fruit before sending it here
+    public void InitializeMovement(Transform fruit)
+    {
+        fruits.Add(fruit);
+        fruitTimers.Add(0);
+        basePos.Add(fruit.position);
+
+        //fruit added to lists
+        hasBouped.Add(false);
+
+        //get a random offset
+        middlePosOffsets.Add
+        (
+            new Vector3
+            (
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f),
+                Random.Range(-1f, 1f)
+            ).normalized
+        );
+>>>>>>> Stashed changes
     }
 
     public void EjectFruits(bool allfruits)
     {
-        if (storedFruits.Count == 0) return;
+        if (storedFruits?.Any() != true) return;
         _ejectFruits = true;
         if (allfruits)
         {
@@ -177,20 +259,22 @@ public class PoubelleVisualManager : MonoBehaviour
 
     IEnumerator RandomDelayedFruits()
     {
-        float timer = 1f;
-        for (ejectedFruits = 0; ejectedFruits < storedFruits.Count; ejectedFruits++)
+        const float timer = 1f;
+        for (int i = 0; i < storedFruits.Count; i++)
         {
+<<<<<<< Updated upstream
             storedFruits[ejectedFruits].gameObject.SetActive(true);
             InitializeMovement(storedFruits[ejectedFruits], true);
             if (ejectedFruits == storedFruits.Count - 1) continue;
             yield return new WaitForSeconds(timer / Mathf.Clamp(ejectedFruits / 2, 1, 999999));
+=======
+            storedFruits[i].gameObject.SetActive(true);
+            InitializeMovement(storedFruits[i]);
+            if (i == storedFruits.Count - 1) continue;
+            yield return new WaitForSeconds(timer / Mathf.Clamp(i / 2, 1, 999999));
+>>>>>>> Stashed changes
         }
 
         _finished = true;
-    }
-
-    Vector3 RandomizedVector()
-    {
-        return (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized);
     }
 }
