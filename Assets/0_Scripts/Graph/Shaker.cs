@@ -5,7 +5,9 @@ public class Shaker : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float power = 1f;
-    [SerializeField] private float powerBuildings = 1f;
+    [SerializeField] private float powerSetting = 1f;
+    [SerializeField] private float powerBuildings = 0f;
+    [SerializeField] private float powerBuildingsSetting = 1f;
     [SerializeField] private Vector3[] _mediumNoise = new Vector3[10];
     [SerializeField] private Vector3[] _largeNoise = new Vector3[10];
     [SerializeField] private Vector3[] _expertise = new Vector3[10];
@@ -16,15 +18,22 @@ public class Shaker : MonoBehaviour
     [SerializeField] private Vector3 offset = Vector3.zero;
     [Range(0, 2)] [SerializeField] private int noiseSelector;
 
-    public List<GameObject> buildingsToMove = new List<GameObject>();
+    [SerializeField] private List<Transform> buildingsToMove = new List<Transform>();
+    private List<Vector3> basePoseBuildings = new List<Vector3>();
 
     [SerializeField] private AudioManager _am;
     private int _i;
 
     private Vector3 _basePos;
+    private bool wasBuildingMoving;
 
     void Start()
     {
+        foreach (Transform item in buildingsToMove)
+        {
+            basePoseBuildings.Add(item.transform.localPosition);
+        }
+
         _mediumNoise = RandomArray(-2f, 2f, 10);
         _largeNoise = RandomArray(-10f, 10f, 10);
         _expertise = RandomArray(-200f, 200f, 10);
@@ -33,17 +42,36 @@ public class Shaker : MonoBehaviour
 
     void Update()
     {
+
+        float dt = Time.deltaTime;
         Debug.Log(_am.listenMusicRtpc.GetValue(gameObject));
 
         if (useSound)
         {
-            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier, Time.deltaTime * speed);
+            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier * power, dt * speed);
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * power, Time.deltaTime * speed);
+            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * power * powerSetting, dt * speed);
         }
 
+        if (powerBuildings>0)
+        {
+            for (int i = 0; i < buildingsToMove.Count; i++)
+            {
+                buildingsToMove[i].localPosition = Vector3.Lerp(basePoseBuildings[i], basePoseBuildings[i] + ChooseArray(noiseSelector)[Random.Range(0, 10)] * powerBuildings* powerBuildingsSetting, dt * speed);
+                wasBuildingMoving = true;
+            }
+        }
+        else if (wasBuildingMoving)
+        {
+            wasBuildingMoving = false;
+            for (int i = 0; i < buildingsToMove.Count; i++)
+            {
+                buildingsToMove[i].localPosition = basePoseBuildings[i];
+                wasBuildingMoving = true;
+            }
+        }
 
         _i++;
         if (_i > 9) _i = 0;
