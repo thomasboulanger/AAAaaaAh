@@ -23,6 +23,8 @@ public class LimbController : MonoBehaviour
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
     [SerializeField] private GameEvent onAllTutorialBlocksAreGrabbed;
+    [SerializeField] private GameEvent onFirstTutorialPartAchieved;
+
     [Header("The ID of limb that player with same ID will control")]
     [SerializeField] private int playerID;
     [SerializeField] private int limbID;
@@ -221,5 +223,6 @@ public class LimbController : MonoBehaviour
             _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
+        onFirstTutorialPartAchieved.Raise(this,null,playerID,limbID);
     }
 }
