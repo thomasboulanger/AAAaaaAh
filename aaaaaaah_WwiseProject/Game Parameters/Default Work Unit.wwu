@@ -109,6 +109,16 @@
 								<Property Name="Max" Type="Real64" Value="15"/>
 							</PropertyList>
 						</GameParameter>
+						<GameParameter Name="ambiance_volume_RTPC" ID="{E05D22DF-4CC2-45E4-9E77-DABBFF1DDB46}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Mouche_volume_RTPC" ID="{7E5E8E00-2E36-486A-BD8C-359B4BC94CF8}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{00139F44-B9E5-4850-9F36-894C0B4A7A1A}" ShortID="301725051">
