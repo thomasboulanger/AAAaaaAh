@@ -6,6 +6,7 @@
 //thomas.boulanger.auditeur@lecnam.net
 
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -13,7 +14,8 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class CursorController : MonoBehaviour
 {
-    [SerializeField] private GameEvent onPlayerThrowTruelleEvent;
+    [FormerlySerializedAs("onPlayerThrowTruelleEvent")] [SerializeField] private GameEvent onPlayerThrowTruelleSound;
+    
     [SerializeField] private int cursorID;
     [SerializeField] private int cursorCanvasState;
     [SerializeField] private UIHommingTruelle truelleUIPrefab;
@@ -69,7 +71,7 @@ public class CursorController : MonoBehaviour
         if (!_inputPressed || _triggerOnce) return;
 
         _triggerOnce = true;
-        onPlayerThrowTruelleEvent.Raise(this, null, null, null);
+        onPlayerThrowTruelleSound.Raise(this, null, null, null);
 
         //instantiate truelle and target our cursor
         Vector3 unitSphere = Random.insideUnitSphere * _unitSphereRandomRadius;
