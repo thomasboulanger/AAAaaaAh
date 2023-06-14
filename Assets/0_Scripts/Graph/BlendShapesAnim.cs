@@ -19,6 +19,8 @@ public class BlendShapesAnim : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer skinnedMesh;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private float mouthLerpSpeed = 50f;
+    [SerializeField] private float mouthSpeed = 700f;
 
     private float _blendShape0;
     private float _blendShape1;
@@ -28,10 +30,21 @@ public class BlendShapesAnim : MonoBehaviour
     private float _fadeInTime = 0f;
     private bool _firstPass = true;
     private float _lastNoise = 100f;
+    private float _mouthSK;
+    private float _mouthSKTarget;
 
     void Update()
     {
         float deltaTime = Time.deltaTime;
+
+        if (_mouthSKTarget>0)
+        {
+            _mouthSKTarget -= deltaTime * mouthSpeed;
+            _mouthSK = Mathf.Lerp(_mouthSK, _mouthSKTarget, deltaTime * mouthLerpSpeed);
+            skinnedMesh.SetBlendShapeWeight(3, _mouthSK);
+        }
+
+
 
         lerpedintensityVal = Mathf.Lerp(lerpedintensityVal, rtpcScript.lerpedValueScream, deltaTime * lerpSpeed);
         screams = lerpedintensityVal > transitionthreshold;
@@ -88,5 +101,10 @@ public class BlendShapesAnim : MonoBehaviour
         {
             audioManager.InspirationSound(gameObject);
         }
+    }
+
+    public void OpenMouth()
+    {
+        _mouthSKTarget = 100;
     }
 }
