@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class HommingTruelle : MonoBehaviour
 {
+    [SerializeField] private GameEvent onTruelleHitJoystickSound;
+    
     [SerializeField] private int matindex = 1;
     [SerializeField] private float rotationRandom = 50f;
     [SerializeField] private MeshRenderer meshRenderer;
@@ -52,6 +54,7 @@ public class HommingTruelle : MonoBehaviour
     {
         if (collision.transform.CompareTag("Cursor"))
         {
+            onTruelleHitJoystickSound.Raise(this,null,null,null);
             JoystickManager joystickComp = collision.gameObject.GetComponent<JoystickManager>();
             joystickComp.HitByTruelle(this);
         }
