@@ -77,18 +77,7 @@ public class FruitSelector : MonoBehaviour
         _fruitStored = false;
         if (_fruitStored) gameObject.SetActive(true);
     }
-
-    public void FruitStoredInBag(GameObject parent)
-    {
-        _currentParent = parent;
-        _fruitStored = true;
-        gameObject.SetActive(false);
-        
-        if (_triggerOnce) return;
-        _triggerOnce = true;
-        _shader.SetActive(false);
-    }
-
+    
     public bool IsFruitGrabbed()
     {
         return _currentParent != null;

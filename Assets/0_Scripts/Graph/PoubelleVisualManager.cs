@@ -7,45 +7,38 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")] [SerializeField]
-    private Transform topPoint;
-
+    [Header("Valeurs a set")] 
+    [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
-
-    [Header("CinematiqueFin")] [SerializeField]
-    private Transform midlePoint;
-
+    [Header("CinematiqueFin")] 
+    [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
-
-    [Header("Valeurs de tweak")] [SerializeField]
-    private float fruitSpeed = 2f;
-
+    [Header("Valeurs de tweak")] 
+    [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
     [SerializeField] private float randomizeTrajectoryPowerDropping = 1f;
-
-    [Header("Courbe d'anims")] [SerializeField]
-    private AnimationCurve speedCurve;
-
+    [Header("Courbe d'anims")]
+    [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private AnimationCurve speedCurveDropping;
-    [SerializeField] private AnimationCurve bloupCurve;
-    [SerializeField] private AnimationCurve offsetCurve; //avec top point
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
-
-    [Header("for debug purpose only")] [SerializeField]
-    private float timerPoubelle;
-
+    [Header("for debug purpose only")]
+    [SerializeField] private float timerPoubelle;
     [SerializeField] private List<Transform> fruits = new();
     [SerializeField] private List<float> fruitTimers = new();
     [SerializeField] private List<Vector3> basePos = new();
     [SerializeField] private List<bool> hasBouped = new();
     [SerializeField] private List<Transform> storedFruits = new();
-
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
-    [SerializeField]
-    private List<Vector3> middlePosOffsets = new();
+    [SerializeField] private List<Vector3> middlePosOffsets = new();
+
+    [Header("for debug purpose only")]
+    [SerializeField] private float gaugeSize = 100;
+    [SerializeField] private float gaugeIncrementByHit = 50;
+    [SerializeField] private float gaugeDecrementOverTime = 10;
+    [SerializeField] private float currentGaugeLevel;
 
     private Animator _animator;
     private Quaternion _openedRotation;
@@ -74,6 +67,9 @@ public class PoubelleVisualManager : MonoBehaviour
         float deltaTime = Time.deltaTime;
         Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
         Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
+
+        currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
+        if (currentGaugeLevel < 0) currentGaugeLevel = 0;
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -160,6 +156,12 @@ public class PoubelleVisualManager : MonoBehaviour
         }
     }
 
+    public void PlayerHitByFly()
+    {
+        currentGaugeLevel += gaugeIncrementByHit;
+        if(currentGaugeLevel >= gaugeSize) EjectFruits();
+    }
+    
     //deactivate the fruit before sending it here
     public void InitializeFruitThenMoveIt(Transform fruitTransform, bool isFunctionCalledInIntern)
     {
