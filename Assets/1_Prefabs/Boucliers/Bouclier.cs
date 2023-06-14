@@ -45,35 +45,31 @@ public class Bouclier : MonoBehaviour
         transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0,0,0);
         _timer += Time.deltaTime;
         _timerRoquette += Time.deltaTime;
-        if (_timer > _timerLimit)
-        {
-            _randomX = Random.Range(-10f, 10f);
-            _randomY = Random.Range(-10f, 10f);
-            Projectile projectilePrefab = Instantiate(projectile,transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
-            projectilePrefab.body = player;
-            projectilePrefab.bodyRB = _playerRB;
-            _timer = 0f;
-            _timerLimit = Random.Range(0f, intervalle);
+    //    if (_timer > _timerLimit)
+    //    {
+    //        _randomX = Random.Range(-10f, 10f);
+    //        _randomY = Random.Range(-10f, 10f);
+    //        Projectile projectilePrefab = Instantiate(projectile,transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
+    //        projectilePrefab.body = player;
+    //        projectilePrefab.bodyRB = _playerRB;
+    //        _timer = 0f;
+    //        _timerLimit = Random.Range(0f, intervalle);
 
-        }
+    //    }
 
-        if (_timerRoquette > _timerLimitRoquette)
-        {
-            _randomXRoquette = Random.Range(-10f, 10f);
-            _randomYRoquette = Random.Range(-10f, 10f);
-            Roquette roquettePrefab = Instantiate(roquette, transform.position + 10 * Vector3.Normalize(new Vector3(_randomXRoquette, _randomYRoquette, 0)), Quaternion.identity);
-            roquettePrefab.body = player;
-            roquettePrefab.bodyRB = _playerRB;
-            roquettePrefab.bouclierList = bouclierList;
-            _timerRoquette = 0f;
-            _timerLimitRoquette = Random.Range(intervalleRoquette/5, intervalleRoquette);
+    //    if (_timerRoquette > _timerLimitRoquette)
+    //    {
+    //        _randomXRoquette = Random.Range(-10f, 10f);
+    //        _randomYRoquette = Random.Range(-10f, 10f);
+    //        Roquette roquettePrefab = Instantiate(roquette, transform.position + 10 * Vector3.Normalize(new Vector3(_randomXRoquette, _randomYRoquette, 0)), Quaternion.identity);
+    //        roquettePrefab.body = player;
+    //        roquettePrefab.bodyRB = _playerRB;
+    //        roquettePrefab.bouclierList = bouclierList;
+    //        _timerRoquette = 0f;
+    //        _timerLimitRoquette = Random.Range(intervalleRoquette/5, intervalleRoquette);
 
-        }
+    //    }
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireSphere(transform.position, 0.5f);
-    //}
+
 }
