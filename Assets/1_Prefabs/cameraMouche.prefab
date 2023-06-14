@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3802331244720404830
 Transform:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ Camera:
     height: 1
   near clip plane: 2.19
   far clip plane: 1000
-  field of view: 52.2
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 1
@@ -70,7 +70,7 @@ Camera:
     m_Bits: 65536
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 1
+  antialiasing: 0
   SMAAQuality: 2
   dithering: 0
-  stopNaNs: 1
+  stopNaNs: 0
   taaSharpenStrength: 0.5
   TAAQuality: 1
   taaHistorySharpening: 0.35
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_BarrelClipping: 0.25
     m_Anamorphism: 0
   flipYMode: 0
-  xrRendering: 0
+  xrRendering: 1
   fullscreenPassthrough: 0
   allowDynamicResolution: 1
   customRenderingSettings: 1

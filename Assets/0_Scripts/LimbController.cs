@@ -22,7 +22,8 @@ public class LimbController : MonoBehaviour
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
-    [SerializeField] private GameEvent onAllTutorialBlocksAreGrabbed;
+    [SerializeField] private GameEvent onFirstTutorialPartAchieved;
+
     [Header("The ID of limb that player with same ID will control")]
     [SerializeField] private int playerID;
     [SerializeField] private int limbID;
@@ -196,23 +197,22 @@ public class LimbController : MonoBehaviour
         }
 
         if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
-        //check on tutorial part only
         CheckForAllTutorialBlockGrabbed();
     }
 
     private void CheckForAllTutorialBlockGrabbed()
     {
         bool tmpComparator = false;
-        int counter= _tutorialBlocksGrabbed.Count(element => element);
+        int counter = _tutorialBlocksGrabbed.Count(element => element);
 
         foreach (bool element in _tutorialBlocksGrabbed)
-            if (!element) tmpComparator = true;
-        
+            if (!element)
+                tmpComparator = true;
+
         tutorialBlocksGrabCountText.gameObject.SetActive(true);
         tutorialBlocksGrabCountText.text = counter + "/4";
 
         if (tmpComparator) return;
-        onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
         tutorialBlocksGrabCountText.gameObject.SetActive(false);
         for (int i = 0; i < _tutorialBlock.Length; i++)
         {
@@ -220,19 +220,6 @@ public class LimbController : MonoBehaviour
             _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
-        //(SmallDelayBeforeStart());
+        onFirstTutorialPartAchieved.Raise(this,null,playerID,limbID);
     }
-
-    // IEnumerator SmallDelayBeforeStart()
-    // {
-    //     yield return new WaitForSeconds(.75f);
-    //     onAllTutorialBlocksAreGrabbed.Raise(this, true, playerID, limbID);
-    //     tutorialBlocksGrabCountText.gameObject.SetActive(false);
-    //     for (int i = 0; i < _tutorialBlock.Length; i++)
-    //     {
-    //         _tutorialBlock[i].material.color = _tutorialBlockColor;
-    //         _tutorialBlock[i].gameObject.SetActive(false);
-    //         _tutorialBlocksGrabbed[i] = false;
-    //     }
-    // }
 }

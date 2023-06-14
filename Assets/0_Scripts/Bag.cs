@@ -19,8 +19,6 @@ public class Bag : MonoBehaviour
     [SerializeField] private Material characterMaterialForFall;
     [SerializeField] private string[] limbsMatName = new string[4];
     [SerializeField] private List<GameObject> fruitsStoredList;
-    [SerializeField] private float timeAtZeroFruit;
-    [SerializeField] private float minimalTime;
     [SerializeField] private float limbLength = 1.1f;
     [SerializeField] private float gravityForce = 50;
 
@@ -77,14 +75,6 @@ public class Bag : MonoBehaviour
 
         goalPosition /= _limbGrabNumber;
         _rb.AddForce(goalPosition);
-
-        for (int i = 0; i < _limbsGrabbingBag.Length; i++)
-        {
-            if (!_limbsGrabbingBag[i]) continue;
-            //_limbControllers[i].BagMovingLimb(transform.position, _offsetVector[i], _offsetDistance[i]);
-        }
-
-        transform.rotation = _currentRot;
     }
 
     private void LateUpdate()
