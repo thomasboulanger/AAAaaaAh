@@ -42,6 +42,10 @@ public class BlendShapesAnim : MonoBehaviour
             _mouthSKTarget -= deltaTime * mouthSpeed;
             _mouthSK = Mathf.Lerp(_mouthSK, _mouthSKTarget, deltaTime * mouthLerpSpeed);
             skinnedMesh.SetBlendShapeWeight(3, _mouthSK);
+            if (!(_mouthSKTarget>0))
+            {
+                skinnedMesh.SetBlendShapeWeight(3, 0);
+            }
         }
 
 

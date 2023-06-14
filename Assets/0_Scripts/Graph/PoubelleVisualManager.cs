@@ -15,6 +15,9 @@ public class PoubelleVisualManager : MonoBehaviour
     [Header("CinematiqueFin")] 
     [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
+    [SerializeField] Animator paparingCinematiqueAnimator;
+    [SerializeField] BlendShapesAnim monstreFin;
+    [SerializeField] Transform poubelleFinalPos;
     [Header("Valeurs de tweak")] 
     [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
@@ -31,6 +34,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private List<float> fruitTimers = new();
     [SerializeField] private List<Vector3> basePos = new();
     [SerializeField] private List<bool> hasBouped = new();
+    [SerializeField] private List<bool> hasBoupedMonster = new();
     [SerializeField] private List<Transform> storedFruits = new();
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
     [SerializeField] private List<Vector3> middlePosOffsets = new();
@@ -40,6 +44,9 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private float gaugeIncrementByHit = 50;
     [SerializeField] private float gaugeDecrementOverTime = 10;
     [SerializeField] private float currentGaugeLevel;
+
+
+
 
     private Animator _animator;
     private Quaternion _openedRotation;
@@ -108,18 +115,13 @@ public class PoubelleVisualManager : MonoBehaviour
             fruitTimers[i] += deltaTime * fruitSpeed;
 
             //fruit movement
-            fruits[i].transform.position = Vector3.Lerp
-            (
-                basePos[i],
-                Vector3.Lerp
-                (
-                    middlePosOffseted,
-                    _ejectSingleFruit ? ejectPos.position : endPos,
-                    destinationCurve.Evaluate(fruitTimers[i])
-                ),
-                (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i])
-            );
+            fruits[i].transform.position = Vector3.Lerp (_ejectFruits ? transform.position:basePos[i],Vector3.Lerp( middlePosOffseted,_ejectSingleFruit ? ejectPos.position : endPos,destinationCurve.Evaluate(fruitTimers[i])), (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
 
+            if((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i])
+            {
+                monstreFin.OpenMouth();
+                hasBoupedMonster[i] = true;
+            }
 
             if (!(fruitTimers[i] > (!_ejectFruits ? 0.8f : 0.2f)) || hasBouped[i]) continue;
 
@@ -131,10 +133,10 @@ public class PoubelleVisualManager : MonoBehaviour
         foreach (Transform item in toRemoveFromLists)
         {
             int index = fruits.IndexOf(item);
-            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); //on suprime tt les fruits détruits cette frame
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index);hasBoupedMonster.RemoveAt(index); //on suprime tt les fruits détruits cette frame
 
             //clear our lists of all fruits that have been deleted this frame
-            
+
             if (_finished && fruits.Count == 0)
             {
                 _finished = false;
@@ -146,9 +148,9 @@ public class PoubelleVisualManager : MonoBehaviour
                 }
                 else storedFruits.Clear();
 
-                FruitSelector fruit = item.GetComponent<FruitSelector>();
-                //fruit.animating = false;
-                fruit.ReleaseFruit();
+                FruitSelector fruit;
+                item.TryGetComponent<FruitSelector>(out fruit);
+                if (fruit != null) fruit.ReleaseFruit();
 
                 continue;
             }
@@ -177,17 +179,16 @@ public class PoubelleVisualManager : MonoBehaviour
 
         //fruit added to lists
         hasBouped.Add(false);
+        hasBoupedMonster.Add(false);
 
         //get a random offset
-        middlePosOffsets.Add
-        (
-            new Vector3
-            (
-                Random.Range(-1f, 1f),
-                Random.Range(-1f, 1f),
-                Random.Range(-1f, 1f)
-            ).normalized
-        );
+        middlePosOffsets.Add (new Vector3(Random.Range(-1f, 1f),Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized);
+
+        if (_ejectFruits && paparingCinematiqueAnimator.gameObject.activeSelf)
+        {
+
+            paparingCinematiqueAnimator.SetTrigger("FruitOut");
+        }
     }
 
     public void EjectFruits()
@@ -205,6 +206,16 @@ public class PoubelleVisualManager : MonoBehaviour
             InitializeFruitThenMoveIt(storedFruits[0], true);
             _finished = true;
         }
+    }
+
+    public void PrepareCinematic()
+    {
+        transform.position = poubelleFinalPos.position;
+        transform.rotation = poubelleFinalPos.rotation;
+
+        paparingCinematiqueAnimator.gameObject.SetActive(true);
+
+        EjectFruits();
     }
 
     IEnumerator RandomDelayedFruits()
