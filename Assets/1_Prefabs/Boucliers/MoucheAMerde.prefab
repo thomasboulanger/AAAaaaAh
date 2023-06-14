@@ -134,17 +134,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   fly: {fileID: 2450448519767166754}
-  coneBeginingRadius: 10
-  coneEndRadius: 1
+  coneBeginingRadius: 5
+  coneEndRadius: 0.2
   destroyDistance: 15
   oscillationChangeTimer: {x: 0.2, y: 0.4}
-  oscillationSpeedLimit: {x: 0.1, y: 2}
+  oscillationSpeedLimit: {x: 2, y: 2}
   oscillationSpeedIncrement: {x: 0.5, y: 1}
+  forceDoremin: 100
+  forceMegaplex: 300
   linearSpeedChangeTimer: {x: 0.2, y: 0.4}
   linearSpeedLimit: {x: 0.1, y: 2}
   linearSpeedIncrement: {x: 0.5, y: 1}
   bodyRB: {fileID: 0}
-  force: 300
+  force: 50
   bouclierList:
   - {fileID: 0}
   - {fileID: 0}

@@ -13,6 +13,8 @@ public class MoucheAMerde : MonoBehaviour
     public Vector2 oscillationChangeTimer = new Vector2 (0.2f, 0.4f);
     public Vector2 oscillationSpeedLimit = new Vector2(0.1f, 2f);
     public Vector2 oscillationSpeedIncrement = new Vector2(0.5f, 10f);
+    public float forceDoremin = 50f;
+    public float forceMegaplex = 300f;
 
 
     public Vector2 linearSpeedChangeTimer = new Vector2 (0.2f, 0.4f);
@@ -99,7 +101,7 @@ public class MoucheAMerde : MonoBehaviour
         _linearTimerLimit = 1;
         _linearSpeedToTarget = 0.5f;
         _linearSpeedAddition = 1;
-        _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.x);
+        _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.y);
     }
 
     void Update()
@@ -137,7 +139,7 @@ public class MoucheAMerde : MonoBehaviour
         {
             _linearSpeedAddition = (int)Mathf.Pow(-1f, (float)Random.Range(1, 3));
 
-            _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.x);
+            _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.y);
             _linearTimer = 0;
             _linearTimerLimit = Random.Range(linearSpeedChangeTimer.x, linearSpeedChangeTimer.y);
 
@@ -231,7 +233,7 @@ public class MoucheAMerde : MonoBehaviour
             //audio destruction mouche
             AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
             VoiceCleanUp();
-            Destroy(gameObject);
+            //Destroy(gameObject);
 
         }
         else if (other.transform.tag == "Player")
@@ -239,7 +241,14 @@ public class MoucheAMerde : MonoBehaviour
             Debug.Log("poutprout");
             //Audio puch mouche
             AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
-            bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
+            if (bodyRB.drag < 5)
+            {
+                bodyRB.AddForceAtPosition(forceDoremin * Vector3.Normalize(_path), transform.position);
+            }
+            else if (bodyRB.drag > 5)
+            {
+                bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
+            }
             VoiceCleanUp();
 
             Destroy(gameObject);
@@ -254,10 +263,15 @@ public class MoucheAMerde : MonoBehaviour
         AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
     }
 
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(_initialPosition, body.position);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(_initialPosition + coneBeginingRadius * Vector3.Normalize(_limitVector), body.position + coneEndRadius * Vector3.Normalize(_limitVector));
+        Gizmos.DrawLine(_initialPosition - coneBeginingRadius * Vector3.Normalize(_limitVector), body.position - coneEndRadius * Vector3.Normalize(_limitVector));
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, 0.1f);
         Gizmos.color = Color.green;
