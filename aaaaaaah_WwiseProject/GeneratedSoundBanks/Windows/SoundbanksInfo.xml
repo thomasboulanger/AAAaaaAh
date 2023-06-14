@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{02D3AB1B-598D-C5E5-195F-D2F093D70F36}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F2A0296A-8E41-C96B-0AEB-B3C040D532FC}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -201,7 +201,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{35E9608D-E525-5730-04CC-F92D98E42979}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{C6E25D9E-F698-A971-9B0B-7B63C0CD5789}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -289,6 +289,10 @@
 					<ShortName>sfx_roman_scream_rvb_loin_03.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_loin_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="85521945" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part1.wav</ShortName>
+					<CachePath>SFX/Kompa1_part1_983551D2.wem</CachePath>
+				</File>
 				<File Id="85643450" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 1_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 1_05_10C4C929.wem</CachePath>
@@ -332,6 +336,10 @@
 				<File Id="127659371" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_scream_06.wav</ShortName>
 					<CachePath>SFX/roman_scream_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="133134963" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_intro.wav</ShortName>
+					<CachePath>SFX/Kompa1_intro_983551D2.wem</CachePath>
 				</File>
 				<File Id="136290319" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Kompa4\Kompa4_intro.wav</ShortName>
@@ -448,6 +456,10 @@
 				<File Id="285697430" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_02.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="286201041" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part3.wav</ShortName>
+					<CachePath>SFX/Kompa1_part3_983551D2.wem</CachePath>
 				</File>
 				<File Id="292065262" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>baptiste_inspi_04.wav</ShortName>
@@ -1005,6 +1017,10 @@
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_03.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="920233745" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part2.wav</ShortName>
+					<CachePath>SFX/Kompa1_part2_983551D2.wem</CachePath>
+				</File>
 				<File Id="923013965" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_woodwork_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_01_10C4C929.wem</CachePath>
@@ -1496,10 +1512,10 @@
 				</Event>
 				<Event Id="1315062901" Name="Play_kompa1" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="193205"/>
-						<MediaRef Id="136290319"/>
-						<MediaRef Id="495112281"/>
-						<MediaRef Id="933035219"/>
+						<MediaRef Id="85521945"/>
+						<MediaRef Id="133134963"/>
+						<MediaRef Id="286201041"/>
+						<MediaRef Id="920233745"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
@@ -1998,5 +2014,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D27E7C3C-8F3C-6788-9ABF-12B0CE58F993}</FileHash>
+	<FileHash>{6BE03DEF-1FA4-4FA9-4EEC-BB4AF5D19A7E}</FileHash>
 </SoundBanksInfo>
