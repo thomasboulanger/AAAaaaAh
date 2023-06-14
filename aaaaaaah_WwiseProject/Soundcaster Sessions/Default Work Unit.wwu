@@ -14,8 +14,16 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_kompa1" ID="{201F9D9E-8BC0-4450-9DB7-C92E8B1C2048}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Play_expi" ID="{CF06A8AD-D8FE-42BA-AC19-3817D19E9953}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
 							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Init_StopAll" ID="{8B01E1D0-F4EF-490B-B6EA-1450F43A5B1A}" WorkUnitID="{EAFD7B5B-4BCF-42EC-8756-18C8E557A057}"/>
+							<Position X="2" Y="0"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -103,7 +111,7 @@
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Int_1" ID="{FAAC63A9-550F-4171-924B-791462A4D97B}"/>
-						<CurrentSwitchRef Name="wood" ID="{88854C8D-F02D-48BE-8CEC-14E47F4C14B8}"/>
+						<CurrentSwitchRef Name="fruit" ID="{993A966C-B986-4D01-839D-DF1B758E2195}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

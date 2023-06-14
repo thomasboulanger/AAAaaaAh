@@ -203,7 +203,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{29480D52-B922-F725-39F2-09302F95DAE5}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{3C25C7F0-F731-B5CD-6B64-D1E782EBEA76}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -1160,6 +1160,7 @@
 				</Custom>
 			</Plugins>
 			<Events>
+				<Event Id="2400338315" Name="Init_StopAll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="OneShot" DurationMin="125.61696" DurationMax="125.61696">
 					<MediaRefs>
 						<MediaRef Id="28999613"/>
@@ -2016,5 +2017,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{4B014762-5F62-4DFD-83B2-C147BAB358BC}</FileHash>
+	<FileHash>{E9FF4AB3-C436-7F24-0E91-162451D56B71}</FileHash>
 </SoundBanksInfo>

@@ -25,6 +25,16 @@ public class AudioMenuManager : MonoBehaviour
     [SerializeField] AK.Wwise.RTPC _demonVolumeRTPC;
     [SerializeField] [Range(0f, 100f)] private float _demonVolume = 100f;
 
+    [SerializeField] AK.Wwise.RTPC _ambianceVolumeRTPC;
+    [SerializeField] [Range(0f, 100f)] private float _ambianceVolume = 100f;
+
+     [SerializeField] AK.Wwise.RTPC _moucheVolumeRTPC;
+    [SerializeField] [Range(0f, 100f)] private float _moucheVolume = 100f;
+
+
+
+
+
     //  [SerializeField] public AK.Wwise.RTPC _listenMusicRTPC;
     private void Start()
     {
@@ -36,8 +46,16 @@ public class AudioMenuManager : MonoBehaviour
 
         _musicVolume = 100f;
         _musicVolumeRTPC.SetGlobalValue(_musicVolume);
-        
-        _musicVolumeRTPC.GetValue(gameObject);
+
+        _ambianceVolume = 100f;
+        _ambianceVolumeRTPC.SetGlobalValue(_ambianceVolume);
+
+        _moucheVolume = 100f;
+        _moucheVolumeRTPC.SetGlobalValue(_moucheVolume);
+
+
+        // check value
+        //_musicVolumeRTPC.GetValue(gameObject);
 
         // StartCoroutine(ExampleCoroutine());
         //pour test changement de volume
@@ -74,6 +92,28 @@ public class AudioMenuManager : MonoBehaviour
         {
             _demonVolume = value;
             _demonVolumeRTPC.SetGlobalValue(value);
+        }
+    }
+
+    public float _ambianceVolumeStorage
+    {
+        //set music volume RTPC to new value acquired by the getter/setter.
+        get => _ambianceVolume;
+        set
+        {
+            _ambianceVolume = value;
+            _ambianceVolumeRTPC.SetGlobalValue(value);
+        }
+    }
+
+    public float __moucheVolumeStorage
+    {
+        //set music volume RTPC to new value acquired by the getter/setter.
+        get => _moucheVolume;
+        set
+        {
+            _moucheVolume = value;
+            _moucheVolumeRTPC.SetGlobalValue(value);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID INIT_STOPALL = 2400338315U;
         static const AkUniqueID PLAY_AMB_JUNGLE = 1939323106U;
         static const AkUniqueID PLAY_AMBIANCE_CASCADE = 1772480721U;
         static const AkUniqueID PLAY_CRI = 2942461358U;
