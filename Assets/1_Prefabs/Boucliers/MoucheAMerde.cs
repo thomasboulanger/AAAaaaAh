@@ -65,8 +65,13 @@ public class MoucheAMerde : MonoBehaviour
     [SerializeField] private AK.Wwise.RTPC RTPCdistancePlayerMouche;
     private float distancePlayerMouche = 0f;
 
+    private uint _enventID;
+
     void Start()
     {
+        _enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+        //AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+
         Vector3 pos = transform.position; //modif maros pour limiter l'impact perf
         _previousA = 0;
         _a = Random.Range(-coneBeginingRadius, coneBeginingRadius);
@@ -211,7 +216,9 @@ public class MoucheAMerde : MonoBehaviour
 
         if (Vector3.Magnitude(pos - bodypos) > destroyDistance)
         {
-            Destroy(transform.gameObject);
+            VoiceCleanUp();
+
+            Destroy(gameObject);
         }
 
         transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);//opti + lerp
@@ -221,21 +228,32 @@ public class MoucheAMerde : MonoBehaviour
     {
         if (other.transform.tag == "Bouclier")
         {
-            Destroy(transform.gameObject);
             //audio destruction mouche
             AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
+            VoiceCleanUp();
+            Destroy(gameObject);
+
         }
         else if (other.transform.tag == "Player")
         {
             Debug.Log("poutprout");
-            bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
-            Destroy(gameObject);
             //Audio puch mouche
             AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
+            bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
+            VoiceCleanUp();
+
+            Destroy(gameObject);
+
 
         }
 
     }
+
+    private void VoiceCleanUp()
+    {
+        AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

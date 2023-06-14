@@ -7,6 +7,7 @@ public class Mouche : MonoBehaviour
 {
     public Transform[] limbControllerList = new Transform[4];
     public Transform[] bouclierList = new Transform[4];
+    public Vector2 spawnPosition = new Vector2(5f, 5f);
     private int j = 0;
     public MoucheAMerde moucheAMerde;
     public float intervalle;
@@ -21,6 +22,7 @@ public class Mouche : MonoBehaviour
     {
         _timerLimit = 1;
         _playerRB = player.GetComponent<Rigidbody>();
+        Application.targetFrameRate = 240;
     }
 
     // Update is called once per frame
@@ -31,17 +33,17 @@ public class Mouche : MonoBehaviour
         transform.position = limbControllerList[j].position;
         transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
         _timer += Time.deltaTime;
-        //if (_timer > _timerLimit)
-        if (Input.GetKeyDown(KeyCode.W))
+        if (_timer > _timerLimit)
+        //if (Input.GetKeyDown(KeyCode.W))
         {
-            _randomX = Random.Range(-10f, 10f);
-            _randomY = Random.Range(-10f, 10f);
+            _randomX = Random.Range(-spawnPosition.x, spawnPosition.x);
+            _randomY = Random.Range(-spawnPosition.y, spawnPosition.y);
             MoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
             moucheAMerdePrefab.body = player;
             moucheAMerdePrefab.bodyRB = _playerRB;
             _timer = 0f;
             _timerLimit = intervalle;
-            //_timerLimit = Random.Range(0f, intervalle);
+            _timerLimit = Random.Range(0f, intervalle);
 
         }
     }
