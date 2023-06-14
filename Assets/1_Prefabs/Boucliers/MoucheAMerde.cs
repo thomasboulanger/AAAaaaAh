@@ -17,6 +17,8 @@ public class MoucheAMerde : MonoBehaviour
     [SerializeField] private Vector2 linearSpeedIncrement = new(0.5f, 10f);
     [SerializeField] private float force = 5;
     [SerializeField] private Transform[] bouclierList = new Transform[4];
+    [SerializeField] private float forceDoremin = 100f;
+    [SerializeField] private float forceMegaplex = 300f;
 
     private PoubelleVisualManager _trashTankRef;
     private Vector3 _path;
@@ -256,7 +258,14 @@ public class MoucheAMerde : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
+            if (bodyRB.drag < 5 ) 
+            {
+                bodyRB.AddForceAtPosition(forceDoremin * Vector3.Normalize(_path), transform.position);
+            }
+            else if (bodyRB.drag > 5 )
+            {
+                bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
+            }
 
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
