@@ -5787,6 +5787,11 @@
 								<ActorMixer Name="mouche" ID="{0C723359-D2A0-4B7C-81BB-38F5A0F3827E}" ShortID="921189010">
 									<PropertyList>
 										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Priority" Type="int16">
+											<ValueList>
+												<Value>60</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -5810,7 +5815,9 @@
 														<Value>3</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>250</Value>
@@ -5832,7 +5839,7 @@
 														<Value>True</Value>
 													</ValueList>
 												</Property>
-												<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="0"/>
+												<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-4</Value>
@@ -5915,7 +5922,7 @@
 										<Sound Name="sfx_environnement_mouche_fly_loop_buzz" ID="{D28EAC04-904D-417D-ABC1-C4FBC4411033}" ShortID="94844352">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="BelowThresholdBehavior" Type="int16" Value="3"/>
+												<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
 												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
@@ -5925,7 +5932,9 @@
 														<Value>3</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -5944,7 +5953,7 @@
 														<Value>True</Value>
 													</ValueList>
 												</Property>
-												<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="0"/>
+												<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-8</Value>
