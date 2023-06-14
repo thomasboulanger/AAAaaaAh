@@ -6,6 +6,7 @@
 //thomas.boulanger.auditeur@lecnam.net
 
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -15,7 +16,7 @@ public class FruitSelector : MonoBehaviour
 {
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public bool animating;
-
+    [HideInInspector] public GameObject currentParent;
 
     [SerializeField] private FruitScriptableObject[] fruitPool;
 
@@ -26,7 +27,6 @@ public class FruitSelector : MonoBehaviour
     private GameObject _shader;
     private int _chosenFruitIndex;
     private bool _triggerOnce;
-    private GameObject _currentParent;
     private bool _fruitStored;
 
     private void Awake()
@@ -43,7 +43,7 @@ public class FruitSelector : MonoBehaviour
         _collider.sharedMesh = fruitPool[_chosenFruitIndex].fruitMesh;
         _renderer.materials = fruitPool[_chosenFruitIndex].materials;
 
-        _currentParent = null;
+        currentParent = null;
     }
 
     private void Update()
@@ -56,7 +56,7 @@ public class FruitSelector : MonoBehaviour
             _collider.isTrigger = true;
 
             if (animating) return;
-            transform.position = _currentParent.transform.position;
+            transform.position = currentParent.transform.position;
         }
         else
         {
@@ -68,7 +68,7 @@ public class FruitSelector : MonoBehaviour
     public void GrabFruit(GameObject parent)
     {
         _animator.SetTrigger("Pickup");
-        _currentParent = parent;
+        currentParent = parent;
 
         if (_triggerOnce) return;
         _triggerOnce = true;
@@ -77,13 +77,13 @@ public class FruitSelector : MonoBehaviour
 
     public void ReleaseFruit()
     {
-        _currentParent = null;
+        currentParent = null;
         _fruitStored = false;
         if (_fruitStored) gameObject.SetActive(true);
     }
 
     public bool IsFruitGrabbed()
     {
-        return _currentParent != null;
+        return currentParent != null;
     }
 }

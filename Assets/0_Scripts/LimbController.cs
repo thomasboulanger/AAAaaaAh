@@ -23,11 +23,11 @@ public class LimbController : MonoBehaviour
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
     [SerializeField] private GameEvent onFirstTutorialPartAchieved;
-
+    
     [Header("The ID of limb that player with same ID will control")]
     [SerializeField] private int playerID;
     [SerializeField] private int limbID;
-    [Space] [Header("The range that the player can move his limb")] 
+    [Space] [Header("The range that the player can move his limb")]
     [SerializeField] private float limbLength;
     [SerializeField] private bool limbIsLeg;
     [SerializeField] private float limbSpeed = 10000;
@@ -46,7 +46,7 @@ public class LimbController : MonoBehaviour
     private Vector3 _stackableMoveValue;
     private bool _triggerGrabOnce;
     private Vector3 _initialPos;
-    private GameObject _fruit;
+    private FruitSelector _fruit;
     private Color _tutorialBlockColor;
     private bool _triggerSetInitialPosOnce;
 
@@ -102,7 +102,7 @@ public class LimbController : MonoBehaviour
                 _stackableMoveValue = _initialPos;
                 _triggerSetInitialPosOnce = true;
             }
-            
+
             _stackableMoveValue += _moveValue;
             _stackableMoveValue = Vector3.ClampMagnitude(_stackableMoveValue, limbLength);
             Vector3 localLimbPos = _stackableMoveValue + _limbCenterTransform.position;
@@ -119,8 +119,14 @@ public class LimbController : MonoBehaviour
             if (!_isGrabbing)
             {
                 //was grabbing a fruit
-                if (_isGrabbingFruit && _fruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
-                
+                if (_isGrabbingFruit)
+                {
+                    if (_fruit.currentParent == gameObject)
+                        _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
+                    else
+                        _fruit = null;
+                }
+
                 //was grabbing environment (check if the environment Obj was a tutorial block)
                 if (_tutorialBlocksGrabbed[limbID])
                 {
@@ -152,8 +158,8 @@ public class LimbController : MonoBehaviour
                 if (closestObj.CompareTag("Fruit"))
                 {
                     _isGrabbingFruit = true;
-                    _fruit = closestObj;
-                    _fruit.GetComponentInParent<FruitSelector>().GrabFruit(gameObject);
+                    _fruit = closestObj.GetComponentInParent<FruitSelector>();
+                    _fruit.GrabFruit(gameObject);
                 }
                 else if (closestObj.CompareTag("Environment"))
                 {
@@ -186,7 +192,7 @@ public class LimbController : MonoBehaviour
         // _isGrabbing = (bool) data;
         // onLimbGrabEvent.Raise(this, _isGrabbing, playerID, limbID);
     }
-    
+
     private void LateUpdate()
     {
         //if the position is out of the limb radius, clamp the transform to the limb radius
@@ -196,7 +202,7 @@ public class LimbController : MonoBehaviour
             transform.position = _limbCenterTransform.position + direction * limbLength;
         }
 
-        if(GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.PreStart) return;
         CheckForAllTutorialBlockGrabbed();
     }
 
@@ -220,6 +226,7 @@ public class LimbController : MonoBehaviour
             _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
-        onFirstTutorialPartAchieved.Raise(this,null,playerID,limbID);
+
+        onFirstTutorialPartAchieved.Raise(this, null, playerID, limbID);
     }
 }
