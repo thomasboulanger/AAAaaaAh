@@ -53,7 +53,9 @@ public class PoubelleVisualManager : MonoBehaviour
     private Quaternion _lastRotation;
     private bool _ejectFruits;
     private bool _finished;
-    private int index;
+    private int _index;
+    private bool _ejectSingleFruit;
+    private Vector3 _fruitPos;
 
     void Start() => Init();
 
@@ -116,11 +118,12 @@ public class PoubelleVisualManager : MonoBehaviour
                 Vector3.Lerp
                 (
                     middlePosOffseted,
-                    endPos,
+                    _ejectSingleFruit ? _fruitPos : endPos,
                     destinationCurve.Evaluate(fruitTimers[i])
                 ),
                 (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i])
             );
+
 
             if (!(fruitTimers[i] > (!_ejectFruits ? 0.8f : 0.2f)) || hasBouped[i]) continue;
 
@@ -142,7 +145,13 @@ public class PoubelleVisualManager : MonoBehaviour
             {
                 _finished = false;
                 _ejectFruits = false;
-                storedFruits.Clear();
+                if (_ejectSingleFruit)
+                {
+                    _ejectSingleFruit = false;
+                    storedFruits.RemoveAt(0);
+                }
+                else storedFruits.Clear();
+
                 continue;
             }
 
@@ -152,11 +161,11 @@ public class PoubelleVisualManager : MonoBehaviour
     }
 
     //deactivate the fruit before sending it here
-    public void InitializeMovement(Transform fruit)
+    public void InitializeFruitThenMoveIt(Transform fruitTransform, bool isFunctionCalledInIntern)
     {
-        fruits.Add(fruit);
+        fruits.Add(fruitTransform);
         fruitTimers.Add(0);
-        basePos.Add(fruit.position);
+        basePos.Add(fruitTransform.position);
 
         //fruit added to lists
         hasBouped.Add(false);
@@ -171,13 +180,24 @@ public class PoubelleVisualManager : MonoBehaviour
                 Random.Range(-1f, 1f)
             ).normalized
         );
+
+        if (!isFunctionCalledInIntern) _fruitPos = fruitTransform.position;
     }
 
     public void EjectFruits()
     {
-        if (storedFruits?.Any() != true) return;
+        if (storedFruits.Count == 0) return;
+
         _ejectFruits = true;
-        StartCoroutine(RandomDelayedFruits());
+        if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+            StartCoroutine(RandomDelayedFruits());
+        else
+        {
+            _ejectSingleFruit = true;
+            storedFruits[0].gameObject.SetActive(true);
+            InitializeFruitThenMoveIt(storedFruits[0], true);
+            _finished = true;
+        }
     }
 
     IEnumerator RandomDelayedFruits()
@@ -186,7 +206,7 @@ public class PoubelleVisualManager : MonoBehaviour
         for (int i = 0; i < storedFruits.Count; i++)
         {
             storedFruits[i].gameObject.SetActive(true);
-            InitializeMovement(storedFruits[i]);
+            InitializeFruitThenMoveIt(storedFruits[i], true);
             if (i == storedFruits.Count - 1) continue;
             yield return new WaitForSeconds(timer / Mathf.Clamp(i / 2, 1, 999999));
         }

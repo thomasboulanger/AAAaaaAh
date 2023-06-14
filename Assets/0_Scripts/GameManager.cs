@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         Play,
         PreStart,
         Start,
-        RebindInputs
+        RebindInputs,
+        PlayerHaveReachEndOfLevel,
     }
 
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         // 5 -> pre start
         // 6 -> start
         // 7 -> rebind inputs
+        // 8 -> end of level
 
         UICanvaState = UIStateEnum.PressStartToAddPlayers;
     }
@@ -61,12 +63,7 @@ public class GameManager : MonoBehaviour
         UICanvaState = (UIStateEnum) data1;
         Debug.Log("moved to panel " + (int) data1);
     }
-
-    public void PlayerHaveReachedTheEnd(Component sender, object unUsed1, object unUsed2, object unUsed3)
-    {
-        //player has passed the trigger box at the end of the level, now it has to seat and fire fruits on the demon
-    }
-
+    
     public void LoadLevel()
     {
         if (GameObject.FindGameObjectWithTag("LevelContainer"))
