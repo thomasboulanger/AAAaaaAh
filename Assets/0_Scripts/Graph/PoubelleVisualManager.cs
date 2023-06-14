@@ -11,6 +11,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
+    [SerializeField] private Transform ejectPos;
     [Header("CinematiqueFin")] 
     [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
@@ -48,7 +49,6 @@ public class PoubelleVisualManager : MonoBehaviour
     private bool _finished;
     private int _index;
     private bool _ejectSingleFruit;
-    private Vector3 _fruitPos;
 
     void Start() => Init();
 
@@ -56,7 +56,7 @@ public class PoubelleVisualManager : MonoBehaviour
     {
         _openedRotation = couvercle.localRotation;
         couvercle.localEulerAngles = new Vector3(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
-        _closedRotation = Quaternion.Euler(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
+        _closedRotation = couvercle.localRotation;
         _animator = GetComponent<Animator>();
     }
 
@@ -114,7 +114,7 @@ public class PoubelleVisualManager : MonoBehaviour
                 Vector3.Lerp
                 (
                     middlePosOffseted,
-                    _ejectSingleFruit ? _fruitPos : endPos,
+                    _ejectSingleFruit ? ejectPos.position : endPos,
                     destinationCurve.Evaluate(fruitTimers[i])
                 ),
                 (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i])
@@ -128,15 +128,13 @@ public class PoubelleVisualManager : MonoBehaviour
             _animator.SetTrigger("boup");
         }
 
-        for (int i = 0; i < toRemoveFromLists.Count; i++)
+        foreach (Transform item in toRemoveFromLists)
         {
-            //clear our lists of all fruits that have been deleted this frame
-            fruits.RemoveAt(i);
-            fruitTimers.RemoveAt(i);
-            basePos.RemoveAt(i);
-            hasBouped.RemoveAt(i);
-            middlePosOffsets.RemoveAt(i);
+            int index = fruits.IndexOf(item);
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); //on suprime tt les fruits détruits cette frame
 
+            //clear our lists of all fruits that have been deleted this frame
+            
             if (_finished && fruits.Count == 0)
             {
                 _finished = false;
@@ -148,18 +146,26 @@ public class PoubelleVisualManager : MonoBehaviour
                 }
                 else storedFruits.Clear();
 
+                FruitSelector fruit = item.GetComponent<FruitSelector>();
+                //fruit.animating = false;
+                fruit.ReleaseFruit();
+
                 continue;
             }
 
             if (_ejectFruits) continue;
-            storedFruits.Add(toRemoveFromLists[i]);
+            storedFruits.Add(item);
         }
     }
 
     public void PlayerHitByFly()
     {
         currentGaugeLevel += gaugeIncrementByHit;
-        if(currentGaugeLevel >= gaugeSize) EjectFruits();
+        if (currentGaugeLevel >= gaugeSize)
+        {
+            currentGaugeLevel = 0;
+            EjectFruits();
+        }
     }
     
     //deactivate the fruit before sending it here
@@ -182,8 +188,6 @@ public class PoubelleVisualManager : MonoBehaviour
                 Random.Range(-1f, 1f)
             ).normalized
         );
-
-        if (!isFunctionCalledInIntern) _fruitPos = fruitTransform.position;
     }
 
     public void EjectFruits()
@@ -191,6 +195,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
+        GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
         if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             StartCoroutine(RandomDelayedFruits());
         else
@@ -216,3 +221,10 @@ public class PoubelleVisualManager : MonoBehaviour
         _finished = true;
     }
 }
+
+/*
+        fruit.animating = false; + appeler ReleaseFruit dans fruit selector
+ * fin 
+ * 
+ * 
+ */

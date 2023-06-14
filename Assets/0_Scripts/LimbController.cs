@@ -119,7 +119,7 @@ public class LimbController : MonoBehaviour
             if (!_isGrabbing)
             {
                 //was grabbing a fruit
-                if (_isGrabbingFruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
+                if (_isGrabbingFruit && _fruit) _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
                 
                 //was grabbing environment (check if the environment Obj was a tutorial block)
                 if (_tutorialBlocksGrabbed[limbID])

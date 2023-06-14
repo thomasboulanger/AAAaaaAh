@@ -14,6 +14,8 @@ using Random = UnityEngine.Random;
 public class FruitSelector : MonoBehaviour
 {
     [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public bool animating;
+
 
     [SerializeField] private FruitScriptableObject[] fruitPool;
 
@@ -51,8 +53,10 @@ public class FruitSelector : MonoBehaviour
         if (IsFruitGrabbed())
         {
             rb.isKinematic = true;
-            transform.position = _currentParent.transform.position;
             _collider.isTrigger = true;
+
+            if (animating) return;
+            transform.position = _currentParent.transform.position;
         }
         else
         {
@@ -77,7 +81,7 @@ public class FruitSelector : MonoBehaviour
         _fruitStored = false;
         if (_fruitStored) gameObject.SetActive(true);
     }
-    
+
     public bool IsFruitGrabbed()
     {
         return _currentParent != null;
