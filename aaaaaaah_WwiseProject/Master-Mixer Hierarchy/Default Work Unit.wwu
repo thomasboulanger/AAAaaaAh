@@ -152,9 +152,89 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
-										<Bus Name="Ambiance" ID="{F5D42EAF-5BF4-46E5-BE79-99A6075567B8}"/>
+										<Bus Name="Ambiance" ID="{F5D42EAF-5BF4-46E5-BE79-99A6075567B8}">
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{DEDCDFB9-0047-48A1-8055-B1CE477847AB}" ShortID="372514642">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="BusVolume"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="ambiance_volume_RTPC" ID="{E05D22DF-4CC2-45E4-9E77-DABBFF1DDB46}" WorkUnitID="{B451D419-3AB4-4225-99C7-938071E09B33}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{E3A1E259-33FC-47FF-9068-014068BFBEEF}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="3"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-200</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>100</XPos>
+																						<YPos>0</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Bus>
 										<Bus Name="props" ID="{C6A15F2B-516D-4AE7-8873-366284DC75B7}"/>
-										<Bus Name="Mouche" ID="{E80B3C87-1F67-4B61-AAE1-FA9AFBB78166}"/>
+										<Bus Name="Mouche" ID="{E80B3C87-1F67-4B61-AAE1-FA9AFBB78166}">
+											<ObjectLists>
+												<ObjectList Name="RTPC">
+													<Reference>
+														<Local>
+															<RTPC Name="" ID="{1C3A23CC-F7D6-491C-998B-709645869438}" ShortID="73932668">
+																<PropertyList>
+																	<Property Name="PropertyName" Type="string" Value="BusVolume"/>
+																</PropertyList>
+																<ReferenceList>
+																	<Reference Name="ControlInput">
+																		<ObjectRef Name="Mouche_volume_RTPC" ID="{7E5E8E00-2E36-486A-BD8C-359B4BC94CF8}" WorkUnitID="{B451D419-3AB4-4225-99C7-938071E09B33}"/>
+																	</Reference>
+																	<Reference Name="Curve">
+																		<Custom>
+																			<Curve Name="" ID="{3D87E8EA-B1AF-4DDE-84FC-1265406EAFB5}">
+																				<PropertyList>
+																					<Property Name="Flags" Type="int32" Value="3"/>
+																				</PropertyList>
+																				<PointList>
+																					<Point>
+																						<XPos>0</XPos>
+																						<YPos>-200</YPos>
+																						<Flags>5</Flags>
+																					</Point>
+																					<Point>
+																						<XPos>100</XPos>
+																						<YPos>0</YPos>
+																						<Flags>37</Flags>
+																					</Point>
+																				</PointList>
+																			</Curve>
+																		</Custom>
+																	</Reference>
+																</ReferenceList>
+															</RTPC>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</Bus>
 									</ChildrenList>
 								</Bus>
 								<Bus Name="parpaing" ID="{98C3EED1-4831-4AFB-BDA1-F841DF2169D8}">

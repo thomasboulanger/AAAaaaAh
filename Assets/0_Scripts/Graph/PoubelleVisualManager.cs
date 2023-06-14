@@ -7,45 +7,39 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")] [SerializeField]
-    private Transform topPoint;
-
+    [Header("Valeurs a set")] 
+    [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
-
-    [Header("CinematiqueFin")] [SerializeField]
-    private Transform midlePoint;
-
+    [SerializeField] private Transform ejectPos;
+    [Header("CinematiqueFin")] 
+    [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
-
-    [Header("Valeurs de tweak")] [SerializeField]
-    private float fruitSpeed = 2f;
-
+    [Header("Valeurs de tweak")] 
+    [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
     [SerializeField] private float randomizeTrajectoryPowerDropping = 1f;
-
-    [Header("Courbe d'anims")] [SerializeField]
-    private AnimationCurve speedCurve;
-
+    [Header("Courbe d'anims")]
+    [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private AnimationCurve speedCurveDropping;
-    [SerializeField] private AnimationCurve bloupCurve;
-    [SerializeField] private AnimationCurve offsetCurve; //avec top point
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
-
-    [Header("for debug purpose only")] [SerializeField]
-    private float timerPoubelle;
-
+    [Header("for debug purpose only")]
+    [SerializeField] private float timerPoubelle;
     [SerializeField] private List<Transform> fruits = new();
     [SerializeField] private List<float> fruitTimers = new();
     [SerializeField] private List<Vector3> basePos = new();
     [SerializeField] private List<bool> hasBouped = new();
     [SerializeField] private List<Transform> storedFruits = new();
-
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
-    [SerializeField]
-    private List<Vector3> middlePosOffsets = new();
+    [SerializeField] private List<Vector3> middlePosOffsets = new();
+
+    [Header("for debug purpose only")]
+    [SerializeField] private float gaugeSize = 100;
+    [SerializeField] private float gaugeIncrementByHit = 50;
+    [SerializeField] private float gaugeDecrementOverTime = 10;
+    [SerializeField] private float currentGaugeLevel;
 
     private Animator _animator;
     private Quaternion _openedRotation;
@@ -55,7 +49,6 @@ public class PoubelleVisualManager : MonoBehaviour
     private bool _finished;
     private int _index;
     private bool _ejectSingleFruit;
-    private Vector3 _fruitPos;
 
     void Start() => Init();
 
@@ -63,7 +56,7 @@ public class PoubelleVisualManager : MonoBehaviour
     {
         _openedRotation = couvercle.localRotation;
         couvercle.localEulerAngles = new Vector3(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
-        _closedRotation = Quaternion.Euler(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
+        _closedRotation = couvercle.localRotation;
         _animator = GetComponent<Animator>();
     }
 
@@ -74,6 +67,9 @@ public class PoubelleVisualManager : MonoBehaviour
         float deltaTime = Time.deltaTime;
         Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
         Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
+
+        currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
+        if (currentGaugeLevel < 0) currentGaugeLevel = 0;
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -118,7 +114,7 @@ public class PoubelleVisualManager : MonoBehaviour
                 Vector3.Lerp
                 (
                     middlePosOffseted,
-                    _ejectSingleFruit ? _fruitPos : endPos,
+                    _ejectSingleFruit ? ejectPos.position : endPos,
                     destinationCurve.Evaluate(fruitTimers[i])
                 ),
                 (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i])
@@ -132,15 +128,13 @@ public class PoubelleVisualManager : MonoBehaviour
             _animator.SetTrigger("boup");
         }
 
-        for (int i = 0; i < toRemoveFromLists.Count; i++)
+        foreach (Transform item in toRemoveFromLists)
         {
-            //clear our lists of all fruits that have been deleted this frame
-            fruits.RemoveAt(i);
-            fruitTimers.RemoveAt(i);
-            basePos.RemoveAt(i);
-            hasBouped.RemoveAt(i);
-            middlePosOffsets.RemoveAt(i);
+            int index = fruits.IndexOf(item);
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); //on suprime tt les fruits détruits cette frame
 
+            //clear our lists of all fruits that have been deleted this frame
+            
             if (_finished && fruits.Count == 0)
             {
                 _finished = false;
@@ -152,14 +146,28 @@ public class PoubelleVisualManager : MonoBehaviour
                 }
                 else storedFruits.Clear();
 
+                FruitSelector fruit = item.GetComponent<FruitSelector>();
+                //fruit.animating = false;
+                fruit.ReleaseFruit();
+
                 continue;
             }
 
             if (_ejectFruits) continue;
-            storedFruits.Add(toRemoveFromLists[i]);
+            storedFruits.Add(item);
         }
     }
 
+    public void PlayerHitByFly()
+    {
+        currentGaugeLevel += gaugeIncrementByHit;
+        if (currentGaugeLevel >= gaugeSize)
+        {
+            currentGaugeLevel = 0;
+            EjectFruits();
+        }
+    }
+    
     //deactivate the fruit before sending it here
     public void InitializeFruitThenMoveIt(Transform fruitTransform, bool isFunctionCalledInIntern)
     {
@@ -180,8 +188,6 @@ public class PoubelleVisualManager : MonoBehaviour
                 Random.Range(-1f, 1f)
             ).normalized
         );
-
-        if (!isFunctionCalledInIntern) _fruitPos = fruitTransform.position;
     }
 
     public void EjectFruits()
@@ -189,6 +195,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
+        GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
         if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             StartCoroutine(RandomDelayedFruits());
         else
@@ -214,3 +221,10 @@ public class PoubelleVisualManager : MonoBehaviour
         _finished = true;
     }
 }
+
+/*
+        fruit.animating = false; + appeler ReleaseFruit dans fruit selector
+ * fin 
+ * 
+ * 
+ */
