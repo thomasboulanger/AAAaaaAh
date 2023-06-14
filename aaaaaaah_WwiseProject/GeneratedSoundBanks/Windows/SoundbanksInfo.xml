@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{14BE4217-5B07-8701-0D62-FD2943CAAC3E}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{4D69C2ED-B77E-9458-9566-3079F44FBCBE}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -159,11 +159,13 @@
 				</AuxBus>
 			</AuxBusses>
 			<GameParameters>
+				<GameParameter Id="72403437" Name="Mouche_volume_RTPC"/>
 				<GameParameter Id="195392438" Name="Music_intensity_RTPC"/>
 				<GameParameter Id="200528452" Name="SidechainMusicOnSFX"/>
 				<GameParameter Id="292950853" Name="MeterControl_unity"/>
 				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
 				<GameParameter Id="541209909" Name="cinematic_sfx_level_meter_RTPC"/>
+				<GameParameter Id="939099552" Name="ambiance_volume_RTPC"/>
 				<GameParameter Id="954052721" Name="Cinematic_music_rvb_exterior_send"/>
 				<GameParameter Id="1277843105" Name="Demon_Metering_Cri"/>
 				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
@@ -2014,5 +2016,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FC011155-06C1-1CB3-CDB9-7B4F96188591}</FileHash>
+	<FileHash>{58C42AC8-F459-90B5-B617-205500EFE888}</FileHash>
 </SoundBanksInfo>

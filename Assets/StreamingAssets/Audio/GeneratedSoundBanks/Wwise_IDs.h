@@ -138,6 +138,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID AMBIANCE_VOLUME_RTPC = 939099552U;
         static const AkUniqueID CINEMATIC_ELOIGNEMENT_DEMON = 2761015712U;
         static const AkUniqueID CINEMATIC_MUSIC_LEVEL = 2243908779U;
         static const AkUniqueID CINEMATIC_MUSIC_LOWPASS = 484419736U;
@@ -156,6 +157,7 @@ namespace AK
         static const AkUniqueID DISTANCE_FROM_DEMON = 2692577935U;
         static const AkUniqueID DISTANCE_FROM_PLAYER = 2541357373U;
         static const AkUniqueID METERCONTROL_UNITY = 292950853U;
+        static const AkUniqueID MOUCHE_VOLUME_RTPC = 72403437U;
         static const AkUniqueID MUSIC_INTENSITY_RTPC = 195392438U;
         static const AkUniqueID MUSIC_VOLUME_RTPC = 3131952431U;
         static const AkUniqueID SFX_VOLUME_RTPC = 2654583815U;
