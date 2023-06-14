@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{7A92640F-8F72-7531-9B13-46BE4B486490}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{3BB0D9D9-8718-81E4-85FA-3A7305AA13ED}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -159,11 +159,13 @@
 				</AuxBus>
 			</AuxBusses>
 			<GameParameters>
+				<GameParameter Id="72403437" Name="Mouche_volume_RTPC"/>
 				<GameParameter Id="195392438" Name="Music_intensity_RTPC"/>
 				<GameParameter Id="200528452" Name="SidechainMusicOnSFX"/>
 				<GameParameter Id="292950853" Name="MeterControl_unity"/>
 				<GameParameter Id="484419736" Name="Cinematic_music_lowpass"/>
 				<GameParameter Id="541209909" Name="cinematic_sfx_level_meter_RTPC"/>
+				<GameParameter Id="939099552" Name="ambiance_volume_RTPC"/>
 				<GameParameter Id="954052721" Name="Cinematic_music_rvb_exterior_send"/>
 				<GameParameter Id="1277843105" Name="Demon_Metering_Cri"/>
 				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
@@ -201,7 +203,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{35E9608D-E525-5730-04CC-F92D98E42979}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{3C25C7F0-F731-B5CD-6B64-D1E782EBEA76}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -289,6 +291,10 @@
 					<ShortName>sfx_roman_scream_rvb_loin_03.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_loin_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="85521945" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part1.wav</ShortName>
+					<CachePath>SFX/Kompa1_part1_983551D2.wem</CachePath>
+				</File>
 				<File Id="85643450" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 1_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 1_05_10C4C929.wem</CachePath>
@@ -332,6 +338,10 @@
 				<File Id="127659371" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_scream_06.wav</ShortName>
 					<CachePath>SFX/roman_scream_06_10C4C929.wem</CachePath>
+				</File>
+				<File Id="133134963" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_intro.wav</ShortName>
+					<CachePath>SFX/Kompa1_intro_983551D2.wem</CachePath>
 				</File>
 				<File Id="136290319" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Kompa4\Kompa4_intro.wav</ShortName>
@@ -448,6 +458,10 @@
 				<File Id="285697430" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_02.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="286201041" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part3.wav</ShortName>
+					<CachePath>SFX/Kompa1_part3_983551D2.wem</CachePath>
 				</File>
 				<File Id="292065262" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>baptiste_inspi_04.wav</ShortName>
@@ -1005,6 +1019,10 @@
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_voice_03.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_voice_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="920233745" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kompa1_part2.wav</ShortName>
+					<CachePath>SFX/Kompa1_part2_983551D2.wem</CachePath>
+				</File>
 				<File Id="923013965" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_woodwork_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_01_10C4C929.wem</CachePath>
@@ -1142,6 +1160,7 @@
 				</Custom>
 			</Plugins>
 			<Events>
+				<Event Id="2400338315" Name="Init_StopAll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="OneShot" DurationMin="125.61696" DurationMax="125.61696">
 					<MediaRefs>
 						<MediaRef Id="28999613"/>
@@ -1496,10 +1515,10 @@
 				</Event>
 				<Event Id="1315062901" Name="Play_kompa1" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="193205"/>
-						<MediaRef Id="136290319"/>
-						<MediaRef Id="495112281"/>
-						<MediaRef Id="933035219"/>
+						<MediaRef Id="85521945"/>
+						<MediaRef Id="133134963"/>
+						<MediaRef Id="286201041"/>
+						<MediaRef Id="920233745"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
@@ -1998,5 +2017,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9BE11896-B6A3-ED1B-6146-6DA4D9DF6370}</FileHash>
+	<FileHash>{E9FF4AB3-C436-7F24-0E91-162451D56B71}</FileHash>
 </SoundBanksInfo>

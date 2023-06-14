@@ -25,6 +25,12 @@
 						<Value Platform="Mac">GeneratedSoundBanks\Mac</Value>
 					</ValueList>
 				</Property>
+				<Property Name="GlobalVoiceInstancesLimit" Type="int16">
+					<ValueList>
+						<Value Platform="Windows">256</Value>
+						<Value Platform="Mac">256</Value>
+					</ValueList>
+				</Property>
 				<Property Name="LicenseKey" Type="string" Value="PHByb2plY3QgaWQ9IjUzNTgiIG1hc2s9Ik1QTVQxMzk0IiBlbmM9IjAiPjxsaWNlbnNlIGlkPSIxIiBuYW1lPSJXd2lzZSIgdHlwZT0iMyIgcGxhdGZvcm1zPSIyLDMsNCwxMCwxMywxNCIgZXhwaXJlcz0iMjAyMy0wNy0zMSIgIC8+PGxpY2Vuc2UgaWQ9IjIyIiBuYW1lPSJMZXZlbCBBIExpY2Vuc2UiIHR5cGU9IjMiIHBsYXRmb3Jtcz0iMiwzLDQsMTAsMTMsMTQiIGV4cGlyZXM9IjIwMjMtMDctMzEiICAvPjxsaWNlbnNlIGlkPSIyMSIgbmFtZT0iTWFpbnRlbmFuY2UiIHR5cGU9IjMiIHBsYXRmb3Jtcz0iMiwzLDQsMTAsMTMsMTQiIGV4cGlyZXM9IjIwMjMtMDctMzEiICAvPjxsaWNlbnNlIGlkPSIyNSIgbmFtZT0iQWxsIFd3aXNlIFBsdWctSW5zIiB0eXBlPSIzIiAgZXhwaXJlcz0iMjAyMy0wNy0zMSIgIC8+PGxpY2Vuc2UgaWQ9IjYiIG5hbWU9Ild3aXNlIENvbnZvbHV0aW9uIFJldmVyYiIgdHlwZT0iMyIgcGxhdGZvcm1zPSIyLDMsNCwxMCwxNCIgZXhwaXJlcz0iMjAyMy0wNy0zMSIgIC8+PHBsdWdpbiBpZD0iODMyMzA3NSIgbmFtZT0iV3dpc2UgQ29udm9sdXRpb24gUmV2ZXJiIiBsaWNlbnNlPSI2IiAvPjwvcHJvamVjdD4=|IAmpFA8QVbmVo6ZaaSyDhr9D7dOiz34EiYLDWM3ARPeGODQwOp/76D4pz6WLc8bwlj9Qj+/ZAAaQq6fzf/UiVIMr99aTv9x1NXxjWbhvxBYcoJ+bhKaaoi9bGQMieh8ZUxgJWxDK4y8oSY6fPcUDwZb80V3JXwzEaUaOrYGzGMNYlbDTETtVXKVCD/4s6okSYtwD5DQINxwsuf5N4fadAl7fQIuP6+gvP0bdTLYPdwWRkbauxgZBvuUTZv81veZDiT3ukdtxunFvwDVbDYz0o/rVVCbCpPG954rtu5fh032XhPUa0xYmRac/GznvLTlnRSFvcCdM1wJKfAyjRsK35w=="/>
 				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateHeaderFile" Type="bool" Value="True"/>
@@ -58,6 +64,12 @@
 					<ValueList>
 						<Value Platform="Windows"></Value>
 						<Value Platform="Mac"></Value>
+					</ValueList>
+				</Property>
+				<Property Name="VolumeThreshold" Type="Real64">
+					<ValueList>
+						<Value Platform="Windows">-60</Value>
+						<Value Platform="Mac">-60</Value>
 					</ValueList>
 				</Property>
 				<Property Name="WwiseVersionWhenCreated" Type="string" Value="Branch=wwise_v2022.1|Build=8150|VersionName=v2022.1.2|Config=Release"/>
