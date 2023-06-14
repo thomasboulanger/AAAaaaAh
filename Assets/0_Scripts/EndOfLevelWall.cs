@@ -13,11 +13,11 @@ using UnityEngine;
 /// </summary>
 public class EndOfLevelWall : MonoBehaviour
 {
-   [SerializeField] private GameEvent onPlayerEndLevel;
+    [SerializeField] private GameEvent onPlayerEndLevel;
 
-   private void OnTriggerEnter(Collider other)
-   {
-      if(!other.transform.CompareTag("Player")) return;
-      onPlayerEndLevel.Raise(this, null, null, null);
-   }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.transform.CompareTag("Player")) return;
+        onPlayerEndLevel.Raise(this, null, null, null);
+    }
 }
