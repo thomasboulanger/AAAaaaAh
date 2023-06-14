@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7378201652170647539}
   - component: {fileID: 8751315286943081492}
   - component: {fileID: 5768411793972989307}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8530228624551117166}
   - component: {fileID: 8858041536791161053}
   - component: {fileID: 8910065370536325460}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MoucheAMerde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   linearSpeedLimit: {x: 0.1, y: 2}
   linearSpeedIncrement: {x: 0.5, y: 1}
   bodyRB: {fileID: 0}
-  force: 5
+  force: 300
   bouclierList:
   - {fileID: 0}
   - {fileID: 0}
@@ -217,7 +217,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6009474077827947364}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

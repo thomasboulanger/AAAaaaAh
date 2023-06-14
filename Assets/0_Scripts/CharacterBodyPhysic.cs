@@ -131,7 +131,7 @@ public class CharacterBodyPhysic : MonoBehaviour
                                   RigidbodyConstraints.FreezeRotationX |
                                   RigidbodyConstraints.FreezeRotationY;
             _charRb.drag = dragForce;
-            _gravityForce += new Vector3(0, -gravityForce * Time.deltaTime, 0);
+            _gravityForce = new Vector3(0, -gravityForce * Time.deltaTime, 0);
         }
         else
         {
