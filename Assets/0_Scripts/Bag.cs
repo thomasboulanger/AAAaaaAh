@@ -128,7 +128,7 @@ public class Bag : MonoBehaviour
         if (!other.transform.CompareTag("Fruit")) return;
         FruitSelector fruit = other.transform.GetComponentInParent<FruitSelector>();
         if (fruit.IsFruitGrabbed()) fruit.ReleaseFruit();
-        fruit.FruitStoredInBag(gameObject);
+        //fruit.FruitStoredInBag(gameObject);
         fruitsStoredList.Add(other.gameObject);
     }
 

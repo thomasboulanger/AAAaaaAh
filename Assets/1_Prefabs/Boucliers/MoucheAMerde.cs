@@ -1,30 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 public class MoucheAMerde : MonoBehaviour
 {
-    public Transform body;
-    public Transform fly;
-    public float coneBeginingRadius = 10;
-    public float coneEndRadius = 1;
-    public float destroyDistance = 15;
-    public Vector2 oscillationChangeTimer = new Vector2 (0.2f, 0.4f);
-    public Vector2 oscillationSpeedLimit = new Vector2(0.1f, 2f);
-    public Vector2 oscillationSpeedIncrement = new Vector2(0.5f, 10f);
+    [HideInInspector] public Transform body;
+    [HideInInspector] public Rigidbody bodyRB;
 
+    [SerializeField] private Transform fly;
+    [SerializeField] private float coneBeginingRadius = 10;
+    [SerializeField] private float coneEndRadius = 1;
+    [SerializeField] private float destroyDistance = 15;
+    [SerializeField] private Vector2 oscillationChangeTimer = new(0.2f, 0.4f);
+    [SerializeField] private Vector2 oscillationSpeedLimit = new(0.1f, 2f);
+    [SerializeField] private Vector2 oscillationSpeedIncrement = new(0.5f, 10f);
+    [SerializeField] private Vector2 linearSpeedChangeTimer = new(0.2f, 0.4f);
+    [SerializeField] private Vector2 linearSpeedLimit = new(0.1f, 2f);
+    [SerializeField] private Vector2 linearSpeedIncrement = new(0.5f, 10f);
+    [SerializeField] private float force = 5;
+    [SerializeField] private Transform[] bouclierList = new Transform[4];
 
-    public Vector2 linearSpeedChangeTimer = new Vector2 (0.2f, 0.4f);
-    public Vector2 linearSpeedLimit = new Vector2(0.1f, 2f);
-    public Vector2 linearSpeedIncrement = new Vector2(0.5f, 10f);
-
+    private PoubelleVisualManager _trashTankRef;
     private Vector3 _path;
-    //public float radius = 1;
-    public Rigidbody bodyRB;
-    public float force = 5;
-    public Transform[] bouclierList = new Transform[4];
-
     private Vector3 _initialPosition;
     private float _a;
     private float _initialA;
@@ -69,10 +64,10 @@ public class MoucheAMerde : MonoBehaviour
 
     void Start()
     {
-        _enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
-        //AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+        _trashTankRef = GameObject.FindGameObjectWithTag("TrashTank").GetComponent<PoubelleVisualManager>();
 
-        Vector3 pos = transform.position; //modif maros pour limiter l'impact perf
+        _enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+        Vector3 pos = transform.position;
         _previousA = 0;
         _a = Random.Range(-coneBeginingRadius, coneBeginingRadius);
         _initialA = _a;
@@ -80,14 +75,8 @@ public class MoucheAMerde : MonoBehaviour
         _initialPosition = pos;
         _previousPosition = pos;
 
-        if (_a > _previousA)
-        {
-            _sign = 1;
-        }
-        else
-        {
-            _sign = -1;
-        }
+        if (_a > _previousA) _sign = 1;
+        else _sign = -1;
 
         _oscillationTimer = 0;
         _oscillationTimerLimit = 1;
@@ -99,12 +88,12 @@ public class MoucheAMerde : MonoBehaviour
         _linearTimerLimit = 1;
         _linearSpeedToTarget = 0.5f;
         _linearSpeedAddition = 1;
-        _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.x);
+        _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.y);
     }
 
     void Update()
     {
-        Vector3 pos = transform.position;// limiter l'impact perf
+        Vector3 pos = transform.position; // limiter l'impact perf
         Vector3 bodypos = body.position;
 
 
@@ -122,31 +111,29 @@ public class MoucheAMerde : MonoBehaviour
         _limitVector = _a * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0));
 
 
-
         if (_oscillationTimer > _oscillationTimerLimit)
         {
-            _oscillationSpeedAddition = (int)Mathf.Pow(-1f, (float)Random.Range(1, 3));
+            _oscillationSpeedAddition = (int) Mathf.Pow(-1f, (float) Random.Range(1, 3));
 
             _oscillationSpeedIncrement = Random.Range(oscillationSpeedIncrement.x, oscillationSpeedIncrement.y);
             _oscillationTimer = 0;
             _oscillationTimerLimit = Random.Range(oscillationChangeTimer.x, oscillationChangeTimer.y);
-
         }
 
         if (_linearTimer > _linearTimerLimit)
         {
-            _linearSpeedAddition = (int)Mathf.Pow(-1f, (float)Random.Range(1, 3));
+            _linearSpeedAddition = (int) Mathf.Pow(-1f, (float) Random.Range(1, 3));
 
-            _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.x);
+            _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.y);
             _linearTimer = 0;
             _linearTimerLimit = Random.Range(linearSpeedChangeTimer.x, linearSpeedChangeTimer.y);
-
         }
 
         if (_oscillationSpeedToTarget < oscillationSpeedLimit.x)
         {
             _oscillationSpeedToTarget = oscillationSpeedLimit.x;
         }
+
         if (_oscillationSpeedToTarget > oscillationSpeedLimit.y)
         {
             _oscillationSpeedToTarget = oscillationSpeedLimit.y;
@@ -156,32 +143,67 @@ public class MoucheAMerde : MonoBehaviour
         {
             _linearSpeedToTarget = linearSpeedLimit.x;
         }
+
         if (_linearSpeedToTarget > linearSpeedLimit.y)
         {
             _linearSpeedToTarget = linearSpeedLimit.y;
         }
 
-        float dt = Time.deltaTime;//modif maros pour calmer l'esprit du chef prog
+        float dt = Time.deltaTime; //modif maros pour calmer l'esprit du chef prog
 
         _linearTimer += dt;
         _linearSpeedToTarget += _linearSpeedAddition * _linearSpeedIncrement * dt;
 
-        pos += _linearSpeedToTarget * Vector3.Normalize(_path) * dt;//opti
+        pos += _linearSpeedToTarget * Vector3.Normalize(_path) * dt; //opti
 
-        if (_a > 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1) { _case1 = true; }
-        else { _case1 = false; }
-        if (_a > 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1) { _case2 = true; }
-        else { _case2 = false; }
-        if (_a < 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1) { _case3 = true; }
-        else { _case3 = false; }
-        if (_a < 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 && Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1) { _case4 = true; }
-        else { _case4 = false; }
+        if (_a > 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1)
+        {
+            _case1 = true;
+        }
+        else
+        {
+            _case1 = false;
+        }
+
+        if (_a > 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1)
+        {
+            _case2 = true;
+        }
+        else
+        {
+            _case2 = false;
+        }
+
+        if (_a < 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1)
+        {
+            _case3 = true;
+        }
+        else
+        {
+            _case3 = false;
+        }
+
+        if (_a < 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1)
+        {
+            _case4 = true;
+        }
+        else
+        {
+            _case4 = false;
+        }
 
         if (_case1 || _case2 || _case3 || _case4)
         {
-
             _previousA = _a;
-            _a = Random.Range(- coneEndRadius - coneBeginingRadius * Vector3.Distance(bodypos, _p) / (coneBeginingRadius/ coneEndRadius), coneEndRadius + coneBeginingRadius * Vector3.Distance(bodypos, _p) / (coneBeginingRadius / coneEndRadius));
+            _a = Random.Range(
+                -coneEndRadius - coneBeginingRadius * Vector3.Distance(bodypos, _p) /
+                (coneBeginingRadius / coneEndRadius),
+                coneEndRadius + coneBeginingRadius * Vector3.Distance(bodypos, _p) /
+                (coneBeginingRadius / coneEndRadius));
             _initialA = _a;
             _initialLength = Vector3.Distance(bodypos, _p);
             if (_a > _previousA)
@@ -192,8 +214,6 @@ public class MoucheAMerde : MonoBehaviour
             {
                 _sign = -1;
             }
-
-
         }
 
 
@@ -210,8 +230,11 @@ public class MoucheAMerde : MonoBehaviour
         //transform.rotation = Quaternion.LerpUnclamped( transform.rotation, Quaternion.Euler( new Vector3(0, 0, _angle)), lerpSpeed * dt);// modif maros pour l'angle--------------------
 
         Vector3 cachedLocalRot = fly.transform.localEulerAngles;
-        fly.transform.localRotation = Quaternion.LerpUnclamped(fly.transform.localRotation, Quaternion.Euler(new Vector3((_previousPosition.y - pos.y) * zRotPower, cachedLocalRot.y, cachedLocalRot.z)), lerpSpeed2 * dt); //-----
-        transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, 0)), lerpSpeed * dt);
+        fly.transform.localRotation = Quaternion.LerpUnclamped(fly.transform.localRotation,
+            Quaternion.Euler(new Vector3((_previousPosition.y - pos.y) * zRotPower, cachedLocalRot.y,
+                cachedLocalRot.z)), lerpSpeed2 * dt); //-----
+        transform.rotation = Quaternion.LerpUnclamped(transform.rotation,
+            Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, 0)), lerpSpeed * dt);
         _previousPosition = pos;
 
         if (Vector3.Magnitude(pos - bodypos) > destroyDistance)
@@ -221,48 +244,35 @@ public class MoucheAMerde : MonoBehaviour
             Destroy(gameObject);
         }
 
-        transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);//opti + lerp
+        transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Bouclier")
-        {
-            //audio destruction mouche
-            AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
-            VoiceCleanUp();
-            Destroy(gameObject);
+        if (!other.transform.CompareTag("Bouclier") || !other.transform.CompareTag("Player")) return;
 
-        }
-        else if (other.transform.tag == "Player")
+        AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
+        VoiceCleanUp();
+
+        if (other.transform.CompareTag("Player"))
         {
-            Debug.Log("poutprout");
-            //Audio puch mouche
-            AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
             bodyRB.AddForceAtPosition(force * Vector3.Normalize(_path), transform.position);
-            VoiceCleanUp();
 
-            Destroy(gameObject);
-
-
+            if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
 
+        Destroy(gameObject);
     }
 
-    private void VoiceCleanUp()
-    {
+    private void VoiceCleanUp() =>
         AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(_initialPosition, body.position);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, 0.1f);
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(_p, _p + _limitVector);
-    }
-
-
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     Gizmos.DrawLine(_initialPosition, body.position);
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(transform.position, 0.1f);
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawLine(_p, _p + _limitVector);
+    // }
 }

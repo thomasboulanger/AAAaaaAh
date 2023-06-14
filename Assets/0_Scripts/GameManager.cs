@@ -14,9 +14,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool InGame;
-    public static bool GameOver;
-    public static bool HasWin;
-
+    
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -41,8 +39,6 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         InGame = false;
-        GameOver = false;
-        HasWin = false;
 
         // 0 -> press start to add players
         // 1 -> main menu
@@ -63,7 +59,13 @@ public class GameManager : MonoBehaviour
         UICanvaState = (UIStateEnum) data1;
         Debug.Log("moved to panel " + (int) data1);
     }
-    
+
+    public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)
+    {
+        PlayerChangePanel(this, 8, null, null);
+        InGame = false;
+    }
+
     public void LoadLevel()
     {
         if (GameObject.FindGameObjectWithTag("LevelContainer"))
