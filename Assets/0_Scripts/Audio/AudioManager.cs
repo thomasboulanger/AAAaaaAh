@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class AudioManager : MonoBehaviour
 {
     [Header("Bank")] [SerializeField] private AK.Wwise.Bank mainSb;
@@ -12,6 +13,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event inspiration;
     [SerializeField] private AK.Wwise.Event expiration;
     [SerializeField] private AK.Wwise.Event kompa1;
+    [SerializeField] private AK.Wwise.Event kompa2;
+    [SerializeField] private AK.Wwise.Event kompa3;
     [SerializeField] private AK.Wwise.Event kompa4;
     [SerializeField] private AK.Wwise.Event playAmbJungle;
     [SerializeField] private AK.Wwise.Event playAmbCascade;
@@ -63,6 +66,8 @@ public class AudioManager : MonoBehaviour
 
     private GameObject _player; // decommenter les lignes qui font refs
     private GameObject _demon;
+
+    float randomNumberMusic;
 
     private void Awake()
     {
@@ -157,7 +162,12 @@ public class AudioManager : MonoBehaviour
 
     public void SetupLevelMucsic()
     {
-        kompa4.Post(gameObject);
+        randomNumberMusic = UnityEngine.Random.Range(0f, 1f);
+        Debug.Log(randomNumberMusic);
+        if (randomNumberMusic < 0.25f)                                kompa1.Post(gameObject);
+        if (randomNumberMusic > 0.25f && randomNumberMusic < 0.25f)   kompa2.Post(gameObject);
+        if (randomNumberMusic > 0.50f && randomNumberMusic < 0.75f)   kompa3.Post(gameObject);
+        else                                                          kompa4.Post(gameObject); 
     }
 
     public void LaunchAmbianSounds()
@@ -188,4 +198,5 @@ public class AudioManager : MonoBehaviour
     public void CriAndGroml(GameObject go) => crieAndGroml.Post(go);
 
     //cinematic Sounds
+
 }

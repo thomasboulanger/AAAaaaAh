@@ -269,8 +269,8 @@ public class MoucheAMerde : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void VoiceCleanUp() =>
-        AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+    private void VoiceCleanUp() => AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+
     //private void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.yellow;
