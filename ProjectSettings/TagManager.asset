@@ -15,6 +15,7 @@ TagManager:
   - LevelContainer
   - Bouclier
   - TrashTank
+  - Bag
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - CursorInteractor
   - NoCollisionLimbAndBody
   - Mouche
-  - 
+  - CollideOnlyWithMouche
   - 
   - 
   - 

@@ -4,7 +4,7 @@
 //https://www.linkedin.com/in/thomas-boulanger-49379b195/
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
-//Bah du coup c fau y  aussi moi ptn + ratio en fait stop écrire votre nom partout pls
+//Bah du coup c fau y  aussi moi ptn + ratio en fait stop ï¿½crire votre nom partout pls
 
 using UnityEngine;
 using UnityEngine.Serialization;

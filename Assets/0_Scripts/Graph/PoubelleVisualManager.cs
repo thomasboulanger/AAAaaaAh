@@ -142,7 +142,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
             Debug.Log(_ejectFruits + " " + _ejectSingleFruit + " expertiseFruits");
             int index = fruits.IndexOf(item);
-            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); hasBoupedMonster.RemoveAt(index); //on suprime tt les fruits détruits cette frame
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); hasBoupedMonster.RemoveAt(index); //on suprime tt les fruits dï¿½truits cette frame
 
             //clear our lists of all fruits that have been deleted this frame
 
@@ -181,7 +181,7 @@ public class PoubelleVisualManager : MonoBehaviour
             if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
                 Debug.Log("dfsdfsdf");
-                Destroy(item.gameObject);// ond détui le fruit pour cine fin
+                Destroy(item.gameObject);// ond dï¿½tui le fruit pour cine fin
             }else item.gameObject.SetActive(false);
 
             if (_ejectFruits) continue;
@@ -226,7 +226,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
         _ejectFruits = true;
         //Debug.Log(GameManager.UICanvaState);
-        //GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
+        //GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //ï¿½tre a la fin
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
