@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1213230916948110643}
   - component: {fileID: 9216259121978114141}
   - component: {fileID: 8075746470591220708}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: TruelleUI
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -47,9 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb8bf7bdf57bd34a942552741bbaedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRecycling: 0
   onTruelleHitUIEvent: {fileID: 11400000, guid: d9b46760ae2f4584f860d91835f57abc,
-    type: 2}
-  onPlayerChangePanel: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2,
     type: 2}
   force: 250
 --- !u!54 &9216259121978114141
@@ -92,7 +91,7 @@ GameObject:
   - component: {fileID: 8944604534321245889}
   - component: {fileID: 5444365946873438564}
   - component: {fileID: 7812252982687241646}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SM_truelle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -127,6 +127,10 @@ MonoBehaviour:
     type: 2}
   onPlayerUpdateSingleCursor: {fileID: 11400000, guid: 5a3a98aed597dcb4c9f4dd2df7c79bb7,
     type: 2}
+  onPlayerReturnToLastCheckPoint: {fileID: 11400000, guid: b7ad894e2f4063d4d9b895d0d71566fd,
+    type: 2}
+  onPlayerGrabAfterEndOfLevel: {fileID: 11400000, guid: db6364cdeae2ea544be3a4d66cb63942,
+    type: 2}
   moveLimbRight: MoveLimb_R
   grabRight: Grab_R
   moveLimbLeft: MoveLimb_L
@@ -134,6 +138,11 @@ MonoBehaviour:
   colorChangeButtonRight: CursorColorTrigger_R
   colorChangeButtonLeft: CursorColorTrigger_L
   limbControllerList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  readyWhenPlayerJoinTexts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -150,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ae69e012e27e34d91195eda1da33d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 96673092478901167, guid: ff8e7e978a055e643846f7890c0c5ec0, type: 3}
+  level: {fileID: 35558597434611790, guid: feb21fc36428e86478e325fd1cab73d6, type: 3}
   limbSelectionPanel: {fileID: 0}
   tutorialCharacterCage: {fileID: 0}
 --- !u!114 &2129611534
@@ -259,7 +268,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949473462018745112}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 450f340d66d96b94ea1220f52e3bec57, type: 3}
   m_Name: 
