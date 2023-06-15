@@ -3,7 +3,7 @@ using UnityEngine.InputSystem.Samples.RebindUI;
 
 public class UIRebindInput : MonoBehaviour
 {
-    [SerializeField] private int playerIndexToRebind;
+    public int playerIndexToRebind;
     [SerializeField] private RebindActionUI rebindScript;
     
     private void OnCollisionEnter(Collision collision)

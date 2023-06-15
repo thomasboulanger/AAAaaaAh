@@ -16,6 +16,7 @@ public class PlayerInputsScript : MonoBehaviour
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
+    private GameEvent onPlayerGrabAfterEndOfLevel;
     
     //DEBUG ONLY
     private GameEvent onPlayerReturnToLastCheckPoint;
@@ -52,7 +53,7 @@ public class PlayerInputsScript : MonoBehaviour
         _limbVector2D = _playerInput.actions[_moveInputStr].ReadValue<Vector2>();
         _grabValue = _playerInput.actions[_grabInputStr].ReadValue<float>();
         if (_playerInput.actions[_colorButtonStr].WasPressedThisFrame()) _colorChangeButton = !_colorChangeButton;
-
+        
         //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
         {
@@ -66,17 +67,21 @@ public class PlayerInputsScript : MonoBehaviour
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
             
             //DEBUG ONLY
-            if(_playerInput.actions["TmpRestart"].WasPressedThisFrame()) onPlayerReturnToLastCheckPoint.Raise(this,null,null,null);
+            if(_playerInput.actions["TmpRestart"].WasPressedThisFrame() && _playerInputArray[0] == this) 
+                onPlayerReturnToLastCheckPoint.Raise(this,null,null,null);
         }
         else if(_playerID == 0 && this == _playerInputArray[0])
         {
             onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
             onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
         }
+        else if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+            onPlayerGrabAfterEndOfLevel.Raise(this, _grabValue, _playerID, null);
+        
     }
 
     public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID, GameEvent inputUpdateEvent,
-        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor)
+        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent playerReturnToLastCheckPoint, GameEvent PlayerGrabAfterEndOfLevel)
     {
         _moveInputStr = moveInputStr;
         _grabInputStr = grabInputStr;
@@ -85,6 +90,8 @@ public class PlayerInputsScript : MonoBehaviour
         onPlayerUpdateCursor = playerMoveCursor;
         onPlayerUpdateSingleCursor = playerUpdateSingleCursor;
         _colorButtonStr = colorChangeButtonStr;
+        onPlayerReturnToLastCheckPoint = onPlayerReturnToLastCheckPoint;
+        onPlayerGrabAfterEndOfLevel = PlayerGrabAfterEndOfLevel;
     }
 
     public void AssignInputID(int inputID) => inputScriptID = inputID;

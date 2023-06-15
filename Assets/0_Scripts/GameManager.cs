@@ -14,7 +14,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool InGame;
-    private static GameObject[] _cursors;
     
     public enum UIStateEnum
     {
@@ -27,6 +26,7 @@ public class GameManager : MonoBehaviour
         Start,
         RebindInputs,
         PlayerHaveReachEndOfLevel,
+        Quit
     }
 
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
@@ -50,15 +50,21 @@ public class GameManager : MonoBehaviour
         // 6 -> start
         // 7 -> rebind inputs
         // 8 -> end of level
+        // 9 -> quit
+        // (int) UICanvaState > 3 or < 7 
 
         UICanvaState = UIStateEnum.PressStartToAddPlayers;
-        _cursors = GameObject.FindGameObjectsWithTag("Cursor");
+    }
+
+    private void Update()
+    {
+        if(UICanvaState == UIStateEnum.Quit) Application.Quit();
     }
 
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        UICanvaState = (UIStateEnum)data1;
+        UICanvaState = (UIStateEnum) data1;
         Debug.Log("moved to panel " + (int) data1);
     }
 
