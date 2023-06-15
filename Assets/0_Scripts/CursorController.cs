@@ -14,10 +14,11 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class CursorController : MonoBehaviour
 {
-    [FormerlySerializedAs("onPlayerThrowTruelleEvent")] [SerializeField] private GameEvent onPlayerThrowTruelleSound;
-    
-    [SerializeField] private int cursorID;
-    [SerializeField] private int cursorCanvasState;
+    [FormerlySerializedAs("onPlayerThrowTruelleEvent")] [SerializeField]
+    private GameEvent onPlayerThrowTruelleSound;
+
+    public int cursorID;
+    public int cursorCanvasState;
     [SerializeField] private UIHommingTruelle truelleUIPrefab;
 
 
@@ -28,7 +29,7 @@ public class CursorController : MonoBehaviour
     private float _objectHeight;
     private Camera _mainCamera;
     private Vector4 _screenBounds;
-    
+
     //truelle part
     private readonly float _unitSphereRandomRadius = 0.69f;
     private readonly float _startPosZ = -5;
@@ -42,10 +43,10 @@ public class CursorController : MonoBehaviour
         _objectWidth = transform.localScale.x * GetComponent<SpriteRenderer>().bounds.extents.x;
         _objectHeight = transform.localScale.y * GetComponent<SpriteRenderer>().bounds.extents.y;
     }
-    
+
     public void UpdateCursorPosition(Component sender, object data1, object playerID, object unUsed)
     {
-        if((int)GameManager.UICanvaState != cursorCanvasState) return;
+        if ((int) GameManager.UICanvaState != cursorCanvasState) return;
         if (playerID is not int) return;
         if (cursorID != (int) playerID) return;
 
@@ -54,7 +55,7 @@ public class CursorController : MonoBehaviour
             Vector2 limbVector = (Vector2) data1;
             Vector3 moveValue = new Vector3(limbVector.x, limbVector.y, 0);
             _screenBounds = CalculateScreenBounds();
-            
+
             //clamp object to the size of the screen
             Vector3 clampedPosition = transform.localPosition + moveValue * Time.deltaTime * Speed;
             clampedPosition.x = Mathf.Clamp(clampedPosition.x, _screenBounds.x, _screenBounds.y);
@@ -66,7 +67,7 @@ public class CursorController : MonoBehaviour
 
     private void Update()
     {
-        if((int)GameManager.UICanvaState != cursorCanvasState) return;
+        if ((int) GameManager.UICanvaState != cursorCanvasState) return;
         if (!_inputPressed) _triggerOnce = false;
         if (!_inputPressed || _triggerOnce) return;
 
@@ -89,7 +90,7 @@ public class CursorController : MonoBehaviour
     private Vector4 CalculateScreenBounds()
     {
         Vector4 bounds = new Vector4();
-        
+
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;

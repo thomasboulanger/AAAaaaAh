@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +16,9 @@ public class PlayerInputsScript : MonoBehaviour
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
+    
+    //DEBUG ONLY
+    private GameEvent onPlayerReturnToLastCheckPoint;
 
     //reference to the PlayerInput component
     private PlayerInput _playerInput;
@@ -62,6 +64,9 @@ public class PlayerInputsScript : MonoBehaviour
             onPlayerUpdateCursor.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _grabValue, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
+            
+            //DEBUG ONLY
+            if(_playerInput.actions["TmpRestart"].WasPressedThisFrame()) onPlayerReturnToLastCheckPoint.Raise(this,null,null,null);
         }
         else if(_playerID == 0 && this == _playerInputArray[0])
         {

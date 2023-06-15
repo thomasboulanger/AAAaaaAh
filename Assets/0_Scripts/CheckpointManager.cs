@@ -5,6 +5,8 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -22,6 +24,7 @@ public class CheckpointManager : MonoBehaviour
     private Vector3 _firstCheckpoint;
     private Vector3 _latestCheckpoint;
     private int _latestCheckpointIndex;
+    private bool _overridingInputs;
 
     public void Init(Transform[] limbTransformArray, Transform[] virtualTransformArray)
     {
@@ -30,6 +33,11 @@ public class CheckpointManager : MonoBehaviour
         _firstCheckpoint = Vector3.zero;
         _latestCheckpoint = Vector3.zero;
         _latestCheckpointIndex = 0;
+    }
+
+    private void Update()
+    {
+        if (_overridingInputs) onOverrideGrabEvent.Raise(this, false, null, null);
     }
 
     public void SetNewCheckpoint(Vector3 pos, int checkpointIndex)
@@ -41,11 +49,16 @@ public class CheckpointManager : MonoBehaviour
         _firstCheckpoint = pos;
     }
 
-    public void OnReturnToLastCheckpoint(Component sender, object unUsed, object unUsed2, object unUsed3)
+    public void OnReturnToLastCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
+        StartCoroutine(DelayCoroutine());
+    }
 
+    IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(.5f);
         //iterate on all limbs to get their offset with character body
         for (int i = 0; i < _tempLimbsOffsetPosition.Length; i++)
             _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
@@ -60,11 +73,12 @@ public class CheckpointManager : MonoBehaviour
             _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
         }
 
-        //ungrab event 
-        onOverrideGrabEvent.Raise(this, false, null, null);
+        _overridingInputs = true;
+        yield return new WaitForSeconds(.3f);
+        _overridingInputs = false;
     }
 
-    public void OnReturnToFirstCheckpoint(Component sender, object unUsed, object unUsed2, object unUsed3)
+    public void OnReturnToFirstCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);

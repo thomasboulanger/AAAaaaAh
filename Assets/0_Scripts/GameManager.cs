@@ -14,6 +14,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool InGame;
+    private static GameObject[] _cursors;
     
     public enum UIStateEnum
     {
@@ -51,12 +52,16 @@ public class GameManager : MonoBehaviour
         // 8 -> end of level
 
         UICanvaState = UIStateEnum.PressStartToAddPlayers;
+        _cursors = GameObject.FindGameObjectsWithTag("Cursor");
     }
 
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
         UICanvaState = (UIStateEnum) data1;
+        foreach (GameObject cursor in _cursors)
+            cursor.SetActive(cursor.GetComponent<CursorController>().cursorCanvasState == (int) data1);
+        
         Debug.Log("moved to panel " + (int) data1);
     }
 
