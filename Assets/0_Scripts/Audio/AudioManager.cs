@@ -165,7 +165,7 @@ public class AudioManager : MonoBehaviour
         randomNumberMusic = UnityEngine.Random.Range(0f, 1f);
         Debug.Log(randomNumberMusic);
         if (randomNumberMusic < 0.25f)                                kompa1.Post(gameObject);
-        if (randomNumberMusic > 0.25f && randomNumberMusic < 0.25f)   kompa2.Post(gameObject);
+        if (randomNumberMusic > 0.25f && randomNumberMusic < 0.50f)   kompa2.Post(gameObject);
         if (randomNumberMusic > 0.50f && randomNumberMusic < 0.75f)   kompa3.Post(gameObject);
         else                                                          kompa4.Post(gameObject); 
     }
