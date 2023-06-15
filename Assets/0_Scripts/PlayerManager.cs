@@ -6,6 +6,7 @@
 //thomas.boulanger.auditeur@lecnam.net
 
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,7 +19,6 @@ public class PlayerManager : MonoBehaviour
 {
     public static List<PlayerInput> Players = new();
 
-    //public static List<string> JsonInputs = new();
     public static bool AllLimbsAssigned;
     private static int[] _referenceTableLimbsToPlayerID = new int[4];
     private static int[] _referenceTableLimbsToInputID = new int[4];
@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private string colorChangeButtonRight;
     [SerializeField] private string colorChangeButtonLeft;
     [SerializeField] private GameObject[] limbControllerList;
+    [SerializeField] private TMP_Text[] readyWhenPlayerJoinTexts = new TMP_Text[4];
 
     private PlayerInputManager _playerInputManager;
 
@@ -59,6 +60,7 @@ public class PlayerManager : MonoBehaviour
             _referenceTableLimbsToInputID[i] = 5;
         }
 
+        foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
         _playerInputManager.EnableJoining();
 
         //initialize / reset sounds
@@ -68,9 +70,12 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         //make player unable to join after this step
-        // if (GameManager.UICanvaState != 0) 
-        //     if (_playerInputManager.joiningEnabled)
-        //         _playerInputManager.DisableJoining();
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.PressStartToAddPlayers)
+        {
+            if (_playerInputManager.joiningEnabled)
+                _playerInputManager.DisableJoining();
+        }
+        else _playerInputManager.EnableJoining();
     }
 
     public void AddPlayer(PlayerInput player)
@@ -99,6 +104,9 @@ public class PlayerManager : MonoBehaviour
             onPlayerMoveCursor, onPlayerUpdateSingleCursor);
         playerInputArray[0].AssignInputID(0);
         playerInputArray[1].AssignInputID(1);
+
+        //set the text on UI when player has joined
+        readyWhenPlayerJoinTexts[Players.Count - 1].text = "Ready";
     }
 
     public void UpdateAssignedLimbs(Component sender, object limbIndex, object playerID, object inputID)
@@ -123,7 +131,7 @@ public class PlayerManager : MonoBehaviour
     {
         GameManager.InGame = true;
         GetComponent<GameManager>().LoadLevel();
-        
+
         //iterate on through all players
         for (int j = 0; j < Players.Count; j++)
         {
@@ -135,7 +143,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (_referenceTableLimbsToPlayerID[i] != j) continue;
                 //get the script index (0 or 1) then assign the limb it control
-                playerInputArray[_referenceTableLimbsToInputID[i]].AssignInputID(i); 
+                playerInputArray[_referenceTableLimbsToInputID[i]].AssignInputID(i);
                 limbControllerList[i].GetComponent<LimbController>().UpdatePlayerID(j);
             }
         }
