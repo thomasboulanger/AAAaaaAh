@@ -25,7 +25,12 @@ public class TestingPoubelle : MonoBehaviour
             poubelleRef.EjectFruits();
             trigered = true;
         }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            poubelleRef.EjectFruitAtEndLevel();
+            trigered = true;
+        }
 
-        if (trigered) Debug.Log("paf");//pour pas oublier que c'est la
+        if (trigered) Debug.LogWarning("paf");//pour pas oublier que c'est la
     }
 }

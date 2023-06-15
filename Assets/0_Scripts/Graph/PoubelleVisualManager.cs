@@ -54,7 +54,7 @@ public class PoubelleVisualManager : MonoBehaviour
     private Quaternion _lastRotation;
     private bool _ejectFruits;
     private bool _finished;
-    private int _index;
+    private int _storedFruitActualIndex;
     private bool _ejectSingleFruit;
 
     void Start() => Init();
@@ -197,9 +197,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
         _ejectFruits = true;
         GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
-        if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
-            StartCoroutine(RandomDelayedFruits());
-        else
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
             storedFruits[0].gameObject.SetActive(true);
@@ -214,8 +212,23 @@ public class PoubelleVisualManager : MonoBehaviour
         transform.rotation = poubelleFinalPos.rotation;
 
         paparingCinematiqueAnimator.gameObject.SetActive(true);
+        _storedFruitActualIndex = 0;
 
         EjectFruits();
+    }
+
+    public void EjectFruitAtEndLevel()//fonction call par event manette J
+    {
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
+
+        if (storedFruits.Count > 0 && _storedFruitActualIndex<storedFruits.Count)
+        {
+            storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
+            InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
+            _storedFruitActualIndex++;
+        }
+        else _finished = true;
+        //CALL EVENT FIN DE PARTIE------------------------------------------------------------------------------------------------------------------
     }
 
     IEnumerator RandomDelayedFruits()
