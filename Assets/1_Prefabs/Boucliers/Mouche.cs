@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Mouche : MonoBehaviour
 {
+    [SerializeField] private float endLevel = 120f;
+    [SerializeField] private float spawnFliesBegining = 30f;
+    private float playerAdvancement;
+
     public Transform[] limbControllerList = new Transform[4];
     public Transform[] bouclierList = new Transform[4];
     public Vector2 spawnPosition = new Vector2(5f, 5f);
@@ -29,12 +33,12 @@ public class Mouche : MonoBehaviour
     void Update()
     {
 
-
+        Debug.Log(intervalle * endLevel / player.position.x);
         transform.position = limbControllerList[j].position;
         transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
         _timer += Time.deltaTime;
-        //if (_timer > _timerLimit)
-        if (Input.GetKeyDown(KeyCode.W))
+        if (_timer > _timerLimit && player.position.x > spawnFliesBegining)
+        //if (Input.GetKeyDown(KeyCode.W))
         {
             _randomX = Random.Range(-spawnPosition.x, spawnPosition.x);
             _randomY = Random.Range(-spawnPosition.y, spawnPosition.y);
@@ -44,7 +48,7 @@ public class Mouche : MonoBehaviour
             moucheAMerdePrefab.bodyRB = _playerRB;
             _timer = 0f;
             _timerLimit = intervalle;
-            _timerLimit = Random.Range(0f, intervalle);
+            _timerLimit = Random.Range(0f, intervalle * endLevel/ player.position.x);
 
         }
     }

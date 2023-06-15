@@ -103,7 +103,7 @@ public class MMoucheAMerde : MonoBehaviour
         //Debug.Log(_case1 + "   " + _case2 + "   " + _case3 + "   " + _case4 + "   ");
         //Debug.Log(_oscillationSpeedToTarget);
         //Debug.Log(Mathf.Sign(_a));
-        Debug.Log(_oscillationSpeedToTarget);
+        //Debug.Log(_oscillationSpeedToTarget);
 
         _path = bodypos - _initialPosition;
 
@@ -267,7 +267,9 @@ public class MMoucheAMerde : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.transform.CompareTag("Bouclier") || !other.transform.CompareTag("Player")) return;
+
+        if (!other.transform.CompareTag("Bouclier") && !other.transform.CompareTag("Player")) return;
+        Debug.Log("doubidoubidou");
 
         AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
         VoiceCleanUp();
@@ -280,7 +282,7 @@ public class MMoucheAMerde : MonoBehaviour
                 bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
-
+        Debug.Log("doubidoubidou");
         Destroy(gameObject);
     }
 
