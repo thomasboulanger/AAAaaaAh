@@ -247,7 +247,7 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="Play_kompa4_playlist" ID="{E0D96577-06D5-4254-BC3E-C5E1179D135F}">
+						<Event Name="Play_kompa4" ID="{E0D96577-06D5-4254-BC3E-C5E1179D135F}">
 							<ChildrenList>
 								<Action Name="" ID="{0F8FF426-73F2-48C6-9265-83906EE59D15}" ShortID="998674958">
 									<ReferenceList>
@@ -264,6 +264,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="kompa1" ID="{0A03CFB5-7ECF-4ECE-B63C-CC7623F20C49}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_kOMPA_5" ID="{C3B15920-DB80-4A5C-A4DB-EAB47BB5E9B4}">
+							<ChildrenList>
+								<Action Name="" ID="{BAEBC4B3-D270-4387-A3E8-7332108E2F9D}" ShortID="856040662">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="kOMPA_5_121_playlist" ID="{CE57E5D0-8BEA-4C2A-9729-63F6EF365CC8}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

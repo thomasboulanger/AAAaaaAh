@@ -27,8 +27,9 @@ namespace AK
         static const AkUniqueID PLAY_GRONCHON = 3691122520U;
         static const AkUniqueID PLAY_INSPI = 3371369987U;
         static const AkUniqueID PLAY_KOMPA1 = 1315062901U;
+        static const AkUniqueID PLAY_KOMPA4 = 1315062896U;
         static const AkUniqueID PLAY_KOMPA4_INT1 = 2430895383U;
-        static const AkUniqueID PLAY_KOMPA4_PLAYLIST = 1527726673U;
+        static const AkUniqueID PLAY_KOMPA_5 = 2142320308U;
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT = 425169085U;
