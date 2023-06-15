@@ -33,7 +33,7 @@ public class Mouche : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(intervalle * endLevel / player.position.x);
+        //Debug.Log(intervalle * endLevel / player.position.x);
         transform.position = limbControllerList[j].position;
         transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
         _timer += Time.deltaTime;

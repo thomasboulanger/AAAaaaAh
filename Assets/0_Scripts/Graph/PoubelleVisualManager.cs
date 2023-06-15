@@ -72,8 +72,12 @@ public class PoubelleVisualManager : MonoBehaviour
         //initialization
         List<Transform> toRemoveFromLists = new List<Transform>();
         float deltaTime = Time.deltaTime;
-        Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
-        Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
+        Vector3 endPos = !_ejectSingleFruit ? insideMonster.position : dansPoubelle.position;
+        Vector3 middlePos = _ejectFruits==_ejectSingleFruit ? topPoint.position : midlePoint.position;
+
+        Debug.Log(midlePoint.position == middlePos);
+
+        Vector3 selfPos = dansPoubelle.position;
 
         currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
         if (currentGaugeLevel < 0) currentGaugeLevel = 0;
@@ -101,9 +105,6 @@ public class PoubelleVisualManager : MonoBehaviour
                 _lastRotation = couvercle.localRotation;
                 timerPoubelle = 0;
 
-                //deactivate current fruit
-                fruits[i].gameObject.SetActive(false);
-
                 //adding current fruit for suppression from lists
                 toRemoveFromLists.Add(fruits[i]);
                 continue;
@@ -115,9 +116,11 @@ public class PoubelleVisualManager : MonoBehaviour
             fruitTimers[i] += deltaTime * fruitSpeed;
 
             //fruit movement
-            fruits[i].transform.position = Vector3.Lerp (_ejectFruits ? transform.position:basePos[i],Vector3.Lerp( middlePosOffseted,_ejectSingleFruit ? ejectPos.position : endPos,destinationCurve.Evaluate(fruitTimers[i])), (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
+            fruits[i].transform.position = Vector3.Lerp (_ejectSingleFruit ? selfPos:basePos[i],
+                Vector3.Lerp( middlePosOffseted,_ejectSingleFruit ? ejectPos.position: endPos, destinationCurve.Evaluate(fruitTimers[i])),
+                (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
 
-            if((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i])
+            if((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i] && GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
                 monstreFin.OpenMouth();
                 hasBoupedMonster[i] = true;
@@ -139,8 +142,19 @@ public class PoubelleVisualManager : MonoBehaviour
 
             if (_finished && fruits.Count == 0)
             {
-                _finished = false;
-                _ejectFruits = false;
+
+
+
+                FruitSelector fruit;
+                item.TryGetComponent<FruitSelector>(out fruit);
+                if (fruit != null)
+                {
+                    if(GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel && _ejectFruits) fruit.transform.position = ejectPos.position;
+
+                    fruit.animating = false;
+                    fruit.ReleaseFruit(true);
+                }
+
                 if (_ejectSingleFruit)
                 {
                     _ejectSingleFruit = false;
@@ -148,9 +162,8 @@ public class PoubelleVisualManager : MonoBehaviour
                 }
                 else storedFruits.Clear();
 
-                FruitSelector fruit;
-                item.TryGetComponent<FruitSelector>(out fruit);
-                if (fruit != null) fruit.ReleaseFruit();
+                _finished = false;
+                _ejectFruits = false;
 
                 continue;
             }
@@ -196,10 +209,12 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
-        GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
+        //Debug.Log(GameManager.UICanvaState);
+        //GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
+            Debug.Log("insgleFruit");
             storedFruits[0].gameObject.SetActive(true);
             InitializeFruitThenMoveIt(storedFruits[0], true);
             _finished = true;

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2776503354107269586}
   - component: {fileID: 2776503354107269587}
   - component: {fileID: 2776503354107269548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: aura
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  animating: 0
+  currentParent: {fileID: 0}
   fruitPool:
   - {fileID: 11400000, guid: 3571733e018a26e43b76b8e486ed82bc, type: 2}
   - {fileID: 11400000, guid: 57bebd818c8546d4686d9484bf0c34c6, type: 2}

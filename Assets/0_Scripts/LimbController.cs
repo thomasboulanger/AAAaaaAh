@@ -122,7 +122,7 @@ public class LimbController : MonoBehaviour
                 if (_isGrabbingFruit)
                 {
                     if (_fruit.currentParent == gameObject)
-                        _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit();
+                        _fruit.transform.GetComponentInParent<FruitSelector>().ReleaseFruit(false);
                     else
                         _fruit = null;
                 }
