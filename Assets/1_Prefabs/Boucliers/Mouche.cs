@@ -9,7 +9,8 @@ public class Mouche : MonoBehaviour
     public Transform[] bouclierList = new Transform[4];
     public Vector2 spawnPosition = new Vector2(5f, 5f);
     private int j = 0;
-    public MoucheAMerde moucheAMerde;
+    //public MoucheAMerde moucheAMerde;
+    public MMoucheAMerde moucheAMerde;
     public float intervalle;
     private float _timerLimit;
     private float _timer;
@@ -37,7 +38,8 @@ public class Mouche : MonoBehaviour
         {
             _randomX = Random.Range(-spawnPosition.x, spawnPosition.x);
             _randomY = Random.Range(-spawnPosition.y, spawnPosition.y);
-            MoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
+            //MoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
+            MMoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
             moucheAMerdePrefab.body = player;
             moucheAMerdePrefab.bodyRB = _playerRB;
             _timer = 0f;

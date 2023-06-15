@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3538707541288476543}
-  - component: {fileID: 8050784394024303544}
+  - component: {fileID: -1174163145010299507}
   - component: {fileID: 8530228624551117166}
   - component: {fileID: 8858041536791161053}
   - component: {fileID: 8910065370536325460}
@@ -120,7 +120,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8050784394024303544
+--- !u!114 &-1174163145010299507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,38 +129,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 6009474077827947364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e62e55a7620131458638fd700f65c68, type: 3}
+  m_Script: {fileID: 11500000, guid: d3cb725718516d7429028925a9905980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
+  bodyRB: {fileID: 0}
   fly: {fileID: 2450448519767166754}
   coneBeginingRadius: 5
-  coneEndRadius: 0.2
+  coneEndRadius: 0.5
   destroyDistance: 15
   oscillationChangeTimer: {x: 0.2, y: 0.4}
-  oscillationSpeedLimit: {x: 2, y: 2}
-  oscillationSpeedIncrement: {x: 0.5, y: 1}
+  oscillationSpeedLimit: {x: 0.5, y: 2}
+  oscillationSpeedIncrement: {x: 0.5, y: 10}
+  linearSpeedChangeTimer: {x: 0.2, y: 0.4}
+  linearSpeedLimit: {x: 0.2, y: 2}
+  linearSpeedIncrement: {x: 0.5, y: 10}
+  force: 5
+  bouclierList:
+  - {fileID: 7877668205778913485, guid: d0a146c7cb630ef41987ce9a67a33a7b, type: 3}
+  - {fileID: 4686988233272570200, guid: e78118ef9bfbb19459474cda6408dcba, type: 3}
+  - {fileID: 7069420851107850988, guid: 592945d899b8715489e1d0a72f5ff805, type: 3}
+  - {fileID: 6919408987409932536, guid: ef736e9880edf7d4a83f7bce8e5963b4, type: 3}
   forceDoremin: 100
   forceMegaplex: 300
-  linearSpeedChangeTimer: {x: 0.2, y: 0.4}
-  linearSpeedLimit: {x: 0.1, y: 2}
-  linearSpeedIncrement: {x: 0.5, y: 1}
-  bodyRB: {fileID: 0}
-  force: 50
-  bouclierList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   lerpSpeed: 3
   lerpSpeed2: 3
-  zRotPower: 833.3335
+  zRotPower: 833
   mainLerpPower: 40
   RTPCdistancePlayerMouche:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6d51d987082fc4b499547d081a1b4730,
-      type: 2}
+    WwiseObjectReference: {fileID: 0}
 --- !u!33 &8530228624551117166
 MeshFilter:
   m_ObjectHideFlags: 0

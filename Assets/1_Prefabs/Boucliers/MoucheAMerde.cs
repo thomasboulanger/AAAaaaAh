@@ -95,6 +95,7 @@ public class MoucheAMerde : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         Vector3 pos = transform.position; // limiter l'impact perf
         Vector3 bodypos = body.position;
 
@@ -115,7 +116,7 @@ public class MoucheAMerde : MonoBehaviour
 
         if (_oscillationTimer > _oscillationTimerLimit)
         {
-            _oscillationSpeedAddition = (int) Mathf.Pow(-1f, (float) Random.Range(1, 3));
+            _oscillationSpeedAddition = (int)Mathf.Pow(-1f, (float)Random.Range(1, 3));
 
             _oscillationSpeedIncrement = Random.Range(oscillationSpeedIncrement.x, oscillationSpeedIncrement.y);
             _oscillationTimer = 0;
@@ -124,7 +125,7 @@ public class MoucheAMerde : MonoBehaviour
 
         if (_linearTimer > _linearTimerLimit)
         {
-            _linearSpeedAddition = (int) Mathf.Pow(-1f, (float) Random.Range(1, 3));
+            _linearSpeedAddition = (int)Mathf.Pow(-1f, (float)Random.Range(1, 3));
 
             _linearSpeedIncrement = Random.Range(linearSpeedIncrement.x, linearSpeedIncrement.y);
             _linearTimer = 0;
@@ -258,15 +259,10 @@ public class MoucheAMerde : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            if (bodyRB.drag < 5 ) 
-            {
+            if (bodyRB.drag < 5)
                 bodyRB.AddForceAtPosition(forceDoremin * Vector3.Normalize(_path), transform.position);
-            }
-            else if (bodyRB.drag > 5 )
-            {
+            else if (bodyRB.drag > 5)
                 bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
-            }
-
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
 
@@ -275,13 +271,16 @@ public class MoucheAMerde : MonoBehaviour
 
     private void VoiceCleanUp() =>
         AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.yellow;
-    //     Gizmos.DrawLine(_initialPosition, body.position);
-    //     Gizmos.color = Color.blue;
-    //     Gizmos.DrawWireSphere(transform.position, 0.1f);
-    //     Gizmos.color = Color.green;
-    //     Gizmos.DrawLine(_p, _p + _limitVector);
-    // }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawLine(_initialPosition, body.position);
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(_initialPosition + coneBeginingRadius * Vector3.Normalize(_limitVector), body.position + coneEndRadius * Vector3.Normalize(_limitVector));
+    //    Gizmos.DrawLine(_initialPosition - coneBeginingRadius * Vector3.Normalize(_limitVector), body.position - coneEndRadius * Vector3.Normalize(_limitVector));
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireSphere(transform.position, 0.1f);
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawLine(_p, _p + _limitVector);
+    //}
 }
