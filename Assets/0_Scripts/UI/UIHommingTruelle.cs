@@ -13,6 +13,8 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class UIHommingTruelle : MonoBehaviour
 {
+    [HideInInspector] public bool isRecycling;
+    
     [SerializeField] private GameEvent onTruelleHitUIEvent;
     [SerializeField] private float force = 250;
 
@@ -39,7 +41,7 @@ public class UIHommingTruelle : MonoBehaviour
     {
         if (_isStuckInUI)
         {
-            if (GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs) return;
+            if (GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs || !isRecycling) return;
 
             _timerBeforeDestroy -= Time.fixedDeltaTime;
             if (!(_timerBeforeDestroy < 0)) return;
