@@ -62,14 +62,18 @@ public class MMoucheAMerde : MonoBehaviour
     //Audio : Wwise RTPC & variable distances
     [SerializeField] private AK.Wwise.RTPC RTPCdistancePlayerMouche;
     private float distancePlayerMouche = 0f;
+    [SerializeField] private AK.Wwise.Event _playmouche;
 
     private uint _enventID;
 
+    private bool _eventState;
+
     void Start()
     {
+        _playmouche.Post(gameObject);
         _trashTankRef = GameObject.FindGameObjectWithTag("TrashTank").GetComponent<PoubelleVisualManager>();
 
-        _enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+        //_enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
         Vector3 pos = transform.position;
         _previousA = 0;
         _a = Random.Range(-coneBeginingRadius, coneBeginingRadius);
@@ -103,16 +107,17 @@ public class MMoucheAMerde : MonoBehaviour
         //Debug.Log(_case1 + "   " + _case2 + "   " + _case3 + "   " + _case4 + "   ");
         //Debug.Log(_oscillationSpeedToTarget);
         //Debug.Log(Mathf.Sign(_a));
-        Debug.Log(_oscillationSpeedToTarget);
+        //Debug.Log(_oscillationSpeedToTarget);
 
         _path = bodypos - _initialPosition;
 
         //------------------------------------------------AUDIO-------------------------
+        //CheckSound(bodypos, false);
         distancePlayerMouche = Vector3.Distance(bodypos, transform.position);
         //Debug.Log(distancePlayerMouche);
         RTPCdistancePlayerMouche.SetValue(gameObject, distancePlayerMouche);
 
-        //---------------------
+        //---------------------------------------------------
         _p = bodypos + Vector3.Project(pos - bodypos, -_path);
         _a = _initialA * (Vector3.Distance(bodypos, _p) / _initialLength);
         _previousA = _initialPreviousA * (Vector3.Distance(bodypos, _p) / _initialLength);
@@ -257,9 +262,8 @@ public class MMoucheAMerde : MonoBehaviour
 
         if (Vector3.Magnitude(pos - bodypos) > destroyDistance)
         {
-            VoiceCleanUp();
 
-            Destroy(gameObject);
+            DestroyMouche();
         }
 
         transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);
@@ -270,7 +274,6 @@ public class MMoucheAMerde : MonoBehaviour
         if (!other.transform.CompareTag("Bouclier") || !other.transform.CompareTag("Player")) return;
 
         AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
-        VoiceCleanUp();
 
         if (other.transform.CompareTag("Player"))
         {
@@ -281,11 +284,16 @@ public class MMoucheAMerde : MonoBehaviour
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
 
+        DestroyMouche();
+    }
+
+    void DestroyMouche()
+    {
+        _playmouche.Stop(gameObject);
         Destroy(gameObject);
     }
 
-    private void VoiceCleanUp() =>
-        AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+  
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -303,4 +311,5 @@ public class MMoucheAMerde : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawLine(_p, _p + _limitVector);
     }
+
 }

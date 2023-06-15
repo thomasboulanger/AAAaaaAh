@@ -18,6 +18,7 @@ public class Mouche : MonoBehaviour
     private float _randomY;
     public Transform player;
     private Rigidbody _playerRB;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,15 +40,18 @@ public class Mouche : MonoBehaviour
             _randomX = Random.Range(-spawnPosition.x, spawnPosition.x);
             _randomY = Random.Range(-spawnPosition.y, spawnPosition.y);
             //MoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
-            MMoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
-            moucheAMerdePrefab.body = player;
-            moucheAMerdePrefab.bodyRB = _playerRB;
+            MMoucheAMerde moucheInst = Instantiate(moucheAMerde, transform.position + 10 * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
+
+            moucheInst.body = player;
+            moucheInst.bodyRB = _playerRB;
+
             _timer = 0f;
             _timerLimit = intervalle;
             _timerLimit = Random.Range(0f, intervalle);
 
         }
     }
+
 
     //private void OnDrawGizmos()
     //{
