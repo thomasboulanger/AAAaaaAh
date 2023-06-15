@@ -23,6 +23,13 @@ public class FadeInOut : MonoBehaviour
     public void FadeScreen(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not bool) return;
+
+        if (unUsed1 != null) timeToFade = (float)unUsed1; 
+        else timeToFade = 1f;
+
+        if (unUsed2 != null) waitingTimeBetweenFadeInAndOut = (float)unUsed2;
+        else waitingTimeBetweenFadeInAndOut = 1.5f;
+
         _fadeIn = (bool) data1;
     }
 

@@ -3,7 +3,12 @@ guid: 88646d2e99917fa48bbfa2b4255e1ae6
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fournee2
+    second: {fileID: 2100000, guid: 455e0dd842bf26c43bc5216bb3fd26ab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
