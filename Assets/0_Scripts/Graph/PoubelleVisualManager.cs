@@ -1,4 +1,4 @@
-using System.Collections;
+.using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,9 +45,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private float gaugeDecrementOverTime = 10;
     [SerializeField] private float currentGaugeLevel;
 
-
-
-
+                                                                                                                                   
     private Animator _animator;
     private Quaternion _openedRotation;
     private Quaternion _closedRotation;

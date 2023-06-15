@@ -104,4 +104,10 @@ public class FruitSelector : MonoBehaviour
         if (_pcRef == null) _pcRef = pcReference;
         canBeStored = status;
     }
+
+    public void FakePossessesion(PoubelleCollider pcReference)
+    {
+        canBeStored = true;
+        _pcRef = pcReference;
+    }
 }
