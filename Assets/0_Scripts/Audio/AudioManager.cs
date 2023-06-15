@@ -69,6 +69,9 @@ public class AudioManager : MonoBehaviour
 
     float randomNumberMusic;
 
+   //private uint playingID;
+   
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -100,6 +103,44 @@ public class AudioManager : MonoBehaviour
         //background music modifier :
         //avancement dans le niveau peut etre fait comme au dessu entre le demon (a la fin) et le player
     }
+
+    
+    public void TestIDEvent()
+    {
+        AkSoundEngine.PostEvent("Play_Kompa1", gameObject);
+        //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa1", gameObject));
+        //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa2", gameObject));
+        Debug.Log("gggg");
+  
+    }
+
+    
+   /* public static bool IsEventPlayingOnGameObject(string eventName, GameObject gom)
+     {
+
+            eventName = "Play_Kompa1";
+            uint testEventId = AkSoundEngine.GetIDFromString(eventName);
+
+            uint count = (uint)playingIds.Length;
+            AKRESULT result = AkSoundEngine.GetPlayingIDsFromGameObject(gom, ref count, playingIds);
+
+            for (int i = 0; i < count; i++)
+            {
+                uint playingId = playingIds[i];
+                uint eventId = AkSoundEngine.GetEventIDFromPlayingID(playingId);
+
+                if (eventId == testEventId)
+                    return true;
+            }
+
+            return false;
+
+     }*/
+    
+        
+       
+
+
 
     //grab sound modifier :
     public void OnGrabSoundEvent(Component sender, object whatIsGrabbed, object limbID, object unUsed)
@@ -159,6 +200,8 @@ public class AudioManager : MonoBehaviour
         //menu musique
         //Amb eventuellement
     }
+
+
 
     public void SetupLevelMucsic()
     {
