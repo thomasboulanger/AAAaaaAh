@@ -7,18 +7,19 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")] 
+    [Header("Valeurs a set")]
     [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
     [SerializeField] private Transform ejectPos;
-    [Header("CinematiqueFin")] 
+    [Header("CinematiqueFin")]
     [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
     [SerializeField] Animator paparingCinematiqueAnimator;
     [SerializeField] BlendShapesAnim monstreFin;
+    [SerializeField] Animator playerAnimator;
     [SerializeField] Transform poubelleFinalPos;
-    [Header("Valeurs de tweak")] 
+    [Header("Valeurs de tweak")]
     [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
@@ -46,8 +47,6 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private float currentGaugeLevel;
 
 
-
-
     private Animator _animator;
     private Quaternion _openedRotation;
     private Quaternion _closedRotation;
@@ -72,8 +71,18 @@ public class PoubelleVisualManager : MonoBehaviour
         //initialization
         List<Transform> toRemoveFromLists = new List<Transform>();
         float deltaTime = Time.deltaTime;
-        Vector3 endPos = _ejectFruits ? insideMonster.position : dansPoubelle.position;
-        Vector3 middlePos = _ejectFruits ? midlePoint.position : topPoint.position;
+
+        Vector3 selfPos = dansPoubelle.position;
+
+        Vector3 endPos = _ejectSingleFruit == _ejectFruits ? (_ejectSingleFruit ? ejectPos.position:selfPos) : insideMonster.position;
+
+        //eject pos faut que ce soit soi poubelle inside soi eject pos soi inside monster si 2 vrai : eject pos, si 2 fau poubelle inside, si dif inside position
+
+        Vector3 middlePos = _ejectSingleFruit == _ejectFruits == false ? midlePoint.position : topPoint.position;
+
+        Debug.Log(endPos == insideMonster.position);
+
+
 
         currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
         if (currentGaugeLevel < 0) currentGaugeLevel = 0;
@@ -88,8 +97,7 @@ public class PoubelleVisualManager : MonoBehaviour
             if (timerPoubelle < 1f)
             {
                 timerPoubelle += deltaTime * couvercleSpeed;
-                couvercle.localRotation = Quaternion.LerpUnclamped(_lastRotation,
-                    fruits.Count == 0 ? _closedRotation : _openedRotation, couvercleAnim.Evaluate(timerPoubelle));
+                couvercle.localRotation = Quaternion.LerpUnclamped(_lastRotation,fruits.Count == 0 ? _closedRotation : _openedRotation, couvercleAnim.Evaluate(timerPoubelle));
             }
         }
 
@@ -100,9 +108,6 @@ public class PoubelleVisualManager : MonoBehaviour
                 //setup to close garbage can lid
                 _lastRotation = couvercle.localRotation;
                 timerPoubelle = 0;
-
-                //deactivate current fruit
-                fruits[i].gameObject.SetActive(false);
 
                 //adding current fruit for suppression from lists
                 toRemoveFromLists.Add(fruits[i]);
@@ -115,9 +120,11 @@ public class PoubelleVisualManager : MonoBehaviour
             fruitTimers[i] += deltaTime * fruitSpeed;
 
             //fruit movement
-            fruits[i].transform.position = Vector3.Lerp (_ejectFruits ? transform.position:basePos[i],Vector3.Lerp( middlePosOffseted,_ejectSingleFruit ? ejectPos.position : endPos,destinationCurve.Evaluate(fruitTimers[i])), (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
+            fruits[i].transform.position = Vector3.Lerp(_ejectSingleFruit ? selfPos : basePos[i],
+                Vector3.Lerp(middlePosOffseted, _ejectSingleFruit ? ejectPos.position : endPos, destinationCurve.Evaluate(fruitTimers[i])),
+                (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
 
-            if((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i])
+            if ((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i] && GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
                 monstreFin.OpenMouth();
                 hasBoupedMonster[i] = true;
@@ -132,15 +139,30 @@ public class PoubelleVisualManager : MonoBehaviour
 
         foreach (Transform item in toRemoveFromLists)
         {
+
+            Debug.Log(_ejectFruits + " " + _ejectSingleFruit + " expertiseFruits");
             int index = fruits.IndexOf(item);
-            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index);hasBoupedMonster.RemoveAt(index); //on suprime tt les fruits détruits cette frame
+            fruits.RemoveAt(index); fruitTimers.RemoveAt(index); basePos.RemoveAt(index); hasBouped.RemoveAt(index); middlePosOffsets.RemoveAt(index); hasBoupedMonster.RemoveAt(index); //on suprime tt les fruits détruits cette frame
 
             //clear our lists of all fruits that have been deleted this frame
 
             if (_finished && fruits.Count == 0)
             {
-                _finished = false;
-                _ejectFruits = false;
+                FruitSelector fruit;
+                item.TryGetComponent<FruitSelector>(out fruit);
+                if (fruit != null)
+                {
+
+                    if (_ejectSingleFruit && _ejectFruits)
+                    {
+                        fruit.transform.position = ejectPos.position;
+                    }
+
+                    fruit.animating = false;
+                    fruit.ReleaseFruit(true);
+
+                }
+
                 if (_ejectSingleFruit)
                 {
                     _ejectSingleFruit = false;
@@ -148,12 +170,19 @@ public class PoubelleVisualManager : MonoBehaviour
                 }
                 else storedFruits.Clear();
 
-                FruitSelector fruit;
-                item.TryGetComponent<FruitSelector>(out fruit);
-                if (fruit != null) fruit.ReleaseFruit();
+                _finished = false;
+                _ejectFruits = false;
 
                 continue;
             }
+
+
+
+            if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+            {
+                Debug.Log("dfsdfsdf");
+                Destroy(item.gameObject);// ond détui le fruit pour cine fin
+            }else item.gameObject.SetActive(false);
 
             if (_ejectFruits) continue;
             storedFruits.Add(item);
@@ -169,7 +198,7 @@ public class PoubelleVisualManager : MonoBehaviour
             EjectFruits();
         }
     }
-    
+
     //deactivate the fruit before sending it here
     public void InitializeFruitThenMoveIt(Transform fruitTransform, bool isFunctionCalledInIntern)
     {
@@ -182,7 +211,7 @@ public class PoubelleVisualManager : MonoBehaviour
         hasBoupedMonster.Add(false);
 
         //get a random offset
-        middlePosOffsets.Add (new Vector3(Random.Range(-1f, 1f),Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized);
+        middlePosOffsets.Add(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized);
 
         if (_ejectFruits && paparingCinematiqueAnimator.gameObject.activeSelf)
         {
@@ -196,10 +225,12 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
-        GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
+        //Debug.Log(GameManager.UICanvaState);
+        //GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //être a la fin
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
+            Debug.Log("insgleFruit");
             storedFruits[0].gameObject.SetActive(true);
             InitializeFruitThenMoveIt(storedFruits[0], true);
             _finished = true;
@@ -214,6 +245,8 @@ public class PoubelleVisualManager : MonoBehaviour
         paparingCinematiqueAnimator.gameObject.SetActive(true);
         _storedFruitActualIndex = 0;
 
+        playerAnimator.speed = 0;
+
         EjectFruits();
     }
 
@@ -221,9 +254,11 @@ public class PoubelleVisualManager : MonoBehaviour
     {
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
 
-        if (storedFruits.Count > 0 && _storedFruitActualIndex<storedFruits.Count)
+        if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
         {
             storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
+            storedFruits[_storedFruitActualIndex].transform.position = dansPoubelle.position;
+
             InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
             _storedFruitActualIndex++;
         }
