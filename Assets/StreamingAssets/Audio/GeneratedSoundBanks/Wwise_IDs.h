@@ -33,6 +33,7 @@ namespace AK
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT = 425169085U;
+        static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT__6DB = 2933357125U;
         static const AkUniqueID PLAY_SFX_BOOK_FALL_WHOOSH = 132030432U;
         static const AkUniqueID PLAY_SFX_BOOK_FALLING_01 = 476147777U;
         static const AkUniqueID PLAY_SFX_BOOK_FALLING_02 = 476147778U;

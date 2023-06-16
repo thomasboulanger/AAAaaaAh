@@ -91,6 +91,7 @@ Material:
     - _BlendMode: 0
     - _BluePower: 6689
     - _BookEmisive: 0
+    - _ColorDodgeOnORMA: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
@@ -104,6 +105,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _Fresnel: 0
     - _FresnelPower: 1
+    - _GrayscaleBC: 0
     - _InfluenceDivider: 10
     - _LFFlagelle: 0
     - _LFMaster: 0
@@ -123,7 +125,7 @@ Material:
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
-    - _RedSwitch: 0
+    - _RedSwitch: 0.74582124
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
@@ -159,6 +161,10 @@ Material:
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
     - _ZWrite: 1
+    - _alphaClipping: 0.5
+    - _cancer: 0
+    - _stretchScale: 100
+    - _useAlpha: 0
     - _useColorMask: 0
     m_Colors:
     - _BCTint: {r: 1, g: 1, b: 1, a: 0}
@@ -170,4 +176,5 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FColor: {r: 0, g: 0, b: 0, a: 0}
     - _FallenTint: {r: 0.0706212, g: 0.21761936, b: 0.6509434, a: 0}
+    - _ORMADodge: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
