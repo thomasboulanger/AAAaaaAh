@@ -22,6 +22,9 @@ public class BlendShapesAnim : MonoBehaviour
     [SerializeField] private float mouthLerpSpeed = 50f;
     [SerializeField] private float mouthSpeed = 700f;
 
+    [SerializeField] private bool canScream;
+
+
     private float _blendShape0;
     private float _blendShape1;
     private float _blendShape2;
@@ -32,6 +35,8 @@ public class BlendShapesAnim : MonoBehaviour
     private float _lastNoise = 100f;
     private float _mouthSK;
     private float _mouthSKTarget;
+
+
 
     void Update()
     {

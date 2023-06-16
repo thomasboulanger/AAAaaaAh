@@ -82,7 +82,8 @@ public class AudioManager : MonoBehaviour
 
     private void Init()
     {
-        rtpcMeterCriRespi.listenScreamRtpcAmplitudeValue = listenScreamRtpc;
+        //rtpcMeterInspiExpi.RawAmplitudeScream = listenScreamRtpc;
+        //rtpcMeterCriRespi.listenScreamRtpcAmplitudeValue = listenScreamRtpc;
         //rtpcMeterCriRespi.listenRespiRtpcAmplitudeValue = listenExpiRtpc;
         CriAndGroml(blendShapesAnim.gameObject);
         //rtpClistenerTest.listenMusicRtpcAmplitudeValue = listenMusicRtpc;

@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
             _referenceTableLimbsToInputID[i] = 5;
         }
 
-        foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
+        //foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
         _playerInputManager.EnableJoining();
 
         //initialize / reset sounds

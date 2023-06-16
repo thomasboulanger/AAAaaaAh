@@ -22,14 +22,27 @@ public class Shaker : MonoBehaviour
     [SerializeField] private List<Transform> buildingsToMove = new List<Transform>();
     private List<Vector3> basePoseBuildings = new List<Vector3>();
 
+    [SerializeField] private bool scaleOnDistance;
+    [SerializeField] private float scalePower = 1f;
+    [SerializeField] private float added = 1f;
+
+
     [SerializeField] private AudioManager _am;
     private int _i;
 
     private Vector3 _basePos;
+    private Vector3 _monsterPos;
+
+    private float distanceMax;
+
     private bool wasBuildingMoving;
+
 
     void Start()
     {
+        _monsterPos = GameObject.FindObjectOfType<BlendShapesAnim>().transform.position;
+        distanceMax = Vector3.Distance(transform.position, _monsterPos);
+
         foreach (Transform item in buildingsToMove)
         {
             basePoseBuildings.Add(item.transform.localPosition);
@@ -49,7 +62,10 @@ public class Shaker : MonoBehaviour
 
         if (useSound)
         {
-            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier * power, dt * speed);
+            float powerByDistance = ((distanceMax/Vector3.Distance(transform.position, _monsterPos))+ added) * scalePower;
+            Debug.Log(powerByDistance);
+
+            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier* powerByDistance * power, dt * speed);
         }
         else
         {
