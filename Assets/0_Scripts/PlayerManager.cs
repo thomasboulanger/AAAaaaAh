@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private string colorChangeButtonRight;
     [SerializeField] private string colorChangeButtonLeft;
     [SerializeField] private GameObject[] limbControllerList;
-    //[SerializeField] private TMP_Text[] readyWhenPlayerJoinTexts = new TMP_Text[4];
+    [SerializeField] private TMP_Text[] readyWhenPlayerJoinTexts = new TMP_Text[4];
 
     private PlayerInputManager _playerInputManager;
 
@@ -63,7 +63,7 @@ public class PlayerManager : MonoBehaviour
             _referenceTableLimbsToInputID[i] = 5;
         }
 
-       // foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
+        foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
         _playerInputManager.EnableJoining();
 
         //initialize / reset sounds
@@ -72,13 +72,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        ////make player unable to join after this step
-        //if (GameManager.UICanvaState != GameManager.UIStateEnum.PressStartToAddPlayers)
-        //{
-        //    if (_playerInputManager.joiningEnabled)
-        //        _playerInputManager.DisableJoining();
-        //}
-        //else _playerInputManager.EnableJoining();
+        //make player unable to join after this step
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.PressStartToAddPlayers)
+        {
+            if (_playerInputManager.joiningEnabled)
+                _playerInputManager.DisableJoining();
+        }
+        else _playerInputManager.EnableJoining();
     }
 
     public void AddPlayer(PlayerInput player)
@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
         playerInputArray[1].AssignInputID(1);
 
         //set the text on UI when player has joined
-        //readyWhenPlayerJoinTexts[Players.Count - 1].text = "Ready";
+        readyWhenPlayerJoinTexts[Players.Count - 1].text = "Ready";
     }
 
     public void UpdateAssignedLimbs(Component sender, object limbIndex, object playerID, object inputID)

@@ -287,7 +287,13 @@ public class MMoucheAMerde : MonoBehaviour
                 bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
         }
-        Debug.Log("doubidoubidou");
+
+        DestroyMouche();
+    }
+
+    void DestroyMouche()
+    {
+        _playmouche.Stop(gameObject);
         Destroy(gameObject);
     }
 
