@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 
 /// <summary>

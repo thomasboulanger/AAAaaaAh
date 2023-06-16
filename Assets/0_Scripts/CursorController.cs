@@ -57,10 +57,10 @@ public class CursorController : MonoBehaviour
             _screenBounds = CalculateScreenBounds();
 
             //clamp object to the size of the screen
-            Vector3 clampedPosition = transform.localPosition + moveValue * Time.deltaTime * Speed;
+            Vector3 clampedPosition = transform.position + moveValue * Time.deltaTime * Speed;
             clampedPosition.x = Mathf.Clamp(clampedPosition.x, _screenBounds.x, _screenBounds.y);
             clampedPosition.y = Mathf.Clamp(clampedPosition.y, _screenBounds.z, _screenBounds.w);
-            transform.localPosition = clampedPosition;
+            transform.position = clampedPosition;
         }
         else if (data1 is float) _inputPressed = (float) data1 > .9f;
     }

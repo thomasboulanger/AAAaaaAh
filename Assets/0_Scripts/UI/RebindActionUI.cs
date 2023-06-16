@@ -193,7 +193,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             var controlPath = default(string);
 
             // Get display string from action.
-            var action = m_Action?.action;
+            var action = actionToRebind;
             if (action != null)
             {
                 var bindingIndex = action.bindings.IndexOf(x => x.id.ToString() == m_BindingId);
@@ -230,6 +230,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             UpdateBindingDisplay();
         }
 
+
+        private InputAction actionToRebind;
         /// <summary>
         /// Initiate an interactive rebind that lets the player actuate a control to choose a new binding
         /// for the action.
@@ -240,8 +242,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 return;
 
             InputActionAsset currentInputActionAsset = PlayerManager.Players[playerIndex].actions;
-            var actionToRebind = currentInputActionAsset.FindAction(action.id);
-            
+            actionToRebind = currentInputActionAsset.FindAction(action.id);
+
             // If the binding is a composite, we need to rebind each part in turn.
             if (actionToRebind.bindings[bindingIndex].isComposite)
             {
