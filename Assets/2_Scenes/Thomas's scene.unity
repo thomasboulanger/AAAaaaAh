@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11597.073, g: 7337.082, b: 7486.045, a: 1}
+  m_IndirectSpecularColor: {r: 10826.116, g: 6821.1797, b: 6753.425, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1776,7 +1776,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -2141,7 +2141,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -5895,7 +5895,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -9893,7 +9893,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -10108,7 +10108,7 @@ PrefabInstance:
     - target: {fileID: 3982272823337666490, guid: c681379e8434ff54bb922f573755d4d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3982272823337666490, guid: c681379e8434ff54bb922f573755d4d5,
         type: 3}
@@ -11499,27 +11499,27 @@ PrefabInstance:
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 315007906812534048, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
@@ -11753,7 +11753,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -12632,7 +12632,7 @@ MonoBehaviour:
     Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 1
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -13157,6 +13157,7 @@ GameObject:
   - component: {fileID: 1971219851}
   - component: {fileID: 1971219853}
   - component: {fileID: 1971219852}
+  - component: {fileID: 1971219854}
   m_Layer: 5
   m_Name: Title (2)
   m_TagString: UIInteractable
@@ -13230,6 +13231,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971219850}
   m_Mesh: {fileID: 870155248676805875, guid: ff76fa0e567f04e40bf2ae34447fc2dd, type: 3}
+--- !u!65 &1971219854
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971219850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7863584, y: 1.9221792, z: 0.2647876}
+  m_Center: {x: 0, y: 0, z: -0.09439946}
 --- !u!1 &1975940919
 GameObject:
   m_ObjectHideFlags: 0
@@ -13732,6 +13746,7 @@ GameObject:
   - component: {fileID: 2134721651}
   - component: {fileID: 2134721653}
   - component: {fileID: 2134721652}
+  - component: {fileID: 2134721654}
   m_Layer: 5
   m_Name: Title (1)
   m_TagString: UIInteractable
@@ -13805,6 +13820,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134721650}
   m_Mesh: {fileID: 870155248676805875, guid: ff76fa0e567f04e40bf2ae34447fc2dd, type: 3}
+--- !u!65 &2134721654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134721650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7863584, y: 1.9221792, z: 0.26478732}
+  m_Center: {x: 0.0000000014067753, y: 0, z: -0.09440709}
 --- !u!114 &39243818809287805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13883,27 +13911,27 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.990242
+      value: -10.539614
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.816847
+      value: 22.739
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.579
+      value: -10.444
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99894667
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.04588608
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -14402,6 +14430,7 @@ GameObject:
   - component: {fileID: 1927061819872488778}
   - component: {fileID: 1927061819872488779}
   - component: {fileID: 1927061819872488788}
+  - component: {fileID: 1927061819872488791}
   m_Layer: 5
   m_Name: Title
   m_TagString: UIInteractable
@@ -14409,6 +14438,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1927061819872488791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927061819872488790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7863584, y: 1.9221792, z: 0.26478758}
+  m_Center: {x: 0.0000000014067753, y: -0.0000019066453, z: -0.094407074}
 --- !u!222 &1927061820358167401
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15662,10 +15704,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 512472603}
     m_Modifications:
+    - target: {fileID: 3840284572299923762, guid: d32c1c0d303103840a161012cd010af6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840284572299923762, guid: d32c1c0d303103840a161012cd010af6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3840284572351882057, guid: d32c1c0d303103840a161012cd010af6,
         type: 3}
       propertyPath: m_Name
       value: RebindOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840284572351882057, guid: d32c1c0d303103840a161012cd010af6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3840284572351882058, guid: d32c1c0d303103840a161012cd010af6,
         type: 3}
@@ -17616,8 +17673,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341285975718799046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.625, y: 0.00000010803342, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -4.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.72095, y: 0.72095, z: 0.72095}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8341285976750389993}
@@ -18329,7 +18386,7 @@ GameObject:
   - component: {fileID: 8341285976030256191}
   - component: {fileID: 8341285976030256184}
   m_Layer: 5
-  m_Name: RebindMoveLimb_R_P1
+  m_Name: RebindMoveLimb_R
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18714,7 +18771,7 @@ GameObject:
   - component: {fileID: 8341285976255420052}
   - component: {fileID: 8341285976255420053}
   m_Layer: 5
-  m_Name: RebindMoveLimb_L_P1
+  m_Name: RebindMoveLimb_L
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18854,8 +18911,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341285976521790077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.625, y: 0.00000010803342, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -4.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.72095, y: 0.72095, z: 0.72095}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8341285975798804678}
@@ -18940,7 +18997,7 @@ GameObject:
   - component: {fileID: 8341285976597626872}
   - component: {fileID: 8341285976597626873}
   m_Layer: 5
-  m_Name: RebindGrab_L_P1
+  m_Name: RebindGrab_L
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19403,8 +19460,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341285976869818178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.625, y: 0.00000010803342, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -4.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.72095, y: 0.72095, z: 0.72095}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8341285975846212347}
@@ -19554,7 +19611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341285976887146395}
   m_LocalRotation: {x: -0, y: -0, z: -0.000000007450581, w: 1}
-  m_LocalPosition: {x: -38, y: 18.6, z: 59.26}
+  m_LocalPosition: {x: -39.4, y: 18.6, z: 59.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19679,8 +19736,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341285977153721578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.625, y: 0.00000010803342, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -4.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.72095, y: 0.72095, z: 0.72095}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8341285976115905874}
@@ -19954,7 +20011,7 @@ GameObject:
   - component: {fileID: 8341285977307817187}
   - component: {fileID: 8341285977307817212}
   m_Layer: 5
-  m_Name: RebindGrab_R_P1
+  m_Name: RebindGrab_R
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

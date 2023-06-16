@@ -64,7 +64,13 @@ public class GameManager : MonoBehaviour
     {
         if (data1 is not int) return;
         UICanvaState = (UIStateEnum) data1;
+        if ((int) data1 == 7) UpdateRebindVisual();
         Debug.Log("moved to panel " + (int) data1);
+    }
+
+    private void UpdateRebindVisual()
+    {
+        //PlayerManager.Players[0].actions
     }
 
     public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)

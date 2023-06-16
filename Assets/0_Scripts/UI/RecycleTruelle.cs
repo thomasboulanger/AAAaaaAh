@@ -8,7 +8,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Call a function that "clean" all the truelles that are stuck in UI panel
+/// Call a function that "clean" all the truelles that are stuck in UI panels
 /// </summary>
 public class RecycleTruelle : MonoBehaviour
 {
@@ -16,11 +16,11 @@ public class RecycleTruelle : MonoBehaviour
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 25, 15);
-        foreach (Collider collider in colliders)
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("UIInteractable");
+        foreach (GameObject go in gos)
         {
-            if (collider.transform.GetComponent<UIHommingTruelle>())
-                collider.transform.GetComponent<UIHommingTruelle>().isRecycling = true;
+            if (go.transform.GetComponent<UIHommingTruelle>())
+                go.transform.GetComponent<UIHommingTruelle>().isRecycling = true;
         }
     }
 }
