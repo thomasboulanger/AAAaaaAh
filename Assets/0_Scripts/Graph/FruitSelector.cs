@@ -71,12 +71,9 @@ public class FruitSelector : MonoBehaviour
 
     public void GrabFruit(GameObject parent)
     {
-        _animator.SetTrigger("Pickup");
         currentParent = parent;
 
-        if (_triggerOnce) return;
-        _triggerOnce = true;
-        _shader.SetActive(false);
+        DisableAnim();
     }
 
     public void ReleaseFruit(bool gotOut)
@@ -92,6 +89,9 @@ public class FruitSelector : MonoBehaviour
         {
             _fruitStored = false;
         }
+
+
+        DisableAnim();
     }
 
     public bool IsFruitGrabbed()
@@ -109,5 +109,15 @@ public class FruitSelector : MonoBehaviour
     {
         canBeStored = true;
         _pcRef = pcReference;
+
+        DisableAnim();
+    }
+
+    void DisableAnim()
+    {
+        _animator.SetTrigger("Pickup");
+        if (_triggerOnce) return;
+        _triggerOnce = true;
+        _shader.SetActive(false);
     }
 }

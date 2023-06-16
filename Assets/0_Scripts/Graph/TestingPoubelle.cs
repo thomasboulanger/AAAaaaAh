@@ -21,6 +21,11 @@ public class TestingPoubelle : MonoBehaviour
             poubelleRef.EjectFruits();
             trigered = true;
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            poubelleRef.PrepareCinematic();
+            trigered = true;
+        }
         if (Input.GetKeyDown(KeyCode.J))
         {
             poubelleRef.EjectFruitAtEndLevel();
