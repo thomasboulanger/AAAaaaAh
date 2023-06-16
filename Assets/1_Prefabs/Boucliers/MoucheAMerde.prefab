@@ -138,12 +138,12 @@ MonoBehaviour:
   fly: {fileID: 2450448519767166754}
   coneBeginingRadius: 5
   coneEndRadius: 0.5
-  destroyDistance: 15
+  destroyDistance: 10
   oscillationChangeTimer: {x: 0.2, y: 0.4}
-  oscillationSpeedLimit: {x: 0.5, y: 2}
+  oscillationSpeedLimit: {x: 0.2, y: 1}
   oscillationSpeedIncrement: {x: 0.5, y: 10}
   linearSpeedChangeTimer: {x: 0.2, y: 0.4}
-  linearSpeedLimit: {x: 0.2, y: 2}
+  linearSpeedLimit: {x: 0.2, y: 1}
   linearSpeedIncrement: {x: 0.5, y: 10}
   force: 5
   bouclierList:
@@ -153,6 +153,8 @@ MonoBehaviour:
   - {fileID: 6919408987409932536, guid: ef736e9880edf7d4a83f7bce8e5963b4, type: 3}
   forceDoremin: 100
   forceMegaplex: 300
+  linearSpeedAdaptator: 7
+  oscillationSpeedAdaptator: 7
   lerpSpeed: 3
   lerpSpeed2: 3
   zRotPower: 833
