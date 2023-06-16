@@ -19,6 +19,8 @@ public class MMoucheAMerde : MonoBehaviour
     [SerializeField] private Transform[] bouclierList = new Transform[4];
     [SerializeField] private float forceDoremin = 100f;
     [SerializeField] private float forceMegaplex = 300f;
+    [SerializeField] private float linearSpeedAdaptator=  2f;
+    [SerializeField] private float oscillationSpeedAdaptator = 2f;
 
     private PoubelleVisualManager _trashTankRef;
     private Vector3 _path;
@@ -138,24 +140,24 @@ public class MMoucheAMerde : MonoBehaviour
             _linearTimerLimit = Random.Range(linearSpeedChangeTimer.x, linearSpeedChangeTimer.y);
         }
 
-        if (_oscillationSpeedToTarget < oscillationSpeedLimit.x)
+        if (_oscillationSpeedToTarget < oscillationSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
         {
-            _oscillationSpeedToTarget = oscillationSpeedLimit.x;
+            _oscillationSpeedToTarget = oscillationSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
         }
 
-        if (_oscillationSpeedToTarget > oscillationSpeedLimit.y)
+        if (_oscillationSpeedToTarget > oscillationSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
         {
-            _oscillationSpeedToTarget = oscillationSpeedLimit.y;
+            _oscillationSpeedToTarget = oscillationSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
         }
 
-        if (_linearSpeedToTarget < linearSpeedLimit.x)
+        if (_linearSpeedToTarget < linearSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator))
         {
-            _linearSpeedToTarget = linearSpeedLimit.x;
+            _linearSpeedToTarget = linearSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator);
         }
 
-        if (_linearSpeedToTarget > linearSpeedLimit.y)
+        if (_linearSpeedToTarget > linearSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator))
         {
-            _linearSpeedToTarget = linearSpeedLimit.y;
+            _linearSpeedToTarget = linearSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator);
         }
 
         float dt = Time.deltaTime; //modif maros pour calmer l'esprit du chef prog
