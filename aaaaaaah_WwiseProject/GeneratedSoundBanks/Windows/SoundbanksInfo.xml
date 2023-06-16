@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{4D69C2ED-B77E-9458-9566-3079F44FBCBE}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BEC5C6CA-FB3E-2E70-7129-7C8FA7D486DB}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -203,7 +203,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{55B76B4D-6943-13A8-0FEE-630B65045631}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{72F63AD2-878D-2C55-BE77-9B5EDA6473B2}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -238,6 +238,10 @@
 				<File Id="28999613" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_08.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="34578566" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_amb_jungle_night.wav</ShortName>
+					<CachePath>SFX/sfx_amb_jungle_night_50D81157.wem</CachePath>
 				</File>
 				<File Id="46330691" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_02.wav</ShortName>
@@ -1575,6 +1579,11 @@
 						<MediaRef Id="585187752"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2933357125" Name="Play_sfx_amb_jungle_night__6db" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="34578566"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="132030432" Name="Play_sfx_book_fall_whoosh" DurationType="OneShot" DurationMin="0.7971901" DurationMax="0.7971901">
 					<MediaRefs>
 						<MediaRef Id="577683847"/>
@@ -2031,5 +2040,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{1CA921B3-5A3B-8801-0DEA-99F393D9E198}</FileHash>
+	<FileHash>{ABB82CB7-F390-E9B1-E5C8-DBF063F163BC}</FileHash>
 </SoundBanksInfo>

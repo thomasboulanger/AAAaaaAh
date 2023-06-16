@@ -10626,6 +10626,40 @@
 														<ActiveSource Name="sfx_pentacle_demon" ID="{181DA9BF-8A30-45AF-9A92-F58D99C8E455}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
+												<Sound Name="sfx_amb_jungle_night_-6db" ID="{5B4E2064-174B-4732-8428-CECC751C04F4}" ShortID="798058499">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-9</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_amb_jungle_night" ID="{26FD4DF6-7FFD-4420-AF85-6F5DB7AF07E3}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="12.2906556989924"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>sfx_amb_jungle_night.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="34578566"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_amb_jungle_night" ID="{26FD4DF6-7FFD-4420-AF85-6F5DB7AF07E3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
 											</ChildrenList>
 										</Folder>
 										<Folder Name="0506" ID="{86A44FEE-F359-45FB-8A46-662F6B5E81FB}" ShortID="99260247">
