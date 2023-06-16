@@ -13,20 +13,29 @@ using UnityEngine;
 /// </summary>
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera[] VCams;
+    [SerializeField] private CinemachineVirtualCamera[] vCams;
+    [SerializeField] private CursorController[] cursors;
 
     private CinemachineBrain _camera;
 
     private void Start()
     {
         _camera = Camera.main.GetComponent<CinemachineBrain>();
-        VCams[0].Priority = 20;
+        foreach (var vCam in vCams) vCam.gameObject.SetActive(false);
+        vCams[0].gameObject.SetActive(true);
     }
 
     public void CameraPriorityChange(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if ((int) data1 is 5 or 6 or 8 or 9) return;
-        foreach (var vCam in VCams) vCam.Priority = 10;
-        VCams[(int) data1].Priority = 20;
+        
+        foreach (var vCam in vCams) vCam.gameObject.SetActive(false);
+        vCams[(int) data1].gameObject.SetActive(true);
+        
+        foreach (var cursor in cursors) cursor.gameObject.SetActive(false);
+        cursors[(int) data1].gameObject.SetActive(true);
+        
+        // foreach (var vCam in vCams) vCam.Priority = 10;
+        // vCams[(int) data1].Priority = 20;
     }
 }
