@@ -159,10 +159,17 @@ MonoBehaviour:
   lerpSpeed2: 3
   zRotPower: 833
   mainLerpPower: 40
+  lePatron: {fileID: 0}
   RTPCdistancePlayerMouche:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 6d51d987082fc4b499547d081a1b4730,
+      type: 2}
+  _playmouche:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ebf0195bece543543b0e869b556ad8d1,
+      type: 2}
 --- !u!33 &8530228624551117166
 MeshFilter:
   m_ObjectHideFlags: 0

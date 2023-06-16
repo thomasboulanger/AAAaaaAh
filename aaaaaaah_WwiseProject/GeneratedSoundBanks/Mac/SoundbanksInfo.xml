@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{3BB0D9D9-8718-81E4-85FA-3A7305AA13ED}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B2628ED0-4223-B4D7-B08B-97CB1E9083A5}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -203,7 +203,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{3C25C7F0-F731-B5CD-6B64-D1E782EBEA76}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{72F63AD2-878D-2C55-BE77-9B5EDA6473B2}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -238,6 +238,10 @@
 				<File Id="28999613" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_08.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_08_10C4C929.wem</CachePath>
+				</File>
+				<File Id="34578566" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_amb_jungle_night.wav</ShortName>
+					<CachePath>SFX/sfx_amb_jungle_night_50D81157.wem</CachePath>
 				</File>
 				<File Id="46330691" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_02.wav</ShortName>
@@ -446,6 +450,10 @@
 				<File Id="258017064" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_enjaille_01.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_enjaille_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="281606585" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>kOMPA_5_intro_121.wav</ShortName>
+					<CachePath>SFX/kOMPA_5_intro_121_983551D2.wem</CachePath>
 				</File>
 				<File Id="281775075" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_Foule_bar_loop.wav</ShortName>
@@ -714,6 +722,10 @@
 				<File Id="574889975" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_bordel_bar.wav</ShortName>
 					<CachePath>SFX/sfx_bordel_bar_10C4C929.wem</CachePath>
+				</File>
+				<File Id="575996663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>kOMPA_5_loop_121.wav</ShortName>
+					<CachePath>SFX/kOMPA_5_loop_121_983551D2.wem</CachePath>
 				</File>
 				<File Id="577411623" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_pointe_livre.wav</ShortName>
@@ -1521,17 +1533,23 @@
 						<MediaRef Id="920233745"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
-					<MediaRefs>
-						<MediaRef Id="495112281"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="1527726673" Name="Play_kompa4_playlist" DurationType="Infinite">
+				<Event Id="1315062896" Name="Play_kompa4" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="193205"/>
 						<MediaRef Id="136290319"/>
 						<MediaRef Id="495112281"/>
 						<MediaRef Id="933035219"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2430895383" Name="Play_Kompa4_int1" DurationType="OneShot" DurationMin="129.83606" DurationMax="129.83606">
+					<MediaRefs>
+						<MediaRef Id="495112281"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2142320308" Name="Play_kOMPA_5" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="281606585"/>
+						<MediaRef Id="575996663"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3672501366" Name="Play_mouche_fly_loop" DurationType="Infinite">
@@ -1559,6 +1577,11 @@
 				<Event Id="425169085" Name="Play_sfx_amb_jungle_night" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="585187752"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2933357125" Name="Play_sfx_amb_jungle_night__6db" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="34578566"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="132030432" Name="Play_sfx_book_fall_whoosh" DurationType="OneShot" DurationMin="0.7971901" DurationMax="0.7971901">
@@ -2017,5 +2040,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E9FF4AB3-C436-7F24-0E91-162451D56B71}</FileHash>
+	<FileHash>{D946AA23-2748-D077-2306-EB4B855BAFAE}</FileHash>
 </SoundBanksInfo>

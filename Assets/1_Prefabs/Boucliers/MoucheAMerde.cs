@@ -63,12 +63,13 @@ public class MoucheAMerde : MonoBehaviour
     private float distancePlayerMouche = 0f;
 
     private uint _enventID;
+    private bool _eventState;
 
     void Start()
     {
         _trashTankRef = GameObject.FindGameObjectWithTag("TrashTank").GetComponent<PoubelleVisualManager>();
 
-        _enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+        //_enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
         Vector3 pos = transform.position;
         _previousA = 0;
         _a = Random.Range(-coneBeginingRadius, coneBeginingRadius);
@@ -106,6 +107,19 @@ public class MoucheAMerde : MonoBehaviour
         distancePlayerMouche = Vector3.Distance(bodypos, transform.position);
         Debug.Log(distancePlayerMouche);
         RTPCdistancePlayerMouche.SetValue(gameObject, distancePlayerMouche);
+
+        if (distancePlayerMouche < 11 && !_eventState)
+        {
+            if(!IsEventPlayingOnGameObject()) AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
+
+            _eventState = true;
+        }
+        if (distancePlayerMouche > 14 &&_eventState)
+        {
+            if (IsEventPlayingOnGameObject()) VoiceCleanUp();
+
+            _eventState = false;
+        }
 
         //---------------------
         _p = bodypos + Vector3.Project(pos - bodypos, -_path);
@@ -269,8 +283,8 @@ public class MoucheAMerde : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void VoiceCleanUp() =>
-        AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+    private void VoiceCleanUp() => AkSoundEngine.StopPlayingID(_enventID, 200, AkCurveInterpolation.AkCurveInterpolation_Constant);
+
     //private void OnDrawGizmos()
     //{
     //    Gizmos.color = Color.yellow;
@@ -283,4 +297,27 @@ public class MoucheAMerde : MonoBehaviour
     //    Gizmos.color = Color.green;
     //    Gizmos.DrawLine(_p, _p + _limitVector);
     //}
+    
+    private bool IsEventPlayingOnGameObject()
+    {
+        uint[] playingIds = new uint[10];
+        GameObject gom = gameObject;
+        string eventName = "Play_mouche_fly_loop";
+        uint testEventId = AkSoundEngine.GetIDFromString(eventName);
+
+        uint count = (uint)playingIds.Length;
+        AKRESULT result = AkSoundEngine.GetPlayingIDsFromGameObject(gom, ref count, playingIds);
+
+        for (int i = 0; i < count; i++)
+        {
+            uint playingId = playingIds[i];
+            uint eventId = AkSoundEngine.GetEventIDFromPlayingID(playingId);
+
+            if (eventId == testEventId)
+                return true;
+        }
+
+        return false;
+
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class AudioManager : MonoBehaviour
 {
     [Header("Bank")] [SerializeField] private AK.Wwise.Bank mainSb;
@@ -12,6 +13,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event inspiration;
     [SerializeField] private AK.Wwise.Event expiration;
     [SerializeField] private AK.Wwise.Event kompa1;
+    [SerializeField] private AK.Wwise.Event kompa2;
+    [SerializeField] private AK.Wwise.Event kompa3;
     [SerializeField] private AK.Wwise.Event kompa4;
     [SerializeField] private AK.Wwise.Event playAmbJungle;
     [SerializeField] private AK.Wwise.Event playAmbCascade;
@@ -64,6 +67,11 @@ public class AudioManager : MonoBehaviour
     private GameObject _player; // decommenter les lignes qui font refs
     private GameObject _demon;
 
+    float randomNumberMusic;
+
+   //private uint playingID;
+   
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -95,6 +103,44 @@ public class AudioManager : MonoBehaviour
         //background music modifier :
         //avancement dans le niveau peut etre fait comme au dessu entre le demon (a la fin) et le player
     }
+
+    
+    public void TestIDEvent()
+    {
+        AkSoundEngine.PostEvent("Play_Kompa1", gameObject);
+        //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa1", gameObject));
+        //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa2", gameObject));
+        Debug.Log("gggg");
+  
+    }
+
+    
+   /* public static bool IsEventPlayingOnGameObject(string eventName, GameObject gom)
+     {
+
+            eventName = "Play_Kompa1";
+            uint testEventId = AkSoundEngine.GetIDFromString(eventName);
+
+            uint count = (uint)playingIds.Length;
+            AKRESULT result = AkSoundEngine.GetPlayingIDsFromGameObject(gom, ref count, playingIds);
+
+            for (int i = 0; i < count; i++)
+            {
+                uint playingId = playingIds[i];
+                uint eventId = AkSoundEngine.GetEventIDFromPlayingID(playingId);
+
+                if (eventId == testEventId)
+                    return true;
+            }
+
+            return false;
+
+     }*/
+    
+        
+       
+
+
 
     //grab sound modifier :
     public void OnGrabSoundEvent(Component sender, object whatIsGrabbed, object limbID, object unUsed)
@@ -155,9 +201,16 @@ public class AudioManager : MonoBehaviour
         //Amb eventuellement
     }
 
+
+
     public void SetupLevelMucsic()
     {
-        kompa4.Post(gameObject);
+        randomNumberMusic = UnityEngine.Random.Range(0f, 1f);
+        Debug.Log(randomNumberMusic);
+        if (randomNumberMusic < 0.25f)                                kompa1.Post(gameObject);
+        if (randomNumberMusic > 0.25f && randomNumberMusic < 0.50f)   kompa2.Post(gameObject);
+        if (randomNumberMusic > 0.50f && randomNumberMusic < 0.75f)   kompa3.Post(gameObject);
+        else                                                          kompa4.Post(gameObject); 
     }
 
     public void LaunchAmbianSounds()
@@ -188,4 +241,5 @@ public class AudioManager : MonoBehaviour
     public void CriAndGroml(GameObject go) => crieAndGroml.Post(go);
 
     //cinematic Sounds
+
 }

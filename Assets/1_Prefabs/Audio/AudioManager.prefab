@@ -70,8 +70,17 @@ MonoBehaviour:
   kompa1:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 12f721456afe5c64ca0d2c35b12e4a2b,
+    WwiseObjectReference: {fileID: 11400000, guid: aa7d6fd467d7a654f858834b3607d4b8,
       type: 2}
+  kompa2:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 99fbedc9a49ab5e45a86faeef521f6a8,
+      type: 2}
+  kompa3:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
   kompa4:
     idInternal: 0
     valueGuidInternal: 
@@ -207,6 +216,16 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 2baee71faede6f6439aac9b71c4b52ac,
       type: 2}
   _demonVolume: 100
+  _ambianceVolumeRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _ambianceVolume: 100
+  _moucheVolumeRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  _moucheVolume: 100
 --- !u!114 &6822199903312006509
 MonoBehaviour:
   m_ObjectHideFlags: 0
