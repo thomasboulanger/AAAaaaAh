@@ -12,6 +12,8 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
     [SerializeField] private Transform ejectPos;
+    [SerializeField] private SkinnedMeshRenderer gaugeSKR;
+
     [Header("CinematiqueFin")]
     [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
@@ -86,6 +88,8 @@ public class PoubelleVisualManager : MonoBehaviour
 
         currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
         if (currentGaugeLevel < 0) currentGaugeLevel = 0;
+
+        gaugeSKR.SetBlendShapeWeight(0, Remap(currentGaugeLevel,gaugeSize,0,100,0));
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -278,6 +282,11 @@ public class PoubelleVisualManager : MonoBehaviour
         }
 
         _finished = true;
+    }
+
+    private float Remap(float value, float from1, float to1, float from2, float to2)
+    {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 }
 
