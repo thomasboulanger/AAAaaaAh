@@ -10,6 +10,8 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve wingsFlap;
     [SerializeField] private AnimationCurve idle;
     [SerializeField] private AnimationCurve tilt;
+    [SerializeField] private AnimationCurve deathBounce;
+
     [Header("ShapeKey animations floats")]
     [SerializeField] private float flapSpeed = 1;
     [Range(0, 1)]
@@ -28,18 +30,19 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private float randPositionSpeed = 0.2f;
     [SerializeField] private float randPositionSpeed2 = 0.2f;
     [SerializeField] private float randPositionPower = 0.2f;
+    [SerializeField] private float deathSpeed = 0.5f;
     [Header("powers of flap1, flap2, idle1, idle2, tilt")]
     [Range(0,200)]
-    [SerializeField] private float[] shapeKeyPowers = new float[5] { 100, 100, 100, 100, 100 };
+    [SerializeField] private float[] shapeKeyPowers = new float[6] { 100, 100, 100, 100, 100, 100 };
 
     [SerializeField] private Color[] possibleColors = new Color[5];
 
-
-    private float[] timers = new float[7];
+    private float[] timers = new float[8];
     private Vector3 localRot;
     private float dt;
     private Vector3 noiseVector;
     private Vector3 movementVector;
+    [SerializeField] private bool _dead;
 
     void Start()
     {
@@ -66,6 +69,11 @@ public class MoucheAnimation : MonoBehaviour
     {
         dt = Time.deltaTime;
 
+        if (_dead)
+        {
+            skinnedMesh.SetBlendShapeWeight(5, deathBounce.Evaluate(timers[7]) * shapeKeyPowers[5]);
+        }
+
         skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
         skinnedMesh.SetBlendShapeWeight(1, wingsFlap.Evaluate(timers[1]) * shapeKeyPowers[1]);
         skinnedMesh.SetBlendShapeWeight(2, idle.Evaluate(timers[2]) * shapeKeyPowers[2]);
@@ -91,7 +99,12 @@ public class MoucheAnimation : MonoBehaviour
                 timers[i] = timers[0] + flapDesynch;
                 continue;
             }
+
             timers[i] += dt * GetMultiplier(i);
+
+
+            if (i == 7 && _dead && timers[7] >= 1) _dead = false;
+
             if (timers[i] >= 1) timers[i] = 0;
         }
     }
@@ -113,6 +126,8 @@ public class MoucheAnimation : MonoBehaviour
                 return positionSpeed;
             case 6:
                 return rotationSpeed;
+            case 7:
+                return deathSpeed;
             default:
                 Debug.LogWarning("a bah cringe");
                 return 0;
@@ -127,5 +142,11 @@ public class MoucheAnimation : MonoBehaviour
     float TrueRandomValue01()
     {
         return (Random.value - 0.5f) * 2f;
+    }
+
+    public void LaunchDeathAnim()
+    {
+        timers[7] = 0; //resetTimerDeath
+        _dead = true;
     }
 }
