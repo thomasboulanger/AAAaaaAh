@@ -22,6 +22,23 @@ public class MMoucheAMerde : MonoBehaviour
     [SerializeField] private float linearSpeedAdaptator=  2f;
     [SerializeField] private float oscillationSpeedAdaptator = 2f;
 
+    [SerializeField] private float knockBackOscillationFrequency = 1;
+    [SerializeField] private float knockBackRotationSpeed = 1;
+    [SerializeField] private Vector2 oscillationKnockBackAmplitude = new Vector2 (1f,3f);
+    [SerializeField] private Vector2 linearKnockBackForce = new Vector2(0.1f, 0.2f);
+    [SerializeField] private Vector2 knockBackDepth = new Vector2(1f, 10f);
+
+    private Vector3 _pos;
+
+    private float _oscillationKnockBackAmplitude;
+    private float _linearKnockBackForce;
+    private float _knockBackDepth;
+    private bool _hitPlayer = false;
+    private bool _hitBouclier = false;
+    private float alpha = 0;
+    private Vector3 _knockBackDirection;
+
+
     private PoubelleVisualManager _trashTankRef;
     private Vector3 _path;
     private Vector3 _initialPosition;
@@ -76,13 +93,13 @@ public class MMoucheAMerde : MonoBehaviour
         _trashTankRef = GameObject.FindGameObjectWithTag("TrashTank").GetComponent<PoubelleVisualManager>();
 
         //_enventID = AkSoundEngine.PostEvent("Play_mouche_fly_loop", gameObject);
-        Vector3 pos = transform.position;
+        _pos = transform.position;
         _previousA = 0;
         _a = Random.Range(-coneBeginingRadius, coneBeginingRadius);
         _initialA = _a;
-        _initialLength = Vector3.Distance(body.position, pos);
-        _initialPosition = pos;
-        _previousPosition = pos;
+        _initialLength = Vector3.Distance(body.position, _pos);
+        _initialPosition = _pos;
+        _previousPosition = _pos;
 
         if (_a > _previousA) _sign = 1;
         else _sign = -1;
@@ -104,7 +121,7 @@ public class MMoucheAMerde : MonoBehaviour
     {
         
 
-        Vector3 pos = transform.position; // limiter l'impact perf
+        _pos = transform.position; // limiter l'impact perf
         Vector3 bodypos = body.position;
         //Debug.Log(_case1 + "   " + _case2 + "   " + _case3 + "   " + _case4 + "   ");
         //Debug.Log(_oscillationSpeedToTarget);
@@ -120,7 +137,7 @@ public class MMoucheAMerde : MonoBehaviour
         RTPCdistancePlayerMouche.SetValue(gameObject, distancePlayerMouche);
 
         //---------------------------------------------------
-        _p = bodypos + Vector3.Project(pos - bodypos, -_path);
+        _p = bodypos + Vector3.Project(_pos - bodypos, -_path);
         _a = _initialA * (Vector3.Distance(bodypos, _p) / _initialLength);
         _previousA = _initialPreviousA * (Vector3.Distance(bodypos, _p) / _initialLength);
         //Debug.Log(Vector3.Distance(bodypos, _p) / _initialLength);
@@ -145,24 +162,24 @@ public class MMoucheAMerde : MonoBehaviour
             _linearTimerLimit = Random.Range(linearSpeedChangeTimer.x, linearSpeedChangeTimer.y);
         }
 
-        if (_oscillationSpeedToTarget < oscillationSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
+        if (_oscillationSpeedToTarget < oscillationSpeedLimit.x * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
         {
-            _oscillationSpeedToTarget = oscillationSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
+            _oscillationSpeedToTarget = oscillationSpeedLimit.x * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
         }
 
-        if (_oscillationSpeedToTarget > oscillationSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
+        if (_oscillationSpeedToTarget > oscillationSpeedLimit.y * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * oscillationSpeedAdaptator))
         {
-            _oscillationSpeedToTarget = oscillationSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
+            _oscillationSpeedToTarget = oscillationSpeedLimit.y * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * oscillationSpeedAdaptator);
         }
 
-        if (_linearSpeedToTarget < linearSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator))
+        if (_linearSpeedToTarget < linearSpeedLimit.x * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * linearSpeedAdaptator))
         {
-            _linearSpeedToTarget = linearSpeedLimit.x * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator);
+            _linearSpeedToTarget = linearSpeedLimit.x * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * linearSpeedAdaptator);
         }
 
-        if (_linearSpeedToTarget > linearSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator))
+        if (_linearSpeedToTarget > linearSpeedLimit.y * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * linearSpeedAdaptator))
         {
-            _linearSpeedToTarget = linearSpeedLimit.y * (1 + Vector3.Distance(pos, bodypos) / destroyDistance * linearSpeedAdaptator);
+            _linearSpeedToTarget = linearSpeedLimit.y * (1 + Vector3.Distance(_pos, bodypos) / destroyDistance * linearSpeedAdaptator);
         }
 
         float dt = Time.deltaTime; //modif maros pour calmer l'esprit du chef prog
@@ -170,10 +187,10 @@ public class MMoucheAMerde : MonoBehaviour
         _linearTimer += dt;
         _linearSpeedToTarget += _linearSpeedAddition * _linearSpeedIncrement * dt;
 
-        pos += _linearSpeedToTarget * Vector3.Normalize(_path) * dt; //opti
+        _pos += _linearSpeedToTarget * Vector3.Normalize(_path) * dt; //opti
 
-        if (_a > 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
-            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1)
+        if (_a > 0 && _a > _previousA && Vector3.Dot(_pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(_pos - _p) / Vector3.Magnitude(_limitVector) > 1)
         {
             _case1 = true;
         }
@@ -182,8 +199,8 @@ public class MMoucheAMerde : MonoBehaviour
             _case1 = false;
         }
 
-        if (_a > 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
-            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1)
+        if (_a > 0 && _a < _previousA && Vector3.Dot(_pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(_pos - _p) / Vector3.Magnitude(_limitVector) < 1)
         {
             _case2 = true;
         }
@@ -192,8 +209,8 @@ public class MMoucheAMerde : MonoBehaviour
             _case2 = false;
         }
 
-        if (_a < 0 && _a < _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
-            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) > 1)
+        if (_a < 0 && _a < _previousA && Vector3.Dot(_pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(_pos - _p) / Vector3.Magnitude(_limitVector) > 1)
         {
             _case3 = true;
         }
@@ -202,8 +219,8 @@ public class MMoucheAMerde : MonoBehaviour
             _case3 = false;
         }
 
-        if (_a < 0 && _a > _previousA && Vector3.Dot(pos - _p, _limitVector) > 0 &&
-            Vector3.Magnitude(pos - _p) / Vector3.Magnitude(_limitVector) < 1)
+        if (_a < 0 && _a > _previousA && Vector3.Dot(_pos - _p, _limitVector) > 0 &&
+            Vector3.Magnitude(_pos - _p) / Vector3.Magnitude(_limitVector) < 1)
         {
             _case4 = true;
         }
@@ -242,7 +259,7 @@ public class MMoucheAMerde : MonoBehaviour
         _oscillationTimer += dt;
         _oscillationSpeedToTarget += _oscillationSpeedAddition * _oscillationSpeedIncrement * dt;
 
-        pos += _sign * _oscillationSpeedToTarget * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0)) * dt;
+        _pos += _sign * _oscillationSpeedToTarget * Vector3.Normalize(new Vector3(_path.y, -_path.x, 0)) * dt;
 
         //_angle = Vector3.SignedAngle(Vector3.right, _oscillationSpeedToTarget * Vector3.Normalize(_limitVector) + _speedToTarget * Vector3.Normalize(_path), Vector3.forward);
 
@@ -254,21 +271,36 @@ public class MMoucheAMerde : MonoBehaviour
 
 
 
-        Vector3 cachedLocalRot = fly.transform.localEulerAngles;
-        fly.transform.localRotation = Quaternion.LerpUnclamped(fly.transform.localRotation,
-            Quaternion.Euler(new Vector3((_previousPosition.y - pos.y) * zRotPower, cachedLocalRot.y,
-                cachedLocalRot.z)), lerpSpeed2 * dt); //-----
-        transform.rotation = Quaternion.LerpUnclamped(transform.rotation,
-            Quaternion.Euler(new Vector3(0, pos.x > _previousPosition.x ? 0 : 180, 0)), lerpSpeed * dt);
-        _previousPosition = pos;
 
-        if (Vector3.Magnitude(pos - bodypos) > destroyDistance)
+        if (Vector3.Magnitude(_pos - bodypos) > destroyDistance)
         {
 
             DestroyMouche();
         }
 
-        transform.position = Vector3.Lerp(transform.position, pos, dt * mainLerpPower);
+        Vector3 cachedLocalRot = fly.transform.localEulerAngles;
+        fly.transform.localRotation = Quaternion.LerpUnclamped(fly.transform.localRotation,
+        Quaternion.Euler(new Vector3((_previousPosition.y - _pos.y) * zRotPower, cachedLocalRot.y,
+        cachedLocalRot.z)), lerpSpeed2 * dt); //-----
+        transform.rotation = Quaternion.LerpUnclamped(transform.rotation,
+        Quaternion.Euler(new Vector3(0, _pos.x > _previousPosition.x ? 0 : 180, 0)), lerpSpeed * dt);
+
+        if (_hitBouclier == false)
+        {
+
+
+            transform.position = Vector3.Lerp(transform.position, _pos, dt * mainLerpPower);
+        }
+        else
+        {
+            transform.position += -_knockBackDirection * _linearKnockBackForce * dt + _oscillationKnockBackAmplitude * Vector3.Normalize(new Vector3(_knockBackDirection.y, -_knockBackDirection.x, 0)) * dt * Mathf.Sin(alpha * dt) + Vector3.forward * _knockBackDepth * dt;
+            transform.eulerAngles += Vector3.forward * dt * knockBackRotationSpeed;
+            alpha += knockBackOscillationFrequency * dt;
+            Debug.Log("ca a tapé");
+        }
+
+        _previousPosition = _pos;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -279,16 +311,25 @@ public class MMoucheAMerde : MonoBehaviour
 
         AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
 
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Player") && _hitPlayer == false)
         {
             if (bodyRB.drag < 5)
                 bodyRB.AddForceAtPosition(forceDoremin * Vector3.Normalize(_path), transform.position);
             else if (bodyRB.drag > 5)
                 bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
+            _hitPlayer = true;
         }
 
-        DestroyMouche();
+        if (other.transform.CompareTag("Bouclier") && _hitBouclier == false)
+        {
+            _hitBouclier = true;
+            _linearKnockBackForce = Random.Range(linearKnockBackForce.x, linearKnockBackForce.y);
+            _oscillationKnockBackAmplitude = Random.Range(oscillationKnockBackAmplitude.x, oscillationKnockBackAmplitude.y);
+            _knockBackDirection = other.gameObject.transform.position - _pos;
+            _knockBackDepth = Random.Range(knockBackDepth.x, knockBackDepth.y);
+        }
+        //DestroyMouche();
     }
 
     void DestroyMouche()

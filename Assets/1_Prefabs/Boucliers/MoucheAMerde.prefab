@@ -155,11 +155,15 @@ MonoBehaviour:
   forceMegaplex: 300
   linearSpeedAdaptator: 7
   oscillationSpeedAdaptator: 7
+  knockBackOscillationFrequency: 500
+  knockBackRotationSpeed: 300
+  oscillationKnockBackAmplitude: {x: 2, y: 4}
+  linearKnockBackForce: {x: 10, y: 20}
+  knockBackDepth: {x: -5, y: -10}
   lerpSpeed: 3
   lerpSpeed2: 3
   zRotPower: 833
   mainLerpPower: 40
-  lePatron: {fileID: 0}
   RTPCdistancePlayerMouche:
     idInternal: 0
     valueGuidInternal: 

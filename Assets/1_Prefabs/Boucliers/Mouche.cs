@@ -44,8 +44,8 @@ public class Mouche : MonoBehaviour
         transform.position = limbControllerList[j].position;
         transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
         _timer += Time.deltaTime;
-        if (_timer > _timerLimit && player.position.x > spawnFliesBegining)
-        //if (Input.GetKeyDown(KeyCode.W))
+        //if (_timer > _timerLimit && player.position.x > spawnFliesBegining)
+        if (Input.GetKeyDown(KeyCode.P))
         {
             _randomX = Random.Range(-_spawnPosition.x, _spawnPosition.x);
             _randomY = Random.Range(-_spawnPosition.y, _spawnPosition.y);
