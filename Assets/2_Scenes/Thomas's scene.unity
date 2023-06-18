@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10826.116, g: 6821.1797, b: 6753.425, a: 1}
+  m_IndirectSpecularColor: {r: 11597.073, g: 7337.082, b: 7486.045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2581,6 +2581,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473814852}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &475479099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1949473462018745112, guid: 8cca610731e114042a7eb1189e884160,
+    type: 3}
+  m_PrefabInstance: {fileID: 1949473461186635301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &475479116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3755835576101235687, guid: 8cca610731e114042a7eb1189e884160,
+    type: 3}
+  m_PrefabInstance: {fileID: 1949473461186635301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475479099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ae69e012e27e34d91195eda1da33d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &475479120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475479099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 475479116}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayerPressPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &485705367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4314,7 +4360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &716807883
 Transform:
   m_ObjectHideFlags: 0
@@ -12314,6 +12360,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 738370198}
     m_Modifications:
+    - target: {fileID: 3382853935719213493, guid: e376ea1ab03ff9543a95798656128d58,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382853935719213493, guid: e376ea1ab03ff9543a95798656128d58,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.365
+      objectReference: {fileID: 0}
     - target: {fileID: 3382853936424553029, guid: e376ea1ab03ff9543a95798656128d58,
         type: 3}
       propertyPath: m_Name
@@ -12388,6 +12444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382853936708004984, guid: e376ea1ab03ff9543a95798656128d58,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.2465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e376ea1ab03ff9543a95798656128d58, type: 3}
@@ -13911,27 +13972,27 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.539614
+      value: -36.990242
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.739
+      value: 22.816847
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.444
+      value: 49.579
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99894667
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04588608
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -14709,56 +14770,6 @@ PrefabInstance:
       propertyPath: tutorialCharacterCage
       value: 
       objectReference: {fileID: 414076113}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: vCams.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: cursors.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[0]
-      value: 
-      objectReference: {fileID: 1848034608}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[1]
-      value: 
-      objectReference: {fileID: 1686015692}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[2]
-      value: 
-      objectReference: {fileID: 420138008}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[3]
-      value: 
-      objectReference: {fileID: 875431469}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[4]
-      value: 
-      objectReference: {fileID: 438207882}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[5]
-      value: 
-      objectReference: {fileID: 438207882}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[6]
-      value: 
-      objectReference: {fileID: 438207882}
-    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: VCams.Array.data[7]
-      value: 
-      objectReference: {fileID: 1452922285}
     - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
       propertyPath: vCams.Array.data[0]
@@ -17499,6 +17510,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216a96e8f530ac428011ee0b752d84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionToRebind:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   m_Action: {fileID: 504003863472454415, guid: 3ff413e56c331504198259097afba4d0, type: 3}
   m_BindingId: e2ad0e47-8188-4773-952c-3097e43b1db2
   m_DisplayStringOptions: 0
@@ -18137,6 +18157,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216a96e8f530ac428011ee0b752d84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionToRebind:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   m_Action: {fileID: 6329411711434035181, guid: 3ff413e56c331504198259097afba4d0,
     type: 3}
   m_BindingId: 23570403-cb65-43d0-88a9-35dee3dce8e9
@@ -18188,6 +18217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216a96e8f530ac428011ee0b752d84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionToRebind:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   m_Action: {fileID: 2160195276439683975, guid: 3ff413e56c331504198259097afba4d0,
     type: 3}
   m_BindingId: 543cdae5-b492-48fb-8add-1510521efc2d
@@ -18385,6 +18423,7 @@ GameObject:
   - component: {fileID: 8341285976030256190}
   - component: {fileID: 8341285976030256191}
   - component: {fileID: 8341285976030256184}
+  - component: {fileID: 8341285976030256192}
   m_Layer: 5
   m_Name: RebindMoveLimb_R
   m_TagString: UIInteractable
@@ -18456,6 +18495,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndexToRebind: 0
   rebindScript: {fileID: 8341285975401159609}
+  rebingActionString: MoveLimb_R
+--- !u!114 &8341285976030256192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341285976030256186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8341285976030256191}
+        m_TargetAssemblyTypeName: UIRebindInput, Assembly-CSharp
+        m_MethodName: UpdateRebindVisual
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &8341285976068815202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18727,6 +18795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndexToRebind: 0
   rebindScript: {fileID: 8341285976761983114}
+  rebingActionString: MoveLimb_L
 --- !u!65 &8341285976255420053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18770,6 +18839,7 @@ GameObject:
   - component: {fileID: 8341285976255420059}
   - component: {fileID: 8341285976255420052}
   - component: {fileID: 8341285976255420053}
+  - component: {fileID: 8341285976255420060}
   m_Layer: 5
   m_Name: RebindMoveLimb_L
   m_TagString: UIInteractable
@@ -18827,6 +18897,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8341285976255420060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341285976255420055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8341285976255420052}
+        m_TargetAssemblyTypeName: UIRebindInput, Assembly-CSharp
+        m_MethodName: UpdateRebindVisual
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &8341285976521790048
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18953,6 +19051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndexToRebind: 0
   rebindScript: {fileID: 8341285975963125045}
+  rebingActionString: Grab_L
 --- !u!65 &8341285976597626873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18996,6 +19095,7 @@ GameObject:
   - component: {fileID: 8341285976597626879}
   - component: {fileID: 8341285976597626872}
   - component: {fileID: 8341285976597626873}
+  - component: {fileID: 8341285976597626880}
   m_Layer: 5
   m_Name: RebindGrab_L
   m_TagString: UIInteractable
@@ -19053,6 +19153,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8341285976597626880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341285976597626875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8341285976597626872}
+        m_TargetAssemblyTypeName: UIRebindInput, Assembly-CSharp
+        m_MethodName: UpdateRebindVisual
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &8341285976691540364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19294,6 +19422,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216a96e8f530ac428011ee0b752d84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionToRebind:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   m_Action: {fileID: 1342653829295249751, guid: 3ff413e56c331504198259097afba4d0,
     type: 3}
   m_BindingId: f721d598-2943-4c97-9a1c-b5271169978e
@@ -19967,6 +20104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndexToRebind: 0
   rebindScript: {fileID: 8341285975950944347}
+  rebingActionString: Grab_R
 --- !u!65 &8341285977307817212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20010,6 +20148,7 @@ GameObject:
   - component: {fileID: 8341285977307817186}
   - component: {fileID: 8341285977307817187}
   - component: {fileID: 8341285977307817212}
+  - component: {fileID: 8341285977307817215}
   m_Layer: 5
   m_Name: RebindGrab_R
   m_TagString: UIInteractable
@@ -20017,6 +20156,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8341285977307817215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341285977307817214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8341285977307817187}
+        m_TargetAssemblyTypeName: UIRebindInput, Assembly-CSharp
+        m_MethodName: UpdateRebindVisual
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &8444416677802623499
 Transform:
   m_ObjectHideFlags: 0

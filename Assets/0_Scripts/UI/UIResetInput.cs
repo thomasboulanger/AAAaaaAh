@@ -9,5 +9,6 @@ public class UIResetInput : MonoBehaviour
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
         rebindScript.ResetToDefault();
+        collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
     }
 }

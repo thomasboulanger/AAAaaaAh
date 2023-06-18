@@ -17,14 +17,15 @@ public class UIButtonInfo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.transform.CompareTag("UIInteractable")) return;
-
         if (GameManager.UICanvaState == GameManager.UIStateEnum.Play)
         {
+            if(!collision.transform.name.Contains("Truelle")) return;
             onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
             return;
         }
-
+        
+        if (!collision.transform.CompareTag("UIInteractable")) return;
+        
         onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
         collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
     }

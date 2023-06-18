@@ -6,7 +6,6 @@
 //thomas.boulanger.auditeur@lecnam.net
 
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -14,13 +13,11 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class CursorController : MonoBehaviour
 {
-    [FormerlySerializedAs("onPlayerThrowTruelleEvent")] [SerializeField]
-    private GameEvent onPlayerThrowTruelleSound;
-
+    [SerializeField] private GameEvent onPlayerThrowTruelleSound;
+    
     public int cursorID;
     public int cursorCanvasState;
     [SerializeField] private UIHommingTruelle truelleUIPrefab;
-
 
     private const float Speed = 5;
     private bool _inputPressed;
@@ -29,12 +26,6 @@ public class CursorController : MonoBehaviour
     private float _objectHeight;
     private Camera _mainCamera;
     private Vector4 _screenBounds;
-
-    //truelle part
-    private readonly float _unitSphereRandomRadius = 0.69f;
-    private readonly float _startPosZ = -5;
-    private readonly float _startPosRandom = 5;
-    private Vector3 _truelleSpawnPosition;
 
     private void Start()
     {
@@ -75,15 +66,19 @@ public class CursorController : MonoBehaviour
         onPlayerThrowTruelleSound.Raise(this, null, null, null);
 
         //instantiate truelle and target our cursor
-        Vector3 unitSphere = Random.insideUnitSphere * _unitSphereRandomRadius;
-        _truelleSpawnPosition = transform.position + new Vector3
+        Vector3 spawnPos = transform.position + new Vector3
         (
-            Random.Range(-_startPosRandom, _startPosRandom),
-            Random.Range(-_startPosRandom, _startPosRandom),
-            _startPosZ
+            Random.Range(-5, 5),
+            Random.Range(-5, 5),
+            -5
         );
 
-        UIHommingTruelle truelleGo = Instantiate(truelleUIPrefab, _truelleSpawnPosition, Quaternion.identity);
+        UIHommingTruelle truelleGo = Instantiate(truelleUIPrefab, spawnPos, Quaternion.Euler
+        (
+            Random.Range(-180, 180),
+            Random.Range(-180, 180),
+            Random.Range(-180, 180)
+        ));
         truelleGo.Init(transform.position);
     }
 

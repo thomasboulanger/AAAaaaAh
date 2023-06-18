@@ -23,17 +23,11 @@ public class UIHommingTruelle : MonoBehaviour
     private bool _isStuckInUI;
     private float _timerBeforeDestroy = 1.5f;
 
-    public void Init(Vector3 targetDestinantion) => _destination = targetDestinantion;
+    public void Init(Vector3 targetDestination) => _destination = targetDestination;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
-                                              new Vector3(
-                                                  Random.Range(-50, 50),
-                                                  Random.Range(-50, 50),
-                                                  Random.Range(-50, 50)
-                                              ));
         _rb.AddForce((_destination - transform.position) * force);
     }
 

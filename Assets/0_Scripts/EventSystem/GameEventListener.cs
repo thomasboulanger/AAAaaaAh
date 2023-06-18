@@ -6,10 +6,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-//[System.Serializable] public class CustomGameEvent : UnityEvent<Component, object>{}
-//[System.Serializable] public class CustomGameEvent : UnityEvent<Component, object, object>{}
 [System.Serializable] public class CustomGameEvent : UnityEvent<Component, object, object, object>{}
-
 public class GameEventListener : MonoBehaviour
 {
     public GameEvent gameEvent;

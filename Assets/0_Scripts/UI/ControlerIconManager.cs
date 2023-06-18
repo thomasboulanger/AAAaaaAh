@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -17,19 +18,34 @@ public class ControlerIconManager : MonoBehaviour
     private JoystickManager _joystickL;
     private JoystickManager _joystickR;
     private GameObject[] _limbBoxArray;
+    private bool _triggerOnce;
 
     void Awake()
     {
         selfMeshRenderer.sharedMaterial = new Material(selfMeshRenderer.sharedMaterial);
         _spriteMat = selfMeshRenderer.sharedMaterial;
+        _triggerOnce = false;
 
         playerIDText.text = (playerID + 1).ToString();
-        SpawnJoysticks(spawnAnchorR, true);
-        SpawnJoysticks(spawnAnchorL, false);
+
         _limbBoxArray = GameObject.FindGameObjectsWithTag("LimbSelectorBox");
 
         foreach (GameObject element in _limbBoxArray)
             ResetOutline(element, Color.white);
+    }
+
+    private void Update()
+    {
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.Play || _triggerOnce) return;
+        _triggerOnce = true;
+        StartCoroutine(coroutine());
+    }
+
+    IEnumerator coroutine()
+    {
+        yield return new WaitForSeconds(2);
+        SpawnJoysticks(spawnAnchorR, true);
+        SpawnJoysticks(spawnAnchorL, false);
     }
 
     private void SpawnJoysticks(Transform anchorTransform, bool isRightJoystick)

@@ -193,12 +193,12 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             var controlPath = default(string);
 
             // Get display string from action.
-            var action = actionToRebind;
-            if (action != null)
+            //var action = actionToRebind;
+            if (actionToRebind != null)
             {
-                var bindingIndex = action.bindings.IndexOf(x => x.id.ToString() == m_BindingId);
+                var bindingIndex = actionToRebind.bindings.IndexOf(x => x.id.ToString() == m_BindingId);
                 if (bindingIndex != -1)
-                    displayString = action.GetBindingDisplayString(bindingIndex, out deviceLayoutName, out controlPath, displayStringOptions);
+                    displayString = actionToRebind.GetBindingDisplayString(bindingIndex, out deviceLayoutName, out controlPath, displayStringOptions);
             }
 
             // Set on label (if any).
@@ -217,21 +217,21 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             if (!ResolveActionAndBinding(out var action, out var bindingIndex))
                 return;
 
-            if (action.bindings[bindingIndex].isComposite)
+            if (actionToRebind.bindings[bindingIndex].isComposite)
             {
                 // It's a composite. Remove overrides from part bindings.
-                for (var i = bindingIndex + 1; i < action.bindings.Count && action.bindings[i].isPartOfComposite; ++i)
-                    action.RemoveBindingOverride(i);
+                for (var i = bindingIndex + 1; i < actionToRebind.bindings.Count && actionToRebind.bindings[i].isPartOfComposite; ++i)
+                    actionToRebind.RemoveBindingOverride(i);
             }
             else
             {
-                action.RemoveBindingOverride(bindingIndex);
+                actionToRebind.RemoveBindingOverride(bindingIndex);
             }
             UpdateBindingDisplay();
         }
 
 
-        private InputAction actionToRebind;
+        public InputAction actionToRebind = null;
         /// <summary>
         /// Initiate an interactive rebind that lets the player actuate a control to choose a new binding
         /// for the action.

@@ -16,10 +16,8 @@ public class PlayerInputsScript : MonoBehaviour
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
-    private GameEvent onPlayerGrabAfterEndOfLevel;
-    
-    //DEBUG ONLY
-    private GameEvent onPlayerReturnToLastCheckPoint;
+    private GameEvent onPlayerGrabAfterEndOfLevel; 
+    private GameEvent onPlayerPressPause;
 
     //reference to the PlayerInput component
     private PlayerInput _playerInput;
@@ -66,9 +64,8 @@ public class PlayerInputsScript : MonoBehaviour
             onPlayerUpdateCursor.Raise(this, _grabValue, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
             
-            //DEBUG ONLY
-            if(_playerInput.actions["TmpRestart"].WasPressedThisFrame() && _playerInputArray[0] == this) 
-                onPlayerReturnToLastCheckPoint.Raise(this,null,null,null);
+            if(_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this) 
+                onPlayerPressPause.Raise(this,_playerID,null,null);
         }
         else if(_playerID == 0 && this == _playerInputArray[0])
         {
@@ -81,7 +78,7 @@ public class PlayerInputsScript : MonoBehaviour
     }
 
     public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID, GameEvent inputUpdateEvent,
-        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent playerReturnToLastCheckPoint, GameEvent PlayerGrabAfterEndOfLevel)
+        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent PlayerPressPause, GameEvent PlayerGrabAfterEndOfLevel)
     {
         _moveInputStr = moveInputStr;
         _grabInputStr = grabInputStr;
@@ -90,7 +87,7 @@ public class PlayerInputsScript : MonoBehaviour
         onPlayerUpdateCursor = playerMoveCursor;
         onPlayerUpdateSingleCursor = playerUpdateSingleCursor;
         _colorButtonStr = colorChangeButtonStr;
-        onPlayerReturnToLastCheckPoint = onPlayerReturnToLastCheckPoint;
+        onPlayerPressPause = PlayerPressPause;
         onPlayerGrabAfterEndOfLevel = PlayerGrabAfterEndOfLevel;
     }
 
