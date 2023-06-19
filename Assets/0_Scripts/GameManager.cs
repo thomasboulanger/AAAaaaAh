@@ -74,11 +74,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("moved to panel " + (int) data1);
     }
 
-    public void PlayerPressPause(Component sender, object data1, object unUsed1, object unUsed2)
+    public void PlayerPressPause(Component sender, object data1, object isActive, object unUsed2)
     {
         if(data1 is not int) return;
-        pauseMenu.SetActive(true);
-        pauseMenu.transform.GetChild(0).GetComponent<CursorController>().cursorID = (int) data1;
+        pauseMenu.SetActive((bool) isActive);
+        if((bool) isActive) pauseMenu.transform.GetChild(0).GetComponent<CursorController>().cursorID = (int) data1;
     }
     
     public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)

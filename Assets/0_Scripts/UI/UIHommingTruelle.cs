@@ -28,7 +28,21 @@ public class UIHommingTruelle : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _rb.AddForce((_destination - transform.position) * force);
+        
+        Ray ray = Camera.main.ScreenPointToRay(_destination);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            Vector3 hitPosition = hitObject.transform.position;
+            
+            if(hitObject.CompareTag("UIInteractable"))
+                _rb.AddForce((hitPosition - transform.position) * force);
+            else _rb.AddForce((_destination - transform.position) * force);
+            
+        }
+        else _rb.AddForce((_destination - transform.position) * force);
     }
 
     private void FixedUpdate()

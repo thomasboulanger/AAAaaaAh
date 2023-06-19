@@ -35,6 +35,7 @@ public class PlayerInputsScript : MonoBehaviour
     private Vector2 _limbVector2D;
     private float _grabValue;
     private bool _colorChangeButton;
+    private bool _inGamePauseButton;
     
     private PlayerInputsScript[] _playerInputArray;
     
@@ -57,15 +58,18 @@ public class PlayerInputsScript : MonoBehaviour
         {
             onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
+            
+            if(_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
+            {
+                _inGamePauseButton = !_inGamePauseButton;
+                onPlayerPressPause.Raise(this, _playerID, _inGamePauseButton, null);
+            }
         }
         else if(GameManager.UICanvaState == GameManager.UIStateEnum.Play)
         {
             onPlayerUpdateCursor.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _grabValue, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
-            
-            if(_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this) 
-                onPlayerPressPause.Raise(this,_playerID,null,null);
         }
         else if(_playerID == 0 && this == _playerInputArray[0])
         {
