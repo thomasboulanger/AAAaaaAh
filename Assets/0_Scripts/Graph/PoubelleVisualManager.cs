@@ -82,9 +82,9 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f,-89);
     [SerializeField] private float gaugeSpeed = 8f;
 
-    void Start() => Init();
+    private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         if (fruitRT != null) _fruitBaseScale = fruitRT.localScale.x;
         _openedRotation = couvercle.localRotation;
@@ -229,7 +229,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
             if (_ejectFruits)
             {
-                AkSoundEngine.PostEvent("Play_sfx_ui_put_in_bag_short", gameObject);//son ejection de fruit
+                AkSoundEngine.PostEvent("Play_fruit_quit_bag", gameObject);//son ejection de fruit
                 continue;
             }
 

@@ -92,6 +92,7 @@ public class CursorController : MonoBehaviour
     {
         Vector4 bounds = new Vector4();
 
+        if(!_mainCamera) _mainCamera = FindObjectOfType<Camera>();
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;

@@ -7,6 +7,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         InGame = false;
         pauseMenu.SetActive(false);
@@ -100,16 +101,26 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
-        SceneManager.LoadScene(1);
-        StartCoroutine(WaitOneFrame());
-    }
-
-    IEnumerator WaitOneFrame()
-    {
-        yield return 0;
-        SceneManager.LoadScene(0);
-        gameObject.GetComponent<PlayerManager>().Init();
+        
+        // Disable all PlayerInput components in the scene
+        PlayerInput[] playerInputs = FindObjectsOfType<PlayerInput>();
+        foreach (PlayerInput player in playerInputs)
+        {
+            player.DeactivateInput();
+            player.enabled = false;
+        }
+        PlayerManager.Players.Clear();
+        
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        // re-initialize scripts
         Init();
-        PlayerChangePanel(this, 1, null, null);
+        GetComponent<PlayerManager>().Init();
+        FindObjectOfType<AudioManager>().Init();
+        FindObjectOfType<CameraManager>().Init();
+        FindObjectOfType<CharacterBodyPhysic>().Init();
+        FindObjectOfType<PoubelleVisualManager>().Init();
+        FindObjectOfType<TutorialLauncher>().Init();
     }
 }
