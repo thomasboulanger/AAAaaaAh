@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,6 +16,7 @@ public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] private GameEvent fadeOutEvent;
     [SerializeField] private GameEvent onOverrideGrabEvent;
+    [SerializeField] private GameEvent onClearFruitLists;
 
     private Transform[] _limbsTransforms = new Transform[4];
     private Transform[] _virtualTransforms = new Transform[4];
@@ -53,10 +53,27 @@ public class CheckpointManager : MonoBehaviour
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
-        StartCoroutine(DelayCoroutine());
+        StartCoroutine(DelayCoroutine(_latestCheckpoint));
     }
+    
+    public void OnReturnToFirstCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
+    {
+        //call screen fade out event
+        fadeOutEvent.Raise(this, true, null, null);
+        StartCoroutine(DelayCoroutine(_firstCheckpoint));
+        
+        //reload the level
+        GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
 
-    IEnumerator DelayCoroutine()
+        //reset checkpoint values
+        _latestCheckpointIndex = 0;
+        _latestCheckpoint = _firstCheckpoint;
+
+        onClearFruitLists.Raise(this,null,null,null);        
+        //reset d autres variables/cas s il y en a...
+    }
+    
+    IEnumerator DelayCoroutine(Vector3 positionToMoveTo)
     {
         yield return new WaitForSeconds(.5f);
         //iterate on all limbs to get their offset with character body
@@ -64,7 +81,7 @@ public class CheckpointManager : MonoBehaviour
             _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
 
         //move the body to last checkpoint position
-        transform.position = _latestCheckpoint;
+        transform.position = positionToMoveTo;
 
         //iterate on all limbs, move limb position to body position + offset
         for (int i = 0; i < _limbsTransforms.Length; i++)
@@ -76,38 +93,5 @@ public class CheckpointManager : MonoBehaviour
         _overridingInputs = true;
         yield return new WaitForSeconds(.3f);
         _overridingInputs = false;
-    }
-
-    public void OnReturnToFirstCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
-    {
-        //call screen fade out event
-        fadeOutEvent.Raise(this, true, null, null);
-
-        //iterate on all limbs to get their offset with character body
-        for (int i = 0; i < _tempLimbsOffsetPosition.Length; i++)
-            _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
-
-        //move the body to last checkpoint position
-        transform.position = _firstCheckpoint;
-
-        //iterate on all limbs, move limb position to body position + offset
-        for (int i = 0; i < _limbsTransforms.Length; i++)
-        {
-            _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
-            _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
-        }
-
-        //ungrab event 
-        onOverrideGrabEvent.Raise(this, false, null, null);
-
-        //reload the level
-        GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
-
-        //reset checkpoint values
-        _latestCheckpointIndex = 0;
-        _latestCheckpoint = _firstCheckpoint;
-
-        //si y a un sac -> retirer les fruits
-        //reset d autres variables/cas s il y en a...
     }
 }

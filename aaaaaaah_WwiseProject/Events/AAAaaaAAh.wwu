@@ -66,13 +66,6 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
-								<Action Name="" ID="{58A1BB86-6FEC-4024-8317-C0BA3789707F}" ShortID="1049082784">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="SubBass_Scream" ID="{7AE0436B-B505-4ABC-B940-CB20F860D3AF}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 							</ChildrenList>
 						</Event>
 					</ChildrenList>
@@ -280,6 +273,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Menu_music" ID="{453B8CB0-39ED-4048-BD02-A89908DD3DA0}">
+							<ChildrenList>
+								<Action Name="" ID="{C58503F1-9B24-4CB8-8CC8-D99126C375F1}" ShortID="627120343">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu_music" ID="{6F27F27A-297A-4E14-8602-65BE91322804}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Kompa_6" ID="{7D8A1FBF-FF8A-4815-A29C-3396A5EEDFCA}">
+							<ChildrenList>
+								<Action Name="" ID="{89EF1B5F-4B18-4847-9F54-3041B723379D}" ShortID="936674253">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Kompa_6" ID="{252C3934-A032-4A0A-B578-4959774C5F33}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Init_StopAll" ID="{8B01E1D0-F4EF-490B-B6EA-1450F43A5B1A}">
@@ -331,6 +346,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="sfx_ui_truelle_hit_Select" ID="{0FEAE838-2ACC-45ED-B863-56AAADCAA3A2}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_sfx_ui_put_in_bag_short" ID="{5D25294D-F587-46B5-BE46-EAADBF1233ED}">
+							<ChildrenList>
+								<Action Name="" ID="{30EA9C8C-E58D-45A0-89A0-C860B66C7880}" ShortID="140264178">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_ui_put_in_bag_short" ID="{2A964F61-6423-49CF-BF05-7A0EDAB6E271}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

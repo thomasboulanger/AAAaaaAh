@@ -30,6 +30,8 @@ namespace AK
         static const AkUniqueID PLAY_KOMPA4 = 1315062896U;
         static const AkUniqueID PLAY_KOMPA4_INT1 = 2430895383U;
         static const AkUniqueID PLAY_KOMPA_5 = 2142320308U;
+        static const AkUniqueID PLAY_KOMPA_6 = 2142320311U;
+        static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT = 425169085U;
@@ -70,6 +72,7 @@ namespace AK
         static const AkUniqueID PLAY_SFX_SORCIER_FALL_01 = 1205431081U;
         static const AkUniqueID PLAY_SFX_SORCIER_FALL_02 = 1205431082U;
         static const AkUniqueID PLAY_SFX_SORCIER_IMPACT = 4074007912U;
+        static const AkUniqueID PLAY_SFX_UI_PUT_IN_BAG_SHORT = 4243926984U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SELECT = 3159973417U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SIMPLE = 3640008787U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_LAUNCH = 2461968334U;
