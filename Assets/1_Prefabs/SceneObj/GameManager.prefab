@@ -165,6 +165,7 @@ MonoBehaviour:
   onUpdateRebindVisual: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6,
     type: 2}
   pauseMenu: {fileID: 0}
+  cursor: {fileID: 0}
   level: {fileID: 35558597434611790, guid: feb21fc36428e86478e325fd1cab73d6, type: 3}
   limbSelectionPanel: {fileID: 0}
   tutorialCharacterCage: {fileID: 0}
@@ -319,7 +320,8 @@ MonoBehaviour:
   kompa2:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: c87e7d8e374eac3438a54e9fba0bf142,
+      type: 2}
   kompa3:
     idInternal: 0
     valueGuidInternal: 
@@ -329,6 +331,11 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: bc7295dd600637e45bb241772339d828,
+      type: 2}
+  menu_music:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 04cbb718c9d9b0641912f250c0fe9af7,
       type: 2}
   playAmbJungle:
     idInternal: 0

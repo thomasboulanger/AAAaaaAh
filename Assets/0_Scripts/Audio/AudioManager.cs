@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event kompa2;
     [SerializeField] private AK.Wwise.Event kompa3;
     [SerializeField] private AK.Wwise.Event kompa4;
+    [SerializeField] private AK.Wwise.Event menu_music;
     [SerializeField] private AK.Wwise.Event playAmbJungle;
     [SerializeField] private AK.Wwise.Event playAmbCascade;
     [SerializeField] private AK.Wwise.Event playAmbVillage;
@@ -188,14 +189,16 @@ public class AudioManager : MonoBehaviour
     {
         //stop all sounds then play the intro music
         initMenuEvent.Post(gameObject);
-        
         //menu musique
-        //Amb eventuellement
+        menu_music.Post(gameObject);
+
     }
 
 
     public void SetupLevelMucsic()
     {
+        menu_music.Stop(gameObject);
+
         randomNumberMusic = Random.Range(0f, 1f);
         switch (randomNumberMusic)
         {

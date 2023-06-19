@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID PLAY_CRIS_ET_GROML = 712233415U;
         static const AkUniqueID PLAY_CRIS_GROML_CINEMATIC = 2650298779U;
         static const AkUniqueID PLAY_EXPI = 3945663264U;
+        static const AkUniqueID PLAY_FRUIT_QUIT_BAG = 102112069U;
         static const AkUniqueID PLAY_GRAB_ARM_01 = 3235881831U;
         static const AkUniqueID PLAY_GRAB_ARM_02 = 3235881828U;
         static const AkUniqueID PLAY_GRAB_ARM_03 = 3235881829U;

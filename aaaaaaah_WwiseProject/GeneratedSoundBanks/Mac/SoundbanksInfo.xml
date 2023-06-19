@@ -203,7 +203,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{4844425D-77D9-8B8F-CAB0-FEA519C75965}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{77F15D52-78E8-F174-1FDA-EA19399D0137}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -659,6 +659,10 @@
 					<ShortName>sfx_player_grab_fruit_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_fruit_05_10C4C929.wem</CachePath>
 				</File>
+				<File Id="483105709" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>fruit_quit_bag\sfx_ui_fruit_quit_bag_03.wav</ShortName>
+					<CachePath>SFX/fruit_quit_bag/sfx_ui_fruit_quit_bag_03_772E206E.wem</CachePath>
+				</File>
 				<File Id="487296066" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_Arm 3_02.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_Arm 3_02_10C4C929.wem</CachePath>
@@ -798,6 +802,10 @@
 				<File Id="660583654" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_scream_07.wav</ShortName>
 					<CachePath>SFX/roman_scream_07_10C4C929.wem</CachePath>
+				</File>
+				<File Id="674001787" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>fruit_quit_bag\sfx_ui_fruit_quit_bag_02.wav</ShortName>
+					<CachePath>SFX/fruit_quit_bag/sfx_ui_fruit_quit_bag_02_69482DFE.wem</CachePath>
 				</File>
 				<File Id="674091117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_wood_04.wav</ShortName>
@@ -1107,6 +1115,10 @@
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_buzz.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_buzz_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="979637916" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>fruit_quit_bag\sfx_ui_fruit_quit_bag_01.wav</ShortName>
+					<CachePath>SFX/fruit_quit_bag/sfx_ui_fruit_quit_bag_01_DD69DCC8.wem</CachePath>
+				</File>
 				<File Id="996303712" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Intro\sfx_book_falling_03.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_book_falling_03_10C4C929.wem</CachePath>
@@ -1315,6 +1327,13 @@
 						<MediaRef Id="108674122"/>
 						<MediaRef Id="395922434"/>
 						<MediaRef Id="514985283"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="102112069" Name="Play_fruit_quit_bag" DurationType="OneShot" DurationMin="0.7988756" DurationMax="1.0420713">
+					<MediaRefs>
+						<MediaRef Id="483105709"/>
+						<MediaRef Id="674001787"/>
+						<MediaRef Id="979637916"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3235881831" Name="Play_grab_arm_01" DurationType="OneShot" DurationMin="0.11574783" DurationMax="0.31639615">
@@ -2076,5 +2095,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{72B68DE2-EF32-1810-6C93-173525324A7A}</FileHash>
+	<FileHash>{345C6EC5-9375-AD30-FF91-181ED772D46F}</FileHash>
 </SoundBanksInfo>
