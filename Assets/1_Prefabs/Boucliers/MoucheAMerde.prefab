@@ -158,8 +158,9 @@ MonoBehaviour:
   knockBackOscillationFrequency: 500
   knockBackRotationSpeed: 300
   oscillationKnockBackAmplitude: {x: 2, y: 4}
-  linearKnockBackForce: {x: 10, y: 20}
+  linearKnockBackForce: {x: 5, y: 5}
   knockBackDepth: {x: -5, y: -10}
+  moucheAnimation: {fileID: 2450448519963538467}
   lerpSpeed: 3
   lerpSpeed2: 3
   zRotPower: 833
@@ -345,6 +346,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: shapeKeyPowers.Array.data[5]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[0].inSlope
+      value: -0.6901461
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[1].inSlope
+      value: -6.82598
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[0].outSlope
+      value: -0.6901461
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[1].inWeight
+      value: 0.031461537
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[1].outSlope
+      value: -6.82598
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+        type: 3}
+      propertyPath: deathScaleAnim.m_Curve.Array.data[0].outWeight
+      value: 0.08459477
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f372e89e8d9bb94b90bdaab16cd8a27, type: 3}
 --- !u!4 &2450448519767166754 stripped
@@ -353,3 +409,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5702197234193245067}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2450448519963538467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7864406306889881512, guid: 4f372e89e8d9bb94b90bdaab16cd8a27,
+    type: 3}
+  m_PrefabInstance: {fileID: 5702197234193245067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4fb6c7c64334c4894fcf43f059b5b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

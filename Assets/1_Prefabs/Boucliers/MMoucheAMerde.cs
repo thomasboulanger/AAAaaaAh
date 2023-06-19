@@ -19,14 +19,16 @@ public class MMoucheAMerde : MonoBehaviour
     [SerializeField] private Transform[] bouclierList = new Transform[4];
     [SerializeField] private float forceDoremin = 100f;
     [SerializeField] private float forceMegaplex = 300f;
-    [SerializeField] private float linearSpeedAdaptator=  2f;
+    [SerializeField] private float linearSpeedAdaptator = 2f;
     [SerializeField] private float oscillationSpeedAdaptator = 2f;
 
     [SerializeField] private float knockBackOscillationFrequency = 1;
     [SerializeField] private float knockBackRotationSpeed = 1;
-    [SerializeField] private Vector2 oscillationKnockBackAmplitude = new Vector2 (1f,3f);
+    [SerializeField] private Vector2 oscillationKnockBackAmplitude = new Vector2(1f, 3f);
     [SerializeField] private Vector2 linearKnockBackForce = new Vector2(0.1f, 0.2f);
     [SerializeField] private Vector2 knockBackDepth = new Vector2(1f, 10f);
+
+    [SerializeField] private MoucheAnimation moucheAnimation;
 
     private Vector3 _pos;
 
@@ -86,6 +88,8 @@ public class MMoucheAMerde : MonoBehaviour
     private uint _enventID;
 
     private bool _eventState;
+    private bool _wasAlive = true;
+    private bool _isplayingDeathAnim = false;
 
     void Start()
     {
@@ -119,7 +123,7 @@ public class MMoucheAMerde : MonoBehaviour
 
     void Update()
     {
-        
+
 
         _pos = transform.position; // limiter l'impact perf
         Vector3 bodypos = body.position;
@@ -238,7 +242,7 @@ public class MMoucheAMerde : MonoBehaviour
             //    (coneBeginingRadius / coneEndRadius),
             //    coneEndRadius + coneBeginingRadius * Vector3.Distance(bodypos, _p) /
             //    (coneBeginingRadius / coneEndRadius));
-            _a = Random.Range(-coneEndRadius - (coneBeginingRadius - coneEndRadius) * Vector3.Distance(bodypos, _p) / Vector3.Distance(bodypos, _initialPosition), coneEndRadius + (coneBeginingRadius-coneEndRadius) * Vector3.Distance(bodypos, _p) /Vector3.Distance(bodypos, _initialPosition));
+            _a = Random.Range(-coneEndRadius - (coneBeginingRadius - coneEndRadius) * Vector3.Distance(bodypos, _p) / Vector3.Distance(bodypos, _initialPosition), coneEndRadius + (coneBeginingRadius - coneEndRadius) * Vector3.Distance(bodypos, _p) / Vector3.Distance(bodypos, _initialPosition));
             if (_a < 0.05f && _a > 0)
                 _a = 0.05f;
             if (_a > -0.05f && _a < 0)
@@ -272,9 +276,9 @@ public class MMoucheAMerde : MonoBehaviour
 
 
 
-        if (Vector3.Magnitude(_pos - bodypos) > destroyDistance)
+        if (Vector3.Magnitude(_pos - bodypos) > destroyDistance && !_isplayingDeathAnim)
         {
-
+            _isplayingDeathAnim = true;
             DestroyMouche();
         }
 
@@ -293,6 +297,12 @@ public class MMoucheAMerde : MonoBehaviour
         }
         else
         {
+            if (_wasAlive)
+            {
+                _wasAlive = false;
+                moucheAnimation.LaunchDeathAnimFeedback();
+            }
+
             transform.position += -_knockBackDirection * _linearKnockBackForce * dt + _oscillationKnockBackAmplitude * Vector3.Normalize(new Vector3(_knockBackDirection.y, -_knockBackDirection.x, 0)) * dt * Mathf.Sin(alpha * dt) + Vector3.forward * _knockBackDepth * dt;
             transform.eulerAngles += Vector3.forward * dt * knockBackRotationSpeed;
             alpha += knockBackOscillationFrequency * dt;
@@ -335,10 +345,10 @@ public class MMoucheAMerde : MonoBehaviour
     void DestroyMouche()
     {
         _playmouche.Stop(gameObject);
-        Destroy(gameObject);
+        moucheAnimation.Death();
     }
 
-  
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

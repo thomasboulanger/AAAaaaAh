@@ -37,7 +37,7 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private float deathScaleSpeed = 0.5f;
 
     [Header("powers of flap1, flap2, idle1, idle2, tilt")]
-    [Range(0,200)]
+    [Range(0, 200)]
     [SerializeField] private float[] shapeKeyPowers = new float[6] { 100, 100, 100, 100, 100, 100 };
 
     [SerializeField] private Color[] possibleColors = new Color[5];
@@ -52,7 +52,7 @@ public class MoucheAnimation : MonoBehaviour
 
     void Start()
     {
-        
+
         localRot = transform.localEulerAngles;
 
         if (skinnedMesh == null) skinnedMesh = GetComponent<SkinnedMeshRenderer>(); // au cas ou c pas assign
@@ -62,7 +62,7 @@ public class MoucheAnimation : MonoBehaviour
         //random animation at start
         for (int i = 0; i < timers.Length; i++)
         {
-            if (i==1)
+            if (i == 1)
             {
                 timers[1] = timers[0] + flapDesynch;
                 continue;
@@ -81,10 +81,10 @@ public class MoucheAnimation : MonoBehaviour
         {
             float scale = deathScaleAnim.Evaluate(timers[8]);
             transform.localScale = new Vector3(scale, scale, scale);
-            if (timers[8]>=1)
+            if (timers[8] >= 1)
             {
                 //Destroy du parent
-                Destroy(transform.parent.parent.gameObject);//destroy du parent du go
+                //destroy du parent du go
             }
         }
 
@@ -96,9 +96,9 @@ public class MoucheAnimation : MonoBehaviour
 
         Vector3 zocilation = new Vector3(0, positionY.Evaluate(timers[5]) * positionPower, 0);
         noiseVector = Vector3.Lerp(noiseVector, RandomDirection(), dt * randPositionSpeed);
-        movementVector = Vector3.Lerp(movementVector,(movementVector + noiseVector).normalized,dt * randPositionSpeed2);
+        movementVector = Vector3.Lerp(movementVector, (movementVector + noiseVector).normalized, dt * randPositionSpeed2);
 
-        transform.localPosition = zocilation+movementVector*randPositionPower;
+        transform.localPosition = zocilation + movementVector * randPositionPower;
         transform.localEulerAngles = new Vector3(localRot.x, localRot.y, rotationZ.Evaluate(timers[6]) * rotationPower);
 
 
@@ -116,10 +116,24 @@ public class MoucheAnimation : MonoBehaviour
                 continue;
             }
 
-            timers[i] += dt * GetMultiplier(i);
+            if (i == 8)
+            {
+                if (_dead)
+                {
+                    timers[i] += dt * GetMultiplier(i);
+                }
+                else continue;
+
+            }
+            else timers[i] += dt * GetMultiplier(i);
 
 
             if (i == 7 && _deadFeedback && timers[7] >= 1) _deadFeedback = false;
+            if (i == 8 && _dead && timers[8] >= 1)
+            {
+                Destroy(transform.parent.parent.gameObject);
+            }
+
 
             if (timers[i] >= 1) timers[i] = 0;
         }
@@ -162,9 +176,15 @@ public class MoucheAnimation : MonoBehaviour
         return (Random.value - 0.5f) * 2f;
     }
 
-    public void LaunchDeathAnim()
+    public void LaunchDeathAnimFeedback()
     {
         timers[7] = 0; //resetTimerDeath
         _deadFeedback = true;
+    }
+
+    public void Death()
+    {
+        timers[8] = 0;
+        _dead = true;
     }
 }
