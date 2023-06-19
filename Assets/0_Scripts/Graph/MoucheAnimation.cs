@@ -48,7 +48,7 @@ public class MoucheAnimation : MonoBehaviour
     private Vector3 noiseVector;
     private Vector3 movementVector;
     private bool _deadFeedback;
-    private bool _dead;
+    [SerializeField] private bool _dead;
 
     void Start()
     {
@@ -79,20 +79,19 @@ public class MoucheAnimation : MonoBehaviour
 
         if (_dead)
         {
-            float scale = deathScaleAnim.Evaluate(timers[8]);
+            float scale = deathScaleAnim.Evaluate(timers[8])*100;
             transform.localScale = new Vector3(scale, scale, scale);
-            if (timers[8] >= 1)
-            {
-                //Destroy du parent
-                //destroy du parent du go
-            }
+        }
+        else
+        {
+            skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
+            skinnedMesh.SetBlendShapeWeight(1, wingsFlap.Evaluate(timers[1]) * shapeKeyPowers[1]);
+            skinnedMesh.SetBlendShapeWeight(2, idle.Evaluate(timers[2]) * shapeKeyPowers[2]);
+            skinnedMesh.SetBlendShapeWeight(3, idle.Evaluate(timers[3]) * shapeKeyPowers[3]);
+            skinnedMesh.SetBlendShapeWeight(4, tilt.Evaluate(timers[4]) * shapeKeyPowers[4]);
         }
 
-        skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
-        skinnedMesh.SetBlendShapeWeight(1, wingsFlap.Evaluate(timers[1]) * shapeKeyPowers[1]);
-        skinnedMesh.SetBlendShapeWeight(2, idle.Evaluate(timers[2]) * shapeKeyPowers[2]);
-        skinnedMesh.SetBlendShapeWeight(3, idle.Evaluate(timers[3]) * shapeKeyPowers[3]);
-        skinnedMesh.SetBlendShapeWeight(4, tilt.Evaluate(timers[4]) * shapeKeyPowers[4]);
+
 
         Vector3 zocilation = new Vector3(0, positionY.Evaluate(timers[5]) * positionPower, 0);
         noiseVector = Vector3.Lerp(noiseVector, RandomDirection(), dt * randPositionSpeed);
@@ -121,6 +120,7 @@ public class MoucheAnimation : MonoBehaviour
                 if (_dead)
                 {
                     timers[i] += dt * GetMultiplier(i);
+                    if (timers[i]>=1) Destroy(transform.parent.parent.gameObject);
                 }
                 else continue;
 
@@ -129,10 +129,6 @@ public class MoucheAnimation : MonoBehaviour
 
 
             if (i == 7 && _deadFeedback && timers[7] >= 1) _deadFeedback = false;
-            if (i == 8 && _dead && timers[8] >= 1)
-            {
-                Destroy(transform.parent.parent.gameObject);
-            }
 
 
             if (timers[i] >= 1) timers[i] = 0;
@@ -178,13 +174,17 @@ public class MoucheAnimation : MonoBehaviour
 
     public void LaunchDeathAnimFeedback()
     {
-        timers[7] = 0; //resetTimerDeath
+        timers[7] = 0; //resetTimerDeathFeedback
         _deadFeedback = true;
     }
 
     public void Death()
     {
-        timers[8] = 0;
+        for (int i = 0; i <= 4; i++)
+        {
+            skinnedMesh.SetBlendShapeWeight(i, 0);
+        }
+
         _dead = true;
     }
 }
