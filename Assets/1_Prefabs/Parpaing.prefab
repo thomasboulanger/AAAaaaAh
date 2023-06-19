@@ -578,6 +578,8 @@ MonoBehaviour:
   fadeOutEvent: {fileID: 11400000, guid: 81dbcea135bc9b7489c76a8bf9699136, type: 2}
   onOverrideGrabEvent: {fileID: 11400000, guid: eef441589847fef49980c0d9392a0626,
     type: 2}
+  onClearFruitLists: {fileID: 0}
+  onPlayerPressPause: {fileID: 0}
 --- !u!54 &6718840250444823051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2182,7 +2184,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5351165543620554502}
-  - {fileID: 2916604937562920172}
   - {fileID: 5756046080644671596}
   m_Father: {fileID: 5351165543140834575}
   m_RootOrder: 0
@@ -2586,20 +2587,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5351165544087515531}
     m_Modifications:
+    - target: {fileID: 1881518958, guid: ccd1815466ec64d44982ad2583a9e851, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3159900220199502340, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7359333831251460492, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7359333831251460492, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
@@ -2670,7 +2675,37 @@ PrefabInstance:
         type: 3}
       propertyPath: gaugeSKR
       value: 
-      objectReference: {fileID: 9044559317211165260}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[0].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[1].b
+      value: 0.08899963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[1].g
+      value: 0.08899963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeColor.Array.data[1].r
+      value: 0.754717
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd1815466ec64d44982ad2583a9e851, type: 3}
 --- !u!4 &5756046080644671596 stripped
@@ -2678,85 +2713,4 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7359333831251460492, guid: ccd1815466ec64d44982ad2583a9e851,
     type: 3}
   m_PrefabInstance: {fileID: 3008420258061543904}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3880473237545471425
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5351165544087515531}
-    m_Modifications:
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.876
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.036
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000001043081
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.000000029802319
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.9997901
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.020488352
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7565567317888530393, guid: 9b42f2258e540754082973b049cf1ad3,
-        type: 3}
-      propertyPath: m_Name
-      value: gauge
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9b42f2258e540754082973b049cf1ad3, type: 3}
---- !u!4 &2916604937562920172 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2135807270214719789, guid: 9b42f2258e540754082973b049cf1ad3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3880473237545471425}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &9044559317211165260 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5214762781581836173, guid: 9b42f2258e540754082973b049cf1ad3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3880473237545471425}
   m_PrefabAsset: {fileID: 0}
