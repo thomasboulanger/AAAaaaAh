@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event grab_arm_04;
     [SerializeField] private AK.Wwise.Event throwTruelle;
     [SerializeField] private AK.Wwise.Event truelleHitUI;
+    [SerializeField] private AK.Wwise.Event rots;
+    [SerializeField] private AK.Wwise.Event charlineBourree;
+
 
     [SerializeField] private AK.Wwise.Event truelleHitJoystick;
     /*[Header("Cinematic")]
@@ -65,17 +68,21 @@ public class AudioManager : MonoBehaviour
 
     float randomNumberMusic;
 
+    [Header("Reference scene")]
+    [SerializeField] private GameObject ParpaingSieste;
+    [SerializeField] private GameObject ParpaingBourre;
+
     //private uint playingID;
 
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        mainSb.Load(true);
+        //mainSb.Load(true);
     }
 
     private void Start() => Init();
-
+    public void MainSBLoad() => mainSb.Load(true);
     public void Init()
     {
         //rtpcMeterInspiExpi.RawAmplitudeScream = listenScreamRtpc;
@@ -89,6 +96,8 @@ public class AudioManager : MonoBehaviour
         // _player = GameObject.FindGameObjectWithTag("Player");
         // _demon = GameObject.FindGameObjectWithTag("Demon");
     }
+
+    
 
     private void Update()
     {
@@ -220,6 +229,9 @@ public class AudioManager : MonoBehaviour
     public void LaunchAmbianSounds()
     {
         playAmbJungle.Post(gameObject);
+        charlineBourree.Post(ParpaingSieste);
+        rots.Post(ParpaingBourre);
+
     }
 
     public void AmbVillage()

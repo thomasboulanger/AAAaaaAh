@@ -49,6 +49,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager.MainSBLoad();
         DontDestroyOnLoad(this);
         Init();
     }
