@@ -431,6 +431,8 @@ GameObject:
   - component: {fileID: 5201408651257336434}
   - component: {fileID: 6718840250444823051}
   - component: {fileID: 7364060889696993051}
+  - component: {fileID: 1195125805}
+  - component: {fileID: 1195125804}
   m_Layer: 3
   m_Name: Parpaing
   m_TagString: Player
@@ -606,6 +608,62 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: -0, y: 0.4, z: -0.06}
+--- !u!114 &1195125805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351165542593046278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b7ad894e2f4063d4d9b895d0d71566fd, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5201408651257336434}
+        m_TargetAssemblyTypeName: CheckpointManager, Assembly-CSharp
+        m_MethodName: OnReturnToLastCheckpoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1195125804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351165542593046278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1227e8b5ef67ac045abb6a980e5c11ec, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5201408651257336434}
+        m_TargetAssemblyTypeName: CheckpointManager, Assembly-CSharp
+        m_MethodName: OnReturnToFirstCheckpoint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5351165542803765956
 GameObject:
   m_ObjectHideFlags: 0

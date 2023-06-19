@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "TmpRestart",
-                    "type": "Button",
-                    "id": "5af39e3d-c48b-4bc6-94f7-8f0f5fbd5bf1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -153,17 +144,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "CursorColorTrigger_L",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b0bc91bb-30cf-4f9e-90ef-3892e1762885",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TmpRestart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

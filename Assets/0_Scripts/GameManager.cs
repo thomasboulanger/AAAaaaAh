@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -14,7 +13,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool InGame;
-    
+    [SerializeField] private GameEvent onUpdateRebindVisual;
+
+    [SerializeField] private GameObject pauseMenu;
+
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         InGame = false;
+        pauseMenu.SetActive(false);
 
         // 0 -> press start to add players
         // 1 -> main menu
@@ -58,16 +61,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(UICanvaState == UIStateEnum.Quit) Application.Quit();
+        if (UICanvaState == UIStateEnum.Quit) Application.Quit();
     }
 
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
+        if (UICanvaState == UIStateEnum.Play && (int) data1 < 4) InGame = false;
+        
         UICanvaState = (UIStateEnum) data1;
+        if ((int) data1 == 7) onUpdateRebindVisual.Raise(this, null, null, null);
         Debug.Log("moved to panel " + (int) data1);
     }
 
+    public void PlayerPressPause(Component sender, object data1, object isActive, object unUsed2)
+    {
+        if(data1 is not int) return;
+        pauseMenu.SetActive((bool) isActive);
+        if((bool) isActive) pauseMenu.transform.GetChild(0).GetComponent<CursorController>().cursorID = (int) data1;
+    }
+    
     public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         PlayerChangePanel(this, 8, null, null);
