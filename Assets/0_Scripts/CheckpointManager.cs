@@ -17,6 +17,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private GameEvent fadeOutEvent;
     [SerializeField] private GameEvent onOverrideGrabEvent;
     [SerializeField] private GameEvent onClearFruitLists;
+    [SerializeField] private GameEvent onPlayerPressPause;
 
     private Transform[] _limbsTransforms = new Transform[4];
     private Transform[] _virtualTransforms = new Transform[4];
@@ -55,13 +56,13 @@ public class CheckpointManager : MonoBehaviour
         fadeOutEvent.Raise(this, true, null, null);
         StartCoroutine(DelayCoroutine(_latestCheckpoint));
     }
-    
+
     public void OnReturnToFirstCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
         StartCoroutine(DelayCoroutine(_firstCheckpoint));
-        
+
         //reload the level
         GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
 
@@ -69,10 +70,10 @@ public class CheckpointManager : MonoBehaviour
         _latestCheckpointIndex = 0;
         _latestCheckpoint = _firstCheckpoint;
 
-        onClearFruitLists.Raise(this,null,null,null);        
+        onClearFruitLists.Raise(this, null, null, null);
         //reset d autres variables/cas s il y en a...
     }
-    
+
     IEnumerator DelayCoroutine(Vector3 positionToMoveTo)
     {
         yield return new WaitForSeconds(.5f);
@@ -93,5 +94,8 @@ public class CheckpointManager : MonoBehaviour
         _overridingInputs = true;
         yield return new WaitForSeconds(.3f);
         _overridingInputs = false;
+
+        onPlayerPressPause.Raise(this, 0, false, null);
+        PlayerInputsScript.InGamePauseButton = false;
     }
 }

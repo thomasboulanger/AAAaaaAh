@@ -17,6 +17,7 @@ public class EndOfLevelWall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.transform.CompareTag("Player")) return;
+        Debug.Log("passed the end wall");
         onPlayerEndLevel.Raise(this, null, null, null);
     }
 }

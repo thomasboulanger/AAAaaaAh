@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -39,11 +37,8 @@ public class AudioManager : MonoBehaviour
     */
 
 
-    [Space]
-    [Header("Select RTPC")]
-    public AK.Wwise.RTPC listenMusicRtpc;
-    [SerializeField]
-    private AK.Wwise.RTPC listenScreamRtpc;
+    [Space] [Header("Select RTPC")] public AK.Wwise.RTPC listenMusicRtpc;
+    [SerializeField] private AK.Wwise.RTPC listenScreamRtpc;
 
     // [SerializeField] private AK.Wwise.RTPC listenRespiRtpc;
     // [SerializeField] private AK.Wwise.RTPC listenInspiRtpc;
@@ -69,8 +64,8 @@ public class AudioManager : MonoBehaviour
 
     float randomNumberMusic;
 
-   //private uint playingID;
-   
+    //private uint playingID;
+
 
     private void Awake()
     {
@@ -105,42 +100,37 @@ public class AudioManager : MonoBehaviour
         //avancement dans le niveau peut etre fait comme au dessu entre le demon (a la fin) et le player
     }
 
-    
+
     public void TestIDEvent()
     {
         AkSoundEngine.PostEvent("Play_Kompa1", gameObject);
         //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa1", gameObject));
         //Debug.Log(IsEventPlayingOnGameObject("Play_Kompa2", gameObject));
         Debug.Log("gggg");
-  
     }
 
-    
-   /* public static bool IsEventPlayingOnGameObject(string eventName, GameObject gom)
-     {
 
-            eventName = "Play_Kompa1";
-            uint testEventId = AkSoundEngine.GetIDFromString(eventName);
-
-            uint count = (uint)playingIds.Length;
-            AKRESULT result = AkSoundEngine.GetPlayingIDsFromGameObject(gom, ref count, playingIds);
-
-            for (int i = 0; i < count; i++)
-            {
-                uint playingId = playingIds[i];
-                uint eventId = AkSoundEngine.GetEventIDFromPlayingID(playingId);
-
-                if (eventId == testEventId)
-                    return true;
-            }
-
-            return false;
-
-     }*/
-    
-        
-       
-
+    /* public static bool IsEventPlayingOnGameObject(string eventName, GameObject gom)
+      {
+ 
+             eventName = "Play_Kompa1";
+             uint testEventId = AkSoundEngine.GetIDFromString(eventName);
+ 
+             uint count = (uint)playingIds.Length;
+             AKRESULT result = AkSoundEngine.GetPlayingIDsFromGameObject(gom, ref count, playingIds);
+ 
+             for (int i = 0; i < count; i++)
+             {
+                 uint playingId = playingIds[i];
+                 uint eventId = AkSoundEngine.GetEventIDFromPlayingID(playingId);
+ 
+                 if (eventId == testEventId)
+                     return true;
+             }
+ 
+             return false;
+ 
+      }*/
 
 
     //grab sound modifier :
@@ -161,7 +151,7 @@ public class AudioManager : MonoBehaviour
         if ((int) limbID == 2) grab_arm_03.Post(gameObject);
         if ((int) limbID == 3) grab_arm_04.Post(gameObject);
 
-        if (whatIsGrabbed is not int) return;   
+        if (whatIsGrabbed is not int) return;
         if (limbID is not int) return;
     }
 
@@ -196,22 +186,32 @@ public class AudioManager : MonoBehaviour
     //start game
     public void InitializeMenuSounds()
     {
-        //verifier si des sons sont jouer, les arreter puis lancer la musique du menu (start)
+        //stop all sounds then play the intro music
         initMenuEvent.Post(gameObject);
+        
         //menu musique
         //Amb eventuellement
     }
 
 
-
     public void SetupLevelMucsic()
     {
-        randomNumberMusic = UnityEngine.Random.Range(0f, 1f);
-        Debug.Log(randomNumberMusic);
-        if (randomNumberMusic < 0.25f)                                kompa1.Post(gameObject);
-        if (randomNumberMusic > 0.25f && randomNumberMusic < 0.50f)   kompa2.Post(gameObject);
-        if (randomNumberMusic > 0.50f && randomNumberMusic < 0.75f)   kompa3.Post(gameObject);
-        else                                                          kompa4.Post(gameObject); 
+        randomNumberMusic = Random.Range(0f, 1f);
+        switch (randomNumberMusic)
+        {
+            case < 0.25f:
+                kompa1.Post(gameObject);
+                break;
+            case < 0.50f:
+                kompa2.Post(gameObject);
+                break;
+            case < 0.75f:
+                kompa3.Post(gameObject);
+                break;
+            default:
+                kompa4.Post(gameObject);
+                break;
+        }
     }
 
     public void LaunchAmbianSounds()
@@ -242,5 +242,4 @@ public class AudioManager : MonoBehaviour
     public void CriAndGroml(GameObject go) => crieAndGroml.Post(go);
 
     //cinematic Sounds
-
 }

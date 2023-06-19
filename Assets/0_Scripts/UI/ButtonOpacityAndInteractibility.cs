@@ -18,7 +18,7 @@ public class ButtonOpacityAndInteractibility : MonoBehaviour
     void Update()
     {
         if(GameManager.UICanvaState != GameManager.UIStateEnum.PressStartToAddPlayers) return;
-        collider.isTrigger = PlayerManager.Players.Count > 1;
+        collider.isTrigger = !(PlayerManager.Players.Count > 1);
         text.alpha = PlayerManager.Players.Count > 1 ? 255 : 180;
     }
 }
