@@ -359,6 +359,30 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  deathScaleAnim:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -4.4174657
+      outSlope: -4.4174657
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.039897427
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -10.659136
+      outSlope: -10.659136
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.021901786
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   flapSpeed: 6
   flapDesynch: 0.5
   idle1Speed: 0.29
@@ -474,6 +498,7 @@ MonoBehaviour:
   randPositionSpeed2: 15
   randPositionPower: 0.2
   deathSpeed: 1
+  deathScaleSpeed: 2
   shapeKeyPowers:
   - 150
   - 150
@@ -492,15 +517,6 @@ MonoBehaviour:
   - {r: 0.8553069, g: 0.8867924, b: 0.17150229, a: 0}
   - {r: 0.7830189, g: 0.38948673, b: 0.06278926, a: 0}
   - {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
-  timers:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   _dead: 0
 --- !u!4 &7685747507422179393 stripped
 Transform:

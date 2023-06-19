@@ -10,7 +10,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Player part of the GameManager handling the spawn and the setup of players
@@ -51,12 +50,13 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        _playerInputManager = GetComponent<PlayerInputManager>();
         Init();
     }
 
-    private void Init()
-    {
+    public void Init()
+    {       
+        _playerInputManager = GetComponent<PlayerInputManager>();
+
         for (int i = 0; i < _referenceTableLimbsToPlayerID.Length; i++)
         {
             _referenceTableLimbsToPlayerID[i] = 5;
@@ -102,9 +102,9 @@ public class PlayerManager : MonoBehaviour
 
         //initialize the 2 different scripts with values
         playerInputArray[0].Init(moveLimbRight, grabRight, colorChangeButtonRight, Players.Count - 1, playerInputUpdate,
-            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause,onPlayerGrabAfterEndOfLevel);
+            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause, onPlayerGrabAfterEndOfLevel);
         playerInputArray[1].Init(moveLimbLeft, grabLeft, colorChangeButtonLeft, Players.Count - 1, playerInputUpdate,
-            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause,onPlayerGrabAfterEndOfLevel);
+            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause, onPlayerGrabAfterEndOfLevel);
         playerInputArray[0].AssignInputID(0);
         playerInputArray[1].AssignInputID(1);
 
@@ -155,19 +155,6 @@ public class PlayerManager : MonoBehaviour
         audioManager.SetupLevelMucsic();
         //launch ambiant sounds
         audioManager.LaunchAmbianSounds();
-    }
-
-    //temp method for development only, to delete later
-    public static void RestartLevel(int sceneIndex)
-    {
-        if (Players.Count > 0)
-            foreach (PlayerInput player in Players)
-                Destroy(player);
-        Players.Clear();
-        SceneManager.LoadScene(sceneIndex);
-
-        //trash code
-        //if(sceneIndex == 0)   Init();
     }
 
     private void OnEnable() => _playerInputManager.onPlayerJoined += AddPlayer;

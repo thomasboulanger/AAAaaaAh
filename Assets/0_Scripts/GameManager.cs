@@ -5,7 +5,10 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Game logic, states like win and lose, timer etc... 
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameEvent onUpdateRebindVisual;
 
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private CursorController cursor;
 
     public enum UIStateEnum
     {
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         InGame = false;
         pauseMenu.SetActive(false);
@@ -67,8 +71,9 @@ public class GameManager : MonoBehaviour
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if (UICanvaState == UIStateEnum.Play && (int) data1 < 4) InGame = false;
-        
+        if (UICanvaState is UIStateEnum.Play or UIStateEnum.PreStart or UIStateEnum.Start && (int) data1 < 4)
+            InGame = false;
+
         UICanvaState = (UIStateEnum) data1;
         if ((int) data1 == 7) onUpdateRebindVisual.Raise(this, null, null, null);
         Debug.Log("moved to panel " + (int) data1);
@@ -76,11 +81,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayerPressPause(Component sender, object data1, object isActive, object unUsed2)
     {
-        if(data1 is not int) return;
+        if (data1 is not int) return;
         pauseMenu.SetActive((bool) isActive);
-        if((bool) isActive) pauseMenu.transform.GetChild(0).GetComponent<CursorController>().cursorID = (int) data1;
+        cursor.cursorID = (int) data1;
     }
-    
+
     public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         PlayerChangePanel(this, 8, null, null);
@@ -92,5 +97,30 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("LevelContainer"))
             Destroy(GameObject.FindGameObjectWithTag("LevelContainer"));
         Instantiate(level, transform.position, Quaternion.identity);
+    }
+
+    public void RestartGame(Component sender, object unUsed1, object unUsed2, object unUsed3)
+    {
+        
+        // Disable all PlayerInput components in the scene
+        PlayerInput[] playerInputs = FindObjectsOfType<PlayerInput>();
+        foreach (PlayerInput player in playerInputs)
+        {
+            player.DeactivateInput();
+            player.enabled = false;
+        }
+        PlayerManager.Players.Clear();
+        
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        // re-initialize scripts
+        Init();
+        GetComponent<PlayerManager>().Init();
+        FindObjectOfType<AudioManager>().Init();
+        FindObjectOfType<CameraManager>().Init();
+        FindObjectOfType<CharacterBodyPhysic>().Init();
+        FindObjectOfType<PoubelleVisualManager>().Init();
+        FindObjectOfType<TutorialLauncher>().Init();
     }
 }

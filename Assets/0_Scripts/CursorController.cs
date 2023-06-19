@@ -37,7 +37,10 @@ public class CursorController : MonoBehaviour
 
     public void UpdateCursorPosition(Component sender, object data1, object playerID, object unUsed)
     {
-        if ((int) GameManager.UICanvaState != cursorCanvasState) return;
+        int gameState = (int) GameManager.UICanvaState;
+        if (gameState is 4 or 5 or 6) gameState = 4;
+        
+        if (gameState != cursorCanvasState) return;
         if (playerID is not int) return;
         if (cursorID != (int) playerID) return;
 
@@ -58,7 +61,10 @@ public class CursorController : MonoBehaviour
 
     private void Update()
     {
-        if ((int) GameManager.UICanvaState != cursorCanvasState) return;
+        int gameState = (int) GameManager.UICanvaState;
+        if (gameState is 4 or 5 or 6) gameState = 4;
+        
+        if (gameState != cursorCanvasState) return;
         if (!_inputPressed) _triggerOnce = false;
         if (!_inputPressed || _triggerOnce) return;
 
@@ -75,9 +81,9 @@ public class CursorController : MonoBehaviour
 
         UIHommingTruelle truelleGo = Instantiate(truelleUIPrefab, spawnPos, Quaternion.Euler
         (
-            Random.Range(-180, 180),
-            Random.Range(-180, 180),
-            Random.Range(-180, 180)
+            Random.Range(-50,50),
+            Random.Range(-50,50),
+            Random.Range(-50,50)
         ));
         truelleGo.Init(transform.position);
     }
@@ -86,6 +92,7 @@ public class CursorController : MonoBehaviour
     {
         Vector4 bounds = new Vector4();
 
+        if(!_mainCamera) _mainCamera = FindObjectOfType<Camera>();
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;

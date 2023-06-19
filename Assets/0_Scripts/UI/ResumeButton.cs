@@ -12,10 +12,13 @@ using UnityEngine;
 /// </summary>
 public class ResumeButton : MonoBehaviour
 {
+    [SerializeField] private GameEvent onPlayerPressPause;
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
         Destroy(collision.gameObject);
         transform.parent.gameObject.SetActive(false);
+        onPlayerPressPause.Raise(this,0,false,null);
+        PlayerInputsScript.InGamePauseButton = false;
     }
 }

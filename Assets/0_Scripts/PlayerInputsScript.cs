@@ -13,10 +13,12 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInputsScript : MonoBehaviour
 {
+    public static bool InGamePauseButton;
+
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
-    private GameEvent onPlayerGrabAfterEndOfLevel; 
+    private GameEvent onPlayerGrabAfterEndOfLevel;
     private GameEvent onPlayerPressPause;
 
     //reference to the PlayerInput component
@@ -35,54 +37,62 @@ public class PlayerInputsScript : MonoBehaviour
     private Vector2 _limbVector2D;
     private float _grabValue;
     private bool _colorChangeButton;
-    private bool _inGamePauseButton;
-    
+
     private PlayerInputsScript[] _playerInputArray;
-    
+
     private void Awake() => _playerInput = GetComponent<PlayerInput>();
     private void Start() => _playerInputArray = GetComponents<PlayerInputsScript>();
-    
+
     private void Update()
     {
         //temp solution//
         if (GameManager.InGame && _playerInputArray[0].inputScriptID == _playerInputArray[1].inputScriptID)
             _playerInputArray[1].inputScriptID = 5;
-        
+
         //get value of player inputs
         _limbVector2D = _playerInput.actions[_moveInputStr].ReadValue<Vector2>();
         _grabValue = _playerInput.actions[_grabInputStr].ReadValue<float>();
         if (_playerInput.actions[_colorButtonStr].WasPressedThisFrame()) _colorChangeButton = !_colorChangeButton;
-        
+
         //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
         {
-            onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
-            onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
-            
-            if(_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
+            if (_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
             {
-                _inGamePauseButton = !_inGamePauseButton;
-                onPlayerPressPause.Raise(this, _playerID, _inGamePauseButton, null);
+                InGamePauseButton = !InGamePauseButton;
+                onPlayerPressPause.Raise(this, _playerID, InGamePauseButton, null);
+            }
+
+            if (InGamePauseButton && _playerInputArray[0] == this)
+            {
+                onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
+                onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
+            }
+            else
+            {
+                onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
+                onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
             }
         }
-        else if(GameManager.UICanvaState == GameManager.UIStateEnum.Play)
+        else if (GameManager.UICanvaState == GameManager.UIStateEnum.Play)
         {
             onPlayerUpdateCursor.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _grabValue, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
         }
-        else if(_playerID == 0 && this == _playerInputArray[0])
+        else if (_playerID == 0 && this == _playerInputArray[0])
         {
             onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
             onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
         }
         else if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             onPlayerGrabAfterEndOfLevel.Raise(this, _grabValue, _playerID, null);
-        
     }
 
-    public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID, GameEvent inputUpdateEvent,
-        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent PlayerPressPause, GameEvent PlayerGrabAfterEndOfLevel)
+    public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID,
+        GameEvent inputUpdateEvent,
+        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent PlayerPressPause,
+        GameEvent PlayerGrabAfterEndOfLevel)
     {
         _moveInputStr = moveInputStr;
         _grabInputStr = grabInputStr;

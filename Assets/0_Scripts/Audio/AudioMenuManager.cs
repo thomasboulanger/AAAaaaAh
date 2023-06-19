@@ -2,18 +2,6 @@ using UnityEngine;
 
 public class AudioMenuManager : MonoBehaviour
 {
-    private static AudioMenuManager instance;
-    public static AudioMenuManager Instance => instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(Instance.gameObject);
-        instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     //RTPCs
 
     [SerializeField] private AK.Wwise.RTPC _sfxVolumeRTPC;
@@ -49,15 +37,6 @@ public class AudioMenuManager : MonoBehaviour
 
         _moucheVolume = 100f;
         _moucheVolumeRTPC.SetGlobalValue(_moucheVolume);
-
-
-        // check value
-        //_musicVolumeRTPC.GetValue(gameObject);
-
-        // StartCoroutine(ExampleCoroutine());
-        //pour test changement de volume
-
-        //AudioManager.Instance.MenuMusic(true);   
     }
 
     public void OnChangeMusicVolume(Component sender, object data, object unUsed2, object unUsed3) =>
