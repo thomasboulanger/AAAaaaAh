@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -62,6 +61,9 @@ public class LimbController : MonoBehaviour
     {
         CharacterBodyPhysic.LimbsTransforms[limbID] = transform;
         CharacterBodyPhysic.LimbsCenterTransforms[limbID] = _limbCenterTransform;
+
+        for (int i = 0; i < _tutorialBlocksGrabbed.Length; i++)
+            _tutorialBlocksGrabbed[i] = false;
     }
 
     public void UpdatePlayerID(int playerID) => this.playerID = playerID;
@@ -188,9 +190,9 @@ public class LimbController : MonoBehaviour
 
     public void OnOverrideGrab(Component sender, object data, object unUsed2, object unUsed3)
     {
-        // if(data is not bool) return;
-        // _isGrabbing = (bool) data;
-        // onLimbGrabEvent.Raise(this, _isGrabbing, playerID, limbID);
+        if(data is not bool) return;
+        _isGrabbing = (bool) data;
+        onLimbGrabEvent.Raise(this, _isGrabbing, playerID, limbID);
     }
 
     private void LateUpdate()

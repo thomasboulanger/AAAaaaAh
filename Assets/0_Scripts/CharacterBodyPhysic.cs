@@ -41,7 +41,7 @@ public class CharacterBodyPhysic : MonoBehaviour
     private void Awake() => _charRb = GetComponent<Rigidbody>();
     private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         _hasInitializedCheckpointLogic = false;
     }

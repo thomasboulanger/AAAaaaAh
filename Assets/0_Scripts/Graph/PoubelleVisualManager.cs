@@ -82,9 +82,9 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f,-89);
     [SerializeField] private float gaugeSpeed = 8f;
 
-    void Start() => Init();
+    private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         if (fruitRT != null) _fruitBaseScale = fruitRT.localScale.x;
         _openedRotation = couvercle.localRotation;
