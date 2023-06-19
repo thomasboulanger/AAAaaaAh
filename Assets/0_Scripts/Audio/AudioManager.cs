@@ -75,7 +75,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
         //rtpcMeterInspiExpi.RawAmplitudeScream = listenScreamRtpc;
         //rtpcMeterCriRespi.listenScreamRtpcAmplitudeValue = listenScreamRtpc;

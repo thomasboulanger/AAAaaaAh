@@ -31,17 +31,12 @@ public class TutorialLauncher : MonoBehaviour
     private PlayerManager _playerManager;
     private bool _triggerOnceLaunchLevel;
     private GameObject[] _joysticks = new GameObject[8];
-
-
-    private void Awake()
-    {
-        _playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
-    }
-
+    
     private void Start() => Init();
 
-    private void Init()
+    public void Init()
     {
+        _playerManager = GameObject.Find("GameManager").GetComponent<PlayerManager>();
         _countDown = 4;
         countDownText.gameObject.SetActive(false);
         foreach (GameObject obj in uiObjectToDispawnAtTutorial)
@@ -60,7 +55,6 @@ public class TutorialLauncher : MonoBehaviour
         else uiHintToMoveJoysticks.SetActive(false);
 
         if(!_triggerOnceLaunchLevel) TutorialPartOne();
-        //if(_triggerOnceLaunchTutorialPartTwo) TutorialPartTwo();
     }
 
     private void TutorialPartOne()

@@ -50,12 +50,13 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        _playerInputManager = GetComponent<PlayerInputManager>();
         Init();
     }
 
     public void Init()
-    {
+    {       
+        _playerInputManager = GetComponent<PlayerInputManager>();
+
         for (int i = 0; i < _referenceTableLimbsToPlayerID.Length; i++)
         {
             _referenceTableLimbsToPlayerID[i] = 5;
@@ -82,8 +83,6 @@ public class PlayerManager : MonoBehaviour
 
     public void AddPlayer(PlayerInput player)
     {
-        DontDestroyOnLoad(player);
-
         //add player to list of all players
         Players.Add(player);
         string Json = player.actions.ToJson();
