@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
@@ -12,7 +13,12 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
     [SerializeField] private Transform ejectPos;
-    [SerializeField] private SkinnedMeshRenderer gaugeSKR;
+    [SerializeField] private RectTransform gaucgeRT;
+    [SerializeField] private Image gaugeColorSprite;
+    [SerializeField] private RectTransform fruitRT;
+    [SerializeField] private Color[] gaugeColor = new Color[2];
+
+
 
     [Header("CinematiqueFin")]
     [SerializeField] private Transform midlePoint;
@@ -58,10 +64,17 @@ public class PoubelleVisualManager : MonoBehaviour
     private int _storedFruitActualIndex;
     private bool _ejectSingleFruit;
 
+    private float _fruitBaseScale=0.1f;
+    private float _fruitScale=1;
+
+    [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f,-89);
+    [SerializeField] private float gaugeSpeed = 8f;
+
     void Start() => Init();
 
     private void Init()
     {
+        if (fruitRT != null) _fruitBaseScale = fruitRT.localScale.x;
         _openedRotation = couvercle.localRotation;
         couvercle.localEulerAngles = new Vector3(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
         _closedRotation = couvercle.localRotation;
@@ -89,7 +102,16 @@ public class PoubelleVisualManager : MonoBehaviour
         currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
         if (currentGaugeLevel < 0) currentGaugeLevel = 0;
 
-        gaugeSKR.SetBlendShapeWeight(0, Remap(currentGaugeLevel,gaugeSize,0,100,0));
+        if (gaucgeRT != null && gaugeColor != null && fruitRT != null)
+        {
+            gaucgeRT.anchoredPosition = Vector2.Lerp(gaucgeRT.anchoredPosition, new Vector2(gaucgeRT.anchoredPosition.x, Remap(currentGaugeLevel, gaugeSize, 0, minMaxGaugepositions.x, minMaxGaugepositions.y)), deltaTime * gaugeSpeed);
+            gaugeColorSprite.color = Color.Lerp(gaugeColor[0], gaugeColor[1], Remap(currentGaugeLevel, gaugeSize, 0, 1, 0));
+
+            _fruitScale = Mathf.Lerp(_fruitScale, _fruitBaseScale, deltaTime * gaugeSpeed/2);
+            fruitRT.localScale = new Vector3(_fruitScale, _fruitScale, _fruitScale);
+        }
+        else Debug.LogWarning("GRO CONNNNN PAS TA PSSIGNE TOUT");// si tu delete la ligne et que t'a des soucis je te ration
+        
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -177,6 +199,8 @@ public class PoubelleVisualManager : MonoBehaviour
                 _finished = false;
                 _ejectFruits = false;
 
+                
+
                 continue;
             }
 
@@ -188,17 +212,29 @@ public class PoubelleVisualManager : MonoBehaviour
                 Destroy(item.gameObject);// ond détui le fruit pour cine fin
             }else item.gameObject.SetActive(false);
 
-            if (_ejectFruits) continue;
+            if (_ejectFruits)
+            {
+                AkSoundEngine.PostEvent("Play_sfx_ui_put_in_bag_short", gameObject);//son ejection de fruit
+                continue;
+            }
+
+            AkSoundEngine.PostEvent("Play_sfx_ui_put_in_bag_short", gameObject);//son ajout de fruit
             storedFruits.Add(item);
         }
     }
 
     public void PlayerHitByFly()
     {
+        float gaugeLastlevel = currentGaugeLevel;
         currentGaugeLevel += gaugeIncrementByHit;
+        if (currentGaugeLevel >= gaugeSize && gaugeLastlevel<gaugeSize*0.6f)
+        {
+            currentGaugeLevel = gaugeSize * 0.97f;
+        }
         if (currentGaugeLevel >= gaugeSize)
         {
             currentGaugeLevel = 0;
+            _fruitScale = 3*_fruitBaseScale;
             EjectFruits();
         }
     }
