@@ -7957,7 +7957,14 @@
 									</ChildrenList>
 								</ActorMixer>
 								<ActorMixer Name="voice" ID="{CDE1065C-A181-4DD2-84A6-84C4F5BBA6D2}" ShortID="29896089">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 										</Reference>
@@ -7965,6 +7972,264 @@
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="bourree" ID="{DEC00AA1-9048-4AC7-A6EF-4054F7A8A247}" ShortID="365429419">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{F3DCF453-A671-424A-A181-FBC8C5BB8EC1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="20"/>
+																	<Property Name="Min" Type="Real64" Value="-20"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A8BA19E9-9013-42A4-9589-92FFBADF1903}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="5"/>
+																	<Property Name="Min" Type="Real64" Value="-1"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_voix_bourres_01" ID="{1C759146-9A39-414C-9A91-D367CDC62166}" ShortID="121937095">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_voix_bourres_01" ID="{CDE6E407-9A98-40CC-BD96-0024AC1D9FF5}">
+															<Language>SFX</Language>
+															<AudioFile>voix\sfx_voix_bourres_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="69961032"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_voix_bourres_01" ID="{CDE6E407-9A98-40CC-BD96-0024AC1D9FF5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_voix_bourres_02" ID="{EA20AB0F-00E9-4A57-A1C0-E4C1898E27C6}" ShortID="223723254">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>31</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>17</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_voix_bourres_02" ID="{09592C53-576A-4B55-ADF2-E1789D46EFE3}">
+															<Language>SFX</Language>
+															<AudioFile>voix\sfx_voix_bourres_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="284279149"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_voix_bourres_02" ID="{09592C53-576A-4B55-ADF2-E1789D46EFE3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_voix_bourres_03" ID="{7C68F6A3-E8CE-4FE4-A139-35A1265D58CA}" ShortID="875515126">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>31</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>16</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-4</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_voix_bourres_05" ID="{20F079ED-B31F-46B8-BDC7-ABC3531912CD}">
+															<Language>SFX</Language>
+															<AudioFile>voix\sfx_voix_bourres_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="423899479"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_voix_bourres_05" ID="{20F079ED-B31F-46B8-BDC7-ABC3531912CD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="rots" ID="{879FAB5C-C381-40C4-81B4-8432A93AB761}" ShortID="22889985">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{F4B53AFC-D8DA-43D0-B6C8-7F3CDA18FE91}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="51"/>
+																	<Property Name="Min" Type="Real64" Value="-76"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{9EA325C3-BDB9-48D5-B42E-069C2EF44E8C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="9"/>
+																	<Property Name="Min" Type="Real64" Value="-2"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_voix_rot_01" ID="{76EC4DDC-2A5A-4A56-8AFF-937BB280A212}" ShortID="546011014">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_voix_bourres_03" ID="{F378E64D-A1E4-4DC8-A29C-2C7BBDCFC4FC}">
+															<Language>SFX</Language>
+															<AudioFile>voix\sfx_voix_bourres_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="203838653"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_voix_bourres_03" ID="{F378E64D-A1E4-4DC8-A29C-2C7BBDCFC4FC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_voix_rot_02" ID="{9EFB26A9-61D8-44A8-B00A-AA0457DE6A6A}" ShortID="628929736">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="parpaings_distance_attenuation" ID="{C13DD264-C7EC-471B-8736-15CFB2F0916D}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_voix_bourres_04" ID="{F768E836-D1F7-446C-9A0B-CECEA66DAA52}">
+															<Language>SFX</Language>
+															<AudioFile>voix\sfx_voix_bourres_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="585445997"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_voix_bourres_04" ID="{F768E836-D1F7-446C-9A0B-CECEA66DAA52}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
 								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>

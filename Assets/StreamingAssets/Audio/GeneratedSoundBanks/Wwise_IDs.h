@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID INIT_STOPALL = 2400338315U;
         static const AkUniqueID PLAY_AMB_JUNGLE = 1939323106U;
         static const AkUniqueID PLAY_AMBIANCE_CASCADE = 1772480721U;
+        static const AkUniqueID PLAY_BOURREE = 4199381754U;
         static const AkUniqueID PLAY_CRI = 2942461358U;
         static const AkUniqueID PLAY_CRIS_ET_GROML = 712233415U;
         static const AkUniqueID PLAY_CRIS_GROML_CINEMATIC = 2650298779U;
@@ -35,6 +36,7 @@ namespace AK
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
+        static const AkUniqueID PLAY_ROTS = 2585698532U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT = 425169085U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT__6DB = 2933357125U;
         static const AkUniqueID PLAY_SFX_BOOK_FALL_WHOOSH = 132030432U;

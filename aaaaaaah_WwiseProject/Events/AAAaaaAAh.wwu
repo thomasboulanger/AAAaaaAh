@@ -232,6 +232,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_bourree" ID="{6ABB1014-F402-4817-B416-02483CCB2076}">
+							<ChildrenList>
+								<Action Name="" ID="{278259FA-17CB-424D-88C6-250E717221B3}" ShortID="128760048">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="bourree" ID="{DEC00AA1-9048-4AC7-A6EF-4054F7A8A247}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_rots" ID="{CF9055EE-114E-4E4F-AF7E-28D56225C84C}">
+							<ChildrenList>
+								<Action Name="" ID="{1DC1C7B6-0BB0-4173-8843-190AF4210DD9}" ShortID="670924163">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="rots" ID="{879FAB5C-C381-40C4-81B4-8432A93AB761}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{827EE8D2-32C5-45F3-9DA6-4A1CFD289CDF}" ShortID="48721837">
