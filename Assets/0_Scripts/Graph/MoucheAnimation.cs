@@ -11,6 +11,8 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private AnimationCurve idle;
     [SerializeField] private AnimationCurve tilt;
     [SerializeField] private AnimationCurve deathBounce;
+    [SerializeField] private AnimationCurve deathScaleAnim;
+
 
     [Header("ShapeKey animations floats")]
     [SerializeField] private float flapSpeed = 1;
@@ -31,18 +33,22 @@ public class MoucheAnimation : MonoBehaviour
     [SerializeField] private float randPositionSpeed2 = 0.2f;
     [SerializeField] private float randPositionPower = 0.2f;
     [SerializeField] private float deathSpeed = 0.5f;
+
+    [SerializeField] private float deathScaleSpeed = 0.5f;
+
     [Header("powers of flap1, flap2, idle1, idle2, tilt")]
     [Range(0,200)]
     [SerializeField] private float[] shapeKeyPowers = new float[6] { 100, 100, 100, 100, 100, 100 };
 
     [SerializeField] private Color[] possibleColors = new Color[5];
 
-    private float[] timers = new float[8];
+    private float[] timers = new float[9];
     private Vector3 localRot;
     private float dt;
     private Vector3 noiseVector;
     private Vector3 movementVector;
-    [SerializeField] private bool _dead;
+    private bool _deadFeedback;
+    private bool _dead;
 
     void Start()
     {
@@ -69,9 +75,17 @@ public class MoucheAnimation : MonoBehaviour
     {
         dt = Time.deltaTime;
 
+        if (_deadFeedback) skinnedMesh.SetBlendShapeWeight(5, deathBounce.Evaluate(timers[7]) * shapeKeyPowers[5]);
+
         if (_dead)
         {
-            skinnedMesh.SetBlendShapeWeight(5, deathBounce.Evaluate(timers[7]) * shapeKeyPowers[5]);
+            float scale = deathScaleAnim.Evaluate(timers[8]);
+            transform.localScale = new Vector3(scale, scale, scale);
+            if (timers[8]>=1)
+            {
+                //Destroy du parent
+                Destroy(transform.parent.parent.gameObject);//destroy du parent du go
+            }
         }
 
         skinnedMesh.SetBlendShapeWeight(0, wingsFlap.Evaluate(timers[0]) * shapeKeyPowers[0]);
@@ -86,6 +100,8 @@ public class MoucheAnimation : MonoBehaviour
 
         transform.localPosition = zocilation+movementVector*randPositionPower;
         transform.localEulerAngles = new Vector3(localRot.x, localRot.y, rotationZ.Evaluate(timers[6]) * rotationPower);
+
+
 
         IncrementTimers();
     }
@@ -103,7 +119,7 @@ public class MoucheAnimation : MonoBehaviour
             timers[i] += dt * GetMultiplier(i);
 
 
-            if (i == 7 && _dead && timers[7] >= 1) _dead = false;
+            if (i == 7 && _deadFeedback && timers[7] >= 1) _deadFeedback = false;
 
             if (timers[i] >= 1) timers[i] = 0;
         }
@@ -128,6 +144,8 @@ public class MoucheAnimation : MonoBehaviour
                 return rotationSpeed;
             case 7:
                 return deathSpeed;
+            case 8:
+                return deathScaleSpeed;
             default:
                 Debug.LogWarning("a bah cringe");
                 return 0;
@@ -147,6 +165,6 @@ public class MoucheAnimation : MonoBehaviour
     public void LaunchDeathAnim()
     {
         timers[7] = 0; //resetTimerDeath
-        _dead = true;
+        _deadFeedback = true;
     }
 }
