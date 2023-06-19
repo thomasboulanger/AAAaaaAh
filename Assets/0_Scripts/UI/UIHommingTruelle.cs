@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 public class UIHommingTruelle : MonoBehaviour
 {
     [HideInInspector] public bool isRecycling;
-    
+
     [SerializeField] private GameEvent onTruelleHitUIEvent;
     [SerializeField] private float force = 250;
 
@@ -23,32 +23,41 @@ public class UIHommingTruelle : MonoBehaviour
     private bool _isStuckInUI;
     private float _timerBeforeDestroy = 1.5f;
 
-    public void Init(Vector3 targetDestinantion) => _destination = targetDestinantion;
+    public void Init(Vector3 targetDestination) => _destination = targetDestination;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
-                                              new Vector3(
-                                                  Random.Range(-50, 50),
-                                                  Random.Range(-50, 50),
-                                                  Random.Range(-50, 50)
-                                              ));
-        _rb.AddForce((_destination - transform.position) * force);
+        
+        Ray ray = Camera.main.ScreenPointToRay(_destination);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            Vector3 hitPosition = hitObject.transform.position;
+            
+            if(hitObject.CompareTag("UIInteractable"))
+                _rb.AddForce((hitPosition - transform.position) * force);
+            else _rb.AddForce((_destination - transform.position) * force);
+            
+        }
+        else _rb.AddForce((_destination - transform.position) * force);
     }
 
     private void FixedUpdate()
     {
         if (_isStuckInUI)
         {
-            if (GameManager.UICanvaState != GameManager.UIStateEnum.RebindInputs || !isRecycling) return;
-
-            _timerBeforeDestroy -= Time.fixedDeltaTime;
-            if (!(_timerBeforeDestroy < 0)) return;
-            _rb.isKinematic = false;
-            _rb.useGravity = true;
-            Destroy(gameObject, 2);
-            return;
+            if (GameManager.UICanvaState == GameManager.UIStateEnum.RebindInputs || isRecycling)
+            {
+                _timerBeforeDestroy -= Time.fixedDeltaTime;
+                if (!(_timerBeforeDestroy < 0)) return;
+                _rb.isKinematic = false;
+                _rb.useGravity = true;
+                Destroy(gameObject, 2);
+                return;
+            }
         }
 
         _timerBeforeDestroy -= Time.fixedDeltaTime;

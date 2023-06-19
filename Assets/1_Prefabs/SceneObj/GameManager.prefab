@@ -24,6 +24,10 @@ GameObject:
   - component: {fileID: 1475375731}
   - component: {fileID: 1475375732}
   - component: {fileID: 1949473461186635303}
+  - component: {fileID: 57842486}
+  - component: {fileID: 57842487}
+  - component: {fileID: 57842488}
+  - component: {fileID: 4430677912515128089}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -127,8 +131,7 @@ MonoBehaviour:
     type: 2}
   onPlayerUpdateSingleCursor: {fileID: 11400000, guid: 5a3a98aed597dcb4c9f4dd2df7c79bb7,
     type: 2}
-  onPlayerReturnToLastCheckPoint: {fileID: 11400000, guid: b7ad894e2f4063d4d9b895d0d71566fd,
-    type: 2}
+  onPlayerPressPause: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264, type: 2}
   onPlayerGrabAfterEndOfLevel: {fileID: 11400000, guid: db6364cdeae2ea544be3a4d66cb63942,
     type: 2}
   moveLimbRight: MoveLimb_R
@@ -159,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ae69e012e27e34d91195eda1da33d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onUpdateRebindVisual: {fileID: 11400000, guid: e74e86be0951130469cb669673828be6,
+    type: 2}
   level: {fileID: 35558597434611790, guid: feb21fc36428e86478e325fd1cab73d6, type: 3}
   limbSelectionPanel: {fileID: 0}
   tutorialCharacterCage: {fileID: 0}
@@ -237,6 +242,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3755835576101235687}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PlayerChangePanel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4430677912515128089}
+        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
+        m_MethodName: CameraPriorityChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -613,3 +630,117 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &57842486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8eb30a4573bd7e6409e8022c225d0e4e, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2786674968771254231}
+        m_TargetAssemblyTypeName: AudioMenuManager, Assembly-CSharp
+        m_MethodName: OnChangeSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &57842487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 21977e7c1814e634ab91748e5aaead6c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2786674968771254231}
+        m_TargetAssemblyTypeName: AudioMenuManager, Assembly-CSharp
+        m_MethodName: OnChangeMusicVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &57842488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3d7dfbd76c68e3948bf01a5e61004c38, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2786674968771254231}
+        m_TargetAssemblyTypeName: AudioMenuManager, Assembly-CSharp
+        m_MethodName: OnChangeEntitiesVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4430677912515128089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867770bc5707fe44089357aadf413533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCams:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cursors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

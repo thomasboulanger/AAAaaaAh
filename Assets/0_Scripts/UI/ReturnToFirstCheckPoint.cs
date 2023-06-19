@@ -8,19 +8,16 @@
 using UnityEngine;
 
 /// <summary>
-/// Call a function that "clean" all the truelles that are stuck in UI panels
+/// call the dedicated event
 /// </summary>
-public class RecycleTruelle : MonoBehaviour
+public class ReturnToFirstCheckPoint : MonoBehaviour
 {
+    [SerializeField] private GameEvent onReturnToFirstCheckPoint;
+   
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
-
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("UIInteractable");
-        foreach (GameObject go in gos)
-        {
-            if (go.transform.GetComponent<UIHommingTruelle>())
-                go.transform.GetComponent<UIHommingTruelle>().isRecycling = true;
-        }
+        Destroy(collision.gameObject);
+        onReturnToFirstCheckPoint.Raise(this,null,null,null);
     }
 }

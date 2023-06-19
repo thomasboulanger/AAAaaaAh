@@ -17,5 +17,6 @@ public class UISliderChild : MonoBehaviour
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
         transform.parent.GetComponent<UISliderParent>().UpdateVolumeValue(volumeValue);
+        collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
     }
 }

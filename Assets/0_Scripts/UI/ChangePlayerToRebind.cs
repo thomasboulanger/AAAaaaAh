@@ -9,12 +9,15 @@ public class ChangePlayerToRebind : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
+        collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
+
         foreach (UIRebindInput element in uiRebindInputs)
         {
             element.playerIndexToRebind++;
-            if (element.playerIndexToRebind > 3) element.playerIndexToRebind = 0;
+            if (element.playerIndexToRebind > PlayerManager.Players.Count - 1) element.playerIndexToRebind = 0;
 
             text.text = "Player : " + (element.playerIndexToRebind + 1);
+            element.UpdateRebindVisual(this,null,null,null);
         }
     }
 }

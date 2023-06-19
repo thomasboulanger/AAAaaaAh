@@ -16,10 +16,8 @@ public class PlayerInputsScript : MonoBehaviour
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
-    private GameEvent onPlayerGrabAfterEndOfLevel;
-    
-    //DEBUG ONLY
-    private GameEvent onPlayerReturnToLastCheckPoint;
+    private GameEvent onPlayerGrabAfterEndOfLevel; 
+    private GameEvent onPlayerPressPause;
 
     //reference to the PlayerInput component
     private PlayerInput _playerInput;
@@ -37,6 +35,7 @@ public class PlayerInputsScript : MonoBehaviour
     private Vector2 _limbVector2D;
     private float _grabValue;
     private bool _colorChangeButton;
+    private bool _inGamePauseButton;
     
     private PlayerInputsScript[] _playerInputArray;
     
@@ -59,16 +58,18 @@ public class PlayerInputsScript : MonoBehaviour
         {
             onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
+            
+            if(_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
+            {
+                _inGamePauseButton = !_inGamePauseButton;
+                onPlayerPressPause.Raise(this, _playerID, _inGamePauseButton, null);
+            }
         }
         else if(GameManager.UICanvaState == GameManager.UIStateEnum.Play)
         {
             onPlayerUpdateCursor.Raise(this, _limbVector2D, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _grabValue, _playerID, inputScriptID);
             onPlayerUpdateCursor.Raise(this, _colorChangeButton, _playerID, inputScriptID);
-            
-            //DEBUG ONLY
-            if(_playerInput.actions["TmpRestart"].WasPressedThisFrame() && _playerInputArray[0] == this) 
-                onPlayerReturnToLastCheckPoint.Raise(this,null,null,null);
         }
         else if(_playerID == 0 && this == _playerInputArray[0])
         {
@@ -81,7 +82,7 @@ public class PlayerInputsScript : MonoBehaviour
     }
 
     public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID, GameEvent inputUpdateEvent,
-        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent playerReturnToLastCheckPoint, GameEvent PlayerGrabAfterEndOfLevel)
+        GameEvent playerMoveCursor, GameEvent playerUpdateSingleCursor, GameEvent PlayerPressPause, GameEvent PlayerGrabAfterEndOfLevel)
     {
         _moveInputStr = moveInputStr;
         _grabInputStr = grabInputStr;
@@ -90,7 +91,7 @@ public class PlayerInputsScript : MonoBehaviour
         onPlayerUpdateCursor = playerMoveCursor;
         onPlayerUpdateSingleCursor = playerUpdateSingleCursor;
         _colorButtonStr = colorChangeButtonStr;
-        onPlayerReturnToLastCheckPoint = onPlayerReturnToLastCheckPoint;
+        onPlayerPressPause = PlayerPressPause;
         onPlayerGrabAfterEndOfLevel = PlayerGrabAfterEndOfLevel;
     }
 

@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameEvent onPlayerMoveCursor;
     [SerializeField] private GameEvent onPlayerJoinUiEvent;
     [SerializeField] private GameEvent onPlayerUpdateSingleCursor;
-    [SerializeField] private GameEvent onPlayerReturnToLastCheckPoint;
+    [SerializeField] private GameEvent onPlayerPressPause;
     [SerializeField] private GameEvent onPlayerGrabAfterEndOfLevel;
 
 
@@ -102,9 +102,9 @@ public class PlayerManager : MonoBehaviour
 
         //initialize the 2 different scripts with values
         playerInputArray[0].Init(moveLimbRight, grabRight, colorChangeButtonRight, Players.Count - 1, playerInputUpdate,
-            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerReturnToLastCheckPoint,onPlayerGrabAfterEndOfLevel);
+            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause,onPlayerGrabAfterEndOfLevel);
         playerInputArray[1].Init(moveLimbLeft, grabLeft, colorChangeButtonLeft, Players.Count - 1, playerInputUpdate,
-            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerReturnToLastCheckPoint,onPlayerGrabAfterEndOfLevel);
+            onPlayerMoveCursor, onPlayerUpdateSingleCursor, onPlayerPressPause,onPlayerGrabAfterEndOfLevel);
         playerInputArray[0].AssignInputID(0);
         playerInputArray[1].AssignInputID(1);
 
