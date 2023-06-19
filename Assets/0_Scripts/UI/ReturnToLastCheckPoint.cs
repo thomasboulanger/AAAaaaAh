@@ -17,7 +17,6 @@ public class ReturnToLastCheckPoint : MonoBehaviour
    private void OnCollisionEnter(Collision collision)
    {
       if (!collision.transform.CompareTag("UIInteractable")) return;
-      Destroy(collision.gameObject);
       onReturnToLastCheckPoint.Raise(this,null,null,null);
    }
 }

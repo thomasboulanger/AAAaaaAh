@@ -109,7 +109,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
         Vector3 middlePos = _ejectSingleFruit == _ejectFruits == false ? midlePoint.position : topPoint.position;
 
-        Debug.Log(endPos == insideMonster.position);
+        //Debug.Log(endPos == insideMonster.position);
 
 
         currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;

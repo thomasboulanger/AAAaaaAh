@@ -14,13 +14,20 @@ public class UIButtonInfo : MonoBehaviour
 {
     public int indexToMoveTo;
     [SerializeField] private GameEvent onPlayerChangePanel;
+    [SerializeField] private GameEvent onPlayerPressPause;
+    [SerializeField] private GameEvent onRestartGame;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (GameManager.UICanvaState == GameManager.UIStateEnum.Play)
+        if (GameManager.UICanvaState is GameManager.UIStateEnum.Play or GameManager.UIStateEnum.PreStart or GameManager.UIStateEnum.Start)
         {
             if(!collision.transform.name.Contains("Truelle")) return;
             onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
+            
+            if(PlayerInputsScript.InGamePauseButton) onRestartGame.Raise(this,null,null,null);
+            
+            onPlayerPressPause.Raise(this, 0, false, null);
+            PlayerInputsScript.InGamePauseButton = false;
             return;
         }
         

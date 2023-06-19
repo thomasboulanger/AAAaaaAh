@@ -13,6 +13,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInputsScript : MonoBehaviour
 {
+    public static bool InGamePauseButton;
+
     private GameEvent onPlayerInputUpdate;
     private GameEvent onPlayerUpdateCursor;
     private GameEvent onPlayerUpdateSingleCursor;
@@ -35,7 +37,6 @@ public class PlayerInputsScript : MonoBehaviour
     private Vector2 _limbVector2D;
     private float _grabValue;
     private bool _colorChangeButton;
-    private bool _inGamePauseButton;
 
     private PlayerInputsScript[] _playerInputArray;
 
@@ -56,18 +57,21 @@ public class PlayerInputsScript : MonoBehaviour
         //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
         {
-            onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
-            onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
-
             if (_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
             {
-                _inGamePauseButton = !_inGamePauseButton;
-                onPlayerPressPause.Raise(this, _playerID, _inGamePauseButton, null);
+                InGamePauseButton = !InGamePauseButton;
+                onPlayerPressPause.Raise(this, _playerID, InGamePauseButton, null);
             }
-            if (_inGamePauseButton)
+
+            if (InGamePauseButton && _playerInputArray[0] == this)
             {
                 onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
                 onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
+            }
+            else
+            {
+                onPlayerInputUpdate.Raise(this, _limbVector2D, _playerID, inputScriptID);
+                onPlayerInputUpdate.Raise(this, _grabValue, _playerID, inputScriptID);
             }
         }
         else if (GameManager.UICanvaState == GameManager.UIStateEnum.Play)
