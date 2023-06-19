@@ -229,7 +229,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
             if (_ejectFruits)
             {
-                AkSoundEngine.PostEvent("Play_sfx_ui_put_in_bag_short", gameObject);//son ejection de fruit
+                AkSoundEngine.PostEvent("Play_fruit_quit_bag", gameObject);//son ejection de fruit
                 continue;
             }
 
