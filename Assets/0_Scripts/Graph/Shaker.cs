@@ -63,7 +63,6 @@ public class Shaker : MonoBehaviour
         if (useSound)
         {
             float powerByDistance = ((distanceMax/Vector3.Distance(transform.position, _monsterPos))+ added) * scalePower;
-            Debug.Log(powerByDistance);
 
             transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier* powerByDistance * power, dt * speed);
         }

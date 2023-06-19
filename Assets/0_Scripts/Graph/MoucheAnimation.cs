@@ -52,7 +52,6 @@ public class MoucheAnimation : MonoBehaviour
 
     void Start()
     {
-
         localRot = transform.localEulerAngles;
 
         if (skinnedMesh == null) skinnedMesh = GetComponent<SkinnedMeshRenderer>(); // au cas ou c pas assign
@@ -75,12 +74,20 @@ public class MoucheAnimation : MonoBehaviour
     {
         dt = Time.deltaTime;
 
-        if (_deadFeedback) skinnedMesh.SetBlendShapeWeight(5, deathBounce.Evaluate(timers[7]) * shapeKeyPowers[5]);
-
-        if (_dead)
+        if (_dead || _deadFeedback)
         {
-            float scale = deathScaleAnim.Evaluate(timers[8])*100;
-            transform.localScale = new Vector3(scale, scale, scale);
+            skinnedMesh.SetBlendShapeWeight(0, 0);
+            skinnedMesh.SetBlendShapeWeight(1, 0);
+
+            if (_dead)
+            {
+                float scale = deathScaleAnim.Evaluate(timers[8]) * 100;
+                transform.localScale = new Vector3(scale, scale, scale);
+            }
+            else
+            {
+                skinnedMesh.SetBlendShapeWeight(5, deathBounce.Evaluate(timers[7]) * shapeKeyPowers[5]);
+            }
         }
         else
         {
@@ -176,14 +183,16 @@ public class MoucheAnimation : MonoBehaviour
     {
         timers[7] = 0; //resetTimerDeathFeedback
         _deadFeedback = true;
+
+        for (int i = 0; i <= 6; i++)
+        {
+            skinnedMesh.SetBlendShapeWeight(i, 0);
+        }
     }
 
     public void Death()
     {
-        for (int i = 0; i <= 4; i++)
-        {
-            skinnedMesh.SetBlendShapeWeight(i, 0);
-        }
+
 
         _dead = true;
     }
