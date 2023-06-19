@@ -1,22 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LaunchEndAnimation : MonoBehaviour
 {
-   [SerializeField] private PoubelleVisualManager poubelleRef;
-   [SerializeField] private GameEvent onScreenFade;
+    [SerializeField] private PoubelleVisualManager poubelleRef;
+    [SerializeField] private GameEvent onScreenFade;
 
     [SerializeField] private float timeToFade = 0.5f;
-    [SerializeField] private float timeToWaitbetweenFades = 0f;
+    [SerializeField] private float timeToWaitBetweenFades;
+
     public void onLaunchEndAnimation(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
-        Fire();
-    }
-
-    void Fire()
-    {
-        onScreenFade.Raise(this, true, timeToFade, timeToWaitbetweenFades);
+        onScreenFade.Raise(this, true, timeToFade, timeToWaitBetweenFades);
         StartCoroutine(FireAnimation());
     }
 
@@ -26,12 +21,17 @@ public class LaunchEndAnimation : MonoBehaviour
         poubelleRef.PrepareCinematic();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("fireCinematic");
-            Fire();
-        }
-    }
+    // void Fire()
+    // {
+    //     onScreenFade.Raise(this, true, timeToFade, timeToWaitbetweenFades);
+    //     StartCoroutine(FireAnimation());
+    // }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.C))
+    //     {
+    //         Debug.Log("fireCinematic");
+    //         Fire();
+    //     }
+    // }
 }
