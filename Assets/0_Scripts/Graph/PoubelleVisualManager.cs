@@ -57,7 +57,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private List<Vector3> basePos = new();
     [SerializeField] private List<bool> hasBouped = new();
     [SerializeField] private List<bool> hasBoupedMonster = new();
-    [SerializeField] private List<Transform> storedFruits = new();
+    public List<Transform> storedFruits = new();
 
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
     [SerializeField]
