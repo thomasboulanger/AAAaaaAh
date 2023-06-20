@@ -98,6 +98,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (camGO != null)
         {
             endCam.TryGetComponent(out endCam);
+            
         }
     }
 
