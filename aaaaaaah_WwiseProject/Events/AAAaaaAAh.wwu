@@ -450,6 +450,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_sfx_ui_ready" ID="{DEC2F7FA-F517-48BE-B177-FFE6B6687D78}">
+							<ChildrenList>
+								<Action Name="" ID="{1AEDBBD4-B9CB-4625-8CE1-325B365FDE81}" ShortID="242859808">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_ui_ready" ID="{416D4886-50D3-4471-9E5A-C994E08B4944}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Cinematics" ID="{FB61ED0D-CFB0-449B-B2DD-A214917F86B7}" ShortID="626510717">

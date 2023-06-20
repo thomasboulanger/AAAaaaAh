@@ -9,370 +9,6 @@
 			<ChildrenList>
 				<Folder Name="Inté V2" ID="{C320DEB7-7B2B-49AE-BDA5-2F4319515521}" ShortID="634714594">
 					<ChildrenList>
-						<MusicSwitchContainer Name="InGame Music Switch" ID="{845AE966-F306-4951-BF03-90F29A40E536}" ShortID="632140058">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<MusicSwitchContainer Name="Kompa4_MS" ID="{34B100ED-2560-4861-8F9D-A06A7E3A3E42}" ShortID="881347919">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<MusicSegment Name="Kompa4_int1" ID="{A53F3AE5-E60D-4EC6-B709-7DDA157ACC58}" ShortID="1022458554">
-											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="143064.400878462"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<MusicTrack Name="New Music Track" ID="{D07C4371-299B-43C0-8F6C-00EF5EA3E53B}" ShortID="238952039">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Kompa4_intensity1" ID="{B4A7CBF6-8123-405B-A307-AAA693439A36}">
-															<Language>SFX</Language>
-															<AudioFile>Kompa4\Kompa4_intensity1.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="495112281"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{0317420B-3D9A-4EB8-A71F-506B06FB9C6B}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<ObjectLists>
-														<ObjectList Name="Sequences">
-															<Reference>
-																<Local>
-																	<MusicTrackSequence Name="" ID="{A9EC8CB0-AAE4-45EC-898A-99E8E3EDC2EC}">
-																		<ObjectLists>
-																			<ObjectList Name="Clips">
-																				<Reference>
-																					<Local>
-																						<MusicClip Name="Kompa4_intensity1" ID="{A2F07EBA-F6C3-476B-91C8-6ABF4B9D0103}">
-																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="129836.054421769"/>
-																								<Property Name="FadeInMode" Type="int16" Value="0"/>
-																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																							</PropertyList>
-																							<AudioSourceRef Name="Kompa4_intensity1" ID="{B4A7CBF6-8123-405B-A307-AAA693439A36}"/>
-																						</MusicClip>
-																					</Local>
-																				</Reference>
-																			</ObjectList>
-																		</ObjectLists>
-																	</MusicTrackSequence>
-																</Local>
-															</Reference>
-														</ObjectList>
-													</ObjectLists>
-												</MusicTrack>
-											</ChildrenList>
-											<ObjectLists>
-												<ObjectList Name="Cues">
-													<Reference>
-														<Local>
-															<MusicCue Name="Entry Cue" ID="{A89C230A-C6BD-43C5-902D-9499D4B0F4EE}"/>
-														</Local>
-													</Reference>
-													<Reference>
-														<Local>
-															<MusicCue Name="Exit Cue" ID="{52569B88-5C50-4D08-90BE-31B597419BB1}">
-																<PropertyList>
-																	<Property Name="CueType" Type="int16" Value="1"/>
-																	<Property Name="TimeMs" Type="Real64" Value="125901.639344262"/>
-																</PropertyList>
-															</MusicCue>
-														</Local>
-													</Reference>
-													<Reference>
-														<Local>
-															<MusicCue Name="" ID="{515D57ED-8B01-42C7-8E7A-7AA88520E8F2}">
-																<PropertyList>
-																	<Property Name="CueType" Type="int16" Value="2"/>
-																</PropertyList>
-															</MusicCue>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicSegment>
-										<MusicSegment Name="Kompa4_int2" ID="{F906E8C5-FFBD-4AFD-9B0C-CCFF034CE7D7}" ShortID="605954058">
-											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="143064.400878462"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<MusicTrack Name="New Music Track" ID="{95158FFB-6F6B-40E5-95DA-2D574F0C4947}" ShortID="281156950">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Kompa4_intensity2" ID="{183B4D55-BFD7-4B7E-B9EB-A74E353B06A7}">
-															<Language>SFX</Language>
-															<AudioFile>Kompa4\Kompa4_intensity2.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="933035219"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{FD368BE7-71B7-465F-9CD9-25A6AF5DDA67}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<ObjectLists>
-														<ObjectList Name="Sequences">
-															<Reference>
-																<Local>
-																	<MusicTrackSequence Name="" ID="{EB759D75-484D-4E87-9846-579D7F854643}">
-																		<ObjectLists>
-																			<ObjectList Name="Clips">
-																				<Reference>
-																					<Local>
-																						<MusicClip Name="Kompa4_intensity2" ID="{9B6FA271-92A8-4207-B872-E27B8FDFBED3}">
-																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="127868.843537415"/>
-																								<Property Name="FadeInMode" Type="int16" Value="0"/>
-																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																							</PropertyList>
-																							<AudioSourceRef Name="Kompa4_intensity2" ID="{183B4D55-BFD7-4B7E-B9EB-A74E353B06A7}"/>
-																						</MusicClip>
-																					</Local>
-																				</Reference>
-																			</ObjectList>
-																		</ObjectLists>
-																	</MusicTrackSequence>
-																</Local>
-															</Reference>
-														</ObjectList>
-													</ObjectLists>
-												</MusicTrack>
-											</ChildrenList>
-											<ObjectLists>
-												<ObjectList Name="Cues">
-													<Reference>
-														<Local>
-															<MusicCue Name="Entry Cue" ID="{F092F8C7-FFD6-4BEF-827E-696FEBE1174C}"/>
-														</Local>
-													</Reference>
-													<Reference>
-														<Local>
-															<MusicCue Name="Exit Cue" ID="{0D495AB5-EB5C-4B7B-BB0D-1042099E1474}">
-																<PropertyList>
-																	<Property Name="CueType" Type="int16" Value="1"/>
-																	<Property Name="TimeMs" Type="Real64" Value="125901.639344262"/>
-																</PropertyList>
-															</MusicCue>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicSegment>
-										<MusicSegment Name="Kompa4_int3" ID="{F40E135F-EB62-4743-8EEA-F19BB7CD7786}" ShortID="162147210">
-											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="143064.400878462"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<MusicTrack Name="New Music Track" ID="{E3307653-76A7-4284-8686-63007DA6A827}" ShortID="828862922">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Kompa4_intensity3" ID="{32F1791B-A7AE-43B6-B407-3565E2D5426E}">
-															<Language>SFX</Language>
-															<AudioFile>Kompa4\Kompa4_intensity3.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="193205"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{3530BBFF-E217-4DBA-8470-F8694DA6EE51}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<ObjectLists>
-														<ObjectList Name="Sequences">
-															<Reference>
-																<Local>
-																	<MusicTrackSequence Name="" ID="{1A5AE327-2DFF-4782-AA86-9C65426BF189}">
-																		<ObjectLists>
-																			<ObjectList Name="Clips">
-																				<Reference>
-																					<Local>
-																						<MusicClip Name="Kompa4_intensity3" ID="{257E03B8-ABD7-471C-9745-4BDC2E7DE48E}">
-																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="127868.843537415"/>
-																								<Property Name="FadeInMode" Type="int16" Value="0"/>
-																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																							</PropertyList>
-																							<AudioSourceRef Name="Kompa4_intensity3" ID="{32F1791B-A7AE-43B6-B407-3565E2D5426E}"/>
-																						</MusicClip>
-																					</Local>
-																				</Reference>
-																			</ObjectList>
-																		</ObjectLists>
-																	</MusicTrackSequence>
-																</Local>
-															</Reference>
-														</ObjectList>
-													</ObjectLists>
-												</MusicTrack>
-											</ChildrenList>
-											<ObjectLists>
-												<ObjectList Name="Cues">
-													<Reference>
-														<Local>
-															<MusicCue Name="Entry Cue" ID="{B699E6E6-560C-408C-AB51-AC28A358E442}"/>
-														</Local>
-													</Reference>
-													<Reference>
-														<Local>
-															<MusicCue Name="Exit Cue" ID="{3A70B377-C729-46DC-9995-FE931009CCEE}">
-																<PropertyList>
-																	<Property Name="CueType" Type="int16" Value="1"/>
-																	<Property Name="TimeMs" Type="Real64" Value="125901.639344262"/>
-																</PropertyList>
-															</MusicCue>
-														</Local>
-													</Reference>
-												</ObjectList>
-											</ObjectLists>
-										</MusicSegment>
-									</ChildrenList>
-									<TransitionList>
-										<MusicTransition Name="Root" ID="{758F52EE-67F8-4376-B918-FE2C07371B2A}">
-											<PropertyList>
-												<Property Name="IsFolder" Type="bool" Value="True"/>
-											</PropertyList>
-											<ChildrenList>
-												<MusicTransition Name="Transition" ID="{622B8DD6-18F2-4C12-8640-3F5F698A50A9}">
-													<PropertyList>
-														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
-														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
-													</PropertyList>
-													<TransitionInfo>
-														<SourceFadeOut>
-															<MusicFade Name="Source Fade-out" ID="{E72F9915-3846-456B-BC35-11F110FEDB7D}">
-																<PropertyList>
-																	<Property Name="FadeCurve" Type="int16" Value="1"/>
-																	<Property Name="FadeTime" Type="Real64" Value="0.1"/>
-																	<Property Name="FadeType" Type="int16" Value="1"/>
-																</PropertyList>
-															</MusicFade>
-														</SourceFadeOut>
-														<DestinationFadeIn>
-															<MusicFade Name="Destination Fade-in" ID="{FA6CEC26-4EDE-45EF-9F35-A83D1E8B1CD5}">
-																<PropertyList>
-																	<Property Name="FadeCurve" Type="int16" Value="1"/>
-																	<Property Name="FadeOffset" Type="Real64" Value="-0.1"/>
-																	<Property Name="FadeTime" Type="Real64" Value="0.1"/>
-																</PropertyList>
-															</MusicFade>
-														</DestinationFadeIn>
-													</TransitionInfo>
-												</MusicTransition>
-											</ChildrenList>
-											<TransitionInfo/>
-										</MusicTransition>
-									</TransitionList>
-									<ArgumentList>
-										<ArgumentRef Name="Musique_intensity_SG" ID="{29503C0C-1B38-4602-9534-8CC0557D2D21}"/>
-									</ArgumentList>
-									<EntryList>
-										<Entry>
-											<Path>
-												<PathElementRef Name="Int_1" ID="{FAAC63A9-550F-4171-924B-791462A4D97B}"/>
-											</Path>
-											<AudioNodeInfo>
-												<AudioNodeRef Name="Kompa4_int1" ID="{A53F3AE5-E60D-4EC6-B709-7DDA157ACC58}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}" Platform="Linked"/>
-											</AudioNodeInfo>
-										</Entry>
-										<Entry>
-											<Path>
-												<PathElementRef Name="Int_2" ID="{E45167D9-3FAD-4015-98A1-27CEB57265F3}"/>
-											</Path>
-											<AudioNodeInfo>
-												<AudioNodeRef Name="Kompa4_int2" ID="{F906E8C5-FFBD-4AFD-9B0C-CCFF034CE7D7}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}" Platform="Linked"/>
-											</AudioNodeInfo>
-										</Entry>
-										<Entry>
-											<Path>
-												<PathElementRef Name="Int_3" ID="{E6FB045A-79E4-413D-A67C-8EA734F99BD3}"/>
-											</Path>
-											<AudioNodeInfo>
-												<AudioNodeRef Name="Kompa4_int3" ID="{F40E135F-EB62-4743-8EEA-F19BB7CD7786}" WorkUnitID="{8E88A1B9-BA3A-46FA-B6C3-5809F45D681D}" Platform="Linked"/>
-											</AudioNodeInfo>
-										</Entry>
-									</EntryList>
-								</MusicSwitchContainer>
-							</ChildrenList>
-							<TransitionList>
-								<MusicTransition Name="Root" ID="{F39CF00A-A603-429A-852D-9521B5B5FDB7}">
-									<PropertyList>
-										<Property Name="IsFolder" Type="bool" Value="True"/>
-									</PropertyList>
-									<ChildrenList>
-										<MusicTransition Name="Transition" ID="{D87E1EF7-C6C1-4C1A-AC9E-7CE144251BDB}">
-											<TransitionInfo/>
-										</MusicTransition>
-									</ChildrenList>
-									<TransitionInfo/>
-								</MusicTransition>
-							</TransitionList>
-						</MusicSwitchContainer>
 						<MusicSegment Name="Kompa4_cinématique" ID="{A0FD36CB-2507-4D46-919D-8FBB1FBF6EB0}" ShortID="257899160">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="143064.400878462"/>
@@ -590,7 +226,7 @@
 								<Property Name="Tempo" Type="Real64" Value="122"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1010,7 +646,7 @@
 								<Property Name="Tempo" Type="Real64" Value="100"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1548,7 +1184,7 @@
 								<Property Name="Tempo" Type="Real64" Value="121"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1557,7 +1193,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+									<ObjectRef Name="musictounity" ID="{B2E55220-9C0E-4F51-85B6-FAE4558BF7CC}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1892,7 +1528,7 @@
 								<Property Name="Tempo" Type="Real64" Value="122"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1901,7 +1537,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+									<ObjectRef Name="musictounity" ID="{B2E55220-9C0E-4F51-85B6-FAE4558BF7CC}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>

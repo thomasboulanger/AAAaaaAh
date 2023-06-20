@@ -4626,6 +4626,9 @@
 													</ReferenceList>
 													<ChildrenList>
 														<Sound Name="sfx_environnement_ambiance_cascade" ID="{4B39F2BB-8C96-4B3A-BD99-D12D814DE133}" ShortID="964421535">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4650,6 +4653,13 @@
 													</ChildrenList>
 												</BlendContainer>
 												<BlendContainer Name="ambiance_jungle_forest" ID="{D7C09AAB-281C-4FA7-9914-657036D50047}" ShortID="869687634">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4660,6 +4670,9 @@
 													</ReferenceList>
 													<ChildrenList>
 														<Sound Name="sfx_environnement_ambiance_jungle_night_loop" ID="{6F88483F-6925-4BC9-9C1F-D930C4932CC1}" ShortID="820509802">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4682,6 +4695,9 @@
 															</ActiveSourceList>
 														</Sound>
 														<Sound Name="sfx_environnement_ambiance_jungle_day_loop" ID="{BC1ABAA1-70E6-4C53-B96F-92BFD59DD3FF}" ShortID="195626736">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4704,6 +4720,9 @@
 															</ActiveSourceList>
 														</Sound>
 														<Sound Name="sfx_environnement_ambiance_jungle_bed_loop" ID="{1A5FE81D-8D3E-426A-9B1D-DC15A1EF0BF5}" ShortID="355312381">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -6865,7 +6884,7 @@
 																<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
 																<Property Name="Volume" Type="Real64">
 																	<ValueList>
-																		<Value>-2</Value>
+																		<Value>-3</Value>
 																	</ValueList>
 																</Property>
 															</PropertyList>
@@ -10903,6 +10922,11 @@
 													</ModifierList>
 												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -11282,6 +11306,105 @@
 													</ChildrenList>
 													<ActiveSourceList>
 														<ActiveSource Name="sfx_ui_fruit_quit_bag_03" ID="{9475FCFF-64B5-4814-BD09-22656072B259}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="sfx_ui_ready" ID="{416D4886-50D3-4471-9E5A-C994E08B4944}" ShortID="920226638">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_ui_put_in_bag_01" ID="{64371216-83E1-457B-9380-0142C6E2225A}" ShortID="1066895356">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="UI_BUS" ID="{54F3AC5E-CD5C-4CD5-97A8-8E12147A5316}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_put_in_bag_01" ID="{E059672B-3950-4179-8065-FCADD8386239}">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="0.00822440476190475"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.0894404017857143"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.170656398809524"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.31869568452381"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>sfx_ui_put_in_bag_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="729490017"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_put_in_bag_01" ID="{E059672B-3950-4179-8065-FCADD8386239}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_put_in_bag_02" ID="{387C1ABE-0D98-4E3D-8C36-CB5E95B30286}" ShortID="66720909">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="UI_BUS" ID="{54F3AC5E-CD5C-4CD5-97A8-8E12147A5316}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_put_in_bag_02" ID="{15BF6B89-1868-4CD4-98E4-C9C3646C7975}">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="0.00601674107142858"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.0681897321428571"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.155432477678571"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.284792410714286"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>sfx_ui_put_in_bag_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="902356360"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_put_in_bag_02" ID="{15BF6B89-1868-4CD4-98E4-C9C3646C7975}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_put_in_bag_03" ID="{A74F5AC5-EFCA-42F3-97BC-12137C86ABFD}" ShortID="654417016">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="UI_BUS" ID="{54F3AC5E-CD5C-4CD5-97A8-8E12147A5316}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_put_in_bag_03" ID="{BB25BFF4-2E49-466E-8EBC-20C128479563}">
+															<PropertyList>
+																<Property Name="FadeInDuration" Type="Real64" Value="0.0048803943452381"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.033186681547619"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.173742038690476"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.323082105654762"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>sfx_ui_put_in_bag_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="349418391"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_put_in_bag_03" ID="{BB25BFF4-2E49-466E-8EBC-20C128479563}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>

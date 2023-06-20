@@ -103,6 +103,9 @@ public class PlayerManager : MonoBehaviour
 
         //set the text on UI when player has joined
         readyWhenPlayerJoinTexts[Players.Count - 1].text = "Ready";
+        
+        //sound event when a player is added
+        AkSoundEngine.PostEvent("Play_sfx_ui_ready", gameObject);
     }
 
     public void UpdateAssignedLimbs(Component sender, object limbIndex, object playerID, object inputID)

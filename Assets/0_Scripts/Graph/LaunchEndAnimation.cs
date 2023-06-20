@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 public class LaunchEndAnimation : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LaunchEndAnimation : MonoBehaviour
     [SerializeField] private float timeToFade = 0.5f;
     [SerializeField] private float timeToWaitBetweenFades;
 
+    [SerializeField] private CinemachineVirtualCamera virtualCamFinal;
+
     public void onLaunchEndAnimation(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         onScreenFade.Raise(this, true, timeToFade, timeToWaitBetweenFades);
@@ -17,6 +20,7 @@ public class LaunchEndAnimation : MonoBehaviour
 
     IEnumerator FireAnimation()
     {
+        virtualCamFinal.Priority = 11;
         yield return new WaitForSeconds(timeToFade);
         poubelleRef.PrepareCinematic();
     }
