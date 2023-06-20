@@ -1347,7 +1347,7 @@ GameObject:
   - component: {fileID: 4541906520033278057}
   - component: {fileID: 4541906520033278056}
   - component: {fileID: 4541906520033278059}
-  - component: {fileID: 4541906520033278058}
+  - component: {fileID: 849192485}
   m_Layer: 5
   m_Name: ReturnToMenu
   m_TagString: UIInteractable
@@ -1435,7 +1435,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4541906520033278058
+--- !u!114 &849192485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1444,12 +1444,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4541906520033278052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4606ce67373fab94096adc6d01635fee, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ed675844c6b5374db115676da638113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexToMoveTo: 1
-  onPlayerChangePanel: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2,
-    type: 2}
   onPlayerPressPause: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264, type: 2}
   onRestartGame: {fileID: 11400000, guid: 9e848e76305d0c0409486f546a844d58, type: 2}
 --- !u!1001 &4541906518429779338
