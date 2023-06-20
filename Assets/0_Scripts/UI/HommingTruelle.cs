@@ -57,6 +57,11 @@ public class HommingTruelle : MonoBehaviour
             onTruelleHitJoystickSound.Raise(this,null,null,null);
             JoystickManager joystickComp = collision.gameObject.GetComponent<JoystickManager>();
             joystickComp.HitByTruelle(this);
+        } 
+        if (collision.transform.CompareTag("UIInteractable"))
+        {
+            onTruelleHitJoystickSound.Raise(this,null,null,null);
+            collision.transform.GetComponent<UIButtonInfo>().ChangePanelButton();
         }
     }
 

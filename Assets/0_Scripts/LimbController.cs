@@ -46,7 +46,6 @@ public class LimbController : MonoBehaviour
     private bool _triggerGrabOnce;
     private Vector3 _initialPos;
     private FruitSelector _fruit;
-    private Color _tutorialBlockColor;
     private bool _triggerSetInitialPosOnce;
 
 
@@ -131,10 +130,8 @@ public class LimbController : MonoBehaviour
 
                 //was grabbing environment (check if the environment Obj was a tutorial block)
                 if (_tutorialBlocksGrabbed[limbID])
-                {
-                    _tutorialBlock[limbID].material.color = _tutorialBlockColor;
                     _tutorialBlocksGrabbed[limbID] = false;
-                }
+                
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
 
@@ -167,12 +164,7 @@ public class LimbController : MonoBehaviour
                 {
                     _isGrabbingEnvironment = true;
                     if (closestObj.name.Contains("Tutorial"))
-                    {
                         _tutorialBlocksGrabbed[limbID] = true;
-                        _tutorialBlock[limbID] = closestObj.GetComponent<Renderer>();
-                        _tutorialBlockColor = _tutorialBlock[limbID].material.color;
-                        _tutorialBlock[limbID].material.color = Color.green;
-                    }
                 }
 
                 if (_isGrabbingFruit || _isGrabbingEnvironment)
@@ -224,7 +216,6 @@ public class LimbController : MonoBehaviour
         tutorialBlocksGrabCountText.gameObject.SetActive(false);
         for (int i = 0; i < _tutorialBlock.Length; i++)
         {
-            _tutorialBlock[i].material.color = _tutorialBlockColor;
             _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
         }
