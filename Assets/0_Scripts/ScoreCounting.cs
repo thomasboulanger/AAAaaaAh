@@ -64,7 +64,7 @@ public class ScoreCounting : MonoBehaviour
             {
                 _maxScore = _score;
             }
-            Debug.Log("NofruitsRemaining " + "score = " + _score);
+            Debug.Log("NofruitsRemaining " + "score = " + _score +"             nbr de fruits : " + _collectedFruits);
             _scoreWasGenerated = true;
         }
         
