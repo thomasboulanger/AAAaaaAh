@@ -10,6 +10,22 @@ public class GrabFeedback : MonoBehaviour
     private float[] _grabStates = new float[4];
     private float[] _lastGrabStates = new float[4];
 
+    private Rigidbody _playerRB;
+
+    [HideInInspector] public float sadPower = 0;
+    [HideInInspector] public float angryPower = 0;
+
+    private float _sadSpeed = 1;
+    private float _angrySpeed = 3;
+
+    public static GrabFeedback emotionsInstance;
+
+    private void Start()
+    {
+        emotionsInstance = this;
+
+        transform.parent.TryGetComponent<Rigidbody>(out _playerRB);
+    }
     public void UpdateGrabValue(Component sender, object data1, object playerID, object inputID)
     {
         if (playerID is not int) return;
@@ -24,5 +40,18 @@ public class GrabFeedback : MonoBehaviour
         baseMesh.SetBlendShapeWeight((int) inputID, grabValue * 100);
         outlineMesh.SetBlendShapeWeight((int) inputID, grabValue * 100);
         _lastGrabStates[(int) inputID] = _grabStates[(int) inputID];
+    }
+
+    private void Update()
+    {
+        if (_playerRB == null) return;
+        // 6 7 sad angry
+        float dt = Time.deltaTime;
+
+        sadPower = Mathf.Lerp(sadPower, 0, dt * _sadSpeed);
+        angryPower = Mathf.Lerp(angryPower, 0, dt * _angrySpeed);
+
+        baseMesh.SetBlendShapeWeight(6, sadPower);
+        baseMesh.SetBlendShapeWeight(7, angryPower);
     }
 }

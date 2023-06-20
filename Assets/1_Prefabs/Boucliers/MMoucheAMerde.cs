@@ -317,9 +317,9 @@ public class MMoucheAMerde : MonoBehaviour
     {
 
         if (!other.transform.CompareTag("Bouclier") && !other.transform.CompareTag("Player")) return;
-        Debug.Log("doubidoubidou");
 
         AkSoundEngine.PostEvent("Play_mouche_punch", gameObject);
+
 
         if (other.transform.CompareTag("Player") && _hitPlayer == false)
         {
@@ -329,6 +329,8 @@ public class MMoucheAMerde : MonoBehaviour
                 bodyRB.AddForceAtPosition(forceMegaplex * Vector3.Normalize(_path), transform.position);
             if (_trashTankRef) _trashTankRef.PlayerHitByFly();
             _hitPlayer = true;
+
+            GrabFeedback.emotionsInstance.angryPower = 100f;
         }
 
         if (other.transform.CompareTag("Bouclier") && _hitBouclier == false)

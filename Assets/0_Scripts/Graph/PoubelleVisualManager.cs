@@ -82,6 +82,8 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f,-89);
     [SerializeField] private float gaugeSpeed = 8f;
 
+    private Cinemachine.CinemachineVirtualCamera endCam;
+
     private void Start() => Init();
 
     public void Init()
@@ -91,6 +93,12 @@ public class PoubelleVisualManager : MonoBehaviour
         couvercle.localEulerAngles = new Vector3(180, couvercle.localEulerAngles.y, couvercle.localEulerAngles.z);
         _closedRotation = couvercle.localRotation;
         _animator = GetComponent<Animator>();
+
+        GameObject camGO = GameObject.Find("/canFin");
+        if (camGO != null)
+        {
+            endCam.TryGetComponent(out endCam);
+        }
     }
 
     void Update()
@@ -165,7 +173,7 @@ public class PoubelleVisualManager : MonoBehaviour
                     destinationCurve.Evaluate(fruitTimers[i])),
                 (_ejectFruits ? speedCurveDropping : speedCurve).Evaluate(fruitTimers[i]));
 
-            if ((fruitTimers[i] > 0.4f) && !hasBoupedMonster[i] &&
+            if ((fruitTimers[i] > 0.8f) && !hasBoupedMonster[i] &&
                 GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
                 monstreFin.OpenMouth();
@@ -230,6 +238,7 @@ public class PoubelleVisualManager : MonoBehaviour
             if (_ejectFruits)
             {
                 AkSoundEngine.PostEvent("Play_fruit_quit_bag", gameObject);//son ejection de fruit
+                GrabFeedback.emotionsInstance.sadPower = 100f;
                 continue;
             }
 
@@ -316,19 +325,39 @@ public class PoubelleVisualManager : MonoBehaviour
 
         playerAnimator.speed = 0;
 
+        monstreFin.CanScream(false);
+
         EjectFruits();
+    }
+
+
+    public void EjectFruitEndLevelInternalCall()
+    {
+        
+        if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
+        {
+            _ejectFruits = true;
+            storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
+            storedFruits[_storedFruitActualIndex].transform.position = dansPoubelle.position;
+
+            InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
+            _storedFruitActualIndex++;
+        }
+        else _finished = true;
     }
 
     public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object unUsed3)
     {
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
         bool isPressed = (float) data1 > .9f;
+        
 
         if (isPressed && !_triggerOnceGrab)
         {
             _triggerOnceGrab = true;
             if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
             {
+                _ejectFruits = true;
                 storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
                 storedFruits[_storedFruitActualIndex].transform.position = dansPoubelle.position;
 
