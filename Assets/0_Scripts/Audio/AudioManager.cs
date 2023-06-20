@@ -115,9 +115,6 @@ public class AudioManager : MonoBehaviour
         //rtpClistenerTest.listenMusicRtpcAmplitudeValue = listenMusicRtpc;
         //rtpcMeterInspiExpi.listenInspiRtpcAmplitudeValue = listenInspiRtpc;
         //rtpcMeterInspiExpi.listenExpiRtpcAmplitudeValue = listenExpiRtpc;
-
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _demon = GameObject.FindGameObjectWithTag("Demon");
     }
 
     

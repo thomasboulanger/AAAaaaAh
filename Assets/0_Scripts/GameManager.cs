@@ -84,9 +84,6 @@ public class GameManager : MonoBehaviour
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if (UICanvaState is UIStateEnum.Play or UIStateEnum.PreStart or UIStateEnum.Start && (int) data1 < 4)
-            InGame = false;
-
         UICanvaState = (UIStateEnum) data1;
         if ((int) data1 == 7) onUpdateRebindVisual.Raise(this, null, null, null);
         Debug.Log("moved to panel " + (int) data1);

@@ -15,19 +15,22 @@ using UnityEngine;
 public class LimbController : MonoBehaviour
 {
     private static bool[] _tutorialBlocksGrabbed = new bool[4];
-    private static Renderer[] _tutorialBlock = new Renderer[4];
+    private static GameObject[] _tutorialBlock = new GameObject[4];
 
     [SerializeField] private GameEvent onLimbGrabEvent;
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
     [SerializeField] private GameEvent onFirstTutorialPartAchieved;
-    
-    [Header("The ID of limb that player with same ID will control")]
-    [SerializeField] private int playerID;
+
+    [Header("The ID of limb that player with same ID will control")] [SerializeField]
+    private int playerID;
+
     [SerializeField] private int limbID;
-    [Space] [Header("The range that the player can move his limb")]
-    [SerializeField] private float limbLength;
+
+    [Space] [Header("The range that the player can move his limb")] [SerializeField]
+    private float limbLength;
+
     [SerializeField] private bool limbIsLeg;
     [SerializeField] private float limbSpeed = 10000;
     [SerializeField] private float playerInputSpeedDivider = 100;
@@ -131,7 +134,7 @@ public class LimbController : MonoBehaviour
                 //was grabbing environment (check if the environment Obj was a tutorial block)
                 if (_tutorialBlocksGrabbed[limbID])
                     _tutorialBlocksGrabbed[limbID] = false;
-                
+
 
                 onLimbGrabShaderEvent.Raise(this, false, (float) data1, null);
 
@@ -182,7 +185,7 @@ public class LimbController : MonoBehaviour
 
     public void OnOverrideGrab(Component sender, object data, object unUsed2, object unUsed3)
     {
-        if(data is not bool) return;
+        if (data is not bool) return;
         _isGrabbing = (bool) data;
         onLimbGrabEvent.Raise(this, _isGrabbing, playerID, limbID);
     }
@@ -205,8 +208,8 @@ public class LimbController : MonoBehaviour
         bool tmpComparator = false;
         int counter = _tutorialBlocksGrabbed.Count(element => element);
 
-        foreach (bool element in _tutorialBlocksGrabbed)
-            if (!element)
+        for (int i = 0; i < _tutorialBlocksGrabbed.Length; i++)
+            if (!_tutorialBlocksGrabbed[i])
                 tmpComparator = true;
 
         tutorialBlocksGrabCountText.gameObject.SetActive(true);
@@ -215,10 +218,7 @@ public class LimbController : MonoBehaviour
         if (tmpComparator) return;
         tutorialBlocksGrabCountText.gameObject.SetActive(false);
         for (int i = 0; i < _tutorialBlock.Length; i++)
-        {
-            _tutorialBlock[i].gameObject.SetActive(false);
             _tutorialBlocksGrabbed[i] = false;
-        }
 
         onFirstTutorialPartAchieved.Raise(this, null, playerID, limbID);
     }
