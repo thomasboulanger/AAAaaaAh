@@ -141,12 +141,12 @@ Material:
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
-    - _grayscaleBC: 0
+    - _grayscaleBC: 1
     - _opacity: 1
     - _powerDither: 0.33
     - _windSpeed: 1.333
     m_Colors:
-    - _BCTint: {r: 1.3321589, g: 0.61956805, b: 2.0848956, a: 0}
+    - _BCTint: {r: 0.23174484, g: 0, b: 0.46107566, a: 0}
     - _DiffusionProfileAsset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
