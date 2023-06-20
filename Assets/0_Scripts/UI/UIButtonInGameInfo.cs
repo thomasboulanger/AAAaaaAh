@@ -8,20 +8,20 @@
 using UnityEngine;
 
 /// <summary>
-/// Used to store data to change panel on UI
+/// Used to store data to change panel in game
 /// </summary>
-public class UIButtonInfo : MonoBehaviour
+public class UIButtonInGameInfo : MonoBehaviour
 {
-    public int indexToMoveTo;
-    [SerializeField] private GameEvent onPlayerChangePanel;
+    [SerializeField] private GameEvent onPlayerPressPause;
+    [SerializeField] private GameEvent onRestartGame;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
 
-        onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
-        collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
-    }
+        if (PlayerInputsScript.InGamePauseButton) onRestartGame.Raise(this, null, null, null);
 
-    public void ChangePanelButton() => onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
+        onPlayerPressPause.Raise(this, 0, false, null);
+        PlayerInputsScript.InGamePauseButton = false;
+    }
 }

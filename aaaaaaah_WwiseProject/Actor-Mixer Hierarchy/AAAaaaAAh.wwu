@@ -6884,7 +6884,7 @@
 																<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
 																<Property Name="Volume" Type="Real64">
 																	<ValueList>
-																		<Value>-2</Value>
+																		<Value>-3</Value>
 																	</ValueList>
 																</Property>
 															</PropertyList>
@@ -10922,6 +10922,11 @@
 													</ModifierList>
 												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
