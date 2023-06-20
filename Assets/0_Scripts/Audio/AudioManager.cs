@@ -27,6 +27,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event truelleHitUI;
     [SerializeField] private AK.Wwise.Event rots;
     [SerializeField] private AK.Wwise.Event charlineBourree;
+    [SerializeField] private AK.Wwise.Event ambOneShotVillage;
+    [SerializeField] private AK.Wwise.Event ambWeirdBirds;
 
 
     [SerializeField] private AK.Wwise.Event truelleHitJoystick;
@@ -71,14 +73,31 @@ public class AudioManager : MonoBehaviour
     [Header("Reference scene")]
     [SerializeField] private GameObject ParpaingSieste;
     [SerializeField] private GameObject ParpaingBourre;
+    [SerializeField] private GameObject villagehabs_01;
+    [SerializeField] private GameObject villagehabs_02;
+    [SerializeField] private GameObject villagehabs_03;
+    [SerializeField] private GameObject villagehabs_04;
+    [SerializeField] private GameObject weirdbirds_01;
+    [SerializeField] private GameObject weirdbirds_02;
+    [SerializeField] private GameObject weirdbirds_03;
+    [SerializeField] private GameObject weirdbirds_04;
+    [SerializeField] private GameObject weirdbirds_05;
+    [SerializeField] private GameObject weirdbirds_06;
+    [SerializeField] private GameObject weirdbirds_07;
+    [SerializeField] private GameObject weirdbirds_08;
+    [SerializeField] private GameObject weirdbirds_09;
+    [SerializeField] private GameObject weirdbirds_10;
+
+
+
 
     //private uint playingID;
 
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        //mainSb.Load(true);
+        
+        mainSb.Load(true);
     }
 
     private void Start() => Init();
@@ -235,6 +254,18 @@ public class AudioManager : MonoBehaviour
         playAmbJungle.Post(gameObject);
         charlineBourree.Post(ParpaingSieste);
         rots.Post(ParpaingBourre);
+        ambOneShotVillage.Post(villagehabs_01);
+        ambOneShotVillage.Post(villagehabs_02);
+        ambWeirdBirds.Post(weirdbirds_01);
+        ambWeirdBirds.Post(weirdbirds_02);
+        ambWeirdBirds.Post(weirdbirds_03);
+        ambWeirdBirds.Post(weirdbirds_04);
+        ambWeirdBirds.Post(weirdbirds_05);
+        ambWeirdBirds.Post(weirdbirds_06);
+        ambWeirdBirds.Post(weirdbirds_07);
+        ambWeirdBirds.Post(weirdbirds_08);
+        ambWeirdBirds.Post(weirdbirds_09);
+        ambWeirdBirds.Post(weirdbirds_10);
 
     }
 

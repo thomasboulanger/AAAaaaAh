@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11603.922, g: 7308.9336, b: 7448.0903, a: 1}
+  m_IndirectSpecularColor: {r: 11592.945, g: 7357.09, b: 7512.306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3475,6 +3475,12 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &303244575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6562391330210762639, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &307835161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4260,6 +4266,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364663026}
   m_CullTransparentMesh: 0
+--- !u!1 &384019200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384019201}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384019201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384019200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 62.77, y: 22.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402806358
 GameObject:
   m_ObjectHideFlags: 0
@@ -6542,6 +6579,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531183754}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &548090491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5359984287732343140, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &556958474
 GameObject:
   m_ObjectHideFlags: 0
@@ -8370,6 +8413,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.009619608}
   m_Center: {x: 2.3541064e-18, y: 0, z: -0.00019019464}
+--- !u!1 &704490799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704490800}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704490800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704490799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.76, y: 4.31, z: 3.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706197338
 GameObject:
   m_ObjectHideFlags: 0
@@ -10517,6 +10591,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954226539}
   m_CullTransparentMesh: 1
+--- !u!1 &964327101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8267030683723998441, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &965938472
 GameObject:
   m_ObjectHideFlags: 3
@@ -10662,6 +10742,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &973156479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 973156480}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &973156480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973156479}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 73.82, y: 26.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975567035
 GameObject:
   m_ObjectHideFlags: 0
@@ -12035,6 +12146,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1204185671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8620551787267134754, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1205772530
 GameObject:
   m_ObjectHideFlags: 0
@@ -12324,6 +12441,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1224397658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224397659}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1224397659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224397658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 80.31, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235072747
 GameObject:
   m_ObjectHideFlags: 0
@@ -12693,6 +12841,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268445321}
   m_Mesh: {fileID: 870155248676805875, guid: ff76fa0e567f04e40bf2ae34447fc2dd, type: 3}
+--- !u!1 &1284477664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284477665}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1284477665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284477664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 63.22, y: 4.78, z: -3.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289212486
 GameObject:
   m_ObjectHideFlags: 0
@@ -13088,6 +13267,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 129.479, y: 152.243, z: 43.731003}
+--- !u!1 &1306529839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7854051747480965179, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306697095
 GameObject:
   m_ObjectHideFlags: 0
@@ -13879,6 +14064,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1391586279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391586280}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391586280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391586279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 75.22, y: 12.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1400088829
 GameObject:
   m_ObjectHideFlags: 0
@@ -15712,6 +15928,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1538518191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538518192}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1538518192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538518191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 103.69, y: -10.31, z: -4.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543271353
 GameObject:
   m_ObjectHideFlags: 0
@@ -15844,6 +16091,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1552468543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6721793560957707929, guid: df9f9742b61b54c4d861dc934e9a43ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 293676532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1555292234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16739,6 +16992,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605460355}
   m_Mesh: {fileID: -575845891066882128, guid: da3859850f5aea340826a5d09e9489cf, type: 3}
+--- !u!1 &1609139821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609139822}
+  m_Layer: 0
+  m_Name: AUDIO Sources
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1609139822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609139821}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 704490800}
+  - {fileID: 1947131547}
+  - {fileID: 2143207879}
+  - {fileID: 1284477665}
+  - {fileID: 1391586280}
+  - {fileID: 384019201}
+  - {fileID: 973156480}
+  - {fileID: 1224397659}
+  - {fileID: 1538518192}
+  - {fileID: 1696148222}
+  - {fileID: 1800616778}
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621204333
 GameObject:
   m_ObjectHideFlags: 0
@@ -17671,6 +17966,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695032795}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1696148221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696148222}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696148222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696148221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 81.81, y: 13.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703769571
 GameObject:
   m_ObjectHideFlags: 0
@@ -19152,6 +19478,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.009619608}
   m_Center: {x: 2.3541064e-18, y: 0, z: -0.00019019464}
+--- !u!1 &1800616777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800616778}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800616778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800616777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 85.08, y: -14.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1805187624
 GameObject:
   m_ObjectHideFlags: 0
@@ -20862,6 +21219,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.009619608}
   m_Center: {x: 2.3541064e-18, y: 0, z: -0.00019019464}
+--- !u!1 &1947131546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1947131547}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1947131547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947131546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.08, y: -7.57, z: -1.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1950135890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21291,6 +21679,86 @@ PrefabInstance:
       objectReference: {fileID: 787708969}
     - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
+      propertyPath: weirdbirds_01
+      value: 
+      objectReference: {fileID: 704490799}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_02
+      value: 
+      objectReference: {fileID: 1947131546}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_03
+      value: 
+      objectReference: {fileID: 2143207878}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_04
+      value: 
+      objectReference: {fileID: 1284477664}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_05
+      value: 
+      objectReference: {fileID: 1391586279}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_06
+      value: 
+      objectReference: {fileID: 384019200}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_07
+      value: 
+      objectReference: {fileID: 973156479}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_08
+      value: 
+      objectReference: {fileID: 1224397658}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_09
+      value: 
+      objectReference: {fileID: 1538518191}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: weirdbirds_10
+      value: 
+      objectReference: {fileID: 1696148221}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: ParpaingBourre
+      value: 
+      objectReference: {fileID: 303244575}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: ParpaingSieste
+      value: 
+      objectReference: {fileID: 1306529839}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_01
+      value: 
+      objectReference: {fileID: 964327101}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_02
+      value: 
+      objectReference: {fileID: 1552468543}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_03
+      value: 
+      objectReference: {fileID: 1204185671}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_04
+      value: 
+      objectReference: {fileID: 548090491}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
       propertyPath: blendShapesAnim
       value: 
       objectReference: {fileID: 925429256}
@@ -21299,6 +21767,12 @@ PrefabInstance:
       propertyPath: rtpcMeterInspiExpi
       value: 
       objectReference: {fileID: 728011230}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: ambWeirdBirds.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 0191fe2a94f269f4cbc64bd23af8796c,
+        type: 2}
     - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
       propertyPath: vCams.Array.data[0]
@@ -22396,37 +22870,37 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.937743
+      value: 6.021
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34.286
+      value: -7.233
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97629607
+      value: 0.99720544
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.07470858
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21643952
+      value: 8.203137e-16
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 6.145621e-17
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -22451,12 +22925,12 @@ PrefabInstance:
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: far clip plane
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -22466,7 +22940,7 @@ PrefabInstance:
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91166149085e844c879ec52bdffe593, type: 3}
@@ -22632,3 +23106,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139499061}
   m_CullTransparentMesh: 1
+--- !u!1 &2143207878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143207879}
+  m_Layer: 0
+  m_Name: OS_Weirdbirds_01 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143207879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143207878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 55.97, y: -6.33, z: -1.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1609139822}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

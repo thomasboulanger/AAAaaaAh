@@ -40,6 +40,7 @@ namespace AK
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
+        static const AkUniqueID PLAY_OS_WEIRD_BIRDS = 3093573723U;
         static const AkUniqueID PLAY_ROTS = 2585698532U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT = 425169085U;
         static const AkUniqueID PLAY_SFX_AMB_JUNGLE_NIGHT__6DB = 2933357125U;
@@ -173,6 +174,7 @@ namespace AK
         static const AkUniqueID MOUCHE_VOLUME_RTPC = 72403437U;
         static const AkUniqueID MUSIC_INTENSITY_RTPC = 195392438U;
         static const AkUniqueID MUSIC_VOLUME_RTPC = 3131952431U;
+        static const AkUniqueID SFX_METER = 2404745364U;
         static const AkUniqueID SFX_VOLUME_RTPC = 2654583815U;
         static const AkUniqueID SIDECHAINMUSICONSFX = 200528452U;
         static const AkUniqueID UI_BUS_VOLUME_RTPC = 4047153977U;

@@ -4132,6 +4132,7 @@
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Baptiste_voix_rassasie" ID="{5C50E045-436C-46EC-9133-9910E6D611FA}" ShortID="625310779">
 											<PropertyList>
+												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="InitialDelay" Type="Real64">
 													<ValueList>
 														<Value>0.05</Value>
@@ -4147,6 +4148,12 @@
 															</Modifier>
 														</ModifierInfo>
 													</ModifierList>
+												</Property>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
 												</Property>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -4179,6 +4186,11 @@
 												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>3</Value>
@@ -4716,7 +4728,78 @@
 													</ChildrenList>
 												</BlendContainer>
 												<RandomSequenceContainer Name="os_weird_birds" ID="{3B500270-B74C-4C4D-A97B-92CEB451ECD4}" ShortID="898333914">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
+														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+														<Property Name="InitialDelay" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{AC93AFA1-58C2-43A3-AF0B-7AF092716EB4}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="2"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>20</Value>
+															</ValueList>
+														</Property>
+														<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
+														<Property Name="OverridePositioning" Type="bool" Value="True"/>
+														<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{DA4FD819-27A9-47AC-9679-C8396D57F41B}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="101"/>
+																			<Property Name="Min" Type="Real64" Value="-101"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+														<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+														<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{A295BFDC-7A7C-4327-945E-376F46493F77}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="3"/>
+																			<Property Name="Min" Type="Real64" Value="-1"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+														<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="6"/>
+														<Property Name="UseMaxSoundPerInstance" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="WeirdBirds_attenuation" ID="{D2F84779-E183-424C-9B3F-BAB78F29EFF0}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+														</Reference>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 														</Reference>
@@ -4968,6 +5051,67 @@
 															</ActiveSourceList>
 														</Sound>
 													</ChildrenList>
+													<PositioningInfo>
+														<Panner Name="" ID="{9C3CD7E5-5237-4DAF-8BC8-2EAFC81CC5AD}"/>
+														<Position Name="" ID="{D88677FC-E749-4036-92FE-309F72E6BC88}">
+															<PropertyList>
+																<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+																<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+															</PropertyList>
+															<ChildrenList>
+																<Path2D Name="os_weird_birds_Path" ID="{E58E8DA5-5C51-42B7-BFE6-8710F6FE3BFB}">
+																	<PointList>
+																		<Point>
+																			<XPos>0</XPos>
+																			<YPos>50</YPos>
+																			<Flags>12</Flags>
+																			<Time>0</Time>
+																		</Point>
+																	</PointList>
+																</Path2D>
+																<Path2D Name="os_weird_birds_Path_01" ID="{8652A4FF-837C-4B7C-A19C-FB2A398534BF}">
+																	<PointList>
+																		<Point>
+																			<XPos>-5.07614</XPos>
+																			<YPos>50</YPos>
+																			<Flags>12</Flags>
+																			<Time>0</Time>
+																		</Point>
+																	</PointList>
+																</Path2D>
+																<Path2D Name="os_weird_birds_Path_02" ID="{D2C98979-69FE-49DA-B526-46861948B11E}">
+																	<PointList>
+																		<Point>
+																			<XPos>8.62944</XPos>
+																			<YPos>47.17514</YPos>
+																			<Flags>12</Flags>
+																			<Time>0</Time>
+																		</Point>
+																	</PointList>
+																</Path2D>
+																<Path2D Name="os_weird_birds_Path_03" ID="{93002379-3238-4E59-84F2-E4F79A9B8C1C}">
+																	<PointList>
+																		<Point>
+																			<XPos>-6.59898</XPos>
+																			<YPos>48.30508</YPos>
+																			<Flags>12</Flags>
+																			<Time>0</Time>
+																		</Point>
+																	</PointList>
+																</Path2D>
+																<Path2D Name="os_weird_birds_Path_04" ID="{AA05E434-A08D-4AA2-81E3-40283D2EFDB7}">
+																	<PointList>
+																		<Point>
+																			<XPos>7.1066</XPos>
+																			<YPos>46.04519</YPos>
+																			<Flags>12</Flags>
+																			<Time>0</Time>
+																		</Point>
+																	</PointList>
+																</Path2D>
+															</ChildrenList>
+														</Position>
+													</PositioningInfo>
 												</RandomSequenceContainer>
 											</ChildrenList>
 										</BlendContainer>
@@ -6672,7 +6816,16 @@
 															<PropertyList>
 																<Property Name="3DPosition" Type="int16" Value="1"/>
 																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="BelowThresholdBehavior" Type="int16" Value="2"/>
+																<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+																<Property Name="MaxSoundPerInstance" Type="int16">
+																	<ValueList>
+																		<Value>4</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="OverLimitBehavior" Type="int16" Value="1"/>
 																<Property Name="OverridePositioning" Type="bool" Value="True"/>
+																<Property Name="OverrideVirtualVoice" Type="bool" Value="True"/>
 																<Property Name="Pitch" Type="int32">
 																	<ModifierList>
 																		<ModifierInfo>
@@ -6704,6 +6857,17 @@
 																</Property>
 																<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 																<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+																<Property Name="UseMaxSoundPerInstance" Type="bool">
+																	<ValueList>
+																		<Value>True</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>-2</Value>
+																	</ValueList>
+																</Property>
 															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Attenuation">
@@ -9204,13 +9368,14 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="26"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+									<ObjectRef Name="parpaing" ID="{98C3EED1-4831-4AFB-BDA1-F841DF2169D8}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -10558,6 +10723,7 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2">
@@ -10574,6 +10740,11 @@
 													</ModifierList>
 												</Property>
 												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -10715,6 +10886,7 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
@@ -11453,6 +11625,11 @@
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
 												<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">

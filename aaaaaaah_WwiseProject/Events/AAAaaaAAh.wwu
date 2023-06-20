@@ -118,13 +118,6 @@
 					<ChildrenList>
 						<Event Name="Play_amb_Jungle" ID="{9E58C3AE-44FE-4C31-A323-4CB3984962E4}">
 							<ChildrenList>
-								<Action Name="" ID="{C80C5FBA-FDC0-413E-B3CD-8AE80F28E793}" ShortID="266538851">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="os_weird_birds" ID="{3B500270-B74C-4C4D-A97B-92CEB451ECD4}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{DCFB3D62-4E1F-4930-A942-F768EA4C8F85}" ShortID="68787902">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -198,6 +191,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="lobby_RC" ID="{2D45A4EC-66C6-462F-8B7F-FBB63566E0CD}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_os_weird_birds" ID="{CDB711DB-AF3C-4512-B670-DDE7D5460DFB}">
+							<ChildrenList>
+								<Action Name="" ID="{020D3991-601F-48B5-B17A-6C8376D2F917}" ShortID="454947084">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="os_weird_birds" ID="{3B500270-B74C-4C4D-A97B-92CEB451ECD4}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

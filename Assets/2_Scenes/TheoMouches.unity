@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 10830.092, g: 6810.0527, b: 6739.3135, a: 1}
-  m_IndirectSpecularColor: {r: 11604.672, g: 7308.9453, b: 7448.147, a: 1}
+  m_IndirectSpecularColor: {r: 11602.637, g: 7308.742, b: 7448.0923, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3198,6 +3197,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &861746696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3974965811211138010, guid: 6eeb9d71db136054d837adc87420be93,
+    type: 3}
+  m_PrefabInstance: {fileID: 3713542007606856303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &914042194
 GameObject:
   m_ObjectHideFlags: 0
@@ -4946,6 +4951,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1289766711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3974965811616208050, guid: 6eeb9d71db136054d837adc87420be93,
+    type: 3}
+  m_PrefabInstance: {fileID: 3713542007606856303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1297722478
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,6 +7690,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758475761}
   m_CullTransparentMesh: 1
+--- !u!1 &1820317037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3974965810398229540, guid: 6eeb9d71db136054d837adc87420be93,
+    type: 3}
+  m_PrefabInstance: {fileID: 3713542007606856303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1844406589
 GameObject:
   m_ObjectHideFlags: 0
@@ -8286,6 +8303,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2015682696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8784330033619252982, guid: feb21fc36428e86478e325fd1cab73d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1085420684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019637432
 GameObject:
   m_ObjectHideFlags: 0
@@ -9231,6 +9254,26 @@ PrefabInstance:
       propertyPath: ParpaingSieste
       value: 
       objectReference: {fileID: 3713542007606856305}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_01
+      value: 
+      objectReference: {fileID: 1820317037}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_02
+      value: 
+      objectReference: {fileID: 1289766711}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_03
+      value: 
+      objectReference: {fileID: 861746696}
+    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: villagehabs_04
+      value: 
+      objectReference: {fileID: 2015682696}
     - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
       propertyPath: blendShapesAnim

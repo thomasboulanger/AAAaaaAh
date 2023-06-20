@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5155E214-8BFC-5269-D710-CC20BC848A7B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{294B589A-A35E-D39D-6C7D-1FD45DAC4797}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -18,6 +18,7 @@
 					<Plugin Id="99354421" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="172582374" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="193158995" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="436738661" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="750170263" Name="Peak Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="789575649" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
 					<Plugin Id="863241337" Name="Meter (Custom)" LibName="Wwise Meter" LibId="8454147"/>
@@ -43,7 +44,13 @@
 						</Custom>
 					</PluginRefs>
 				</Bus>
-				<Bus Id="213475909" Name="SFX_BUS"/>
+				<Bus Id="213475909" Name="SFX_BUS">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="436738661"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="737767022" Name="scream">
 					<PluginRefs>
 						<Custom>
@@ -176,6 +183,7 @@
 				<GameParameter Id="954052721" Name="Cinematic_music_rvb_exterior_send"/>
 				<GameParameter Id="1277843105" Name="Demon_Metering_Cri"/>
 				<GameParameter Id="2243908779" Name="cinematic_music_level"/>
+				<GameParameter Id="2404745364" Name="SFX_METER"/>
 				<GameParameter Id="2541357373" Name="Distance_from_player"/>
 				<GameParameter Id="2605468616" Name="demon_respiration_volume_RTPC"/>
 				<GameParameter Id="2654583815" Name="SFX_Volume_RTPC"/>
@@ -210,7 +218,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{5F61EFB9-0DEB-3285-BEF2-781FB785087B}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{863E25E4-70F0-8EE7-5141-A8F71A3EE968}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -1297,19 +1305,8 @@
 				<Event Id="2400338315" Name="Init_StopAll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="OneShot" DurationMin="125.61696" DurationMax="125.61696">
 					<MediaRefs>
-						<MediaRef Id="28999613"/>
-						<MediaRef Id="72498812"/>
-						<MediaRef Id="285697430"/>
-						<MediaRef Id="295759851"/>
-						<MediaRef Id="344824246"/>
-						<MediaRef Id="372705985"/>
 						<MediaRef Id="373798867"/>
-						<MediaRef Id="546115841"/>
-						<MediaRef Id="629407672"/>
-						<MediaRef Id="680406388"/>
-						<MediaRef Id="783920694"/>
 						<MediaRef Id="806201314"/>
-						<MediaRef Id="910182252"/>
 						<MediaRef Id="953863872"/>
 					</MediaRefs>
 					<AuxBusRefs>
@@ -1338,7 +1335,7 @@
 						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
 					</AuxBusRefs>
 				</Event>
-				<Event Id="4199381754" Name="Play_bourree" MaxAttenuation="100" DurationType="OneShot" DurationMin="11.151869" DurationMax="23.365784">
+				<Event Id="4199381754" Name="Play_bourree" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="69961032"/>
 						<MediaRef Id="284279149"/>
@@ -1814,7 +1811,25 @@
 						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
 					</AuxBusRefs>
 				</Event>
-				<Event Id="2585698532" Name="Play_rots" MaxAttenuation="100" DurationType="OneShot" DurationMin="5.0245957" DurationMax="16.1787">
+				<Event Id="3093573723" Name="Play_os_weird_birds" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="28999613"/>
+						<MediaRef Id="72498812"/>
+						<MediaRef Id="285697430"/>
+						<MediaRef Id="295759851"/>
+						<MediaRef Id="344824246"/>
+						<MediaRef Id="372705985"/>
+						<MediaRef Id="546115841"/>
+						<MediaRef Id="629407672"/>
+						<MediaRef Id="680406388"/>
+						<MediaRef Id="783920694"/>
+						<MediaRef Id="910182252"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
+				</Event>
+				<Event Id="2585698532" Name="Play_rots" MaxAttenuation="100" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="203838653"/>
 						<MediaRef Id="585445997"/>
@@ -2296,5 +2311,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BFF33E08-46CD-FE22-145D-7D9B9C2DE886}</FileHash>
+	<FileHash>{3D0BB762-14BD-A059-49FD-BAD13D9F3051}</FileHash>
 </SoundBanksInfo>
