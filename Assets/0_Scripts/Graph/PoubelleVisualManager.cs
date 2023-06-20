@@ -90,7 +90,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private float gaugeSpeed = 8f;
 
     private Cinemachine.CinemachineVirtualCamera endCam;
-    private bool[] _isPressed = new bool[4];
+    private bool[] _isPressed = new bool[4]; //Marche pas comme y peu y avoir 8 gachettes et pas 4
 
     private void Start() => Init();
 
