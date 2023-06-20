@@ -100,9 +100,10 @@ public class TutorialLauncher : MonoBehaviour
 
     public void OnFirstTutorialPartAchieved(Component sender, object unUsed1, object playerID, object inputID)
     {
-        tutorialCage.SetActive(false);
-        uiArrows.gameObject.SetActive(true);
         onPlayerChangePanel.Raise(this, 6, null, null);
+        tutorialCage.SetActive(false);
+        tutorialBlocks.SetActive(false);
+        uiArrows.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
