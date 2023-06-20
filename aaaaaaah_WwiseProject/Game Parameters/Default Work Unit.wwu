@@ -119,6 +119,13 @@
 								<Property Name="InitialValue" Type="Real64" Value="100"/>
 							</PropertyList>
 						</GameParameter>
+						<GameParameter Name="SFX_METER" ID="{D155E728-CF41-46A0-84A8-63942EBA63FE}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="-48"/>
+								<Property Name="Max" Type="Real64" Value="0"/>
+								<Property Name="Min" Type="Real64" Value="-48"/>
+							</PropertyList>
+						</GameParameter>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{00139F44-B9E5-4850-9F36-894C0B4A7A1A}" ShortID="301725051">

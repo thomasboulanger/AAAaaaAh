@@ -68,6 +68,46 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Lucas_groml" ID="{8122D59E-2477-43A7-A1A7-10B6623B0AF5}">
+							<ChildrenList>
+								<Action Name="" ID="{4B7D4246-47D3-4298-B99F-FD17B44A831C}" ShortID="762523175">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Lucas_groml" ID="{97E29D29-62DC-4EDD-8685-1BBC51CC51C5}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gobefruit" ID="{8A03B6EC-6732-4859-A482-F3122B447EE5}">
+							<ChildrenList>
+								<Action Name="" ID="{FF79AD72-8819-40EF-B601-3AA44819CA4E}" ShortID="930193749">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Baptiste_voix" ID="{21FFD8DA-271D-41F7-A01A-62C559BD3B6C}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7108E0DE-216F-4A19-9A1D-C0C3015904C9}" ShortID="351908420">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_part_gobefruit" ID="{B5339E56-7780-4F22-9184-35074FBBF113}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Baptiste_rassasie" ID="{D837C3BA-D640-4721-AD3A-A8DB14FAA453}">
+							<ChildrenList>
+								<Action Name="" ID="{6DC0CAB0-5BAD-4866-9CC5-03BF11D28CC2}" ShortID="122429275">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Baptiste_voix_rassasie" ID="{5C50E045-436C-46EC-9133-9910E6D611FA}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="environnement" ID="{E5ABC453-3D40-42C7-BAB7-1504781D825F}" ShortID="734014214">
@@ -78,13 +118,6 @@
 					<ChildrenList>
 						<Event Name="Play_amb_Jungle" ID="{9E58C3AE-44FE-4C31-A323-4CB3984962E4}">
 							<ChildrenList>
-								<Action Name="" ID="{C80C5FBA-FDC0-413E-B3CD-8AE80F28E793}" ShortID="266538851">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="os_weird_birds" ID="{3B500270-B74C-4C4D-A97B-92CEB451ECD4}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
 								<Action Name="" ID="{DCFB3D62-4E1F-4930-A942-F768EA4C8F85}" ShortID="68787902">
 									<ReferenceList>
 										<Reference Name="Target">
@@ -147,6 +180,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="sfx_environnement_mouche_fly_loop_buzz" ID="{D28EAC04-904D-417D-ABC1-C4FBC4411033}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_lobby_RC" ID="{537716F5-1349-472E-B4EA-E628FC99BBD3}">
+							<ChildrenList>
+								<Action Name="" ID="{B5720D30-503A-422C-8CE1-7DD75B6A1E55}" ShortID="218490987">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="lobby_RC" ID="{2D45A4EC-66C6-462F-8B7F-FBB63566E0CD}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_os_weird_birds" ID="{CDB711DB-AF3C-4512-B670-DDE7D5460DFB}">
+							<ChildrenList>
+								<Action Name="" ID="{020D3991-601F-48B5-B17A-6C8376D2F917}" ShortID="454947084">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="os_weird_birds" ID="{3B500270-B74C-4C4D-A97B-92CEB451ECD4}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -227,6 +282,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="grab_things" ID="{61CC4FB5-7930-445D-BFBE-48AFA63DCF27}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_bourree" ID="{6ABB1014-F402-4817-B416-02483CCB2076}">
+							<ChildrenList>
+								<Action Name="" ID="{278259FA-17CB-424D-88C6-250E717221B3}" ShortID="128760048">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="bourree" ID="{DEC00AA1-9048-4AC7-A6EF-4054F7A8A247}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_rots" ID="{CF9055EE-114E-4E4F-AF7E-28D56225C84C}">
+							<ChildrenList>
+								<Action Name="" ID="{1DC1C7B6-0BB0-4173-8843-190AF4210DD9}" ShortID="670924163">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="rots" ID="{879FAB5C-C381-40C4-81B4-8432A93AB761}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -357,6 +434,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="sfx_ui_put_in_bag_short" ID="{2A964F61-6423-49CF-BF05-7A0EDAB6E271}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_fruit_quit_bag" ID="{4CB3D10D-135C-460C-A6F0-743D3177FFA7}">
+							<ChildrenList>
+								<Action Name="" ID="{983BE415-AB9D-411D-8DD0-219423ED9B74}" ShortID="1042487188">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="fruit_quit_bag" ID="{DD2DF6DA-4DC5-492F-B480-87DA74376B67}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

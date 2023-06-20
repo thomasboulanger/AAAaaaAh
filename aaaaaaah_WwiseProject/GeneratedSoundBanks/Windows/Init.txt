@@ -13,6 +13,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	939099552	ambiance_volume_RTPC			\Default Work Unit\SFX\ambiance_volume_RTPC	
 	954052721	Cinematic_music_rvb_exterior_send			\Default Work Unit\Cinematic\Cinematic_music_rvb_exterior_send	
 	1277843105	Demon_Metering_Cri			\Default Work Unit\Demon\Demon_Metering_Cri	
+	2404745364	SFX_METER			\Default Work Unit\SFX\SFX_METER	
 	2605468616	demon_respiration_volume_RTPC			\Default Work Unit\Demon\demon_respiration_volume_RTPC	
 	2654583815	SFX_Volume_RTPC			\Default Work Unit\SFX\SFX_Volume_RTPC	
 	3131952431	Music_Volume_RTPC			\Default Work Unit\Music\Music_Volume_RTPC	
@@ -41,7 +42,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3017987732	Cinematic_music			\Default Work Unit\Master Audio Bus\Cinematic\Cinematic_music	
 	3140998137	respiration			\Default Work Unit\Master Audio Bus\SFX_BUS\demon\respiration	
 	3170124113	voice			\Default Work Unit\Master Audio Bus\SFX_BUS\parpaing\voice	
-	3247222208	UI_BUS			\Default Work Unit\Master Audio Bus\UI_BUS	
+	3247222208	UI_BUS			\Default Work Unit\Master Audio Bus\SFX_BUS\UI_BUS	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3928171036	Mouche			\Default Work Unit\Master Audio Bus\SFX_BUS\environnement\Mouche	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
@@ -49,6 +50,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	1530676313	Exterior_rev			\Default Work Unit\Master Audio Bus\Cinematic_Reverbs\Exterior_rev	
 	1617151415	Interior_rev			\Default Work Unit\Master Audio Bus\Cinematic_Reverbs\Interior_rev	
+	3741457430	REVERB_exte			\Default Work Unit\Master Audio Bus\REVERB_exte	
 
 Effect plug-ins	ID	Name	Type				Notes
 	48620415	Have_U_Ever_Been_Outside	Wwise RoomVerb			
@@ -56,6 +58,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	99354421	Meter (Custom)	Wwise Meter			
 	172582374	Meter (Custom)	Wwise Meter			
 	193158995	Meter (Custom)	Wwise Meter			
+	436738661	Meter (Custom)	Wwise Meter			
 	750170263	Peak Limiter (Custom)	Wwise Peak Limiter			
 	789575649	Meter (Custom)	Wwise Meter			
 	863241337	Meter (Custom)	Wwise Meter			
