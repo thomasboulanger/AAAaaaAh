@@ -7,7 +7,6 @@
 
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 /// <summary>
 /// camera manager, store all Vcam and change the priority between game state
@@ -29,12 +28,12 @@ public class CameraManager : MonoBehaviour
 
     public void CameraPriorityChange(Component sender, object data1, object unUsed1, object unUsed2)
     {
-        if ((int) data1 is 5 or 6 or 9) return;
+        //if ((int) data1 is 5 or 6 or 9) return;
 
         foreach (var vCam in vCams) vCam.Priority = 10;
-        vCams[(int) data1].Priority = 11;
+        if(vCams[(int) data1]) vCams[(int) data1].Priority = 11;
 
         foreach (var cursor in cursors) cursor.gameObject.SetActive(false);
-        cursors[(int) data1].gameObject.SetActive(true);
+        if(cursors[(int) data1]) cursors[(int) data1].gameObject.SetActive(true);
     }
 }
