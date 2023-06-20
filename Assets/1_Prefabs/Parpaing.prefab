@@ -117,64 +117,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: -0.081345946, z: 1.0433415}
     m_Extent: {x: 0.9754672, y: 0.39765632, z: 1.2337276}
   m_DirtyAABB: 0
---- !u!1 &1881518957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1881518958}
-  - component: {fileID: 1881518959}
-  - component: {fileID: 1881518960}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1881518958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881518957}
-  m_LocalRotation: {x: 0.34800315, y: 0.41778138, z: 0.6328374, w: 0.5512435}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5756046080644671596}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1881518959
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881518957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.84, z: 0.5322246}
-  m_Center: {x: 0.030000007, y: 0.24, z: -0.4321353}
---- !u!114 &1881518960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881518957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bcf7ad5cb65c9f469393747bb130ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5351165542297479742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1603,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  sadPower: 0
+  angryPower: 0
 --- !u!114 &961070596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,17 +2533,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1881518958, guid: ccd1815466ec64d44982ad2583a9e851, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3159900220199502340, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7359333831251460492, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
@@ -2670,7 +2614,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ejectPos
       value: 
-      objectReference: {fileID: 1881518958}
+      objectReference: {fileID: 0}
     - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: gaugeSKR

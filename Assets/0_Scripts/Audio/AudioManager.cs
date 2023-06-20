@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event kompa2;
     [SerializeField] private AK.Wwise.Event kompa3;
     [SerializeField] private AK.Wwise.Event kompa4;
+    [SerializeField] private AK.Wwise.Event menu_music;
     [SerializeField] private AK.Wwise.Event playAmbJungle;
     [SerializeField] private AK.Wwise.Event playAmbCascade;
     [SerializeField] private AK.Wwise.Event playAmbVillage;
@@ -24,6 +25,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event grab_arm_04;
     [SerializeField] private AK.Wwise.Event throwTruelle;
     [SerializeField] private AK.Wwise.Event truelleHitUI;
+    [SerializeField] private AK.Wwise.Event rots;
+    [SerializeField] private AK.Wwise.Event charlineBourree;
+    [SerializeField] private AK.Wwise.Event ambOneShotVillage;
+    [SerializeField] private AK.Wwise.Event ambWeirdBirds;
+
 
     [SerializeField] private AK.Wwise.Event truelleHitJoystick;
     /*[Header("Cinematic")]
@@ -64,17 +70,38 @@ public class AudioManager : MonoBehaviour
 
     float randomNumberMusic;
 
+    [Header("Reference scene")]
+    [SerializeField] private GameObject ParpaingSieste;
+    [SerializeField] private GameObject ParpaingBourre;
+    [SerializeField] private GameObject villagehabs_01;
+    [SerializeField] private GameObject villagehabs_02;
+    [SerializeField] private GameObject villagehabs_03;
+    [SerializeField] private GameObject villagehabs_04;
+    [SerializeField] private GameObject weirdbirds_01;
+    [SerializeField] private GameObject weirdbirds_02;
+    [SerializeField] private GameObject weirdbirds_03;
+    [SerializeField] private GameObject weirdbirds_04;
+    [SerializeField] private GameObject weirdbirds_05;
+    [SerializeField] private GameObject weirdbirds_06;
+    [SerializeField] private GameObject weirdbirds_07;
+    [SerializeField] private GameObject weirdbirds_08;
+    [SerializeField] private GameObject weirdbirds_09;
+    [SerializeField] private GameObject weirdbirds_10;
+
+
+
+
     //private uint playingID;
 
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        
         mainSb.Load(true);
     }
 
     private void Start() => Init();
-
+    public void MainSBLoad() => mainSb.Load(true);
     public void Init()
     {
         //initialize / reset sounds
@@ -92,6 +119,8 @@ public class AudioManager : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _demon = GameObject.FindGameObjectWithTag("Demon");
     }
+
+    
 
     private void Update()
     {
@@ -192,14 +221,16 @@ public class AudioManager : MonoBehaviour
     {
         //stop all sounds then play the intro music
         initMenuEvent.Post(gameObject);
-        
         //menu musique
-        //Amb eventuellement
+        menu_music.Post(gameObject);
+
     }
 
 
     public void SetupLevelMucsic()
     {
+        menu_music.Stop(gameObject);
+
         randomNumberMusic = Random.Range(0f, 1f);
         switch (randomNumberMusic)
         {
@@ -221,6 +252,21 @@ public class AudioManager : MonoBehaviour
     public void LaunchAmbianSounds()
     {
         playAmbJungle.Post(gameObject);
+        charlineBourree.Post(ParpaingSieste);
+        rots.Post(ParpaingBourre);
+        ambOneShotVillage.Post(villagehabs_01);
+        ambOneShotVillage.Post(villagehabs_02);
+        ambWeirdBirds.Post(weirdbirds_01);
+        ambWeirdBirds.Post(weirdbirds_02);
+        ambWeirdBirds.Post(weirdbirds_03);
+        ambWeirdBirds.Post(weirdbirds_04);
+        ambWeirdBirds.Post(weirdbirds_05);
+        ambWeirdBirds.Post(weirdbirds_06);
+        ambWeirdBirds.Post(weirdbirds_07);
+        ambWeirdBirds.Post(weirdbirds_08);
+        ambWeirdBirds.Post(weirdbirds_09);
+        ambWeirdBirds.Post(weirdbirds_10);
+
     }
 
     public void AmbVillage()
