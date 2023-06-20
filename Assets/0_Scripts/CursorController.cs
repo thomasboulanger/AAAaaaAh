@@ -74,8 +74,8 @@ public class CursorController : MonoBehaviour
         //instantiate truelle and target our cursor
         Vector3 spawnPos = transform.position + new Vector3
         (
-            Random.Range(-5, 5),
-            Random.Range(-5, 5),
+            Random.Range(-1, 1),
+            Random.Range(-1, 1),
             -5
         );
 
