@@ -32,6 +32,8 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] Transform poubelleFinalPos;
 
+    [SerializeField] GameEvent onLastFruitThrown;
+
     [Header("Valeurs de tweak")]
     [SerializeField]
     private float fruitSpeed = 2f;
@@ -383,7 +385,10 @@ public class PoubelleVisualManager : MonoBehaviour
                 InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
                 _storedFruitActualIndex++;
             }
-            else _finished = true;
+            else { 
+                _finished = true;
+                onLastFruitThrown.Raise(this, null, null, null);
+            }
         }
         else _triggerOnceGrab[limbIndex] = false;
     }

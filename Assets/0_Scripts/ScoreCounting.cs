@@ -24,7 +24,10 @@ public class ScoreCounting : MonoBehaviour
     [SerializeField] private GameEvent onScoreGenerated;
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
+        if (data1 is not int) return;
+        if ((int)data1 != 6) return;
         _startTime = Time.time;
+        Debug.Log("playerState");
        //6
         //onchangepanel
     }//début du 8
@@ -32,6 +35,8 @@ public class ScoreCounting : MonoBehaviour
         public void PlayerReachedEnd(Component sender, object data1, object unUsed1, object unUsed2)
     {
         _collectedFruits = GetComponent<PoubelleVisualManager>().storedFruits.Count;
+        Debug.Log("player reached end");
+
     }
     public void NoFruitsRemainig(Component sender, object data1, object unUsed1, object unUsed2)
     {
@@ -58,8 +63,10 @@ public class ScoreCounting : MonoBehaviour
         {
             _maxScore = _score;
         }
+        Debug.Log("NofruitsRemaining " + "score = " + _score);
+
     }
 
 
-    
+
 }
