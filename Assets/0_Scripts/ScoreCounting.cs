@@ -19,7 +19,7 @@ public class ScoreCounting : MonoBehaviour
     private float _fruitScore;
     private float _timeScore;
     private float _startTime;
-
+    private bool _scoreWasGenerated = false;
 
     [SerializeField] private GameEvent onScoreGenerated;
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
@@ -40,30 +40,34 @@ public class ScoreCounting : MonoBehaviour
     }
     public void NoFruitsRemainig(Component sender, object data1, object unUsed1, object unUsed2)
     {
-        
-        _completionTime = Time.time - _startTime;
-        _timeDifferential = averageTime - _completionTime;
-        _timePerfruit = averageTime / maxFruits;
-        _scorePerSecond = scorePerFruit / _timePerfruit;
-        if (_timeDifferential < 0)
+        if (_scoreWasGenerated == false)
         {
-            //_score = _collectedFruits * scorePerFruit / (_completionTime/averageTime);
-            _score = _collectedFruits * scorePerFruit;
-            _timeScore = 0;
-        }
-        else
-        {
-            _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
-            _timeScore = _timeDifferential * _scorePerSecond;
-        }
-        onScoreGenerated.Raise(this, _score, null, null);
-        _fruitScore = _collectedFruits * scorePerFruit;
+            _completionTime = Time.time - _startTime;
+            _timeDifferential = averageTime - _completionTime;
+            _timePerfruit = averageTime / maxFruits;
+            _scorePerSecond = scorePerFruit / _timePerfruit;
+            if (_timeDifferential < 0)
+            {
+                //_score = _collectedFruits * scorePerFruit / (_completionTime/averageTime);
+                _score = _collectedFruits * scorePerFruit;
+                _timeScore = 0;
+            }
+            else
+            {
+                _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
+                _timeScore = _timeDifferential * _scorePerSecond;
+            }
+            onScoreGenerated.Raise(this, _score, null, null);
+            _fruitScore = _collectedFruits * scorePerFruit;
 
-        if (_score > _maxScore)
-        {
-            _maxScore = _score;
+            if (_score > _maxScore)
+            {
+                _maxScore = _score;
+            }
+            Debug.Log("NofruitsRemaining " + "score = " + _score);
+            _scoreWasGenerated = true;
         }
-        Debug.Log("NofruitsRemaining " + "score = " + _score);
+        
 
     }
 
