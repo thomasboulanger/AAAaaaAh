@@ -4626,6 +4626,9 @@
 													</ReferenceList>
 													<ChildrenList>
 														<Sound Name="sfx_environnement_ambiance_cascade" ID="{4B39F2BB-8C96-4B3A-BD99-D12D814DE133}" ShortID="964421535">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4650,6 +4653,13 @@
 													</ChildrenList>
 												</BlendContainer>
 												<BlendContainer Name="ambiance_jungle_forest" ID="{D7C09AAB-281C-4FA7-9914-657036D50047}" ShortID="869687634">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4660,6 +4670,9 @@
 													</ReferenceList>
 													<ChildrenList>
 														<Sound Name="sfx_environnement_ambiance_jungle_night_loop" ID="{6F88483F-6925-4BC9-9C1F-D930C4932CC1}" ShortID="820509802">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4682,6 +4695,9 @@
 															</ActiveSourceList>
 														</Sound>
 														<Sound Name="sfx_environnement_ambiance_jungle_day_loop" ID="{BC1ABAA1-70E6-4C53-B96F-92BFD59DD3FF}" ShortID="195626736">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
@@ -4704,6 +4720,9 @@
 															</ActiveSourceList>
 														</Sound>
 														<Sound Name="sfx_environnement_ambiance_jungle_bed_loop" ID="{1A5FE81D-8D3E-426A-9B1D-DC15A1EF0BF5}" ShortID="355312381">
+															<PropertyList>
+																<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Conversion">
 																	<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
