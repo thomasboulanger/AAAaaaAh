@@ -218,7 +218,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{F24FC543-1D02-6F6F-258C-4E864D0189B6}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{BF037C0B-6C81-0698-EA49-31C0942467B5}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -594,6 +594,10 @@
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_07.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_07_10C4C929.wem</CachePath>
 				</File>
+				<File Id="349418391" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_03.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_03_038BF67F.wem</CachePath>
+				</File>
 				<File Id="353305862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_03.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_03_10C4C929.wem</CachePath>
@@ -950,6 +954,10 @@
 					<ShortName>roman_bbrglm_04.wav</ShortName>
 					<CachePath>SFX/roman_bbrglm_04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="729490017" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_01.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_01_B9283DDE.wem</CachePath>
+				</File>
 				<File Id="741647488" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_fruit_07.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_fruit_07_10C4C929.wem</CachePath>
@@ -1121,6 +1129,10 @@
 				<File Id="902033649" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_scream_05.wav</ShortName>
 					<CachePath>SFX/roman_scream_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="902356360" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_02.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_02_D7B3C6AD.wem</CachePath>
 				</File>
 				<File Id="910182252" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_11.wav</ShortName>
@@ -2032,6 +2044,13 @@
 						<MediaRef Id="936716124"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1554282648" Name="Play_sfx_ui_ready" DurationType="OneShot" DurationMin="0.12935993" DurationMax="0.14934006">
+					<MediaRefs>
+						<MediaRef Id="349418391"/>
+						<MediaRef Id="729490017"/>
+						<MediaRef Id="902356360"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3159973417" Name="Play_sfx_ui_truelle_hit_Select" DurationType="OneShot" DurationMin="0.58094406" DurationMax="0.7210566">
 					<MediaRefs>
 						<MediaRef Id="103043612"/>
@@ -2311,5 +2330,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6F4EDDA4-F28E-149B-3255-B3A18E69C034}</FileHash>
+	<FileHash>{53333079-FDB2-DA61-5C6C-0123EAE2985E}</FileHash>
 </SoundBanksInfo>
