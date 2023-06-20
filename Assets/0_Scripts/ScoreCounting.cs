@@ -18,41 +18,48 @@ public class ScoreCounting : MonoBehaviour
     private float _maxScore;
     private float _fruitScore;
     private float _timeScore;
+    private float _startTime;
 
-    // Update is called once per frame
-    void Update()
+
+    [SerializeField] private GameEvent onScoreGenerated;
+    public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
-        if (_gameOver == true && _scoreGenerated == false)
+        _startTime = Time.time;
+       //6
+        //onchangepanel
+    }//début du 8
+
+        public void PlayerReachedEnd(Component sender, object data1, object unUsed1, object unUsed2)
+    {
+        _collectedFruits = GetComponent<PoubelleVisualManager>().storedFruits.Count;
+    }
+    public void NoFruitsRemainig(Component sender, object data1, object unUsed1, object unUsed2)
+    {
+        
+        _completionTime = Time.time - _startTime;
+        _timeDifferential = averageTime - _completionTime;
+        _timePerfruit = averageTime / maxFruits;
+        _scorePerSecond = scorePerFruit / _timePerfruit;
+        if (_timeDifferential < 0)
         {
-            _scoreGenerated = true;
-            _completionTime = Time.time;
-            _timeDifferential = averageTime - _completionTime;
-            _timePerfruit = averageTime / maxFruits;
-            _scorePerSecond = scorePerFruit / _timePerfruit;
-            if (_timeDifferential < 0)
-            {
-                //_score = _collectedFruits * scorePerFruit / (_completionTime/averageTime);
-                _score = _collectedFruits * scorePerFruit;
-                _timeScore = 0;
-            }
-            else
-            {
-                _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
-                _timeScore = _timeDifferential * _scorePerSecond;
-            }
-
-            _fruitScore = _collectedFruits * scorePerFruit;
-
-            if (_score > _maxScore)
-            {
-                _maxScore = _score;
-            }
-
+            //_score = _collectedFruits * scorePerFruit / (_completionTime/averageTime);
+            _score = _collectedFruits * scorePerFruit;
+            _timeScore = 0;
         }
-
-        if (_scoreGenerated == true )
+        else
         {
-            Debug.Log(_score);
+            _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
+            _timeScore = _timeDifferential * _scorePerSecond;
+        }
+        onScoreGenerated.Raise(this, _score, null, null);
+        _fruitScore = _collectedFruits * scorePerFruit;
+
+        if (_score > _maxScore)
+        {
+            _maxScore = _score;
         }
     }
+
+
+    
 }
