@@ -8,7 +8,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")] [SerializeField]
+    [Header("Valeurs a set")]
+    [SerializeField]
     private Transform topPoint;
 
     [SerializeField] private Transform dansPoubelle;
@@ -21,7 +22,8 @@ public class PoubelleVisualManager : MonoBehaviour
 
 
 
-    [Header("CinematiqueFin")] [SerializeField]
+    [Header("CinematiqueFin")]
+    [SerializeField]
     private Transform midlePoint;
 
     [SerializeField] private Transform insideMonster;
@@ -30,21 +32,24 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] Animator playerAnimator;
     [SerializeField] Transform poubelleFinalPos;
 
-    [Header("Valeurs de tweak")] [SerializeField]
+    [Header("Valeurs de tweak")]
+    [SerializeField]
     private float fruitSpeed = 2f;
 
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
     [SerializeField] private float randomizeTrajectoryPowerDropping = 1f;
 
-    [Header("Courbe d'anims")] [SerializeField]
+    [Header("Courbe d'anims")]
+    [SerializeField]
     private AnimationCurve speedCurve;
 
     [SerializeField] private AnimationCurve speedCurveDropping;
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
 
-    [Header("for debug purpose only")] [SerializeField]
+    [Header("for debug purpose only")]
+    [SerializeField]
     private float timerPoubelle;
 
     [SerializeField] private List<Transform> fruits = new();
@@ -58,7 +63,8 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField]
     private List<Vector3> middlePosOffsets = new();
 
-    [Header("for debug purpose only")] [SerializeField]
+    [Header("for debug purpose only")]
+    [SerializeField]
     private float gaugeSize = 100;
 
     [SerializeField] private float gaugeIncrementByHit = 50;
@@ -74,15 +80,16 @@ public class PoubelleVisualManager : MonoBehaviour
     private bool _finished;
     private int _storedFruitActualIndex;
     private bool _ejectSingleFruit;
-    private bool _triggerOnceGrab;
+    private bool[] _triggerOnceGrab = new bool[4];
 
-    private float _fruitBaseScale=0.1f;
-    private float _fruitScale=1;
+    private float _fruitBaseScale = 0.1f;
+    private float _fruitScale = 1;
 
-    [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f,-89);
+    [SerializeField] private Vector2 minMaxGaugepositions = new Vector2(99.9f, -89);
     [SerializeField] private float gaugeSpeed = 8f;
 
     private Cinemachine.CinemachineVirtualCamera endCam;
+    private bool[] _isPressed = new bool[4];
 
     private void Start() => Init();
 
@@ -98,7 +105,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (camGO != null)
         {
             endCam.TryGetComponent(out endCam);
-            
+
         }
     }
 
@@ -129,11 +136,11 @@ public class PoubelleVisualManager : MonoBehaviour
             gaucgeRT.anchoredPosition = Vector2.Lerp(gaucgeRT.anchoredPosition, new Vector2(gaucgeRT.anchoredPosition.x, Remap(currentGaugeLevel, gaugeSize, 0, minMaxGaugepositions.x, minMaxGaugepositions.y)), deltaTime * gaugeSpeed);
             gaugeColorSprite.color = Color.Lerp(gaugeColor[0], gaugeColor[1], Remap(currentGaugeLevel, gaugeSize, 0, 1, 0));
 
-            _fruitScale = Mathf.Lerp(_fruitScale, _fruitBaseScale, deltaTime * gaugeSpeed/2);
+            _fruitScale = Mathf.Lerp(_fruitScale, _fruitBaseScale, deltaTime * gaugeSpeed / 2);
             fruitRT.localScale = new Vector3(_fruitScale, _fruitScale, _fruitScale);
         }
         else Debug.LogWarning("GRO CONNNNN PAS TA PSSIGNE TOUT");// si tu delete la ligne et que t'a des soucis je te ration
-        
+
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -226,14 +233,17 @@ public class PoubelleVisualManager : MonoBehaviour
                 _finished = false;
                 _ejectFruits = false;
 
-                
+
 
                 continue;
             }
 
 
             if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+            {
                 Destroy(item.gameObject); // ond d�tui le fruit pour cine fin
+                storedFruits.Remove(item);
+            }
             else item.gameObject.SetActive(false);
 
             if (_ejectFruits)
@@ -244,6 +254,7 @@ public class PoubelleVisualManager : MonoBehaviour
             }
 
             AkSoundEngine.PostEvent("Play_sfx_ui_put_in_bag_short", gameObject);//son ajout de fruit
+            if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) continue;
             storedFruits.Add(item);
         }
     }
@@ -252,14 +263,14 @@ public class PoubelleVisualManager : MonoBehaviour
     {
         float gaugeLastlevel = currentGaugeLevel;
         currentGaugeLevel += gaugeIncrementByHit;
-        if (currentGaugeLevel >= gaugeSize && gaugeLastlevel<gaugeSize*0.6f)
+        if (currentGaugeLevel >= gaugeSize && gaugeLastlevel < gaugeSize * 0.6f)
         {
             currentGaugeLevel = gaugeSize * 0.97f;
         }
         if (currentGaugeLevel >= gaugeSize)
         {
             currentGaugeLevel = 0;
-            _fruitScale = 3*_fruitBaseScale;
+            _fruitScale = 3 * _fruitBaseScale;
             EjectFruits();
         }
     }
@@ -290,13 +301,15 @@ public class PoubelleVisualManager : MonoBehaviour
     {
         foreach (Transform element in fruits)
             Destroy(element.gameObject);
-        
+
         fruits.Clear();
         fruitTimers.Clear();
         basePos.Clear();
         hasBouped.Clear();
         middlePosOffsets.Clear();
         hasBoupedMonster.Clear();
+
+        Debug.Log("ENTER EMPTY FRUIT LISTS METHOD");
     }
 
     public void EjectFruits()
@@ -334,7 +347,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
     public void EjectFruitEndLevelInternalCall()
     {
-        
+
         if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
         {
             _ejectFruits = true;
@@ -347,15 +360,20 @@ public class PoubelleVisualManager : MonoBehaviour
         else _finished = true;
     }
 
-    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object unUsed3)
+    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object limbID)
     {
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
-        bool isPressed = (float) data1 > .9f;
-        
+        int limbIndex = (int)limbID;
 
-        if (isPressed && !_triggerOnceGrab)
+         _isPressed[limbIndex] = (float)data1 > .9f;
+
+
+        if (_isPressed[limbIndex])
         {
-            _triggerOnceGrab = true;
+
+            if (_triggerOnceGrab[limbIndex]) return;
+
+            _triggerOnceGrab[limbIndex] = true;
             if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
             {
                 _ejectFruits = true;
@@ -367,7 +385,7 @@ public class PoubelleVisualManager : MonoBehaviour
             }
             else _finished = true;
         }
-        else _triggerOnceGrab = false;
+        else _triggerOnceGrab[limbIndex] = false;
     }
 
     IEnumerator RandomDelayedFruits()
