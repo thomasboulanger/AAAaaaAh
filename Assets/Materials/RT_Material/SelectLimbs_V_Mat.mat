@@ -37,6 +37,10 @@ Material:
         m_Texture: {fileID: 8400000, guid: 2dca74639cb863c4ebaa4cff50352efd, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Text2D:
+        m_Texture: {fileID: 2800000, guid: c545e16e6d63e2945be25f23057e1315, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -91,6 +95,7 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
+    - _Xpos: 0.809
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
@@ -103,10 +108,12 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _OffsetText: {r: 0.8, g: -0.6, b: 0, a: 0}
     - _Offsets: {r: 0, g: 0, b: 0, a: 0}
     - _SineSpeeds: {r: 1, g: 2, b: 3, a: 0}
     - _TexturesToUse: {r: 1, g: 1, b: 0, a: 0}
     - _Tilling: {r: 1, g: 1, b: 0, a: 0}
+    - _TillingText: {r: 0.1, g: 6.82, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3997262826556643990
 MonoBehaviour:
