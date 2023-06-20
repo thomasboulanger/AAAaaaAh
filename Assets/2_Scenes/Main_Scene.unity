@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11603.922, g: 7308.9336, b: 7448.0903, a: 1}
+  m_IndirectSpecularColor: {r: 10836.139, g: 6810.3984, b: 6738.503, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21263,6 +21263,11 @@ PrefabInstance:
       propertyPath: rtpcMeterInspiExpi
       value: 
       objectReference: {fileID: 728011230}
+    - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
+        type: 3}
+      propertyPath: vCams.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
       propertyPath: vCams.Array.data[0]
