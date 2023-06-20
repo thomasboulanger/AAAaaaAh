@@ -80,7 +80,6 @@ public class PoubelleVisualManager : MonoBehaviour
     private Quaternion _lastRotation;
     private bool _ejectFruits;
     private bool _finished;
-    private int _storedFruitActualIndex;
     private bool _ejectSingleFruit;
     private bool[] _triggerOnceGrab = new bool[4];
 
@@ -244,7 +243,6 @@ public class PoubelleVisualManager : MonoBehaviour
             if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
                 Destroy(item.gameObject); // ond d�tui le fruit pour cine fin
-                storedFruits.Remove(item);
             }
             else item.gameObject.SetActive(false);
 
@@ -337,7 +335,6 @@ public class PoubelleVisualManager : MonoBehaviour
         transform.rotation = poubelleFinalPos.rotation;
 
         paparingCinematiqueAnimator.gameObject.SetActive(true);
-        _storedFruitActualIndex = 0;
 
         playerAnimator.speed = 0;
 
@@ -350,14 +347,14 @@ public class PoubelleVisualManager : MonoBehaviour
     public void EjectFruitEndLevelInternalCall()
     {
 
-        if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
+        if (storedFruits.Count > 0)
         {
             _ejectFruits = true;
-            storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
-            storedFruits[_storedFruitActualIndex].transform.position = dansPoubelle.position;
+            storedFruits[0].gameObject.SetActive(true);
+            storedFruits[0].transform.position = dansPoubelle.position;
 
-            InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
-            _storedFruitActualIndex++;
+            InitializeFruitThenMoveIt(storedFruits[0], true);
+            storedFruits.RemoveAt(0);
         }
         else _finished = true;
     }
@@ -376,18 +373,18 @@ public class PoubelleVisualManager : MonoBehaviour
             if (_triggerOnceGrab[limbIndex]) return;
 
             _triggerOnceGrab[limbIndex] = true;
-            if (storedFruits.Count > 0 && _storedFruitActualIndex < storedFruits.Count)
+            if (storedFruits.Count > 0)
             {
                 _ejectFruits = true;
-                storedFruits[_storedFruitActualIndex].gameObject.SetActive(true);
-                storedFruits[_storedFruitActualIndex].transform.position = dansPoubelle.position;
+                storedFruits[0].gameObject.SetActive(true);
+                storedFruits[0].transform.position = dansPoubelle.position;
 
-                InitializeFruitThenMoveIt(storedFruits[_storedFruitActualIndex], true);
-                _storedFruitActualIndex++;
+                InitializeFruitThenMoveIt(storedFruits[0], true);
+                storedFruits.RemoveAt(0);
             }
             else { 
                 _finished = true;
-                onLastFruitThrown.Raise(this, null, null, null);
+                onLastFruitThrown.Raise(this, null, null, null); //spammmer les fruits casse rour
             }
         }
         else _triggerOnceGrab[limbIndex] = false;
