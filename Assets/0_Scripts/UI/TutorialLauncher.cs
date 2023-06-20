@@ -5,8 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,7 +21,6 @@ public class TutorialLauncher : MonoBehaviour
     [SerializeField] private GameObject tutorialBlocks;
     [SerializeField] private GameObject tutorialCage;
     [SerializeField] private GameObject uiHintToMoveJoysticks;
-    [SerializeField] private GameObject uiArrows;
     [SerializeField] private GameObject uiHintPartTwo;
 
     private float _countDown;
@@ -45,7 +42,6 @@ public class TutorialLauncher : MonoBehaviour
         tutorialBlocks.SetActive(false);
         tutorialCage.SetActive(true);
         uiHintToMoveJoysticks.SetActive(false);
-        uiArrows.SetActive(false);
         uiHintPartTwo.SetActive(false);
         _triggerOnceLaunchLevel = false;
     }
@@ -103,13 +99,11 @@ public class TutorialLauncher : MonoBehaviour
         onPlayerChangePanel.Raise(this, 6, null, null);
         tutorialCage.SetActive(false);
         tutorialBlocks.SetActive(false);
-        uiArrows.gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.transform.CompareTag("Player")) return;
-        uiArrows.gameObject.SetActive(false);
         uiHintPartTwo.gameObject.SetActive(true);
     }
 }
