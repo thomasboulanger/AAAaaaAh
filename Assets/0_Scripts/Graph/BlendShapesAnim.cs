@@ -116,4 +116,9 @@ public class BlendShapesAnim : MonoBehaviour
     {
         _mouthSKTarget = 100;
     }
+
+    public void CanScream(bool status)
+    {
+        rtpcScript.enabled = status;
+    }
 }

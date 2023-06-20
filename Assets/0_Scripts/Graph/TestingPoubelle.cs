@@ -23,14 +23,15 @@ public class TestingPoubelle : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel;
             poubelleRef.PrepareCinematic();
             trigered = true;
         }
-        // if (Input.GetKeyDown(KeyCode.J))
-        // {
-        //     poubelleRef.EjectFruitAtEndLevel();
-        //     trigered = true;
-        // }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            poubelleRef.EjectFruitEndLevelInternalCall();
+            trigered = true;
+        }
 
         if (trigered) Debug.LogWarning("paf");//pour pas oublier que c'est la
     }
