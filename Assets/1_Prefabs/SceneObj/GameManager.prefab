@@ -30,6 +30,8 @@ GameObject:
   - component: {fileID: 4430677912515128089}
   - component: {fileID: 1961136074}
   - component: {fileID: 1961136093}
+  - component: {fileID: 6690614087505552796}
+  - component: {fileID: 8985043738948659080}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -404,6 +406,11 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 774f08b77ba0a2746a90d38983aed92c,
       type: 2}
+  ambWeirdBirds:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0191fe2a94f269f4cbc64bd23af8796c,
+      type: 2}
   truelleHitJoystick:
     idInternal: 0
     valueGuidInternal: 
@@ -460,6 +467,16 @@ MonoBehaviour:
   villagehabs_02: {fileID: 0}
   villagehabs_03: {fileID: 0}
   villagehabs_04: {fileID: 0}
+  weirdbirds_01: {fileID: 0}
+  weirdbirds_02: {fileID: 0}
+  weirdbirds_03: {fileID: 0}
+  weirdbirds_04: {fileID: 0}
+  weirdbirds_05: {fileID: 0}
+  weirdbirds_06: {fileID: 0}
+  weirdbirds_07: {fileID: 0}
+  weirdbirds_08: {fileID: 0}
+  weirdbirds_09: {fileID: 0}
+  weirdbirds_10: {fileID: 0}
 --- !u!114 &2786674968771254231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +831,62 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1961136093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 9e848e76305d0c0409486f546a844d58, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3755835576101235687}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6690614087505552796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949473462018745112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3755835576101235687}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayerPressPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8985043738948659080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

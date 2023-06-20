@@ -47,6 +47,7 @@ public class TutorialLauncher : MonoBehaviour
         uiHintToMoveJoysticks.SetActive(false);
         uiArrows.SetActive(false);
         uiHintPartTwo.SetActive(false);
+        _triggerOnceLaunchLevel = false;
     }
 
     private void Update()
