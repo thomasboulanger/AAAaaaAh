@@ -29,7 +29,7 @@ public class CameraManager : MonoBehaviour
 
     public void CameraPriorityChange(Component sender, object data1, object unUsed1, object unUsed2)
     {
-        if ((int) data1 is 5 or 6 or 8 or 9) return;
+        if ((int) data1 is 5 or 6 or 9) return;
 
         foreach (var vCam in vCams) vCam.Priority = 10;
         vCams[(int) data1].Priority = 11;
