@@ -81,6 +81,7 @@ namespace AK
         static const AkUniqueID PLAY_SFX_SORCIER_FALL_02 = 1205431082U;
         static const AkUniqueID PLAY_SFX_SORCIER_IMPACT = 4074007912U;
         static const AkUniqueID PLAY_SFX_UI_PUT_IN_BAG_SHORT = 4243926984U;
+        static const AkUniqueID PLAY_SFX_UI_READY = 1554282648U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SELECT = 3159973417U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_HIT_SIMPLE = 3640008787U;
         static const AkUniqueID PLAY_SFX_UI_TRUELLE_LAUNCH = 2461968334U;

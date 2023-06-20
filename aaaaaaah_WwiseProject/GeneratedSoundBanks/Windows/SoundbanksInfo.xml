@@ -218,7 +218,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{863E25E4-70F0-8EE7-5141-A8F71A3EE968}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{BF037C0B-6C81-0698-EA49-31C0942467B5}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -340,7 +340,7 @@
 				</File>
 				<File Id="97425024" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_cascade.wav</ShortName>
-					<CachePath>SFX/sfx_environnement_ambiance_cascade_10C4C929.wem</CachePath>
+					<CachePath>SFX/sfx_environnement_ambiance_cascade_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="103043612" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_ui_truelle_hit_Select_03.wav</ShortName>
@@ -594,6 +594,10 @@
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_07.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_07_10C4C929.wem</CachePath>
 				</File>
+				<File Id="349418391" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_03.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_03_038BF67F.wem</CachePath>
+				</File>
 				<File Id="353305862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_03.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_03_10C4C929.wem</CachePath>
@@ -628,7 +632,7 @@
 				</File>
 				<File Id="373798867" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_jungle_day_loop.wav</ShortName>
-					<CachePath>SFX/sfx_environnement_ambiance_jungle_day_loop_10C4C929.wem</CachePath>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_day_loop_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="375918166" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_04.wav</ShortName>
@@ -950,6 +954,10 @@
 					<ShortName>roman_bbrglm_04.wav</ShortName>
 					<CachePath>SFX/roman_bbrglm_04_10C4C929.wem</CachePath>
 				</File>
+				<File Id="729490017" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_01.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_01_B9283DDE.wem</CachePath>
+				</File>
 				<File Id="741647488" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_fruit_07.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_fruit_07_10C4C929.wem</CachePath>
@@ -1012,7 +1020,7 @@
 				</File>
 				<File Id="806201314" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_jungle_night_loop.wav</ShortName>
-					<CachePath>SFX/sfx_environnement_ambiance_jungle_night_loop_10C4C929.wem</CachePath>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_night_loop_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="809642619" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>roman_bbrglm_07.wav</ShortName>
@@ -1122,6 +1130,10 @@
 					<ShortName>roman_scream_05.wav</ShortName>
 					<CachePath>SFX/roman_scream_05_10C4C929.wem</CachePath>
 				</File>
+				<File Id="902356360" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_ui_put_in_bag_02.wav</ShortName>
+					<CachePath>SFX/sfx_ui_put_in_bag_02_D7B3C6AD.wem</CachePath>
+				</File>
 				<File Id="910182252" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_os_weird_birds_11.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_os_weird_birds_11_10C4C929.wem</CachePath>
@@ -1184,7 +1196,7 @@
 				</File>
 				<File Id="953863872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_jungle_bed_loop.wav</ShortName>
-					<CachePath>SFX/sfx_environnement_ambiance_jungle_bed_loop_10C4C929.wem</CachePath>
+					<CachePath>SFX/sfx_environnement_ambiance_jungle_bed_loop_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="956443433" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_wood_06.wav</ShortName>
@@ -1303,7 +1315,7 @@
 			</Plugins>
 			<Events>
 				<Event Id="2400338315" Name="Init_StopAll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="OneShot" DurationMin="125.61696" DurationMax="125.61696">
+				<Event Id="1939323106" Name="Play_amb_Jungle" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="373798867"/>
 						<MediaRef Id="806201314"/>
@@ -1313,7 +1325,7 @@
 						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
 					</AuxBusRefs>
 				</Event>
-				<Event Id="1772480721" Name="Play_ambiance_cascade" DurationType="OneShot" DurationMin="83.32619" DurationMax="83.32619">
+				<Event Id="1772480721" Name="Play_ambiance_cascade" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="97425024"/>
 					</MediaRefs>
@@ -2032,6 +2044,13 @@
 						<MediaRef Id="936716124"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1554282648" Name="Play_sfx_ui_ready" DurationType="OneShot" DurationMin="0.12935993" DurationMax="0.14934006">
+					<MediaRefs>
+						<MediaRef Id="349418391"/>
+						<MediaRef Id="729490017"/>
+						<MediaRef Id="902356360"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3159973417" Name="Play_sfx_ui_truelle_hit_Select" DurationType="OneShot" DurationMin="0.58094406" DurationMax="0.7210566">
 					<MediaRefs>
 						<MediaRef Id="103043612"/>
@@ -2311,5 +2330,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3D0BB762-14BD-A059-49FD-BAD13D9F3051}</FileHash>
+	<FileHash>{53333079-FDB2-DA61-5C6C-0123EAE2985E}</FileHash>
 </SoundBanksInfo>
