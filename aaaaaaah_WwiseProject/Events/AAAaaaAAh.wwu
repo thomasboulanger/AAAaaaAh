@@ -68,6 +68,46 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Lucas_groml" ID="{8122D59E-2477-43A7-A1A7-10B6623B0AF5}">
+							<ChildrenList>
+								<Action Name="" ID="{4B7D4246-47D3-4298-B99F-FD17B44A831C}" ShortID="762523175">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Lucas_groml" ID="{97E29D29-62DC-4EDD-8685-1BBC51CC51C5}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Gobefruit" ID="{8A03B6EC-6732-4859-A482-F3122B447EE5}">
+							<ChildrenList>
+								<Action Name="" ID="{FF79AD72-8819-40EF-B601-3AA44819CA4E}" ShortID="930193749">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Baptiste_voix" ID="{21FFD8DA-271D-41F7-A01A-62C559BD3B6C}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{7108E0DE-216F-4A19-9A1D-C0C3015904C9}" ShortID="351908420">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="sfx_part_gobefruit" ID="{B5339E56-7780-4F22-9184-35074FBBF113}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Baptiste_rassasie" ID="{D837C3BA-D640-4721-AD3A-A8DB14FAA453}">
+							<ChildrenList>
+								<Action Name="" ID="{6DC0CAB0-5BAD-4866-9CC5-03BF11D28CC2}" ShortID="122429275">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Baptiste_voix_rassasie" ID="{5C50E045-436C-46EC-9133-9910E6D611FA}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="environnement" ID="{E5ABC453-3D40-42C7-BAB7-1504781D825F}" ShortID="734014214">
@@ -147,6 +187,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="sfx_environnement_mouche_fly_loop_buzz" ID="{D28EAC04-904D-417D-ABC1-C4FBC4411033}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_lobby_RC" ID="{537716F5-1349-472E-B4EA-E628FC99BBD3}">
+							<ChildrenList>
+								<Action Name="" ID="{B5720D30-503A-422C-8CE1-7DD75B6A1E55}" ShortID="218490987">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="lobby_RC" ID="{2D45A4EC-66C6-462F-8B7F-FBB63566E0CD}" WorkUnitID="{E81A584B-6C94-4780-AA35-AF8CA62FE6CE}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

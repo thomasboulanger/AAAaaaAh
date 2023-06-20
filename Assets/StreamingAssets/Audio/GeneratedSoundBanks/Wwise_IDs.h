@@ -16,12 +16,14 @@ namespace AK
         static const AkUniqueID INIT_STOPALL = 2400338315U;
         static const AkUniqueID PLAY_AMB_JUNGLE = 1939323106U;
         static const AkUniqueID PLAY_AMBIANCE_CASCADE = 1772480721U;
+        static const AkUniqueID PLAY_BAPTISTE_RASSASIE = 1357227764U;
         static const AkUniqueID PLAY_BOURREE = 4199381754U;
         static const AkUniqueID PLAY_CRI = 2942461358U;
         static const AkUniqueID PLAY_CRIS_ET_GROML = 712233415U;
         static const AkUniqueID PLAY_CRIS_GROML_CINEMATIC = 2650298779U;
         static const AkUniqueID PLAY_EXPI = 3945663264U;
         static const AkUniqueID PLAY_FRUIT_QUIT_BAG = 102112069U;
+        static const AkUniqueID PLAY_GOBEFRUIT = 2833128891U;
         static const AkUniqueID PLAY_GRAB_ARM_01 = 3235881831U;
         static const AkUniqueID PLAY_GRAB_ARM_02 = 3235881828U;
         static const AkUniqueID PLAY_GRAB_ARM_03 = 3235881829U;
@@ -33,6 +35,8 @@ namespace AK
         static const AkUniqueID PLAY_KOMPA4_INT1 = 2430895383U;
         static const AkUniqueID PLAY_KOMPA_5 = 2142320308U;
         static const AkUniqueID PLAY_KOMPA_6 = 2142320311U;
+        static const AkUniqueID PLAY_LOBBY_RC = 4179332304U;
+        static const AkUniqueID PLAY_LUCAS_GROML = 1406537358U;
         static const AkUniqueID PLAY_MENU_MUSIC = 2228153899U;
         static const AkUniqueID PLAY_MOUCHE_FLY_LOOP = 3672501366U;
         static const AkUniqueID PLAY_MOUCHE_PUNCH = 2563752858U;
@@ -211,6 +215,7 @@ namespace AK
     {
         static const AkUniqueID EXTERIOR_REV = 1530676313U;
         static const AkUniqueID INTERIOR_REV = 1617151415U;
+        static const AkUniqueID REVERB_EXTE = 3741457430U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES

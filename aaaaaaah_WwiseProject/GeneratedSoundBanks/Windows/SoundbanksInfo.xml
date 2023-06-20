@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AD6FEBA2-FC27-19DA-D297-E154BE8F8252}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5155E214-8BFC-5269-D710-CC20BC848A7B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -157,6 +157,13 @@
 						</ShareSets>
 					</PluginRefs>
 				</AuxBus>
+				<AuxBus Id="3741457430" Name="REVERB_exte">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="48620415"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
 			</AuxBusses>
 			<GameParameters>
 				<GameParameter Id="72403437" Name="Mouche_volume_RTPC"/>
@@ -203,7 +210,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{8A8624CB-31C7-5AB1-A326-9C3B9067487C}">
+		<SoundBank Id="2816749686" Type="User" Language="SFX" Hash="{5F61EFB9-0DEB-3285-BEF2-781FB785087B}">
 			<ShortName>AAAaaaAAh_MainSB</ShortName>
 			<Path>AAAaaaAAh_MainSB.bnk</Path>
 			<Media>
@@ -218,6 +225,10 @@
 				<File Id="4431289" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_pentacle_demon.wav</ShortName>
 					<CachePath>SFX/sfx_pentacle_demon_10C4C929.wem</CachePath>
+				</File>
+				<File Id="7388456" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_02.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_02_10C4C929.wem</CachePath>
 				</File>
 				<File Id="8377730" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_rock_07.wav</ShortName>
@@ -263,6 +274,14 @@
 					<ShortName>sfx_voix_sorcier_interrogation.wav</ShortName>
 					<CachePath>SFX/sfx_voix_sorcier_interrogation_10C4C929.wem</CachePath>
 				</File>
+				<File Id="57819050" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_05.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="62020473" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_05.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_05_10C4C929.wem</CachePath>
+				</File>
 				<File Id="65127018" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>baptiste_expi_01.wav</ShortName>
 					<CachePath>SFX/baptiste_expi_01_10C4C929.wem</CachePath>
@@ -278,6 +297,10 @@
 				<File Id="69044696" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_hammer_01.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_hammer_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="69781291" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_03.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_03_10C4C929.wem</CachePath>
 				</File>
 				<File Id="69961032" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_bourres_01.wav</ShortName>
@@ -343,6 +366,10 @@
 					<ShortName>roman_scream_06.wav</ShortName>
 					<CachePath>SFX/roman_scream_06_10C4C929.wem</CachePath>
 				</File>
+				<File Id="131734818" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_06.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_06_10C4C929.wem</CachePath>
+				</File>
 				<File Id="133134963" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Kompa1_intro.wav</ShortName>
 					<CachePath>SFX/Kompa1_intro_983551D2.wem</CachePath>
@@ -403,6 +430,10 @@
 					<ShortName>Village\sfx_environnement_os_drill_02.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_drill_02_10C4C929.wem</CachePath>
 				</File>
+				<File Id="203641160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_04.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_04_10C4C929.wem</CachePath>
+				</File>
 				<File Id="203838653" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_bourres_03.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_bourres_03_10C4C929.wem</CachePath>
@@ -454,6 +485,18 @@
 				<File Id="258017064" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_enjaille_01.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_enjaille_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="269463256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_02.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_02_10C4C929.wem</CachePath>
+				</File>
+				<File Id="279164514" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_01.wav</ShortName>
+					<CachePath>SFX/gobefruit/sfx_part_gobefruit/sfx_ui_fruit_gobbe_01_10C4C929.wem</CachePath>
+				</File>
+				<File Id="281198119" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_07.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_07_10C4C929.wem</CachePath>
 				</File>
 				<File Id="281606585" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kOMPA_5_intro_121.wav</ShortName>
@@ -515,6 +558,10 @@
 					<ShortName>sfx_player_grab_rock_05.wav</ShortName>
 					<CachePath>SFX/sfx_player_grab_rock_05_10C4C929.wem</CachePath>
 				</File>
+				<File Id="332516048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_03.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_03_10C4C929.wem</CachePath>
+				</File>
 				<File Id="335323631" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_chante_02.wav</ShortName>
 					<CachePath>SFX/voix/sfx_voix_chante_02_10C4C929.wem</CachePath>
@@ -574,6 +621,10 @@
 				<File Id="373798867" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_environnement_ambiance_jungle_day_loop.wav</ShortName>
 					<CachePath>SFX/sfx_environnement_ambiance_jungle_day_loop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="375918166" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_04.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_04_10C4C929.wem</CachePath>
 				</File>
 				<File Id="382103618" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>voix\sfx_voix_enjaille_02.wav</ShortName>
@@ -675,6 +726,18 @@
 					<ShortName>sfx_book_jump_03.wav</ShortName>
 					<CachePath>SFX/sfx_book_jump_03_10C4C929.wem</CachePath>
 				</File>
+				<File Id="495708955" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_05.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="503859720" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_03.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="505334979" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_06.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_06_10C4C929.wem</CachePath>
+				</File>
 				<File Id="509904952" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_voix_parpaings_interrogations_04.wav</ShortName>
 					<CachePath>SFX/sfx_voix_parpaings_interrogations_04_10C4C929.wem</CachePath>
@@ -686,6 +749,10 @@
 				<File Id="524662692" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_demon_pop.wav</ShortName>
 					<CachePath>SFX/sfx_demon_pop_10C4C929.wem</CachePath>
+				</File>
+				<File Id="532262308" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_04.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_04_10C4C929.wem</CachePath>
 				</File>
 				<File Id="539139584" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_fruit_08.wav</ShortName>
@@ -850,6 +917,10 @@
 				<File Id="706481931" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_roman_scream_rvb_mid_distance_03.wav</ShortName>
 					<CachePath>SFX/sfx_roman_scream_rvb_mid_distance_03_10C4C929.wem</CachePath>
+				</File>
+				<File Id="707246052" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_01.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="712916640" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Village\sfx_environnement_os_hammer_04.wav</ShortName>
@@ -1095,6 +1166,10 @@
 					<ShortName>Village\sfx_environnement_os_woodwork_02.wav</ShortName>
 					<CachePath>SFX/Village/sfx_environnement_os_woodwork_02_10C4C929.wem</CachePath>
 				</File>
+				<File Id="947393403" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_06.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_06_10C4C929.wem</CachePath>
+				</File>
 				<File Id="952311299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_voix_parpaings_chant_grimoire.wav</ShortName>
 					<CachePath>SFX/sfx_voix_parpaings_chant_grimoire_10C4C929.wem</CachePath>
@@ -1111,9 +1186,17 @@
 					<ShortName>Intro\sfx_plate_moving_loop.wav</ShortName>
 					<CachePath>SFX/Intro/sfx_plate_moving_loop_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="967178238" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lucas_groml\lucas_groml_02.wav</ShortName>
+					<CachePath>SFX/Lucas_groml/lucas_groml_02_10C4C929.wem</CachePath>
+				</File>
 				<File Id="967665823" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_buzz.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_buzz_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="970867704" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_01.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_01_10C4C929.wem</CachePath>
 				</File>
 				<File Id="979637916" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>fruit_quit_bag\sfx_ui_fruit_quit_bag_01.wav</ShortName>
@@ -1142,6 +1225,10 @@
 				<File Id="1022901008" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mouche\sfx_environnement_mouche_fly_loop_punch_hit_05.wav</ShortName>
 					<CachePath>SFX/mouche/sfx_environnement_mouche_fly_loop_punch_hit_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1025432739" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>gobefruit\Baptiste_voix\Baptiste_gobefruit_07.wav</ShortName>
+					<CachePath>SFX/gobefruit/Baptiste_voix/Baptiste_gobefruit_07_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1026825959" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_player_grab_rock_06.wav</ShortName>
@@ -1225,11 +1312,31 @@
 						<MediaRef Id="910182252"/>
 						<MediaRef Id="953863872"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="1772480721" Name="Play_ambiance_cascade" DurationType="OneShot" DurationMin="83.32619" DurationMax="83.32619">
 					<MediaRefs>
 						<MediaRef Id="97425024"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
+				</Event>
+				<Event Id="1357227764" Name="Play_Baptiste_rassasie" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="62020473"/>
+						<MediaRef Id="269463256"/>
+						<MediaRef Id="375918166"/>
+						<MediaRef Id="503859720"/>
+						<MediaRef Id="947393403"/>
+						<MediaRef Id="970867704"/>
+						<MediaRef Id="1025432739"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="4199381754" Name="Play_bourree" MaxAttenuation="100" DurationType="OneShot" DurationMin="11.151869" DurationMax="23.365784">
 					<MediaRefs>
@@ -1269,6 +1376,9 @@
 						<MediaRef Id="939956630"/>
 						<MediaRef Id="1001148685"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="712233415" Name="Play_Cris_et_groml" DurationType="Infinite">
 					<MediaRefs>
@@ -1311,6 +1421,9 @@
 						<MediaRef Id="939956630"/>
 						<MediaRef Id="1001148685"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="2650298779" Name="Play_CRIS_groml_cinematic" DurationType="Infinite">
 					<MediaRefs>
@@ -1335,6 +1448,9 @@
 						<MediaRef Id="395922434"/>
 						<MediaRef Id="514985283"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="102112069" Name="Play_fruit_quit_bag" DurationType="OneShot" DurationMin="0.7988756" DurationMax="1.0420713">
 					<MediaRefs>
@@ -1342,6 +1458,26 @@
 						<MediaRef Id="674001787"/>
 						<MediaRef Id="979637916"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="2833128891" Name="Play_Gobefruit" DurationType="OneShot" DurationMin="0.36307144" DurationMax="1.4685285">
+					<MediaRefs>
+						<MediaRef Id="7388456"/>
+						<MediaRef Id="57819050"/>
+						<MediaRef Id="62020473"/>
+						<MediaRef Id="69781291"/>
+						<MediaRef Id="131734818"/>
+						<MediaRef Id="203641160"/>
+						<MediaRef Id="269463256"/>
+						<MediaRef Id="279164514"/>
+						<MediaRef Id="375918166"/>
+						<MediaRef Id="503859720"/>
+						<MediaRef Id="947393403"/>
+						<MediaRef Id="970867704"/>
+						<MediaRef Id="1025432739"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="3235881831" Name="Play_grab_arm_01" DurationType="OneShot" DurationMin="0.11574783" DurationMax="0.31639615">
 					<MediaRefs>
@@ -1560,6 +1696,9 @@
 						<MediaRef Id="844617548"/>
 						<MediaRef Id="868016181"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="3371369987" Name="Play_inspi" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.53147393" DurationMax="0.72253966">
 					<MediaRefs>
@@ -1568,6 +1707,9 @@
 						<MediaRef Id="368243078"/>
 						<MediaRef Id="916003473"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="1315062901" Name="Play_kompa1" DurationType="Infinite">
 					<MediaRefs>
@@ -1602,6 +1744,43 @@
 						<MediaRef Id="683669359"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4179332304" Name="Play_lobby_RC" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="65331105"/>
+						<MediaRef Id="69044696"/>
+						<MediaRef Id="123598460"/>
+						<MediaRef Id="187522487"/>
+						<MediaRef Id="201525448"/>
+						<MediaRef Id="309754520"/>
+						<MediaRef Id="338918256"/>
+						<MediaRef Id="365540200"/>
+						<MediaRef Id="462483311"/>
+						<MediaRef Id="712916640"/>
+						<MediaRef Id="792235428"/>
+						<MediaRef Id="811206191"/>
+						<MediaRef Id="884576573"/>
+						<MediaRef Id="923013965"/>
+						<MediaRef Id="941774025"/>
+						<MediaRef Id="1050952435"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
+				</Event>
+				<Event Id="1406537358" Name="Play_Lucas_groml" MaxAttenuation="100" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="281198119"/>
+						<MediaRef Id="332516048"/>
+						<MediaRef Id="495708955"/>
+						<MediaRef Id="505334979"/>
+						<MediaRef Id="532262308"/>
+						<MediaRef Id="707246052"/>
+						<MediaRef Id="967178238"/>
+					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
+				</Event>
 				<Event Id="2228153899" Name="Play_Menu_music" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="577766838"/>
@@ -1612,6 +1791,9 @@
 						<MediaRef Id="386840007"/>
 						<MediaRef Id="967665823"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="2563752858" Name="Play_mouche_punch" DurationType="OneShot" DurationMin="0.23286228" DurationMax="0.4543761">
 					<MediaRefs>
@@ -1628,6 +1810,9 @@
 						<MediaRef Id="1047651452"/>
 						<MediaRef Id="1048767699"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="2585698532" Name="Play_rots" MaxAttenuation="100" DurationType="OneShot" DurationMin="5.0245957" DurationMax="16.1787">
 					<MediaRefs>
@@ -2047,6 +2232,9 @@
 						<MediaRef Id="941774025"/>
 						<MediaRef Id="1050952435"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3741457430" Name="REVERB_exte"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="3752548176" Name="Play_Village_Blend_01" DurationType="Infinite">
 					<MediaRefs>
@@ -2108,5 +2296,5 @@
 			<Path>test.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8FC3ED8E-0061-2969-581F-54E896E59F56}</FileHash>
+	<FileHash>{BFF33E08-46CD-FE22-145D-7D9B9C2DE886}</FileHash>
 </SoundBanksInfo>

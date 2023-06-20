@@ -22,6 +22,12 @@
 								<Property Name="Color" Type="int16" Value="23"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -29,6 +35,9 @@
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="demon" ID="{D7A821BF-5082-460C-B734-19246BC9BA03}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="REVERB_exte" ID="{E4D1E0B6-6793-4B66-94B7-08BBC66C1C22}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -3526,16 +3535,6 @@
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</BlendContainer>
-								<ActorMixer Name="ptits_demons" ID="{5C5EB4D2-994C-4E8B-AEA5-7690C4257C61}" ShortID="398562511">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
-										</Reference>
-									</ReferenceList>
-								</ActorMixer>
 								<Sound Name="SubBass_Scream" ID="{7AE0436B-B505-4ABC-B940-CB20F860D3AF}" ShortID="678584572">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
@@ -3761,19 +3760,826 @@
 										<ActiveSource Name="roman_scream_07" ID="{32DCBD7D-07ED-48B2-A3BE-95ED386ED9B2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Folder Name="gobefruit" ID="{011923AB-E4F1-45CD-98DA-8C5CDBE0B732}" ShortID="122968589">
+									<ChildrenList>
+										<RandomSequenceContainer Name="Baptiste_voix" ID="{21FFD8DA-271D-41F7-A01A-62C559BD3B6C}" ShortID="115477646">
+											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ValueList>
+														<Value>0.05</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{37325CAC-6344-4692-9C5A-839DC6D8027C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.05"/>
+																	<Property Name="Min" Type="Real64" Value="-0.05"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{D109F40C-F411-45CA-B8D6-3D2FCFE36691}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="76"/>
+																	<Property Name="Min" Type="Real64" Value="-76"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Baptiste_gobefruit_01" ID="{CE17A2DA-E545-4295-9560-6B880A734153}" ShortID="295136310">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_01" ID="{9FF89144-C3ED-40A0-9C6D-9A51861FF8C4}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="970867704"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_01" ID="{9FF89144-C3ED-40A0-9C6D-9A51861FF8C4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_02" ID="{C5325EA2-8F6E-4270-89DB-79BEFB57A339}" ShortID="29324452">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_02" ID="{CADAF648-EED0-4A95-9FE4-837F39B1B578}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="269463256"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_02" ID="{CADAF648-EED0-4A95-9FE4-837F39B1B578}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_03" ID="{8E869C88-B286-4347-969E-7A6FCDF8CF65}" ShortID="599452396">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_03" ID="{14E7EF56-832F-41EB-A788-CAEB2E8A476F}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="503859720"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_03" ID="{14E7EF56-832F-41EB-A788-CAEB2E8A476F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_04" ID="{29D2204A-591C-43C4-938D-5BD983D09DD4}" ShortID="368939124">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_04" ID="{80DA2C5F-2EC6-4F5E-8CA1-852E265EE0B4}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="375918166"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_04" ID="{80DA2C5F-2EC6-4F5E-8CA1-852E265EE0B4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_05" ID="{770F34F5-1DB3-4A95-AC00-F49C2B9CF9CB}" ShortID="297029925">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_05" ID="{224CBF77-9694-4448-AA42-A3E9167610E2}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="62020473"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_05" ID="{224CBF77-9694-4448-AA42-A3E9167610E2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_06" ID="{BE4BD7E4-D775-43F6-AEDC-B3A4322FC4A9}" ShortID="586499264">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_06" ID="{FEF2D954-3D17-4EFF-89B3-16DCEC138746}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="947393403"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_06" ID="{FEF2D954-3D17-4EFF-89B3-16DCEC138746}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_07" ID="{D5BCC2BE-77DE-4DFE-A1B4-C013E3B68093}" ShortID="5547142">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_07" ID="{F84282EA-9D9D-42EC-BE0A-069481C0CCAC}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1025432739"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_07" ID="{F84282EA-9D9D-42EC-BE0A-069481C0CCAC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="sfx_part_gobefruit" ID="{B5339E56-7780-4F22-9184-35074FBBF113}" ShortID="127178249">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{1EF3C248-5009-46A4-8159-CCE2FE64442C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="76"/>
+																	<Property Name="Min" Type="Real64" Value="-50"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="sfx_ui_fruit_gobbe_01" ID="{6CA84841-E85F-47AB-B50D-13EC61B63CFA}" ShortID="40176407">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_01" ID="{8D762194-DE81-4890-8119-01C43D5A221A}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="279164514"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_01" ID="{8D762194-DE81-4890-8119-01C43D5A221A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_fruit_gobbe_02" ID="{A1EAF425-F92A-4B19-B17D-02B2578AA149}" ShortID="597923714">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_02" ID="{6B4BD78B-3268-43EB-BD6D-94AEAFB9872E}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="7388456"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_02" ID="{6B4BD78B-3268-43EB-BD6D-94AEAFB9872E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_fruit_gobbe_03" ID="{60CFF558-736D-4908-955A-1E481D639D96}" ShortID="727286648">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_03" ID="{46152150-36B3-441F-8ED2-C29F8B5E58DE}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="69781291"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_03" ID="{46152150-36B3-441F-8ED2-C29F8B5E58DE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_fruit_gobbe_04" ID="{782B457D-A11C-48B5-BCE1-3BFFA1BCCB9C}" ShortID="858268757">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_04" ID="{014A19D8-545F-4172-9089-9D22EF3CE6D7}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="203641160"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_04" ID="{014A19D8-545F-4172-9089-9D22EF3CE6D7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_fruit_gobbe_05" ID="{2F209808-60A4-45BA-8632-22BFA81E3212}" ShortID="311482764">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_05" ID="{1094D17E-8D83-442F-AA0A-90D97758E367}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="57819050"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_05" ID="{1094D17E-8D83-442F-AA0A-90D97758E367}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="sfx_ui_fruit_gobbe_06" ID="{8B739B20-0AB3-4A5B-8F26-EBCE15B92642}" ShortID="672676809">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="sfx_ui_fruit_gobbe_06" ID="{DCD86436-03C3-425E-BA8B-4E534B7CE9FC}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\sfx_part_gobefruit\sfx_ui_fruit_gobbe_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="131734818"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="sfx_ui_fruit_gobbe_06" ID="{DCD86436-03C3-425E-BA8B-4E534B7CE9FC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="Baptiste_voix_rassasie" ID="{5C50E045-436C-46EC-9133-9910E6D611FA}" ShortID="625310779">
+											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ValueList>
+														<Value>0.05</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{2DA50C6A-E63B-4EF5-AF52-417DABB65F50}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="0.05"/>
+																	<Property Name="Min" Type="Real64" Value="-0.05"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{5833B0B9-BE8A-4B7D-A8E2-57B16C68E0EB}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="76"/>
+																	<Property Name="Min" Type="Real64" Value="-76"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{74F80C48-9C2E-401B-959B-9DC6CC96F014}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="1"/>
+																	<Property Name="Min" Type="Real64" Value="-2"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Baptiste_gobefruit_01" ID="{8AC6F941-F3DF-4C93-896D-BFF8E7CA3A74}" ShortID="559919589">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_01" ID="{B3AC4EB1-2108-4AB3-A626-C18EE834A75B}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="970867704"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_01" ID="{B3AC4EB1-2108-4AB3-A626-C18EE834A75B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_02" ID="{F507F4BA-B212-4FB0-AFAE-A49404804896}" ShortID="175602449">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_02" ID="{B9A526DF-1479-4AF7-84B4-23123D0497FE}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="269463256"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_02" ID="{B9A526DF-1479-4AF7-84B4-23123D0497FE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_03" ID="{2339F68A-EFCE-4A48-908F-052AD6CF0195}" ShortID="831267117">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_03" ID="{9459193F-44C5-41D6-BBEB-E0668934242A}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="503859720"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_03" ID="{9459193F-44C5-41D6-BBEB-E0668934242A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_04" ID="{5411E471-F5C2-4C90-B8E7-1BBF5464482D}" ShortID="531707529">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_04" ID="{E52F6B4F-4C1E-411C-BCDD-FA677D8CA988}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="375918166"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_04" ID="{E52F6B4F-4C1E-411C-BCDD-FA677D8CA988}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_05" ID="{E49C3FB8-B9F9-4BF7-B8C1-60BF1EC069A4}" ShortID="906208295">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_05" ID="{0588ABDA-4D58-42D3-9259-EB93F3696BE0}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="62020473"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_05" ID="{0588ABDA-4D58-42D3-9259-EB93F3696BE0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_06" ID="{9E8D5882-8B9A-4F4B-96DA-6538993B43EC}" ShortID="1017608314">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_06" ID="{E0B39D21-7982-48CF-BE26-BFD166ADA2B0}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_06.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="947393403"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_06" ID="{E0B39D21-7982-48CF-BE26-BFD166ADA2B0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Baptiste_gobefruit_07" ID="{B3E782C1-E156-4C94-AF13-E99841B4F1D0}" ShortID="287890254">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Baptiste_gobefruit_07" ID="{C4E5BBF3-ECAD-426F-8E61-F0C7AE07F9B4}">
+															<Language>SFX</Language>
+															<AudioFile>gobefruit\Baptiste_voix\Baptiste_gobefruit_07.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1025432739"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Baptiste_gobefruit_07" ID="{C4E5BBF3-ECAD-426F-8E61-F0C7AE07F9B4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<RandomSequenceContainer Name="Lucas_groml" ID="{97E29D29-62DC-4EDD-8685-1BBC51CC51C5}" ShortID="96216485">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F057EF69-2B73-4C21-9667-B677035EC5E5}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="76"/>
+															<Property Name="Min" Type="Real64" Value="-51"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6CD84ADE-643F-455C-A639-50D3AB9C91E1}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="1"/>
+															<Property Name="Min" Type="Real64" Value="-2"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Demon_Attenuation" ID="{D29F3F1C-A919-4F55-9B6A-4C8F35172E1E}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="scream" ID="{3EA769D5-A65D-44D5-9481-7273BFB17E37}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="lucas_groml_01" ID="{D9801774-C3D1-4C49-8853-FD04EA28F668}" ShortID="744886894">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_01" ID="{1D0C9B06-8565-4D8D-B6A3-724D9313BCEF}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="707246052"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_01" ID="{1D0C9B06-8565-4D8D-B6A3-724D9313BCEF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_02" ID="{F4F37F1F-5621-4DB1-99DC-A339CD8DB02F}" ShortID="663041420">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_02" ID="{F873D1FE-22FE-4EB0-923B-8066BCC5545A}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_02.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="967178238"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_02" ID="{F873D1FE-22FE-4EB0-923B-8066BCC5545A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_03" ID="{90C8A29B-27EA-4A9D-9524-F42B9B771440}" ShortID="941712790">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_03" ID="{285CF531-5AC1-426A-BB02-773D9F20085C}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_03.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="332516048"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_03" ID="{285CF531-5AC1-426A-BB02-773D9F20085C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_04" ID="{9316EED6-918E-45FC-879F-F242E9C97C96}" ShortID="306635664">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_04" ID="{8043469F-135F-4104-9551-B7C610B7837B}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_04.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="532262308"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_04" ID="{8043469F-135F-4104-9551-B7C610B7837B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_05" ID="{F057049D-D7E3-4879-BD0F-471913888CD4}" ShortID="923503357">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_05" ID="{5FC0870E-2B9C-41DC-B1E6-2F69957C6CFA}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_05.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="495708955"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_05" ID="{5FC0870E-2B9C-41DC-B1E6-2F69957C6CFA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_06" ID="{AFA7DBEF-1642-48E5-914A-5D6BD0715F6C}" ShortID="56605909">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_06" ID="{89B3BCE5-4145-478A-AEB4-CB36A1646720}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_06.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="505334979"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_06" ID="{89B3BCE5-4145-478A-AEB4-CB36A1646720}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="lucas_groml_07" ID="{D60FF6DD-8C9A-4919-BAB4-B4874252A576}" ShortID="1016396071">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="lucas_groml_07" ID="{6A9C1F13-C774-4321-8685-65424DA0C28D}">
+													<Language>SFX</Language>
+													<AudioFile>Lucas_groml\lucas_groml_07.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="281198119"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="lucas_groml_07" ID="{6A9C1F13-C774-4321-8685-65424DA0C28D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="environnement" ID="{C91DCBEC-3475-41C9-AF8F-850FC8A75D81}" ShortID="280885265">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="17"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+									<ObjectRef Name="environnement" ID="{AFCA2429-C62E-4B5F-A9E2-7675E86B9DF9}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="REVERB_exte" ID="{E4D1E0B6-6793-4B66-94B7-08BBC66C1C22}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -5860,6 +6666,1770 @@
 														</RandomSequenceContainer>
 													</ChildrenList>
 												</BlendContainer>
+												<Folder Name="Amb_lobby" ID="{0B7C1A66-6995-4138-919B-0FC056E4FCC8}" ShortID="638016429">
+													<ChildrenList>
+														<RandomSequenceContainer Name="lobby_RC" ID="{2D45A4EC-66C6-462F-8B7F-FBB63566E0CD}" ShortID="568623777">
+															<PropertyList>
+																<Property Name="3DPosition" Type="int16" Value="1"/>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="OverridePositioning" Type="bool" Value="True"/>
+																<Property Name="Pitch" Type="int32">
+																	<ModifierList>
+																		<ModifierInfo>
+																			<Modifier Name="" ID="{64C4CEF3-184D-45BE-AAFA-D599AB98EF6F}">
+																				<PropertyList>
+																					<Property Name="Enabled" Type="bool" Value="True"/>
+																					<Property Name="Max" Type="Real64" Value="76"/>
+																					<Property Name="Min" Type="Real64" Value="-76"/>
+																				</PropertyList>
+																			</Modifier>
+																		</ModifierInfo>
+																	</ModifierList>
+																</Property>
+																<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+																<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+																<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="1.5">
+																	<ModifierList>
+																		<ModifierInfo>
+																			<Modifier Name="" ID="{1735A802-0D20-42CB-A9F7-1341D8C3FBDB}">
+																				<PropertyList>
+																					<Property Name="Enabled" Type="bool" Value="True"/>
+																					<Property Name="Max" Type="Real64" Value="1"/>
+																					<Property Name="Min" Type="Real64" Value="-1.5"/>
+																				</PropertyList>
+																			</Modifier>
+																		</ModifierInfo>
+																	</ModifierList>
+																</Property>
+																<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+																<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Village_Attenuation" ID="{A7725A7C-7C6F-44CD-806E-D4D1BE72DB68}" WorkUnitID="{48266994-8877-4C67-AC09-D01E6B01DA8B}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<RandomSequenceContainer Name="hammer_RC" ID="{E8054DC4-DC73-4BA0-A707-8ECF2D5A7C7D}" ShortID="545647240">
+																	<PropertyList>
+																		<Property Name="3DPosition" Type="int16" Value="2"/>
+																		<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																		<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+																		<Property Name="Highpass" Type="int16">
+																			<ValueList>
+																				<Value>20</Value>
+																			</ValueList>
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{772B7B59-ACD0-482F-A6EF-4454002BCE26}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="20"/>
+																							<Property Name="Min" Type="Real64" Value="-5"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="Lowpass" Type="int16">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{010EC48C-8AE8-434F-97E6-009FD098CC6D}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="16"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="Pitch" Type="int32">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{7E2E1EAF-9097-4969-86FD-FE7AABABE3A5}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="26"/>
+																							<Property Name="Min" Type="Real64" Value="-25"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+																		<Property Name="Volume" Type="Real64">
+																			<ValueList>
+																				<Value>-3</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<RandomSequenceContainer Name="sfx_environnement_os_hammer" ID="{67D0FF07-6689-4BB0-8521-7D360B6807A0}" ShortID="262680482">
+																			<PropertyList>
+																				<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{C14B96C9-86E6-49A0-9166-E0E1AAFC1E17}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="76"/>
+																									<Property Name="Min" Type="Real64" Value="-50"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+																				<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																				<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="1.5">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{DA502BE7-5417-4620-BD5D-635A7B2FAA11}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="3"/>
+																									<Property Name="Min" Type="Real64" Value="-1"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+																				<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+																				<Property Name="Volume" Type="Real64">
+																					<ValueList>
+																						<Value>-2</Value>
+																					</ValueList>
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{07459FB6-CA38-4567-838A-1E65623F6C26}">
+																								<PropertyList>
+																									<Property Name="Min" Type="Real64" Value="-7"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<Sound Name="sfx_environnement_os_hammer_01" ID="{2DD8EE2A-1C2D-4FEF-B57F-91849DDF03C5}" ShortID="67019002">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_01" ID="{9EA1282E-05F0-4952-942D-5F6425D2A202}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_01.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="69044696"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_01" ID="{9EA1282E-05F0-4952-942D-5F6425D2A202}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_02" ID="{3A9DC441-8820-4085-8484-90647C46AE45}" ShortID="553686417">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_02" ID="{F518E2D8-EC98-4DAB-A629-8EA63DCEEFBB}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_02.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="123598460"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_02" ID="{F518E2D8-EC98-4DAB-A629-8EA63DCEEFBB}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_03" ID="{B9BFC5BE-DAD7-4051-A086-2D963E8AC834}" ShortID="170697596">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_03" ID="{EBBABAB7-8A67-4535-A4F3-BED88CB6378C}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_03.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="884576573"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_03" ID="{EBBABAB7-8A67-4535-A4F3-BED88CB6378C}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_04" ID="{E370789D-3C73-48AA-9916-0A23F8CFA1ED}" ShortID="281982947">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_04" ID="{69C53733-A911-4ED8-88C3-BB587909E140}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_04.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="712916640"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_04" ID="{69C53733-A911-4ED8-88C3-BB587909E140}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_05" ID="{6630B669-018F-4E26-8006-C35F0B1D7659}" ShortID="55876454">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_05" ID="{39036488-7D83-44EB-AA6A-5770D2A27EE2}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_05.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="309754520"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_05" ID="{39036488-7D83-44EB-AA6A-5770D2A27EE2}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																			</ChildrenList>
+																			<PositioningInfo>
+																				<Position Name="" ID="{60BEFFA6-3F6D-4AF2-8623-EF9E1B60AD3C}">
+																					<PropertyList>
+																						<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+																					</PropertyList>
+																					<ChildrenList>
+																						<Path2D Name="sfx_environnement_os_hammer_Path" ID="{C422BF07-A8FD-4D32-891C-468BE67FC86E}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-3.04569</XPos>
+																									<YPos>50</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_01" ID="{289E175D-6F40-4014-B320-2BB570836CEA}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>70.55837</XPos>
+																									<YPos>65.81921</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_02" ID="{2D271E0F-E412-4B55-97B5-79F623F46F01}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-57.36041</XPos>
+																									<YPos>64.12429</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_03" ID="{0CFA1C4D-4CF4-4AAE-9C5F-5F2D3E318915}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-88.83249</XPos>
+																									<YPos>18.92655</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_04" ID="{E144B201-32EF-468D-9499-9A178C0388AF}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>89.3401</XPos>
+																									<YPos>13.27684</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_05" ID="{6CFFF44F-6D42-4EDC-80E5-ADDCBC81B064}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-64.46701</XPos>
+																									<YPos>86.15819</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_06" ID="{4780BBEC-904F-4A74-81FC-60F575DAC7E2}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>76.14213</XPos>
+																									<YPos>88.98305</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																					</ChildrenList>
+																				</Position>
+																			</PositioningInfo>
+																		</RandomSequenceContainer>
+																		<RandomSequenceContainer Name="sfx_environnement_os_hammer_01" ID="{2291B5AD-D34F-4998-9AB1-C330F29131F3}" ShortID="576960183">
+																			<PropertyList>
+																				<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{4201E83A-50F6-46E1-A5A5-78FA0DF7D743}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="76"/>
+																									<Property Name="Min" Type="Real64" Value="-50"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+																				<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																				<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{054290FC-D035-4137-BF7D-B501E2E9EF5E}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="5"/>
+																									<Property Name="Min" Type="Real64" Value="-1"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+																				<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+																				<Property Name="Volume" Type="Real64">
+																					<ValueList>
+																						<Value>-2</Value>
+																					</ValueList>
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{C0B87611-88DD-4E5B-B477-EBC943404541}">
+																								<PropertyList>
+																									<Property Name="Min" Type="Real64" Value="-7"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<Sound Name="sfx_environnement_os_hammer_01" ID="{D388D324-B014-443E-9E76-9AACD51F46AD}" ShortID="115926279">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_01" ID="{84168E19-6EA2-4E43-BA1D-D63418578C44}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_01.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="69044696"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_01" ID="{84168E19-6EA2-4E43-BA1D-D63418578C44}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_02" ID="{6696D0DE-59E2-4E3E-9A2D-E29AA0853F98}" ShortID="473827576">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_02" ID="{E6E81E3D-C551-463D-9B6A-01F9353C1A35}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_02.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="123598460"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_02" ID="{E6E81E3D-C551-463D-9B6A-01F9353C1A35}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_03" ID="{8F3F1D8A-82F3-4E7D-BB70-9F1BFD33BFB0}" ShortID="308489556">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_03" ID="{46CE3599-DA55-43A9-807B-AD0ED6389641}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_03.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="884576573"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_03" ID="{46CE3599-DA55-43A9-807B-AD0ED6389641}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_04" ID="{FF16D6D1-4C15-4C0F-A990-F1F5610A6041}" ShortID="800284528">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_04" ID="{19B22D43-314C-48A1-867B-DCA1F16805E5}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_04.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="712916640"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_04" ID="{19B22D43-314C-48A1-867B-DCA1F16805E5}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																				<Sound Name="sfx_environnement_os_hammer_05" ID="{CA1C8C2D-3BB6-4144-BA63-5BC3C5BE529F}" ShortID="948568797">
+																					<ReferenceList>
+																						<Reference Name="Conversion">
+																							<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																						</Reference>
+																						<Reference Name="OutputBus">
+																							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																						</Reference>
+																					</ReferenceList>
+																					<ChildrenList>
+																						<AudioFileSource Name="sfx_environnement_os_hammer_05" ID="{2F57213A-C478-47A8-809B-D079881098B2}">
+																							<Language>SFX</Language>
+																							<AudioFile>Village\sfx_environnement_os_hammer_05.wav</AudioFile>
+																							<MediaIDList>
+																								<MediaID ID="309754520"/>
+																							</MediaIDList>
+																						</AudioFileSource>
+																					</ChildrenList>
+																					<ActiveSourceList>
+																						<ActiveSource Name="sfx_environnement_os_hammer_05" ID="{2F57213A-C478-47A8-809B-D079881098B2}" Platform="Linked"/>
+																					</ActiveSourceList>
+																				</Sound>
+																			</ChildrenList>
+																			<PositioningInfo>
+																				<Position Name="" ID="{B00D0485-1F96-4368-A065-4B99A3BB4001}">
+																					<PropertyList>
+																						<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+																					</PropertyList>
+																					<ChildrenList>
+																						<Path2D Name="sfx_environnement_os_hammer_Path" ID="{DDF206C3-70B6-4E6B-AD27-CE09103B2791}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-3.04569</XPos>
+																									<YPos>50</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_01" ID="{951EAB58-0405-45E3-8D10-40E2EA479BA8}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>70.55837</XPos>
+																									<YPos>65.81921</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_02" ID="{0F521279-2363-4D4B-8D74-633F2DDDA500}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-57.36041</XPos>
+																									<YPos>64.12429</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_03" ID="{E1E14341-81EE-4FCE-ADFC-B67C642FF0BA}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-88.83249</XPos>
+																									<YPos>18.92655</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_04" ID="{FA2A0B9C-389F-485F-B89B-2F53AA3A9529}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>89.3401</XPos>
+																									<YPos>13.27684</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_05" ID="{A0CEC515-884F-4F46-8957-C56D7225B593}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>-64.46701</XPos>
+																									<YPos>86.15819</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																						<Path2D Name="sfx_environnement_os_hammer_Path_06" ID="{B3325E5F-513A-4410-8838-F9AF8389394B}">
+																							<PropertyList>
+																								<Property Name="RandomX" Type="Real64" Value="18"/>
+																								<Property Name="RandomY" Type="Real64" Value="16"/>
+																							</PropertyList>
+																							<PointList>
+																								<Point>
+																									<XPos>76.14213</XPos>
+																									<YPos>88.98305</YPos>
+																									<Flags>12</Flags>
+																									<Time>0</Time>
+																								</Point>
+																							</PointList>
+																						</Path2D>
+																					</ChildrenList>
+																				</Position>
+																			</PositioningInfo>
+																		</RandomSequenceContainer>
+																	</ChildrenList>
+																	<PositioningInfo>
+																		<Position Name="" ID="{56A1F9CF-579A-4AEC-B161-2BFA2CFE8C27}">
+																			<ChildrenList>
+																				<Path2D Name="hammer_RC_Path" ID="{BA84B86E-E264-40EB-A8B5-960DE499319B}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="41"/>
+																						<Property Name="RandomY" Type="Real64" Value="55"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>50</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="hammer_RC_Path_01" ID="{79F9F118-F440-4CF3-B117-FF6E62404265}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="38"/>
+																						<Property Name="RandomY" Type="Real64" Value="26"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-69.54315</XPos>
+																							<YPos>65.81921</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="hammer_RC_Path_02" ID="{96F36F6E-C4DF-4319-938B-6660393B7C65}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="38"/>
+																						<Property Name="RandomY" Type="Real64" Value="26"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>64.97462</XPos>
+																							<YPos>59.60452</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																			</ChildrenList>
+																		</Position>
+																	</PositioningInfo>
+																</RandomSequenceContainer>
+																<RandomSequenceContainer Name="sfx_environnement_os_drill" ID="{B4DF337E-00EF-41E2-8FE2-8C612E29D399}" ShortID="378165839">
+																	<PropertyList>
+																		<Property Name="3DPosition" Type="int16" Value="2"/>
+																		<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																		<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+																		<Property Name="InitialDelay" Type="Real64">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{C77C9086-74FF-41C1-AAE6-AEBF2A76119A}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="Pitch" Type="int32">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{B99CF078-FE62-46D4-A659-A3D1E3610EF5}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="76"/>
+																							<Property Name="Min" Type="Real64" Value="-50"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+																		<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																		<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{3313FD21-AD9A-4CD0-83A2-FA85FEA5A617}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="6"/>
+																							<Property Name="Min" Type="Real64" Value="-1"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+																		<Property Name="Volume" Type="Real64">
+																			<ValueList>
+																				<Value>-2</Value>
+																			</ValueList>
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{3900D368-31CF-4F99-8A97-0CD8018003A4}">
+																						<PropertyList>
+																							<Property Name="Min" Type="Real64" Value="-7"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<Sound Name="sfx_environnement_os_drill_01" ID="{4B45A12B-EAC0-42EB-B5A5-8702DE9FB398}" ShortID="357261027">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{7049888A-3D2F-4C09-90E7-E6B235E47F3C}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="Volume" Type="Real64">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{A4554287-A4A9-4578-BC14-731C6D951C55}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Min" Type="Real64" Value="-8"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_drill_01" ID="{F0319579-D5ED-4D6C-805B-EB6A0312356F}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_drill_01.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="792235428"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_drill_01" ID="{F0319579-D5ED-4D6C-805B-EB6A0312356F}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_drill_02" ID="{4565AEFB-FDA0-40CB-AC90-E720F37537E2}" ShortID="817586080">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{AC8071AF-49F4-4180-A4EB-6A7CBF2074AC}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="Volume" Type="Real64">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{CE4A2055-13DC-4AE4-A94A-214A2622E9F7}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Min" Type="Real64" Value="-8"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_drill_02" ID="{50F73D62-D471-48F5-A5A4-DDF514510A9F}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_drill_02.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="201525448"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_drill_02" ID="{50F73D62-D471-48F5-A5A4-DDF514510A9F}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_drill_03" ID="{8AEBDF98-172B-4378-BD45-4341C52C09EC}" ShortID="911689274">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{EF76966B-188F-468A-8325-A910E0E758A1}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="Volume" Type="Real64">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{D186F582-C4C9-4976-9656-6E42032EA3B5}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Min" Type="Real64" Value="-8"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_drill_03" ID="{C8AFC03E-D3C2-4EBE-888C-50B69F3AA4A9}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_drill_03.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="811206191"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_drill_03" ID="{C8AFC03E-D3C2-4EBE-888C-50B69F3AA4A9}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_drill_04" ID="{2A029A62-42F8-4A12-ADDF-AFC08E62B427}" ShortID="846084662">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{72A9871D-3BDA-40F9-9386-4C4C5544969B}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="Volume" Type="Real64">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{9BE4245E-7F5A-4567-AB40-61F6C4DA3F0A}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Min" Type="Real64" Value="-8"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_drill_04" ID="{D80592B6-752E-4C4A-B43D-7C52B3E68DC5}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_drill_04.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="462483311"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_drill_04" ID="{D80592B6-752E-4C4A-B43D-7C52B3E68DC5}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_drill_05" ID="{02E13D90-3A4B-482E-8399-AAA146C129A2}" ShortID="559493577">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{CAB56843-969B-48F8-BABC-5D9221C9EA03}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																				<Property Name="Volume" Type="Real64">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{48BE7250-173D-4628-9789-A9973B3DB3F9}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Min" Type="Real64" Value="-8"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_drill_05" ID="{17EFC271-E738-4981-8203-CB57EF193B03}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_drill_05.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="1050952435"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_drill_05" ID="{17EFC271-E738-4981-8203-CB57EF193B03}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																	</ChildrenList>
+																	<PositioningInfo>
+																		<Position Name="" ID="{5C43863C-1B86-43EE-AE74-BBE8636AF7B7}">
+																			<PropertyList>
+																				<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+																				<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+																			</PropertyList>
+																			<ChildrenList>
+																				<Path2D Name="sfx_environnement_os_drill_Path_01" ID="{D33BFF77-65D8-4B44-ADCD-86E87A7F267C}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="13"/>
+																						<Property Name="RandomY" Type="Real64" Value="11"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>45.17767</XPos>
+																							<YPos>77.11865</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																						<Point>
+																							<XPos>47.20812</XPos>
+																							<YPos>74.57627</YPos>
+																							<Flags>0</Flags>
+																							<Time>5000</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path" ID="{F02C604B-0BEA-4CE7-8A03-FD140C7C0A3A}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="13"/>
+																						<Property Name="RandomY" Type="Real64" Value="13"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-66.49746</XPos>
+																							<YPos>53.38983</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_02" ID="{83D77309-B14F-4701-85E3-4C1FA9E748DE}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="12"/>
+																						<Property Name="RandomY" Type="Real64" Value="13"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>82.74112</XPos>
+																							<YPos>84.46328</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_03" ID="{12D0DAFA-97C2-445E-A69A-442FC0E374D1}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="15"/>
+																						<Property Name="RandomY" Type="Real64" Value="14"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-83.24873</XPos>
+																							<YPos>73.16384</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_04" ID="{AEE3D122-6DEF-428D-9FF3-2921BEA4D0F4}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="19"/>
+																						<Property Name="RandomY" Type="Real64" Value="18"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-8.62944</XPos>
+																							<YPos>81.07345</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_05" ID="{51107529-0190-4699-A5DA-C7A44C3F5FBF}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="18"/>
+																						<Property Name="RandomY" Type="Real64" Value="8"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>21.3198</XPos>
+																							<YPos>80.50847</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_06" ID="{18E635F4-1033-4826-898F-87518BCA7E28}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="12"/>
+																						<Property Name="RandomY" Type="Real64" Value="18"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-85.7868</XPos>
+																							<YPos>4.80226</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_07" ID="{CE937182-62BF-4F36-89E4-05AE65B4A4F1}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="18"/>
+																						<Property Name="RandomY" Type="Real64" Value="24"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>74.11168</XPos>
+																							<YPos>12.71186</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_08" ID="{613CE3C9-C982-410E-893E-33228C929239}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="22"/>
+																						<Property Name="RandomY" Type="Real64" Value="12"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>51.77665</XPos>
+																							<YPos>95.19774</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_drill_Path_09" ID="{EB45F327-CC7C-45DF-921F-20F008A41C64}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="15"/>
+																						<Property Name="RandomY" Type="Real64" Value="15"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-51.77665</XPos>
+																							<YPos>91.24294</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																			</ChildrenList>
+																		</Position>
+																	</PositioningInfo>
+																</RandomSequenceContainer>
+																<RandomSequenceContainer Name="sfx_environnement_os_jackhammer" ID="{0F687C48-F9B1-40D1-A177-2F8166DC36A5}" ShortID="141295293">
+																	<PropertyList>
+																		<Property Name="3DPosition" Type="int16" Value="2"/>
+																		<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																		<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+																		<Property Name="Pitch" Type="int32">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{A4914931-1400-47AC-99AD-F663178894FC}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="76"/>
+																							<Property Name="Min" Type="Real64" Value="-50"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+																		<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																		<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{9E25E812-A7AC-4579-95A4-2AC90FF08293}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="4"/>
+																							<Property Name="Min" Type="Real64" Value="-1"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<Sound Name="sfx_environnement_os_jackhammer_01" ID="{FFDE3E9D-DE06-427D-8960-3D8B88C8681A}" ShortID="335570786">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{F05CD54E-47D2-4655-852F-850FCAA599AD}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="51"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_jackhammer_01" ID="{C4B34E08-6B56-4E53-A436-C55BBF78A151}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_jackhammer_01.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="338918256"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_jackhammer_01" ID="{C4B34E08-6B56-4E53-A436-C55BBF78A151}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_jackhammer_02" ID="{0ECEFBCE-4C15-45B9-8571-CDB576ED0ECC}" ShortID="648547751">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{56D2ED4C-59BF-4E78-B76D-6139891ED062}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="51"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_jackhammer_02" ID="{1CB47A86-F3C0-4DED-AB95-022DCFE6F26A}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_jackhammer_02.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="65331105"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_jackhammer_02" ID="{1CB47A86-F3C0-4DED-AB95-022DCFE6F26A}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_jackhammer_03" ID="{0D17A2A7-9BDA-4720-A9F7-ADAE22400FC0}" ShortID="198485017">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{37BC4B43-F5FA-4720-BB5E-E4836739CFB7}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="51"/>
+																									<Property Name="Min" Type="Real64" Value="-25"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_jackhammer_03" ID="{90B6987C-2937-435E-B323-B22DC2B1D374}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_jackhammer_03.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="365540200"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_jackhammer_03" ID="{90B6987C-2937-435E-B323-B22DC2B1D374}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																	</ChildrenList>
+																	<PositioningInfo>
+																		<Position Name="" ID="{7AEA1766-5A11-4DFB-B679-32620C766CFB}">
+																			<PropertyList>
+																				<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+																				<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+																			</PropertyList>
+																			<ChildrenList>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path" ID="{C0200946-407C-4C18-BAEF-5815502A9256}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-46.1929</XPos>
+																							<YPos>64.1243</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path_01" ID="{BE0E9C8A-BA93-4C4F-A387-0A1385DBC739}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>69.03553</XPos>
+																							<YPos>64.1243</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path_02" ID="{B97C8C24-08F4-43D6-95D4-0A94BF1B3100}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-0.50762</XPos>
+																							<YPos>37.57063</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path_03" ID="{4B33BC89-DAED-46F4-A109-8B35ABDF7459}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-1E-05</XPos>
+																							<YPos>84.46328</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path_04" ID="{432E4195-2376-47F6-9A41-96A9B1690E95}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-88.83249</XPos>
+																							<YPos>78.24859</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_jackhammer_Pathsfx_environnement_os_jackhammer_Path_05" ID="{8007D12F-037E-4D3B-A347-B306F1704129}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="30"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>83.24873</XPos>
+																							<YPos>86.15819</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																			</ChildrenList>
+																		</Position>
+																	</PositioningInfo>
+																</RandomSequenceContainer>
+																<RandomSequenceContainer Name="sfx_environnement_os_woodwork" ID="{FFCBC49D-47C6-48F1-87D3-C59025A982A1}" ShortID="243182457">
+																	<PropertyList>
+																		<Property Name="3DPosition" Type="int16" Value="2"/>
+																		<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																		<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+																		<Property Name="InitialDelay" Type="Real64">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{4475622D-352E-4E8F-9E61-BC8BCE731224}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="Pitch" Type="int32">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{CEE44B77-A8E6-42C7-9649-F95EBA0EB612}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="76"/>
+																							<Property Name="Min" Type="Real64" Value="-50"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+																		<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+																		<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0">
+																			<ModifierList>
+																				<ModifierInfo>
+																					<Modifier Name="" ID="{98E52C13-FD94-460D-AAFD-A784CBFD3062}">
+																						<PropertyList>
+																							<Property Name="Enabled" Type="bool" Value="True"/>
+																							<Property Name="Max" Type="Real64" Value="3"/>
+																							<Property Name="Min" Type="Real64" Value="-0.5"/>
+																						</PropertyList>
+																					</Modifier>
+																				</ModifierInfo>
+																			</ModifierList>
+																		</Property>
+																		<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+																		<Property Name="Volume" Type="Real64">
+																			<ValueList>
+																				<Value>3</Value>
+																			</ValueList>
+																		</Property>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<Sound Name="sfx_environnement_os_woodwork_01" ID="{53DFEB4D-77D5-463E-B0FE-D5857FE90926}" ShortID="370131887">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{4222485E-5097-4810-B04A-606AFB7EB3AC}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-51"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_woodwork_01" ID="{DA6077B9-6349-4B1D-A333-681A5ECEA497}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_woodwork_01.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="923013965"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_woodwork_01" ID="{DA6077B9-6349-4B1D-A333-681A5ECEA497}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_woodwork_02" ID="{9C9C938B-CE3B-4D79-8A97-9BD6DA596728}" ShortID="45274820">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{72894E89-BA5B-4BA4-B473-80E69EF1122A}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-51"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_woodwork_02" ID="{5B9E2B07-2F65-46D0-8F07-342436B798C4}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_woodwork_02.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="941774025"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_woodwork_02" ID="{5B9E2B07-2F65-46D0-8F07-342436B798C4}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																		<Sound Name="sfx_environnement_os_woodwork_03" ID="{1C3A334C-0897-4A5F-A892-2D36402E460C}" ShortID="90555198">
+																			<PropertyList>
+																				<Property Name="Pitch" Type="int32">
+																					<ModifierList>
+																						<ModifierInfo>
+																							<Modifier Name="" ID="{C26BEFFB-3DDF-4E4E-8A96-E8F3132C6101}">
+																								<PropertyList>
+																									<Property Name="Enabled" Type="bool" Value="True"/>
+																									<Property Name="Max" Type="Real64" Value="25"/>
+																									<Property Name="Min" Type="Real64" Value="-51"/>
+																								</PropertyList>
+																							</Modifier>
+																						</ModifierInfo>
+																					</ModifierList>
+																				</Property>
+																			</PropertyList>
+																			<ReferenceList>
+																				<Reference Name="Conversion">
+																					<ObjectRef Name="AAAaaaAAh_Conversion Settings" ID="{00EFFF77-2E2A-4B33-B3B1-27C19E31D7F2}" WorkUnitID="{582882CA-FD76-4854-B6CC-35E13B4E978B}"/>
+																				</Reference>
+																				<Reference Name="OutputBus">
+																					<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+																				</Reference>
+																			</ReferenceList>
+																			<ChildrenList>
+																				<AudioFileSource Name="sfx_environnement_os_woodwork_03" ID="{20D46B47-5CD2-4C09-B8F0-94A75CDBDA2A}">
+																					<Language>SFX</Language>
+																					<AudioFile>Village\sfx_environnement_os_woodwork_03.wav</AudioFile>
+																					<MediaIDList>
+																						<MediaID ID="187522487"/>
+																					</MediaIDList>
+																				</AudioFileSource>
+																			</ChildrenList>
+																			<ActiveSourceList>
+																				<ActiveSource Name="sfx_environnement_os_woodwork_03" ID="{20D46B47-5CD2-4C09-B8F0-94A75CDBDA2A}" Platform="Linked"/>
+																			</ActiveSourceList>
+																		</Sound>
+																	</ChildrenList>
+																	<PositioningInfo>
+																		<Position Name="" ID="{8FB991B3-8852-4471-974B-BD39015E899B}">
+																			<PropertyList>
+																				<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+																			</PropertyList>
+																			<ChildrenList>
+																				<Path2D Name="sfx_environnement_os_woodwork_Path" ID="{7807D189-125B-4E7D-B939-B17014342D85}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="26"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>0</XPos>
+																							<YPos>50</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_woodwork_Path_01" ID="{BB5452C8-A810-47C7-A209-721D55F381C3}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="26"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-80.71066</XPos>
+																							<YPos>59.03955</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_woodwork_Path_02" ID="{75BB01DF-D072-472D-B7C6-86FB11F90648}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="26"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>69.54315</XPos>
+																							<YPos>65.25424</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_woodwork_Path_03" ID="{23AB9414-CEA6-4D7E-AF34-5E6EA72E2746}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="26"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>-94.41624</XPos>
+																							<YPos>20.0565</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																				<Path2D Name="sfx_environnement_os_woodwork_Path_04" ID="{B61D61DF-20C7-48D8-83C5-5140CD44DB61}">
+																					<PropertyList>
+																						<Property Name="RandomX" Type="Real64" Value="26"/>
+																						<Property Name="RandomY" Type="Real64" Value="31"/>
+																					</PropertyList>
+																					<PointList>
+																						<Point>
+																							<XPos>88.83249</XPos>
+																							<YPos>87.28814</YPos>
+																							<Flags>12</Flags>
+																							<Time>0</Time>
+																						</Point>
+																					</PointList>
+																				</Path2D>
+																			</ChildrenList>
+																		</Position>
+																	</PositioningInfo>
+																</RandomSequenceContainer>
+															</ChildrenList>
+															<PositioningInfo>
+																<Position Name="" ID="{A27DA3B6-3937-43F3-9DF1-84E74A27E51A}">
+																	<PropertyList>
+																		<Property Name="NewPathForEachSound" Type="bool" Value="True"/>
+																		<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+																	</PropertyList>
+																	<ChildrenList>
+																		<Path2D Name="lobby_RC_Path" ID="{787F5D3A-B9F8-4389-BE0A-7A93D25ED0EE}">
+																			<PointList>
+																				<Point>
+																					<XPos>-8.12183</XPos>
+																					<YPos>5.9322</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																		<Path2D Name="lobby_RC_Path_01" ID="{5F0F15EC-03E7-4AA2-913C-CAD78D0096FF}">
+																			<PointList>
+																				<Point>
+																					<XPos>9.13705</XPos>
+																					<YPos>5.9322</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																		<Path2D Name="lobby_RC_Path_02" ID="{28C22587-2323-4F75-871E-482B34A6DEA3}">
+																			<PointList>
+																				<Point>
+																					<XPos>-2.03045</XPos>
+																					<YPos>8.19209</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																		<Path2D Name="lobby_RC_Path_03" ID="{4B52E6D1-62E0-494A-8ED2-A5540AFA5553}">
+																			<PointList>
+																				<Point>
+																					<XPos>7.1066</XPos>
+																					<YPos>0.28248</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																		<Path2D Name="lobby_RC_Path_04" ID="{B3655E91-F22A-4748-9F10-A3DC03E503BC}">
+																			<PointList>
+																				<Point>
+																					<XPos>-10.15228</XPos>
+																					<YPos>0.28249</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																		<Path2D Name="lobby_RC_Path_05" ID="{9CE0CB37-59B2-4528-AC6D-F2E5B88F2A63}">
+																			<PointList>
+																				<Point>
+																					<XPos>6.59899</XPos>
+																					<YPos>0.84747</YPos>
+																					<Flags>12</Flags>
+																					<Time>0</Time>
+																				</Point>
+																			</PointList>
+																		</Path2D>
+																	</ChildrenList>
+																</Position>
+															</PositioningInfo>
+														</RandomSequenceContainer>
+													</ChildrenList>
+												</Folder>
 											</ChildrenList>
 										</Folder>
 									</ChildrenList>
