@@ -5,7 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -15,7 +15,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public static bool InGame;
+    
     [SerializeField] private GameEvent onUpdateRebindVisual;
 
     [SerializeField] private GameObject pauseMenu;
@@ -40,6 +42,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject level;
     [SerializeField] private GameObject limbSelectionPanel;
     [SerializeField] private GameObject tutorialCharacterCage;
+
+    private void Awake()
+    {
+        if (Instance != null)
+            Destroy(this);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+        }
+    }
 
     private void Start() => Init();
 
@@ -106,6 +119,7 @@ public class GameManager : MonoBehaviour
         PlayerInput[] playerInputs = FindObjectsOfType<PlayerInput>();
         foreach (PlayerInput player in playerInputs)
         {
+            player.SwitchCurrentActionMap("Empty");
             player.DeactivateInput();
             player.enabled = false;
         }
@@ -115,12 +129,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         // re-initialize scripts
-        Init();
         GetComponent<PlayerManager>().Init();
+        Init();
+        FindObjectOfType<TutorialLauncher>().Init();
         FindObjectOfType<AudioManager>().Init();
         FindObjectOfType<CameraManager>().Init();
         FindObjectOfType<CharacterBodyPhysic>().Init();
         FindObjectOfType<PoubelleVisualManager>().Init();
-        FindObjectOfType<TutorialLauncher>().Init();
     }
 }

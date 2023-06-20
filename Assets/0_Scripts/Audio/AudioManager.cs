@@ -77,16 +77,20 @@ public class AudioManager : MonoBehaviour
 
     public void Init()
     {
+        //initialize / reset sounds
+        InitializeMenuSounds();
+        
+        CriAndGroml(blendShapesAnim.gameObject);
+        
         //rtpcMeterInspiExpi.RawAmplitudeScream = listenScreamRtpc;
         //rtpcMeterCriRespi.listenScreamRtpcAmplitudeValue = listenScreamRtpc;
         //rtpcMeterCriRespi.listenRespiRtpcAmplitudeValue = listenExpiRtpc;
-        CriAndGroml(blendShapesAnim.gameObject);
         //rtpClistenerTest.listenMusicRtpcAmplitudeValue = listenMusicRtpc;
         //rtpcMeterInspiExpi.listenInspiRtpcAmplitudeValue = listenInspiRtpc;
         //rtpcMeterInspiExpi.listenExpiRtpcAmplitudeValue = listenExpiRtpc;
 
-        // _player = GameObject.FindGameObjectWithTag("Player");
-        // _demon = GameObject.FindGameObjectWithTag("Demon");
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _demon = GameObject.FindGameObjectWithTag("Demon");
     }
 
     private void Update()

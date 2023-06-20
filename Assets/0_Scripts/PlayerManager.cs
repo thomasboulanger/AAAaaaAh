@@ -47,12 +47,8 @@ public class PlayerManager : MonoBehaviour
 
     private PlayerInputManager _playerInputManager;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-        Init();
-    }
-
+    private void Awake() => Init();
+    
     public void Init()
     {       
         _playerInputManager = GetComponent<PlayerInputManager>();
@@ -63,11 +59,8 @@ public class PlayerManager : MonoBehaviour
             _referenceTableLimbsToInputID[i] = 5;
         }
 
-        //foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
+        foreach (TMP_Text element in readyWhenPlayerJoinTexts) element.text = "";
         _playerInputManager.EnableJoining();
-
-        //initialize / reset sounds
-        audioManager.InitializeMenuSounds();
     }
 
     private void Update()
