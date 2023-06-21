@@ -28,9 +28,7 @@ public class ScoreCounting : MonoBehaviour
         if ((int)data1 != 6) return;
         _startTime = Time.time;
         Debug.Log("playerState");
-       //6
-        //onchangepanel
-    }//début du 8
+    }
 
         public void PlayerReachedEnd(Component sender, object data1, object unUsed1, object unUsed2)
     {
@@ -74,9 +72,5 @@ public class ScoreCounting : MonoBehaviour
             _scoreWasGenerated = true;
         }
         
-
     }
-
-
-
 }
