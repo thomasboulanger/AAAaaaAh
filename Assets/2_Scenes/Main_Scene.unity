@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 14544.997, g: 8195.426, b: 8440.337, a: 1}
+  m_IndirectSpecularColor: {r: 14559.285, g: 8193.516, b: 8436.956, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3689,33 +3689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 671571152409407838, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872498098778476409, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2872498098778476410, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5201408651257336434, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: onClearFruitLists
+    - target: {fileID: 308417893, guid: ed26549cbb2755440a721b8114b392ff, type: 3}
+      propertyPath: virtualCamFinal
       value: 
-      objectReference: {fileID: 11400000, guid: 3c66fb5b4c5d6714f9d3c034e7a77bb1,
-        type: 2}
-    - target: {fileID: 5201408651257336434, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: onPlayerPressPause
-      value: 
-      objectReference: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264,
-        type: 2}
+      objectReference: {fileID: 54756679}
     - target: {fileID: 5351165542593046278, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
       propertyPath: m_Name
@@ -3803,11 +3780,6 @@ PrefabInstance:
       objectReference: {fileID: 495424695}
     - target: {fileID: 6718840250444823053, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
-      propertyPath: gravityForce
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6718840250444823053, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
       propertyPath: virtualTransforms.Array.data[0]
       value: 
       objectReference: {fileID: 2049029729}
@@ -3853,11 +3825,6 @@ PrefabInstance:
       objectReference: {fileID: 925429257}
     - target: {fileID: 6841581856151198150, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 308417890}
-    - target: {fileID: 6841581856151198150, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
       propertyPath: gaugeColorSprite
       value: 
       objectReference: {fileID: 1252790498}
@@ -3866,23 +3833,11 @@ PrefabInstance:
       propertyPath: poubelleFinalPos
       value: 
       objectReference: {fileID: 610707243}
-    - target: {fileID: 6841581856151198150, guid: ed26549cbb2755440a721b8114b392ff,
-        type: 3}
-      propertyPath: onLastFruitThrown
-      value: 
-      objectReference: {fileID: 11400000, guid: b7b7425514e87e548b8f87d892175435,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed26549cbb2755440a721b8114b392ff, type: 3}
 --- !u!4 &308417887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5351165542593046279, guid: ed26549cbb2755440a721b8114b392ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 308417886}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &308417888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6505665796378549642, guid: ed26549cbb2755440a721b8114b392ff,
     type: 3}
   m_PrefabInstance: {fileID: 308417886}
   m_PrefabAsset: {fileID: 0}
@@ -3892,225 +3847,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 308417886}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8283d38f5122e3b40b09ef764cd1dff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &308417890 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5351165542593046280, guid: ed26549cbb2755440a721b8114b392ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 308417886}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &308417891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5351165542803765957, guid: ed26549cbb2755440a721b8114b392ff,
     type: 3}
   m_PrefabInstance: {fileID: 308417886}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &308417892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 3c66fb5b4c5d6714f9d3c034e7a77bb1, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417889}
-        m_TargetAssemblyTypeName: PoubelleVisualManager, Assembly-CSharp
-        m_MethodName: EmptyFruitList
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fedc75e3ce1fbc3429f6b5563fdeb92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poubelleRef: {fileID: 308417889}
-  onScreenFade: {fileID: 11400000, guid: 81dbcea135bc9b7489c76a8bf9699136, type: 2}
-  timeToFade: 0.5
-  timeToWaitBetweenFades: 0
-  virtualCamFinal: {fileID: 54756679}
---- !u!114 &308417894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417893}
-        m_TargetAssemblyTypeName: LaunchEndAnimation, Assembly-CSharp
-        m_MethodName: onLaunchEndAnimation
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: db6364cdeae2ea544be3a4d66cb63942, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417889}
-        m_TargetAssemblyTypeName: PoubelleVisualManager, Assembly-CSharp
-        m_MethodName: EjectFruitAtEndLevel
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417900}
-        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
-        m_MethodName: PlayerState
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417900}
-        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
-        m_MethodName: PlayerReachedEnd
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: b7b7425514e87e548b8f87d892175435, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 308417900}
-        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
-        m_MethodName: NoFruitsRemainig
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &308417900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 308417888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8980318bca074e41bf231db61569574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  averageTime: 480
-  scorePerFruit: 1000
-  maxFruits: 37
-  onScoreGenerated: {fileID: 11400000, guid: d663b2a69f03c28408e238944118789c, type: 2}
 --- !u!1 &310271662
 GameObject:
   m_ObjectHideFlags: 0
@@ -8406,52 +8154,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639870221}
   m_CullTransparentMesh: 1
---- !u!1 &641803500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5351165542593046278, guid: ed26549cbb2755440a721b8114b392ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 308417886}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &641803501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641803500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 641803502}
-        m_TargetAssemblyTypeName: PlayerEffector, Assembly-CSharp
-        m_MethodName: FreezePlayer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &641803502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641803500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad53e44fcd655af4098ba659abeb0f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &642398725
 GameObject:
   m_ObjectHideFlags: 0
@@ -9535,11 +9237,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1616746778203228836, guid: 966d1ee3c38a43c40af80db14780e3c4,
-        type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1616746778203228837, guid: 966d1ee3c38a43c40af80db14780e3c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -11082,22 +10779,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1961136071}
-    - target: {fileID: 2024798573, guid: b384321ce55c6764cb34b071d47c1294, type: 3}
-      propertyPath: fadeOut.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024798573, guid: b384321ce55c6764cb34b071d47c1294, type: 3}
-      propertyPath: fadeOut.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024798573, guid: b384321ce55c6764cb34b071d47c1294, type: 3}
-      propertyPath: fadeOut.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2024798573, guid: b384321ce55c6764cb34b071d47c1294, type: 3}
-      propertyPath: fadeOut.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3942560931401499234, guid: b384321ce55c6764cb34b071d47c1294,
         type: 3}
       propertyPath: m_Name
@@ -13652,16 +13333,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GaugeCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3990557394133643837, guid: bc401b1f8964bdb4ab880667a203fd2a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3990557394293516396, guid: bc401b1f8964bdb4ab880667a203fd2a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc401b1f8964bdb4ab880667a203fd2a, type: 3}
 --- !u!224 &1252790496 stripped
@@ -13686,52 +13357,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1252790499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3990557394133643837, guid: bc401b1f8964bdb4ab880667a203fd2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1252790495}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1252790500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252790499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 9223252416b2d8140be730c530e9db1b, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1252790501}
-        m_TargetAssemblyTypeName: MoucheCanvaToggle, Assembly-CSharp
-        m_MethodName: OnFlyCanvaToggle
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1252790501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252790499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e5eb90c33ff70499da9903b7921643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1254211249
@@ -23540,12 +23165,6 @@ PrefabInstance:
       objectReference: {fileID: 1556440260}
     - target: {fileID: 3755835576101235687, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
-      propertyPath: onFlyCanvaToggle
-      value: 
-      objectReference: {fileID: 11400000, guid: 9223252416b2d8140be730c530e9db1b,
-        type: 2}
-    - target: {fileID: 3755835576101235687, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
       propertyPath: limbSelectionPanel
       value: 
       objectReference: {fileID: 975567035}
@@ -23644,12 +23263,6 @@ PrefabInstance:
       propertyPath: rtpcMeterInspiExpi
       value: 
       objectReference: {fileID: 728011230}
-    - target: {fileID: 4429277165106609991, guid: 8cca610731e114042a7eb1189e884160,
-        type: 3}
-      propertyPath: ambWeirdBirds.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 0191fe2a94f269f4cbc64bd23af8796c,
-        type: 2}
     - target: {fileID: 4430677912515128089, guid: 8cca610731e114042a7eb1189e884160,
         type: 3}
       propertyPath: vCams.Array.data[0]
@@ -24956,26 +24569,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
-        type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
-        type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91166149085e844c879ec52bdffe593, type: 3}

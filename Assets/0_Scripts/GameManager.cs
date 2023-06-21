@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -17,7 +16,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public static bool InGame;
-    
+
     [SerializeField] private GameEvent onUpdateRebindVisual;
     [SerializeField] private GameEvent onFlyCanvaToggle;
 
@@ -37,6 +36,7 @@ public class GameManager : MonoBehaviour
         PlayerHaveReachEndOfLevel,
         Quit
     }
+
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
     public enum Difficulty
@@ -47,8 +47,9 @@ public class GameManager : MonoBehaviour
         AgressiveFliesFruitLoss,
         Ganged
     }
+
     public static Difficulty CurrentDifficulty;
-    
+
     [SerializeField] private GameObject level;
     [SerializeField] private GameObject limbSelectionPanel;
     [SerializeField] private GameObject tutorialCharacterCage;
@@ -126,7 +127,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
-        
         // Disable all PlayerInput components in the scene
         PlayerInput[] playerInputs = FindObjectsOfType<PlayerInput>();
         foreach (PlayerInput player in playerInputs)
@@ -135,11 +135,12 @@ public class GameManager : MonoBehaviour
             player.DeactivateInput();
             player.enabled = false;
         }
+
         PlayerManager.Players.Clear();
-        
+
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
+
         // re-initialize scripts
         GetComponent<PlayerManager>().Init();
         Init();
