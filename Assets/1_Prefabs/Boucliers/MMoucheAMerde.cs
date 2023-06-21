@@ -353,6 +353,7 @@ public class MMoucheAMerde : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (body == null) return;
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(_initialPosition, body.position);
         Gizmos.color = Color.red;

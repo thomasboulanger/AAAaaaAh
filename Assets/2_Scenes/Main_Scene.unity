@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11885.661, g: 7236.621, b: 7431.704, a: 1}
+  m_IndirectSpecularColor: {r: 11109.491, g: 6786.449, b: 6775.2505, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24789,6 +24789,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 201134787027030458, guid: f18174e822e96524cbf1840c5f2d8874,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201134787027030458, guid: f18174e822e96524cbf1840c5f2d8874,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerState
+      objectReference: {fileID: 0}
+    - target: {fileID: 201134787027030458, guid: f18174e822e96524cbf1840c5f2d8874,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Mouche, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 201134787027030458, guid: f18174e822e96524cbf1840c5f2d8874,
+        type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3382762453487732930, guid: f18174e822e96524cbf1840c5f2d8874,
         type: 3}
       propertyPath: m_Name

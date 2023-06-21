@@ -18,7 +18,7 @@ public class ChangeDifficulty : MonoBehaviour
     [SerializeField] private TMP_Text description2;
     [SerializeField] private TMP_Text description3;
 
-    private int _currentState;
+    private int _currentState = 2;
 
     private void Start() => UpdateDifficulty();
     

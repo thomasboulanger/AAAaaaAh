@@ -2664,6 +2664,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
+      propertyPath: toggleGauge
+      value: 
+      objectReference: {fileID: 11400000, guid: 9223252416b2d8140be730c530e9db1b,
+        type: 2}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
       propertyPath: playerAnimator
       value: 
       objectReference: {fileID: 5351165542593046280}
@@ -2918,6 +2924,34 @@ MonoBehaviour:
   scorePerFruit: 1000
   maxFruits: 37
   onScoreGenerated: {fileID: 11400000, guid: d663b2a69f03c28408e238944118789c, type: 2}
+--- !u!114 &308417901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6841581856151198150}
+        m_TargetAssemblyTypeName: PoubelleVisualManager, Assembly-CSharp
+        m_MethodName: PlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6841581856151198150 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,

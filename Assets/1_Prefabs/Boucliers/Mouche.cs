@@ -30,6 +30,7 @@ public class Mouche : MonoBehaviour
     private bool _firstTimeCrossedLimitSpawning = false;
     private bool _spawnFlies = false;
     private bool _playerState = false;
+    private string _test;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,11 @@ public class Mouche : MonoBehaviour
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((int)data1 != 4) return;
+        if ((int)data1 != 6)
+        {
+            Debug.Log(data1);
+            return;
+        }
         _playerState = true;
 
         if (_playerState == true)
@@ -49,34 +54,42 @@ public class Mouche : MonoBehaviour
             {
                 case GameManager.Difficulty.Nofly:
                     _spawnFlies = false;
+                    _test = "No flies";
                     break;
                 case GameManager.Difficulty.PeacefulFlies:
                     intervalle = 0.25f;
                     Physics.IgnoreLayerCollision(0, 0, true);
                     _spawnFlies = true;
+                    _test = "Peaceful flies";
 
                     break;
                 case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
                     intervalle = 1.25f;
                     Physics.IgnoreLayerCollision(0, 0, false);
                     _spawnFlies = true;
+                    _test = "Agressive flies";
+
                     break;
                 case GameManager.Difficulty.AgressiveFliesFruitLoss:
                     intervalle = 1.25f;
                     Physics.IgnoreLayerCollision(0, 0, false);
                     _spawnFlies = true;
+                    _test = "fruit loss";
+
                     break;
                 case GameManager.Difficulty.Ganged:
                     intervalle = 0.5f;
                     Physics.IgnoreLayerCollision(0, 0, false);
                     _spawnFlies = true;
+                    _test = "Gange";
+
                     break;
             }
+            Debug.Log(_test);
         }
     }
     void Update()
     {
-        
 
         if (_spawnFlies == true)
         {

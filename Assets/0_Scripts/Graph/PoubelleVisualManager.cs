@@ -33,6 +33,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] Transform poubelleFinalPos;
 
     [SerializeField] GameEvent onLastFruitThrown;
+    [SerializeField] GameEvent toggleGauge;
 
     [Header("Valeurs de tweak")]
     [SerializeField]
@@ -395,7 +396,11 @@ public class PoubelleVisualManager : MonoBehaviour
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((int)data1 != 4) return;
+        if ((int)data1 != 6)
+        {
+            Debug.Log(data1);
+            return;
+        }
 
         switch (GameManager.CurrentDifficulty)
         {
@@ -415,6 +420,10 @@ public class PoubelleVisualManager : MonoBehaviour
                 _gaugeActivate = true;
                 break;
         }
+
+        toggleGauge.Raise(this, _gaugeActivate, null, null);
+
+        Debug.Log("diff set");
     }
         IEnumerator RandomDelayedFruits()
     {

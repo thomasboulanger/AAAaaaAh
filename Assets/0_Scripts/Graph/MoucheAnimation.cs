@@ -184,7 +184,7 @@ public class MoucheAnimation : MonoBehaviour
         timers[7] = 0; //resetTimerDeathFeedback
         _deadFeedback = true;
 
-        for (int i = 0; i <= 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             skinnedMesh.SetBlendShapeWeight(i, 0);
         }
