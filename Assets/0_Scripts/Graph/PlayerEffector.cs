@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PlayerEffector : MonoBehaviour
 {
-    public void FreezePlayer(Component sender, object unUsed1, object unUsed2, object unUsed3)
+
+    [SerializeField] List<GameObject> playersParts = new();
+    public void FreezePlayerAndHidePlayer(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         GetComponent<Rigidbody>().isKinematic = true;
+
+        foreach (GameObject item in playersParts)
+        {
+            item.SetActive(false);
+        }
     }
 }

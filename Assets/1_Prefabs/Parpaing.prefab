@@ -628,7 +628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 641803502}
         m_TargetAssemblyTypeName: PlayerEffector, Assembly-CSharp
-        m_MethodName: FreezePlayer
+        m_MethodName: FreezePlayerAndHidePlayer
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -650,6 +650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad53e44fcd655af4098ba659abeb0f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playersParts:
+  - {fileID: 5351165543459943322}
+  - {fileID: 1868304879}
+  - {fileID: 5351165543263629169}
 --- !u!1 &5351165542803765956
 GameObject:
   m_ObjectHideFlags: 0
