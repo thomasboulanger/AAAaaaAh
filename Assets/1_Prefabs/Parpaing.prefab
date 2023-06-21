@@ -375,6 +375,8 @@ GameObject:
   - component: {fileID: 7364060889696993051}
   - component: {fileID: 1195125805}
   - component: {fileID: 1195125804}
+  - component: {fileID: 641803501}
+  - component: {fileID: 641803502}
   m_Layer: 3
   m_Name: Parpaing
   m_TagString: Player
@@ -469,7 +471,7 @@ MonoBehaviour:
   force: 80
   range: 1.1
   xThreshold: 3
-  gravityForce: 5
+  gravityForce: 150
   dragForce: 0.1
   yAxisMultiplier: 0.005
   virtualTransforms:
@@ -520,8 +522,8 @@ MonoBehaviour:
   fadeOutEvent: {fileID: 11400000, guid: 81dbcea135bc9b7489c76a8bf9699136, type: 2}
   onOverrideGrabEvent: {fileID: 11400000, guid: eef441589847fef49980c0d9392a0626,
     type: 2}
-  onClearFruitLists: {fileID: 0}
-  onPlayerPressPause: {fileID: 0}
+  onClearFruitLists: {fileID: 11400000, guid: 3c66fb5b4c5d6714f9d3c034e7a77bb1, type: 2}
+  onPlayerPressPause: {fileID: 11400000, guid: 142285c84010b6b4aaa887ee035b4264, type: 2}
 --- !u!54 &6718840250444823051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -608,6 +610,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &641803501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351165542593046278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 641803502}
+        m_TargetAssemblyTypeName: PlayerEffector, Assembly-CSharp
+        m_MethodName: FreezePlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &641803502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351165542593046278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad53e44fcd655af4098ba659abeb0f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5351165542803765956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,6 +2664,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 5351165542593046280}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: onLastFruitThrown
+      value: 
+      objectReference: {fileID: 11400000, guid: b7b7425514e87e548b8f87d892175435,
+        type: 2}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
       propertyPath: gaugeColor.Array.data[0].b
       value: 1
       objectReference: {fileID: 0}
@@ -2658,3 +2711,222 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3008420258061543904}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6505665796378549642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8325126956703396970, guid: ccd1815466ec64d44982ad2583a9e851,
+    type: 3}
+  m_PrefabInstance: {fileID: 3008420258061543904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &308417892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3c66fb5b4c5d6714f9d3c034e7a77bb1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6841581856151198150}
+        m_TargetAssemblyTypeName: PoubelleVisualManager, Assembly-CSharp
+        m_MethodName: EmptyFruitList
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedc75e3ce1fbc3429f6b5563fdeb92a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poubelleRef: {fileID: 6841581856151198150}
+  onScreenFade: {fileID: 11400000, guid: 81dbcea135bc9b7489c76a8bf9699136, type: 2}
+  timeToFade: 0.5
+  timeToWaitBetweenFades: 0
+  virtualCamFinal: {fileID: 0}
+--- !u!114 &308417894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308417893}
+        m_TargetAssemblyTypeName: LaunchEndAnimation, Assembly-CSharp
+        m_MethodName: onLaunchEndAnimation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: db6364cdeae2ea544be3a4d66cb63942, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6841581856151198150}
+        m_TargetAssemblyTypeName: PoubelleVisualManager, Assembly-CSharp
+        m_MethodName: EjectFruitAtEndLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308417900}
+        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
+        m_MethodName: PlayerState
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308417900}
+        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
+        m_MethodName: PlayerReachedEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: b7b7425514e87e548b8f87d892175435, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 308417900}
+        m_TargetAssemblyTypeName: ScoreCounting, Assembly-CSharp
+        m_MethodName: NoFruitsRemainig
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &308417900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8980318bca074e41bf231db61569574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  averageTime: 480
+  scorePerFruit: 1000
+  maxFruits: 37
+  onScoreGenerated: {fileID: 11400000, guid: d663b2a69f03c28408e238944118789c, type: 2}
+--- !u!114 &6841581856151198150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+    type: 3}
+  m_PrefabInstance: {fileID: 3008420258061543904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505665796378549642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8283d38f5122e3b40b09ef764cd1dff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

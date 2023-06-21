@@ -33,7 +33,7 @@ public class LimbController : MonoBehaviour
 
     [SerializeField] private bool limbIsLeg;
     [SerializeField] private float limbSpeed = 10000;
-    [SerializeField] private float playerInputSpeedDivider = 100;
+    [SerializeField] private float playerInputSpeedMultiplier = 3;
     [SerializeField] private LayerMask grabInteractableLayerMask;
     [SerializeField] private float grabRadius;
     [SerializeField] private TMP_Text tutorialBlocksGrabCountText;
@@ -81,7 +81,7 @@ public class LimbController : MonoBehaviour
         if (data1 is Vector2)
         {
             _limbVector = (Vector2) data1;
-            _moveValue = new Vector3(_limbVector.x, _limbVector.y, 0) / playerInputSpeedDivider;
+            _moveValue = new Vector3(_limbVector.x, _limbVector.y, 0) * playerInputSpeedMultiplier * Time.deltaTime;
             Vector3 lookingDirection = (transform.position - _limbCenterTransform.position).normalized;
 
             if (_isGrabbingEnvironment)
