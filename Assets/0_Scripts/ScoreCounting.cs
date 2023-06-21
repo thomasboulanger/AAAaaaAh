@@ -60,6 +60,12 @@ public class ScoreCounting : MonoBehaviour
             onScoreGenerated.Raise(this, _score, null, null);
             _fruitScore = _collectedFruits * scorePerFruit;
 
+            if (_collectedFruits == 0)
+            {
+                _fruitScore = 0;
+                _timeScore = 0;
+                _score = 0;
+            }
             if (_score > _maxScore)
             {
                 _maxScore = _score;

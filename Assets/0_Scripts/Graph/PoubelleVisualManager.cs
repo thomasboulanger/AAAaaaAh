@@ -72,6 +72,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private float gaugeIncrementByHit = 50;
     [SerializeField] private float gaugeDecrementOverTime = 10;
     [SerializeField] private float currentGaugeLevel;
+    private bool _gaugeActivate = false;
 
 
     private Animator _animator;
@@ -128,20 +129,21 @@ public class PoubelleVisualManager : MonoBehaviour
 
         //Debug.Log(endPos == insideMonster.position);
 
-
-        currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
-        if (currentGaugeLevel < 0) currentGaugeLevel = 0;
-
-        if (gaucgeRT != null && gaugeColor != null && fruitRT != null)
+        if (_gaugeActivate == true)
         {
-            gaucgeRT.anchoredPosition = Vector2.Lerp(gaucgeRT.anchoredPosition, new Vector2(gaucgeRT.anchoredPosition.x, Remap(currentGaugeLevel, gaugeSize, 0, minMaxGaugepositions.x, minMaxGaugepositions.y)), deltaTime * gaugeSpeed);
-            gaugeColorSprite.color = Color.Lerp(gaugeColor[0], gaugeColor[1], Remap(currentGaugeLevel, gaugeSize, 0, 1, 0));
+            currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
+            if (currentGaugeLevel < 0) currentGaugeLevel = 0;
 
-            _fruitScale = Mathf.Lerp(_fruitScale, _fruitBaseScale, deltaTime * gaugeSpeed / 2);
-            fruitRT.localScale = new Vector3(_fruitScale, _fruitScale, _fruitScale);
+            if (gaucgeRT != null && gaugeColor != null && fruitRT != null)
+            {
+                gaucgeRT.anchoredPosition = Vector2.Lerp(gaucgeRT.anchoredPosition, new Vector2(gaucgeRT.anchoredPosition.x, Remap(currentGaugeLevel, gaugeSize, 0, minMaxGaugepositions.x, minMaxGaugepositions.y)), deltaTime * gaugeSpeed);
+                gaugeColorSprite.color = Color.Lerp(gaugeColor[0], gaugeColor[1], Remap(currentGaugeLevel, gaugeSize, 0, 1, 0));
+
+                _fruitScale = Mathf.Lerp(_fruitScale, _fruitBaseScale, deltaTime * gaugeSpeed / 2);
+                fruitRT.localScale = new Vector3(_fruitScale, _fruitScale, _fruitScale);
+            }
+            else Debug.LogWarning("GRO CONNNNN PAS TA PSSIGNE TOUT");// si tu delete la ligne et que t'a des soucis je te ration
         }
-        else Debug.LogWarning("GRO CONNNNN PAS TA PSSIGNE TOUT");// si tu delete la ligne et que t'a des soucis je te ration
-
 
         //open the garbage can lid
         if (fruits.Count > 0 || _ejectFruits)
@@ -390,7 +392,31 @@ public class PoubelleVisualManager : MonoBehaviour
         else _triggerOnceGrab[limbIndex] = false;
     }
 
-    IEnumerator RandomDelayedFruits()
+    public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
+    {
+        if (data1 is not int) return;
+        if ((int)data1 != 4) return;
+
+        switch (GameManager.CurrentDifficulty)
+        {
+            case GameManager.Difficulty.Nofly:
+                _gaugeActivate = false;
+                break;
+            case GameManager.Difficulty.PeacefulFlies:
+                _gaugeActivate = false;
+                break;
+            case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
+                _gaugeActivate = false;
+                break;
+            case GameManager.Difficulty.AgressiveFliesFruitLoss:
+                _gaugeActivate = true;
+                break;
+            case GameManager.Difficulty.Ganged:
+                _gaugeActivate = true;
+                break;
+        }
+    }
+        IEnumerator RandomDelayedFruits()
     {
         const float timer = 1f;
         for (int i = 0; i < storedFruits.Count; i++)
