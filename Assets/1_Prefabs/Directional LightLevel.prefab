@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5099110961879106658}
-  m_LocalRotation: {x: -0.2652146, y: -0.1165082, z: 0.37841332, w: 0.87914187}
+  m_LocalRotation: {x: -0.14065932, y: -0.22049972, z: 0.5853743, w: 0.7674189}
   m_LocalPosition: {x: 1.9852762, y: -1.2288933, z: 0.2140069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6238215648939389091}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 202.219, y: 154.017, z: 231.765}
+  m_LocalEulerAnglesHint: {x: 177.578, y: 149.764, z: 254.017}
 --- !u!108 &1489322456154234305
 Light:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 130000
+  m_Intensity: 72607.36
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 130000
+  m_Intensity: 72607.36
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
-  m_VolumetricDimmer: 16
+  m_VolumetricDimmer: 12.81
   m_LightUnit: 2
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
