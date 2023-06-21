@@ -11,14 +11,14 @@ public class ScoreCounting : MonoBehaviour
     private float _scorePerSecond;
     private float _timePerfruit;
     private float _completionTime;
-    private float _score;
+    public static float _score;
     private float _collectedFruits;
     private float _timeDifferential;
     private bool _gameOver = false;
     private bool _scoreGenerated = false;
     private float _maxScore;
-    private float _fruitScore;
-    private float _timeScore;
+    public static float _fruitScore;
+    public static float _timeScore;
     private float _startTime;
     private bool _scoreWasGenerated;
 
