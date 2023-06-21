@@ -37,9 +37,18 @@ public class GameManager : MonoBehaviour
         PlayerHaveReachEndOfLevel,
         Quit
     }
-
     public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
+    public enum Difficulty
+    {
+        Nofly,
+        PeacefulFlies,
+        AgressiveFliesNoFruitLoss,
+        AgressiveFliesFruitLoss,
+        Ganged
+    }
+    public static Difficulty CurrentDifficulty;
+    
     [SerializeField] private GameObject level;
     [SerializeField] private GameObject limbSelectionPanel;
     [SerializeField] private GameObject tutorialCharacterCage;

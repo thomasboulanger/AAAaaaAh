@@ -16,7 +16,7 @@ public class UIHommingTruelle : MonoBehaviour
     [HideInInspector] public bool isRecycling;
 
     [SerializeField] private GameEvent onTruelleHitUIEvent;
-    [SerializeField] private float force = 250;
+    [SerializeField] private float force = 300;
 
     private Vector3 _destination;
     private Rigidbody _rb;
@@ -28,21 +28,7 @@ public class UIHommingTruelle : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        
-        Ray ray = Camera.main.ScreenPointToRay(_destination);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            GameObject hitObject = hit.collider.gameObject;
-            Vector3 hitPosition = hitObject.transform.position;
-            
-            if(hitObject.CompareTag("UIInteractable"))
-                _rb.AddForce((hitPosition - transform.position) * force);
-            else _rb.AddForce((_destination - transform.position) * force);
-            
-        }
-        else _rb.AddForce((_destination - transform.position) * force);
+        _rb.AddForce((_destination - transform.position) * force);
     }
 
     private void FixedUpdate()
@@ -71,5 +57,11 @@ public class UIHommingTruelle : MonoBehaviour
         onTruelleHitUIEvent.Raise(this, null, null, null);
         GetComponent<Collider>().enabled = false;
         _rb.isKinematic = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.transform.CompareTag("UIInteractable")) return;
+        TruelleHitButton();
     }
 }

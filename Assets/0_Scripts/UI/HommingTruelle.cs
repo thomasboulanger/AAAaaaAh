@@ -6,12 +6,11 @@ public class HommingTruelle : MonoBehaviour
 {
     [SerializeField] private GameEvent onTruelleHitJoystickSound;
     
-    [SerializeField] private int matindex = 1;
-    [SerializeField] private float rotationRandom = 50f;
-    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private int matIndex = 1;
+    [SerializeField] private Renderer meshRenderer;
     [SerializeField] private float selfDestructTimer = 2;
     [SerializeField] private float selfDestructSecurityTimer = 5;
-    [SerializeField] private float aimationDuration = 2;
+    [SerializeField] private float animationDuration = 2;
     [SerializeField] private Transform truelleMesh;
     [SerializeField] private AnimationCurve scaleCurve;
 
@@ -38,15 +37,16 @@ public class HommingTruelle : MonoBehaviour
         truelleMesh.localScale = Vector3.zero;
         StartCoroutine(SecurityTimer());
 
-        meshRenderer.materials[matindex] = new Material(meshRenderer.materials[matindex]);
-        _truelleMat = meshRenderer.materials[matindex];
+        meshRenderer.materials[matIndex] = new Material(meshRenderer.materials[matIndex]);
+        _truelleMat = meshRenderer.materials[matIndex];
         _truelleMat.SetColor("_BaseColor", _playerColor);
 
-        transform.rotation = Quaternion.Euler(new Vector3(
-            Random.Range(-rotationRandom, rotationRandom) + transform.rotation.eulerAngles.x,
-            Random.Range(-rotationRandom, rotationRandom) + transform.rotation.eulerAngles.y,
-            Random.Range(-rotationRandom, rotationRandom) + transform.rotation.eulerAngles.z));
-        
+        transform.rotation = Quaternion.Euler
+        (
+            Random.Range(-50,50),
+            Random.Range(-50,50),
+            Random.Range(-50,50)
+        );
         _rb.AddForce((_destination - _rb.transform.position) * 175);
     }
 
@@ -79,14 +79,14 @@ public class HommingTruelle : MonoBehaviour
         if (!animating) return;
         if (_time < 1 && sens)
         {
-            _time += Time.deltaTime * aimationDuration;
+            _time += Time.deltaTime * animationDuration;
 
             truelleMesh.localScale =
                 Vector3.LerpUnclamped(Vector3.zero, Vector3.one * _truelleMeshScale, scaleCurve.Evaluate(_time));
         }
         else if (_time < 1 && !sens)
         {
-            _time += Time.deltaTime * aimationDuration;
+            _time += Time.deltaTime * animationDuration;
 
             truelleMesh.localScale =
                 Vector3.LerpUnclamped(Vector3.one * _truelleMeshScale, Vector3.zero, scaleCurve.Evaluate(_time));
