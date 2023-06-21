@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CinematicEventLauncher : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class CinematicEventLauncher : MonoBehaviour
     enum Selection
     {
         windowToggle,
-        lauchAnimation
+        lauchAnimation,
     }
     [SerializeField] private List<OppeningsController> windowTargets = new List<OppeningsController>();
 
@@ -49,4 +50,19 @@ public class CinematicEventLauncher : MonoBehaviour
             }
         }
     }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            LoadScene();
+        }
+    }
+
+
 }
