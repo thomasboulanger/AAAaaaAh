@@ -20,7 +20,7 @@ public class Mouche : MonoBehaviour
     //public MoucheAMerde moucheAMerde;
     public MMoucheAMerde moucheAMerde;
     public float intervalle;
-    private float _timerLimit;
+    private float _timerLimit = 1;
     private float _timer;
     private float _randomX;
     private float _randomY;
@@ -57,8 +57,8 @@ public class Mouche : MonoBehaviour
                 break;
             case GameManager.Difficulty.PeacefulFlies:
                 intervalle = 0.25f;
-                Physics.IgnoreLayerCollision(16, 3, false);
-                Physics.IgnoreLayerCollision(16, 15, false);
+                Physics.IgnoreLayerCollision(16, 3, true);
+                Physics.IgnoreLayerCollision(16, 15, true);
                 _spawnFlies = true;
                 _test = "Peaceful flies";
 
@@ -100,17 +100,13 @@ public class Mouche : MonoBehaviour
 
         if (_spawnFlies == true)
         {
-            if (_firstTimeCrossedLimitSpawning == true)
-            {
-                _firstTimeCrossedLimitSpawning = false;
-                _timerLimit = 1;
-            }
 
             transform.position = limbControllerList[j].position;
             transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
             _timer += Time.deltaTime;
-            //if (_timer > _timerLimit && player.position.x > spawnFliesBegining)
-            if (Input.GetKeyDown(KeyCode.P))
+
+            if (_timer > _timerLimit && player.position.x > spawnFliesBegining || Input.GetKeyDown(KeyCode.P))
+            //if (Input.GetKeyDown(KeyCode.P))
             {
                 _randomX = Random.Range(-_spawnPosition.x, _spawnPosition.x);
                 _randomY = Random.Range(-_spawnPosition.y, _spawnPosition.y);

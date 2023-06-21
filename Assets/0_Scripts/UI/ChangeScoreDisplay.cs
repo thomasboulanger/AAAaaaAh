@@ -19,8 +19,8 @@ public class ChangeScoreDisplay : MonoBehaviour
         _score = (float)score;
 
         parent.SetActive(true);
-        this.fruitScore.text = _fruitScore.ToString();
-        this.timeScore.text = _timeScore.ToString();
-        totalScore.text = _score.ToString();
+        this.fruitScore.text = ((int)_fruitScore).ToString();
+        this.timeScore.text = ((int)_timeScore).ToString();
+        totalScore.text = ((int)_score).ToString();
     }
 }

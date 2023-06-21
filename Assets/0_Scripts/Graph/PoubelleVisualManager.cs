@@ -232,6 +232,8 @@ public class PoubelleVisualManager : MonoBehaviour
 
     public void PlayerHitByFly()
     {
+        if (!_gaugeActivate) return;
+
         float gaugeLastlevel = currentGaugeLevel;
         currentGaugeLevel += gaugeIncrementByHit;
         if (currentGaugeLevel >= gaugeSize && gaugeLastlevel < gaugeSize * 0.6f)
@@ -407,7 +409,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
         _finished = true;
     }
-    private float Remap(float value, float from1, float from2, float to1, float to2)
+    private float Remap(float value, float to1,  float from1, float to2, float from2)
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
