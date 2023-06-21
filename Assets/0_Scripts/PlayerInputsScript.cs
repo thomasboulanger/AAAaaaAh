@@ -57,7 +57,8 @@ public class PlayerInputsScript : MonoBehaviour
         //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
         {
-            if (_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this)
+            if (_playerInput.actions["Join"].WasPressedThisFrame() && _playerInputArray[0] == this &&
+                GameManager.UICanvaState == GameManager.UIStateEnum.Start)
             {
                 InGamePauseButton = !InGamePauseButton;
                 onPlayerPressPause.Raise(this, _playerID, InGamePauseButton, null);
