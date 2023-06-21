@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreCounting : MonoBehaviour
 {
+    [SerializeField] private GameEvent onDisplayScore;
+    [SerializeField] private GameEvent onScoreGenerated;
+    
     [SerializeField] private float averageTime = 480f;
     [SerializeField] private float scorePerFruit = 1000f;
     [SerializeField] private int maxFruits = 37;
     private float _scorePerSecond;
     private float _timePerfruit;
     private float _completionTime;
-    private float _score;
+    public static float _score;
     private float _collectedFruits;
     private float _timeDifferential;
     private bool _gameOver = false;
     private bool _scoreGenerated = false;
     private float _maxScore;
-    private float _fruitScore;
-    private float _timeScore;
+    public static float _fruitScore;
+    public static float _timeScore;
     private float _startTime;
     private bool _scoreWasGenerated;
 
-    [SerializeField] private GameEvent onScoreGenerated;
+    
 
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
@@ -64,7 +65,9 @@ public class ScoreCounting : MonoBehaviour
         if (_score > _maxScore)
             _maxScore = _score;
 
-        Debug.Log("NofruitsRemaining " + "score = " + _score + "             nbr de fruits : " + _collectedFruits);
+        //Debug.Log("NofruitsRemaining " + "score = " + _score + "             nbr de fruits : " + _collectedFruits);
+        onDisplayScore.Raise(this, _fruitScore,_timeScore,_score);
+
         _scoreWasGenerated = true;
     }
 }

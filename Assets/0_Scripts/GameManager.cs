@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private CursorController cursor;
-
+    [SerializeField] private GameObject level;
+   
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -34,10 +35,8 @@ public class GameManager : MonoBehaviour
         Start,
         RebindInputs,
         PlayerHaveReachEndOfLevel,
-        Quit
-    }
-
-    public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
+        Quit,
+    } public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
     public enum Difficulty
     {
@@ -46,13 +45,7 @@ public class GameManager : MonoBehaviour
         AgressiveFliesNoFruitLoss,
         AgressiveFliesFruitLoss,
         Ganged
-    }
-
-    public static Difficulty CurrentDifficulty;
-
-    [SerializeField] private GameObject level;
-    [SerializeField] private GameObject limbSelectionPanel;
-    [SerializeField] private GameObject tutorialCharacterCage;
+    } public static Difficulty CurrentDifficulty;
 
     private void Awake()
     {
@@ -97,8 +90,7 @@ public class GameManager : MonoBehaviour
         if (data1 is not int) return;
         UICanvaState = (UIStateEnum) data1;
 
-        if ((int) data1 == 7) onUpdateRebindVisual.Raise(this, null, null, null);
-
+        if ((int) data1 is 7) onUpdateRebindVisual.Raise(this, null, null, null);
         if ((int) data1 is not 6) onFlyCanvaToggle.Raise(this, false, null, null);
 
         Debug.Log("moved to panel " + (int) data1);
