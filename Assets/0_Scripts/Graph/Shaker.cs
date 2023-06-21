@@ -14,6 +14,7 @@ public class Shaker : MonoBehaviour
     [SerializeField] private Vector3[] _expertise = new Vector3[10];
     [SerializeField] private RTPCMeterInspiExpi rtpcScript;
     [SerializeField] private bool useSound;
+    [SerializeField] private bool scaleOnDistance;
     [SerializeField] private float soundMultiplier = 20f;
     [Range(0, 2)] [SerializeField] private int noiseSelector;
     [SerializeField] private List<Transform> buildingsToMove = new();
@@ -55,10 +56,13 @@ public class Shaker : MonoBehaviour
             float powerByDistance = 1f;
             if (scaleOnDistance)
             {
-                powerByDistance = ((distanceMax / Vector3.Distance(transform.position, _monsterPos)) + added) * scalePower;
+                powerByDistance = ((distanceMax / Vector3.Distance(transform.position, _monsterPos)) + added) *
+                                  scalePower;
             }
-            
-            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier* powerByDistance * power, dt * speed);
+
+            transform.localPosition = Vector3.Lerp(_basePos,
+                _basePos + ChooseArray(noiseSelector)[_index] *
+                (rtpcScript.RawAmplitudeScream * soundMultiplier * powerByDistance * power), deltaTime * speed);
         }
         else
             transform.localPosition = Vector3.Lerp(_basePos,
