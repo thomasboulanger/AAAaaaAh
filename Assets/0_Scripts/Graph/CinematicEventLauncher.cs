@@ -2,10 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CinematicEventLauncher : MonoBehaviour
 {
     [SerializeField] Selection choice;
+
+
+    private bool textIsVisible;
+
+    [SerializeField]private TMP_Text text;
+
+    private float _t;
+
+    [SerializeField] private float lerpSpeed=10f;
+    [SerializeField] private float timeToWait=3f;
+
+
+
     enum Selection
     {
         windowToggle,
@@ -58,10 +72,35 @@ public class CinematicEventLauncher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (Input.anyKeyDown)
         {
-            LoadScene();
+            if (textIsVisible) LoadScene();
+            else ShowText();
         }
+        float dt = Time.deltaTime;
+
+        text.color = Color.Lerp(text.color, textIsVisible ? Color.white : Color.clear, dt * lerpSpeed);
+
+        if (textIsVisible && _t< timeToWait)
+        {
+            _t += dt;
+        }
+        else
+        {
+            textIsVisible = false;
+            _t = 0;
+        }
+    }
+
+    void ShowText()
+    {
+        textIsVisible = true;
+        text.enabled = true;
+    }
+
+    private void Start()
+    {
+        text.enabled = false;
     }
 
 
