@@ -77,6 +77,7 @@ public class CinematicEventLauncher : MonoBehaviour
             if (textIsVisible) LoadScene();
             else ShowText();
         }
+
         float dt = Time.deltaTime;
 
         text.color = Color.Lerp(text.color, textIsVisible ? Color.white : Color.clear, dt * lerpSpeed);
