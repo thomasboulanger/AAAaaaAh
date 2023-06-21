@@ -89,6 +89,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private GameObject weirdbirds_10;
 
 
+    [SerializeField] bool cinematic;
+
 
 
     //private uint playingID;
@@ -105,9 +107,14 @@ public class AudioManager : MonoBehaviour
     public void Init()
     {
         //initialize / reset sounds
-        InitializeMenuSounds();
+        if (!cinematic)
+        {
+            InitializeMenuSounds();
+            CriAndGroml(blendShapesAnim.gameObject);
+        }
+
         
-        CriAndGroml(blendShapesAnim.gameObject);
+
         
         //rtpcMeterInspiExpi.RawAmplitudeScream = listenScreamRtpc;
         //rtpcMeterCriRespi.listenScreamRtpcAmplitudeValue = listenScreamRtpc;

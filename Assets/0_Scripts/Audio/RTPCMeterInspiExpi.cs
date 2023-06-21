@@ -31,7 +31,7 @@ public class RTPCMeterInspiExpi : MonoBehaviour
 
     private void Start()
     {
-        if (!audioManager) audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager == null) audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()

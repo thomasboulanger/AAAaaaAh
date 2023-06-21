@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11887.998, g: 7232.0215, b: 7425.0337, a: 1}
+  m_IndirectSpecularColor: {r: 11899.434, g: 7231.166, b: 7423.0737, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2262,6 +2262,7 @@ MonoBehaviour:
   test: {fileID: 2776503354914982938, guid: ff228515d2ef9454ea81c661525c76ec, type: 3}
   poubelleRef: {fileID: 308417889}
   poubelleCRef: {fileID: 1656788012}
+  onPlayerEndLevel: {fileID: 11400000, guid: e62cd535f517ca644bffbb374bde6b8f, type: 2}
 --- !u!4 &218929736
 Transform:
   m_ObjectHideFlags: 0
@@ -14677,7 +14678,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7a824e19381d2034486db019e8244ba4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 116.131
+      value: 117.746
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a824e19381d2034486db019e8244ba4,
         type: 3}
@@ -14687,7 +14688,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7a824e19381d2034486db019e8244ba4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.561
+      value: -2.865
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a824e19381d2034486db019e8244ba4,
         type: 3}

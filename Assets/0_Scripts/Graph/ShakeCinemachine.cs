@@ -34,7 +34,7 @@ public class ShakeCinemachine : MonoBehaviour
     {
         float powerByDistance = Mathf.Clamp( ((distanceMax / Vector3.Distance(transform.position, _monsterPos)) + added) *scalePower, 0, 99999) * rtpcScript.RawAmplitudeScream;
         perlinnoise.m_AmplitudeGain = powerByDistance ;
-        Debug.Log(powerByDistance);
+        //Debug.Log(powerByDistance);
 
     }
 }
