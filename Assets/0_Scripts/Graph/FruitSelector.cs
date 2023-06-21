@@ -23,7 +23,7 @@ public class FruitSelector : MonoBehaviour
 
     private Renderer _renderer;
     private MeshFilter _meshFilter;
-    private MeshCollider _collider;
+    //private MeshCollider _collider;
     private Animator _animator;
     private GameObject _shader;
     private int _chosenFruitIndex;
@@ -38,13 +38,13 @@ public class FruitSelector : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _renderer = transform.GetChild(0).GetComponent<Renderer>();
         _meshFilter = transform.GetChild(0).GetComponent<MeshFilter>();
-        _collider = transform.GetChild(0).GetComponent<MeshCollider>();
+        //_collider = transform.GetChild(0).GetComponent<MeshCollider>();
         _shader = transform.GetChild(1).gameObject;
         _animator = GetComponent<Animator>();
 
         _chosenFruitIndex = Random.Range(0, fruitPool.Length - 1);
         _meshFilter.sharedMesh = fruitPool[_chosenFruitIndex].fruitMesh;
-        _collider.sharedMesh = fruitPool[_chosenFruitIndex].fruitMesh;
+        //_collider.sharedMesh = fruitPool[_chosenFruitIndex].fruitMesh;
         _renderer.materials = fruitPool[_chosenFruitIndex].materials;
 
         currentParent = null;
@@ -57,7 +57,7 @@ public class FruitSelector : MonoBehaviour
         if (IsFruitGrabbed())
         {
             rb.isKinematic = true;
-            _collider.isTrigger = true;
+            //_collider.isTrigger = true;
 
             if (animating) return;
             transform.position = currentParent.transform.position;
@@ -65,7 +65,7 @@ public class FruitSelector : MonoBehaviour
         else
         {
             rb.isKinematic = false;
-            _collider.isTrigger = false;
+            //_collider.isTrigger = false;
         }
     }
 

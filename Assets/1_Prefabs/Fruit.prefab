@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2776503354914982938}
   - component: {fileID: 2776503354914982937}
   - component: {fileID: 8481519109377550293}
-  - component: {fileID: 6294037995361121569}
   m_Layer: 8
   m_Name: Fruit
   m_TagString: Fruit
@@ -187,24 +186,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6294037995361121569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2776503354914982932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc5b2c64087db2438d79fccab0d36b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixedJoints: []
-  _membersInt: 
-  _limbs: []
-  _initialPositions: []
-  _useCustomGravity: 0
-  _customgravity: 5
 --- !u!1 &2890373814813476465
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +198,7 @@ GameObject:
   - component: {fileID: 1511134225665037166}
   - component: {fileID: 3682915195583457188}
   - component: {fileID: 5496407596841617321}
+  - component: {fileID: 319987483377475371}
   m_Layer: 8
   m_Name: SM_fruit
   m_TagString: Fruit
@@ -299,8 +281,21 @@ MeshCollider:
   m_GameObject: {fileID: 2890373814813476465}
   m_Material: {fileID: 13400000, guid: b321cc12a446c814283e4436db237e4b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 30
+  m_CookingOptions: 4
   m_Mesh: {fileID: 4510457786058107436, guid: 14aab77b292ee734f9c69db04e193380, type: 3}
+--- !u!135 &319987483377475371
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890373814813476465}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0037710927
+  m_Center: {x: -0.00000029744115, y: 0.000742442, z: 0.0000016918057}
