@@ -89,7 +89,7 @@ public class Mouche : MonoBehaviour
                 break;
         }
         Debug.Log(_test);
-        if ((int)data1 <= 8)
+        if ((GameManager.UIStateEnum) data1 is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _spawnFlies = false;
         }

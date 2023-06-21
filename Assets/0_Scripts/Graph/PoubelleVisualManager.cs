@@ -363,7 +363,7 @@ public class PoubelleVisualManager : MonoBehaviour
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((int)data1 != 6)
+        if ((GameManager.UIStateEnum)data1 is not GameManager.UIStateEnum.Start)
         {
             Debug.Log(data1);
             return;
@@ -387,7 +387,7 @@ public class PoubelleVisualManager : MonoBehaviour
                 _gaugeActivate = true;
                 break;
         }
-        if ((int)data1 <= 8)// c'est de la grosse bite
+        if ((GameManager.UIStateEnum)data1 is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _gaugeActivate = false;
         }
