@@ -149,14 +149,20 @@ public class LimbController : MonoBehaviour
                     Physics.OverlapSphere(transform.position, grabRadius, grabInteractableLayerMask);
 
                 if (objectsInRange.Length < 1) return;
-                GameObject closestObj;
+                GameObject closestObj = null;
                 if (objectsInRange.Length == 1)
                     closestObj = objectsInRange[0].gameObject;
                 else
-                    closestObj = objectsInRange
-                        .OrderBy(element => (transform.position - element.transform.position).sqrMagnitude).First()
-                        .gameObject;
-
+                {
+                    foreach (Collider element in objectsInRange)
+                        if (element.transform.CompareTag("Fruit")) closestObj = element.gameObject;
+                    
+                    if(closestObj == null)
+                        closestObj = objectsInRange
+                            .OrderBy(element => (transform.position - element.transform.position).sqrMagnitude).First()
+                            .gameObject;
+                }
+                
                 if (closestObj.CompareTag("Fruit"))
                 {
                     _isGrabbingFruit = true;
