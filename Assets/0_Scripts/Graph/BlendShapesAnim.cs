@@ -119,6 +119,7 @@ public class BlendShapesAnim : MonoBehaviour
 
     public void CanScream(bool status)
     {
+        rtpcScript.RawAmplitudeScream = 0;
         rtpcScript.enabled = status;
     }
 }
