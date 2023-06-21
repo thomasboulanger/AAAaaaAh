@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class AudioMenuManager : MonoBehaviour
 {
-    //RTPCs
-
     [SerializeField] private AK.Wwise.RTPC _sfxVolumeRTPC;
     [SerializeField] [Range(0f, 100f)] private float _sfxVolume = 100f;
 

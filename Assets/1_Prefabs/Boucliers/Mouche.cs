@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEditor.ShaderData;
 
 public class Mouche : MonoBehaviour
 {
@@ -35,6 +37,33 @@ public class Mouche : MonoBehaviour
 
     void Update()
     {
+        //if (proutdifficulty == 1){return;}
+
+        //if (proutdifficulty == 2)
+        //{
+        //    intervalle = 0.25f;
+        //    Physics.IgnoreLayerCollision(0, 0, true);
+        //    activateJauge = false;
+        //}        
+        //if (proutdifficulty == 3)
+        //{
+        //    intervalle = 1.25f;
+        //    Physics.IgnoreLayerCollision(0, 0, false);
+        //    activateJauge = true;
+        //}        
+        //if (proutdifficulty == 4)
+        //{
+        //    intervalle = 1.25f;
+        //    Physics.IgnoreLayerCollision(0, 0, false);
+        //    activateJauge = true;
+        //}        
+        //if (proutdifficulty == 5)
+        //{
+        //    intervalle = 0.5f;
+        //    Physics.IgnoreLayerCollision(0, 0, false);
+        //    activateJauge = true;
+        //}
+
         if (_firstTimeCrossedLimitSpawning == true)
         {
             _firstTimeCrossedLimitSpawning = false;

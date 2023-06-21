@@ -14,7 +14,7 @@ using Random = UnityEngine.Random;
 public class CursorController : MonoBehaviour
 {
     [SerializeField] private GameEvent onPlayerThrowTruelleSound;
-    
+
     public int cursorID;
     public int cursorCanvasState;
     [SerializeField] private UIHommingTruelle truelleUIPrefab;
@@ -26,6 +26,7 @@ public class CursorController : MonoBehaviour
     private float _objectHeight;
     private Camera _mainCamera;
     private Vector4 _screenBounds;
+    private Camera _camera;
 
     private void Start()
     {
@@ -33,13 +34,14 @@ public class CursorController : MonoBehaviour
         _screenBounds = CalculateScreenBounds();
         _objectWidth = transform.localScale.x * GetComponent<SpriteRenderer>().bounds.extents.x;
         _objectHeight = transform.localScale.y * GetComponent<SpriteRenderer>().bounds.extents.y;
+        _camera = Camera.main;
     }
 
     public void UpdateCursorPosition(Component sender, object data1, object playerID, object unUsed)
     {
         int gameState = (int) GameManager.UICanvaState;
         if (gameState is 4 or 5 or 6) gameState = 4;
-        
+
         if (gameState != cursorCanvasState) return;
         if (playerID is not int) return;
         if (cursorID != (int) playerID) return;
@@ -63,7 +65,7 @@ public class CursorController : MonoBehaviour
     {
         int gameState = (int) GameManager.UICanvaState;
         if (gameState is 4 or 5 or 6) gameState = 4;
-        
+
         if (gameState != cursorCanvasState) return;
         if (!_inputPressed) _triggerOnce = false;
         if (!_inputPressed || _triggerOnce) return;
@@ -71,28 +73,30 @@ public class CursorController : MonoBehaviour
         _triggerOnce = true;
         onPlayerThrowTruelleSound.Raise(this, null, null, null);
 
-        //instantiate truelle and target our cursor
-        Vector3 spawnPos = transform.position + new Vector3
-        (
-            Random.Range(-1, 1),
-            Random.Range(-1, 1),
-            -5
-        );
+        Ray ray = _camera.ScreenPointToRay(transform.position);
+        RaycastHit hit;
+        Vector3 spawnPos = _camera.transform.position;
+        Vector3 destination = transform.position;
+        if (Physics.Raycast(ray, out hit, Vector3.Distance(transform.position, _camera.transform.position) * 1.2f))
+        {
+            Vector3 hitPosition = hit.point;
+            if (!hit.transform.CompareTag("Cursor")) destination = hitPosition;
+        }
 
         UIHommingTruelle truelleGo = Instantiate(truelleUIPrefab, spawnPos, Quaternion.Euler
         (
-            Random.Range(-50,50),
-            Random.Range(-50,50),
-            Random.Range(-50,50)
+            Random.Range(-50, 50),
+            Random.Range(-50, 50),
+            Random.Range(-50, 50)
         ));
-        truelleGo.Init(transform.position);
+        truelleGo.Init(destination);
     }
 
     private Vector4 CalculateScreenBounds()
     {
         Vector4 bounds = new Vector4();
 
-        if(!_mainCamera) _mainCamera = FindObjectOfType<Camera>();
+        if (!_mainCamera) _mainCamera = FindObjectOfType<Camera>();
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;
