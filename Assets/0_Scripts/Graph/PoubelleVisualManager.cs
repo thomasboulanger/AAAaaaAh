@@ -388,7 +388,10 @@ public class PoubelleVisualManager : MonoBehaviour
                 _gaugeActivate = true;
                 break;
         }
-
+        if ((int)data1 <= 8)// c'est de la grosse bite
+        {
+            _gaugeActivate = false;
+        }
         toggleGauge.Raise(this, _gaugeActivate, null, null);
 
         Debug.Log("diff set");
