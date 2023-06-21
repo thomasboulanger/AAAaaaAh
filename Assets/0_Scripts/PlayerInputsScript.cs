@@ -86,7 +86,7 @@ public class PlayerInputsScript : MonoBehaviour
             onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
             onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
         }
-        else if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel && inputScriptID != 5)
+        if (!GameManager.InGame && GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel && inputScriptID != 5)
             onPlayerGrabAfterEndOfLevel.Raise(this, _grabValue, _playerID, inputScriptID);
     }
 

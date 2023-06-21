@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11893.664, g: 7231.6074, b: 7424.067, a: 1}
+  m_IndirectSpecularColor: {r: 11892.164, g: 7231.672, b: 7424.319, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3638,6 +3638,11 @@ PrefabInstance:
       propertyPath: virtualCamFinal
       value: 
       objectReference: {fileID: 54756679}
+    - target: {fileID: 308417900, guid: ed26549cbb2755440a721b8114b392ff, type: 3}
+      propertyPath: onDisplayScore
+      value: 
+      objectReference: {fileID: 11400000, guid: 31a07a01d09c34f4aa1b017923649371,
+        type: 2}
     - target: {fileID: 5351165542593046278, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
       propertyPath: m_Name
@@ -5175,7 +5180,7 @@ PrefabInstance:
     - target: {fileID: 315007906697001728, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_fontColor.a
-      value: 0.7882353
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315007906697001728, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
@@ -5195,7 +5200,7 @@ PrefabInstance:
     - target: {fileID: 315007906697001728, guid: 3787d80021506e849af39390b323eb88,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 3372220416
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 315007906697001729, guid: 3787d80021506e849af39390b323eb88,
         type: 3}

@@ -289,8 +289,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
-        //Debug.Log(GameManager.UICanvaState);
-        //GameManager.UICanvaState = GameManager.UIStateEnum.PlayerHaveReachEndOfLevel; //�tre a la fin
+     
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
@@ -390,8 +389,6 @@ public class PoubelleVisualManager : MonoBehaviour
         }
 
         toggleGauge.Raise(this, _gaugeActivate, null, null);
-
-        Debug.Log("diff set");
     }
 
     IEnumerator RandomDelayedFruits()
@@ -407,8 +404,7 @@ public class PoubelleVisualManager : MonoBehaviour
 
         _finished = true;
     }
-
-    private float Remap(float value, float from1, float to1, float from2, float to2)
+    private float Remap(float value, float from1, float from2, float to1, float to2)
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
