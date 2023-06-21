@@ -18,9 +18,7 @@ public class UIButtonInfo : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
-
         onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);
-        collision.transform.GetComponent<UIHommingTruelle>().TruelleHitButton();
     }
 
     public void ChangePanelButton() => onPlayerChangePanel.Raise(this, indexToMoveTo, null, null);

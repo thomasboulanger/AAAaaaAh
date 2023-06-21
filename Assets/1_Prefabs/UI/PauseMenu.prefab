@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4541906518080522016}
   - component: {fileID: 4541906518080522019}
   - component: {fileID: 4541906518080522018}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4541906518291284770}
   - component: {fileID: 4541906518291284768}
   - component: {fileID: 4541906518291284771}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 4541906518330382068}
   - component: {fileID: 4541906518330382071}
   - component: {fileID: 4541906518330382070}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4541906518352798912}
   - component: {fileID: 735854236}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4541906518438026652}
   - component: {fileID: 4541906518438026655}
   - component: {fileID: 4541906518438026654}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 4541906518463688705}
   - component: {fileID: 4541906518463688704}
   - component: {fileID: 4541906518463688707}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 4541906518747125954}
   - component: {fileID: 4541906518747125949}
   - component: {fileID: 4541906518747125952}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Resume
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 4541906518774919394}
   - component: {fileID: 4541906518774919392}
   - component: {fileID: 4541906518774919395}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 4541906518797199857}
   - component: {fileID: 4541906518797199856}
   - component: {fileID: 4541906518797199863}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: ReturnToLastCheckPoint
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 4541906518959969474}
   - component: {fileID: 4541906518959969472}
   - component: {fileID: 4541906518959969475}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 4541906519240643614}
   - component: {fileID: 4541906519240643612}
   - component: {fileID: 4541906519240643615}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 4541906519482793458}
   - component: {fileID: 4541906519482793453}
   - component: {fileID: 4541906519482793456}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: ReturnToFirstCheckPoint
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 4541906520033278056}
   - component: {fileID: 4541906520033278059}
   - component: {fileID: 849192485}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: ReturnToMenu
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -1531,6 +1531,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_panneauMetal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88646d2e99917fa48bbfa2b4255e1ae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88646d2e99917fa48bbfa2b4255e1ae6, type: 3}
 --- !u!4 &4072008978349204065 stripped
@@ -1620,6 +1625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_panneauMetal (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88646d2e99917fa48bbfa2b4255e1ae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88646d2e99917fa48bbfa2b4255e1ae6, type: 3}
@@ -1711,6 +1721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_panneauMetal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88646d2e99917fa48bbfa2b4255e1ae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88646d2e99917fa48bbfa2b4255e1ae6, type: 3}
 --- !u!4 &4072008977487814730 stripped
@@ -1801,6 +1816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_panneauMetal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 88646d2e99917fa48bbfa2b4255e1ae6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88646d2e99917fa48bbfa2b4255e1ae6, type: 3}
 --- !u!4 &4072008977400915364 stripped
@@ -1825,6 +1845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cursor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982272823337666489, guid: c681379e8434ff54bb922f573755d4d5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3982272823337666490, guid: c681379e8434ff54bb922f573755d4d5,
         type: 3}
