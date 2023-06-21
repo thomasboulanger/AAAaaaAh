@@ -99,8 +99,7 @@ public class GameManager : MonoBehaviour
 
         if ((int) data1 == 7) onUpdateRebindVisual.Raise(this, null, null, null);
 
-        if ((int) data1 is 6) onFlyCanvaToggle.Raise(this, true, null, null);
-        else onFlyCanvaToggle.Raise(this, false, null, null);
+        if ((int) data1 is not 6) onFlyCanvaToggle.Raise(this, false, null, null);
 
         Debug.Log("moved to panel " + (int) data1);
     }
