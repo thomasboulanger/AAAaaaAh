@@ -5,7 +5,6 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
-using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -14,11 +13,9 @@ using UnityEngine;
 public class ButtonOpacityAndInteractibility : MonoBehaviour
 {
     [SerializeField] private Collider collider;
-    [SerializeField] private TMP_Text text;
     void Update()
     {
         if(GameManager.UICanvaState != GameManager.UIStateEnum.PressStartToAddPlayers) return;
         collider.isTrigger = !(PlayerManager.Players.Count > 1);
-        text.alpha = PlayerManager.Players.Count > 1 ? 255 : 180;
     }
 }

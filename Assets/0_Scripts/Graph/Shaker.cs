@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Shaker : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float power = 1f;
     [SerializeField] private float powerSetting = 1f;
-    [SerializeField] private float powerBuildings = 0f;
+    [SerializeField] private float powerBuildings;
     [SerializeField] private float powerBuildingsSetting = 1f;
     [SerializeField] private Vector3[] _mediumNoise = new Vector3[10];
     [SerializeField] private Vector3[] _largeNoise = new Vector3[10];
@@ -14,38 +15,30 @@ public class Shaker : MonoBehaviour
     [SerializeField] private RTPCMeterInspiExpi rtpcScript;
     [SerializeField] private bool useSound;
     [SerializeField] private float soundMultiplier = 20f;
-    [SerializeField] private float soundMultiplierBuildings = 20f;
-
-    [SerializeField] private Vector3 offset = Vector3.zero;
     [Range(0, 2)] [SerializeField] private int noiseSelector;
-
-    [SerializeField] private List<Transform> buildingsToMove = new List<Transform>();
-    private List<Vector3> basePoseBuildings = new List<Vector3>();
-
-    [SerializeField] private bool scaleOnDistance;
+    [SerializeField] private List<Transform> buildingsToMove = new();
     [SerializeField] private float scalePower = 1f;
     [SerializeField] private float added = 1f;
 
+    [FormerlySerializedAs("_am")] [SerializeField]
+    private AudioManager audioManager;
 
-    [SerializeField] private AudioManager _am;
-    private int _i;
-
+    private int _index;
     private Vector3 _basePos;
     private Vector3 _monsterPos;
-
+    private List<Vector3> _basePoseBuildings = new();
     private float distanceMax;
-
     private bool wasBuildingMoving;
 
 
     void Start()
     {
-        _monsterPos = GameObject.FindObjectOfType<BlendShapesAnim>().transform.position;
+        _monsterPos = FindObjectOfType<BlendShapesAnim>().transform.position;
         distanceMax = Vector3.Distance(transform.position, _monsterPos);
 
         foreach (Transform item in buildingsToMove)
         {
-            basePoseBuildings.Add(item.transform.localPosition);
+            _basePoseBuildings.Add(item.transform.localPosition);
         }
 
         _mediumNoise = RandomArray(-2f, 2f, 10);
@@ -56,10 +49,7 @@ public class Shaker : MonoBehaviour
 
     void Update()
     {
-
-        float dt = Time.deltaTime;
-        Debug.Log(_am.listenMusicRtpc.GetValue(gameObject));
-
+        float deltaTime = Time.deltaTime;
         if (useSound)
         {
             float powerByDistance = 1f;
@@ -71,15 +61,17 @@ public class Shaker : MonoBehaviour
             transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * rtpcScript.RawAmplitudeScream * soundMultiplier* powerByDistance * power, dt * speed);
         }
         else
-        {
-            transform.localPosition = Vector3.Lerp(_basePos, _basePos + ChooseArray(noiseSelector)[_i] * power * powerSetting, dt * speed);
-        }
+            transform.localPosition = Vector3.Lerp(_basePos,
+                _basePos + ChooseArray(noiseSelector)[_index] * (power * powerSetting), deltaTime * speed);
 
-        if (powerBuildings>0)
+
+        if (powerBuildings > 0)
         {
             for (int i = 0; i < buildingsToMove.Count; i++)
             {
-                buildingsToMove[i].localPosition = Vector3.Lerp(basePoseBuildings[i], basePoseBuildings[i] + ChooseArray(noiseSelector)[Random.Range(0, 10)] * powerBuildings* powerBuildingsSetting, dt * speed);
+                buildingsToMove[i].localPosition = Vector3.Lerp(_basePoseBuildings[i],
+                    _basePoseBuildings[i] + ChooseArray(noiseSelector)[Random.Range(0, 10)] *
+                    (powerBuildings * powerBuildingsSetting), deltaTime * speed);
                 wasBuildingMoving = true;
             }
         }
@@ -88,22 +80,20 @@ public class Shaker : MonoBehaviour
             wasBuildingMoving = false;
             for (int i = 0; i < buildingsToMove.Count; i++)
             {
-                buildingsToMove[i].localPosition = basePoseBuildings[i];
+                buildingsToMove[i].localPosition = _basePoseBuildings[i];
                 wasBuildingMoving = true;
             }
         }
 
-        _i++;
-        if (_i > 9) _i = 0;
+        _index++;
+        if (_index > 9) _index = 0;
     }
 
-    Vector3[] RandomArray(float min, float max, int n)
+    Vector3[] RandomArray(float min, float max, int count)
     {
         List<Vector3> tempArray = new List<Vector3>();
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < count; i++)
             tempArray.Add(new Vector3(Random.Range(min, max), Random.Range(min, max), Random.Range(min, max)));
-        }
         return tempArray.ToArray();
     }
 

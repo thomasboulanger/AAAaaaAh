@@ -62,6 +62,7 @@ public class UIHommingTruelle : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
+        if(collision.transform.name.Contains("(clone)")) return;
         TruelleHitButton();
     }
 }

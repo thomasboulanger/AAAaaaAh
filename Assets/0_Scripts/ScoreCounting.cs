@@ -19,58 +19,52 @@ public class ScoreCounting : MonoBehaviour
     private float _fruitScore;
     private float _timeScore;
     private float _startTime;
-    private bool _scoreWasGenerated = false;
+    private bool _scoreWasGenerated;
 
     [SerializeField] private GameEvent onScoreGenerated;
+
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((int)data1 != 6) return;
+        if ((int) data1 != 6) return;
         _startTime = Time.time;
-        Debug.Log("playerState");
     }
 
-        public void PlayerReachedEnd(Component sender, object data1, object unUsed1, object unUsed2)
-    {
+    public void PlayerReachedEnd(Component sender, object data1, object unUsed1, object unUsed2) =>
         _collectedFruits = GetComponent<PoubelleVisualManager>().storedFruits.Count;
-        Debug.Log("player reached end");
-
-    }
+    
     public void NoFruitsRemainig(Component sender, object data1, object unUsed1, object unUsed2)
     {
-        if (_scoreWasGenerated == false)
+        if (_scoreWasGenerated) return;
+        _completionTime = Time.time - _startTime;
+        _timeDifferential = averageTime - _completionTime;
+        _timePerfruit = averageTime / maxFruits;
+        _scorePerSecond = scorePerFruit / _timePerfruit;
+        if (_timeDifferential < 0)
         {
-            _completionTime = Time.time - _startTime;
-            _timeDifferential = averageTime - _completionTime;
-            _timePerfruit = averageTime / maxFruits;
-            _scorePerSecond = scorePerFruit / _timePerfruit;
-            if (_timeDifferential < 0)
-            {
-                //_score = _collectedFruits * scorePerFruit / (_completionTime/averageTime);
-                _score = _collectedFruits * scorePerFruit;
-                _timeScore = 0;
-            }
-            else
-            {
-                _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
-                _timeScore = _timeDifferential * _scorePerSecond;
-            }
-            onScoreGenerated.Raise(this, _score, null, null);
-            _fruitScore = _collectedFruits * scorePerFruit;
-
-            if (_collectedFruits == 0)
-            {
-                _fruitScore = 0;
-                _timeScore = 0;
-                _score = 0;
-            }
-            if (_score > _maxScore)
-            {
-                _maxScore = _score;
-            }
-            Debug.Log("NofruitsRemaining " + "score = " + _score +"             nbr de fruits : " + _collectedFruits);
-            _scoreWasGenerated = true;
+            _score = _collectedFruits * scorePerFruit;
+            _timeScore = 0;
         }
-        
+        else
+        {
+            _score = _collectedFruits * scorePerFruit + _timeDifferential * _scorePerSecond;
+            _timeScore = _timeDifferential * _scorePerSecond;
+        }
+
+        onScoreGenerated.Raise(this, _score, null, null);
+        _fruitScore = _collectedFruits * scorePerFruit;
+
+        if (_collectedFruits == 0)
+        {
+            _fruitScore = 0;
+            _timeScore = 0;
+            _score = 0;
+        }
+
+        if (_score > _maxScore)
+            _maxScore = _score;
+
+        Debug.Log("NofruitsRemaining " + "score = " + _score + "             nbr de fruits : " + _collectedFruits);
+        _scoreWasGenerated = true;
     }
 }

@@ -63,8 +63,8 @@ public class CursorController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(_camera.transform.position,transform.position- _camera.transform.position,Color.magenta);
-        
+        Debug.DrawRay(_camera.transform.position, transform.position - _camera.transform.position, Color.magenta);
+
         int gameState = (int) GameManager.UICanvaState;
         if (gameState is 4 or 5 or 6) gameState = 4;
 
@@ -75,24 +75,16 @@ public class CursorController : MonoBehaviour
         _triggerOnce = true;
         onPlayerThrowTruelleSound.Raise(this, null, null, null);
 
-        Ray ray = _camera.ScreenPointToRay(transform.position);
-        RaycastHit hit;
         Vector3 spawnPos = _camera.transform.position;
         Vector3 destination = transform.position;
-        
-        // if (Physics.Raycast(ray, out hit, Mathf.Infinity,13))
-        // {
-        //     Vector3 hitPosition = hit.point; 
-        //     destination = hitPosition;
-        // }
-        
+
         UIHommingTruelle truelleGo = Instantiate(truelleUIPrefab, spawnPos, Quaternion.Euler
         (
             Random.Range(-50, 50),
             Random.Range(-50, 50),
             Random.Range(-50, 50)
         ));
-        
+
         Debug.Log(destination);
         truelleGo.Init(destination);
     }
