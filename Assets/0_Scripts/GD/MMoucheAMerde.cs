@@ -279,7 +279,7 @@ public class MMoucheAMerde : MonoBehaviour
         _knockBackDepth = Random.Range(knockBackDepth.x, knockBackDepth.y);
     }
 
-    void DestroyMouche()
+    public void DestroyMouche()
     {
         _playmouche.Stop(gameObject);
         moucheAnimation.Death();

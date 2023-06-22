@@ -23,7 +23,7 @@ public class BlendShapesAnim : MonoBehaviour
     [SerializeField] private float mouthSpeed = 700f;
 
     [SerializeField] private bool canScream;
-
+    [SerializeField] bool canBreath;//George Floyd ?????????????????????????????????????????????????? 
 
     private float _blendShape0;
     private float _blendShape1;
@@ -100,6 +100,7 @@ public class BlendShapesAnim : MonoBehaviour
 
     public void RespiCheck(int expiInspi)
     {
+        if (!canBreath) return;
         if (screams) return;
 
         if (expiInspi == 0)

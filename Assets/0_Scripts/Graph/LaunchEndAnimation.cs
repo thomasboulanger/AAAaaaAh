@@ -23,6 +23,17 @@ public class LaunchEndAnimation : MonoBehaviour
         virtualCamFinal.Priority = 11;
         yield return new WaitForSeconds(timeToFade);
         poubelleRef.PrepareCinematic();
+        DestroyRemainningFlyes();
+    }
+
+    void DestroyRemainningFlyes()
+    {
+        foreach (MMoucheAMerde item in GameObject.FindObjectsOfType<MMoucheAMerde>())
+        {
+            item.DestroyMouche();
+        }
+
+        GameObject.FindObjectOfType<Mouche>().enabled = false;
     }
 
     // void Fire()

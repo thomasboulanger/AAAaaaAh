@@ -192,8 +192,6 @@ public class MoucheAnimation : MonoBehaviour
 
     public void Death()
     {
-
-
         _dead = true;
     }
 }

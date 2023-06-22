@@ -77,8 +77,8 @@ public class Mouche : MonoBehaviour
 
                 break;
         }
-        Debug.Log(_test);
-        if ((GameManager.UIStateEnum) data1 is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+        Debug.Log(_test + " " + data1);
+        if ((int)data1 == 8) //il rentre jamais la alors je le tej depuis launchEndANimation
         {
             _spawnFlies = false;
         }

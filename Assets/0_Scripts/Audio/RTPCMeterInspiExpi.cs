@@ -27,6 +27,8 @@ public class RTPCMeterInspiExpi : MonoBehaviour
 
     [SerializeField] [Range(0f, 100f)] private float SmoothAmplitudeResponse;
     [SerializeField] private AudioManager audioManager;
+
+
     private float _end = 1;
 
     private void Start()
