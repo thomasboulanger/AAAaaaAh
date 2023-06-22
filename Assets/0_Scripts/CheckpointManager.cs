@@ -54,27 +54,17 @@ public class CheckpointManager : MonoBehaviour
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
-        StartCoroutine(DelayCoroutine(_latestCheckpoint));
+        StartCoroutine(DelayCoroutineLast(_latestCheckpoint));
     }
 
     public void OnReturnToFirstCheckpoint(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         //call screen fade out event
         fadeOutEvent.Raise(this, true, null, null);
-        StartCoroutine(DelayCoroutine(_firstCheckpoint));
-
-        //reload the level
-        GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
-
-        //reset checkpoint values
-        _latestCheckpointIndex = 0;
-        _latestCheckpoint = _firstCheckpoint;
-
-        onClearFruitLists.Raise(this, null, null, null);
-        //reset d autres variables/cas s il y en a...
+        StartCoroutine(DelayCoroutineFirst(_firstCheckpoint));
     }
 
-    IEnumerator DelayCoroutine(Vector3 positionToMoveTo)
+    IEnumerator DelayCoroutineLast(Vector3 positionToMoveTo)
     {
         yield return new WaitForSeconds(.5f);
         //iterate on all limbs to get their offset with character body
@@ -97,5 +87,38 @@ public class CheckpointManager : MonoBehaviour
 
         onPlayerPressPause.Raise(this, 0, false, null);
         PlayerInputsScript.InGamePauseButton = false;
+    }
+    IEnumerator DelayCoroutineFirst(Vector3 positionToMoveTo)
+    {
+        yield return new WaitForSeconds(.5f);
+        //iterate on all limbs to get their offset with character body
+        for (int i = 0; i < _tempLimbsOffsetPosition.Length; i++)
+            _tempLimbsOffsetPosition[i] = _limbsTransforms[i].position - transform.position;
+        
+        onPlayerPressPause.Raise(this, 0, false, null);
+        PlayerInputsScript.InGamePauseButton = false;
+        
+        //reload the level
+        GameObject.Find("GameManager").GetComponent<GameManager>().LoadLevel();
+
+        //reset checkpoint values
+        _latestCheckpointIndex = 0;
+        _latestCheckpoint = _firstCheckpoint;
+
+        //move the body to last checkpoint position
+        transform.position = positionToMoveTo;
+
+        //iterate on all limbs, move limb position to body position + offset
+        for (int i = 0; i < _limbsTransforms.Length; i++)
+        {
+            _limbsTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
+            _virtualTransforms[i].position = transform.position + _tempLimbsOffsetPosition[i];
+        }
+
+        onClearFruitLists.Raise(this, null, null, null);
+        
+        _overridingInputs = true;
+        yield return new WaitForSeconds(.3f);
+        _overridingInputs = false;
     }
 }
