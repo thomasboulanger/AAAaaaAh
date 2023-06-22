@@ -13,10 +13,11 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class CursorController : MonoBehaviour
 {
-    [SerializeField] private GameEvent onPlayerThrowTruelleSound;
-
     public int cursorID;
     public int cursorCanvasState;
+    
+    [SerializeField] private GameEvent onPlayerThrowTruelleSound;
+
     [SerializeField] private UIHommingTruelle truelleUIPrefab;
 
     private const float Speed = 5;
@@ -63,8 +64,6 @@ public class CursorController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(_camera.transform.position, transform.position - _camera.transform.position, Color.magenta);
-
         int gameState = (int) GameManager.UICanvaState;
         if (gameState is 4 or 5 or 6) gameState = 4;
 
@@ -85,7 +84,6 @@ public class CursorController : MonoBehaviour
             Random.Range(-50, 50)
         ));
 
-        Debug.Log(destination);
         truelleGo.Init(destination);
     }
 
