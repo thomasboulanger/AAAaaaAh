@@ -14,6 +14,9 @@ public class ControlerIconManager : MonoBehaviour
     [SerializeField] private int playerID = -1;
     [SerializeField] private Material outlineMaterial;
 
+    [SerializeField] private List<SpriteRenderer> _fvxGrab = new();
+
+
     private Material _spriteMat;
     private JoystickManager _joystickL;
     private JoystickManager _joystickR;
@@ -22,6 +25,16 @@ public class ControlerIconManager : MonoBehaviour
 
     void Awake()
     {
+        foreach (ShockwaveAnimatorControler item in GameObject.FindObjectsOfType<ShockwaveAnimatorControler>())
+        {
+            _fvxGrab.Add(item.transform.GetChild(0).GetComponent<SpriteRenderer>());
+        }
+        SpriteRenderer tempSR = _fvxGrab[1];
+        SpriteRenderer tempSR4 = _fvxGrab[2];
+
+        _fvxGrab[1] = tempSR4;
+        _fvxGrab[2] = tempSR;
+
         selfMeshRenderer.sharedMaterial = new Material(selfMeshRenderer.sharedMaterial);
         _spriteMat = selfMeshRenderer.sharedMaterial;
         _triggerOnce = false;
@@ -75,10 +88,16 @@ public class ControlerIconManager : MonoBehaviour
             {
                 element.GetComponent<MeshRenderer>().material.SetColor("_BCTint", col);
                 outlineMaterial.SetColor(element.GetComponent<LimbSelectorCall>().outlineNameStr, col);
+                _fvxGrab[element.GetComponent<LimbSelectorCall>().currentLimbIndex].color = col;
             }
         }
     }
 
-    public void ResetOutline(GameObject objToReplace, Color color) =>
+    public void ResetOutline(GameObject objToReplace, Color color)
+    {
         outlineMaterial.SetColor(objToReplace.GetComponent<LimbSelectorCall>().outlineNameStr, color);
+        _fvxGrab[objToReplace.GetComponent<LimbSelectorCall>().currentLimbIndex].color = color;
+    }
+
+
 }

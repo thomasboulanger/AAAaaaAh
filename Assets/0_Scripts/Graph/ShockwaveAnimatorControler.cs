@@ -7,6 +7,8 @@ public class ShockwaveAnimatorControler : MonoBehaviour
     [SerializeField] private GameObject followTarget;
     [SerializeField] private Vector3 offset;
 
+    public int limbN;
+
     void Update()
     {
         if (!followTarget) return;
