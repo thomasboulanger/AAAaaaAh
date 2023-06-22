@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11894.454, g: 7231.5117, b: 7423.8594, a: 1}
+  m_IndirectSpecularColor: {r: 11098.651, g: 6799.1797, b: 6793.353, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5781,7 +5781,7 @@ PrefabInstance:
     - target: {fileID: 3890603643147698074, guid: fa56a2e8c0ab5d94298e152e129378d1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3890603643147698074, guid: fa56a2e8c0ab5d94298e152e129378d1,
         type: 3}
@@ -10385,6 +10385,11 @@ PrefabInstance:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1831799257}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009302, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_RootOrder
@@ -10444,6 +10449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbGrabVFX (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
@@ -11282,6 +11292,11 @@ PrefabInstance:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1555292236}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009302, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_RootOrder
@@ -11341,6 +11356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbGrabVFX (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
@@ -12887,6 +12907,11 @@ PrefabInstance:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 495424696}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009302, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_RootOrder
@@ -12946,6 +12971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbGrabVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
@@ -13675,7 +13705,7 @@ PrefabInstance:
     - target: {fileID: 3990557394133643824, guid: bc401b1f8964bdb4ab880667a203fd2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3990557394133643824, guid: bc401b1f8964bdb4ab880667a203fd2a,
         type: 3}
@@ -14391,6 +14421,11 @@ PrefabInstance:
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1593427504}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009302, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_RootOrder
@@ -14450,6 +14485,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LimbGrabVFX (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
@@ -24763,37 +24803,37 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 119.131
+      value: -10.539614
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.62
+      value: 22.739
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.424
+      value: -10.444
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98091286
+      value: 0.99894667
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18397288
+      value: 0.04588608
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.061880626
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.011607088
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
