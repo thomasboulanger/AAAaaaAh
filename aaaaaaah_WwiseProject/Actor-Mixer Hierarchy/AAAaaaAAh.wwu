@@ -9188,7 +9188,7 @@
 												<Property Name="VirtualVoiceQueueBehavior" Type="int16" Value="2"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-4</Value>
+														<Value>-6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -9332,6 +9332,46 @@
 													<ActiveSourceList>
 														<ActiveSource Name="sfx_environnement_mouche_fly_loop_punch_voice_06" ID="{6BF1F074-1622-47AA-B9C9-331B6B64A012}" Platform="Linked"/>
 													</ActiveSourceList>
+												</Sound>
+												<Sound Name="New Sound SFX" ID="{5F9C5EF3-A59B-4E06-B772-066EDDCB08F8}" ShortID="503164774">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+												</Sound>
+												<Sound Name="New Sound SFX_01" ID="{276D1CAB-67E1-4587-8FF3-A546B73A57C2}" ShortID="688426649">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+												</Sound>
+												<Sound Name="New Sound SFX_02" ID="{37B48570-257C-43CA-B138-49DD23032419}" ShortID="550701585">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
+												</Sound>
+												<Sound Name="New Sound SFX_03" ID="{38EE28AC-D867-4ECB-A2FD-9C9655E058D4}" ShortID="576623706">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{A96163E8-6E58-4C8E-AD54-97CE0264D6E5}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{7C57E768-D353-4EB4-9017-5E2612351D75}"/>
+														</Reference>
+													</ReferenceList>
 												</Sound>
 											</ChildrenList>
 											<ObjectLists>
