@@ -53,7 +53,7 @@ public class Mouche : MonoBehaviour
 
                 break;
             case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
-                intervalle = 1.25f;
+                intervalle = 2f;
                 Physics.IgnoreLayerCollision(16, 3, false);
                 Physics.IgnoreLayerCollision(0, 15, false);
                 _spawnFlies = true;
