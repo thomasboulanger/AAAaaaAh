@@ -162,6 +162,7 @@ public class LimbController : MonoBehaviour
                 {
                     _isGrabbingFruit = true;
                     _fruit = closestObj.GetComponentInParent<FruitSelector>();
+                    if (_fruit.animating) return;
                     _fruit.GrabFruit(gameObject);
                 }
                 else if (closestObj.CompareTag("Environment"))
