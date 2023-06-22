@@ -88,7 +88,7 @@ public class ControlerIconManager : MonoBehaviour
             {
                 element.GetComponent<MeshRenderer>().material.SetColor("_BCTint", col);
                 outlineMaterial.SetColor(element.GetComponent<LimbSelectorCall>().outlineNameStr, col);
-                _fvxGrab[element.GetComponent<LimbSelectorCall>().currentLimbIndex].color = col;
+                //_fvxGrab[element.GetComponent<LimbSelectorCall>().currentLimbIndex].color = col;
             }
         }
     }
@@ -96,7 +96,7 @@ public class ControlerIconManager : MonoBehaviour
     public void ResetOutline(GameObject objToReplace, Color color)
     {
         outlineMaterial.SetColor(objToReplace.GetComponent<LimbSelectorCall>().outlineNameStr, color);
-        _fvxGrab[objToReplace.GetComponent<LimbSelectorCall>().currentLimbIndex].color = color;
+        //_fvxGrab[objToReplace.GetComponent<LimbSelectorCall>().currentLimbIndex].color = color;
     }
 
 
