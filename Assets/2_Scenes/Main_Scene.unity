@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11895.549, g: 7231.377, b: 7423.7383, a: 1}
+  m_IndirectSpecularColor: {r: 11895.611, g: 7231.367, b: 7423.7383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10382,9 +10382,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
+      propertyPath: limbN
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1831799257}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Name
+      value: IconGrab
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Layer
@@ -10448,7 +10457,7 @@ PrefabInstance:
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Name
-      value: LimbGrabVFX (1)
+      value: LimbGrabVFX 3
       objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
@@ -11289,9 +11298,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
+      propertyPath: limbN
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1555292236}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Name
+      value: IconGrab
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Layer
@@ -11355,7 +11373,7 @@ PrefabInstance:
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Name
-      value: LimbGrabVFX (3)
+      value: LimbGrabVFX 1
       objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
@@ -12904,9 +12922,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
+      propertyPath: limbN
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 495424696}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Name
+      value: IconGrab
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Layer
@@ -12970,7 +12997,7 @@ PrefabInstance:
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Name
-      value: LimbGrabVFX
+      value: LimbGrabVFX 4
       objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
@@ -14418,9 +14445,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
+      propertyPath: limbN
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2125152967, guid: d17de9cece7fab04c89a928cc342848f, type: 3}
       propertyPath: followTarget
       value: 
       objectReference: {fileID: 1593427504}
+    - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
+        type: 3}
+      propertyPath: m_Name
+      value: IconGrab
+      objectReference: {fileID: 0}
     - target: {fileID: 7954800154247173111, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Layer
@@ -14484,7 +14520,7 @@ PrefabInstance:
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
       propertyPath: m_Name
-      value: LimbGrabVFX (2)
+      value: LimbGrabVFX 2
       objectReference: {fileID: 0}
     - target: {fileID: 7954800155033009303, guid: d17de9cece7fab04c89a928cc342848f,
         type: 3}
