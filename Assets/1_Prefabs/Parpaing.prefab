@@ -654,6 +654,11 @@ MonoBehaviour:
   - {fileID: 5351165543459943322}
   - {fileID: 1868304879}
   - {fileID: 5351165543263629169}
+  - {fileID: 8434086584925451487}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5351165542803765956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,6 +2591,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.505
+      objectReference: {fileID: 0}
+    - target: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.165
+      objectReference: {fileID: 0}
     - target: {fileID: 3159900220199502340, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: m_RootOrder
@@ -2660,7 +2680,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ejectPos
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3083201393592420306}
     - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: gaugeSKR
@@ -2683,6 +2703,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b7b7425514e87e548b8f87d892175435,
         type: 2}
+    - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
+        type: 3}
+      propertyPath: gaugeIncrementByHit
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8588962873860861990, guid: ccd1815466ec64d44982ad2583a9e851,
         type: 3}
       propertyPath: gaugeColor.Array.data[0].b
@@ -2715,6 +2740,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd1815466ec64d44982ad2583a9e851, type: 3}
+--- !u!4 &3083201393592420306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 218905197035400754, guid: ccd1815466ec64d44982ad2583a9e851,
+    type: 3}
+  m_PrefabInstance: {fileID: 3008420258061543904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5756046080644671596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7359333831251460492, guid: ccd1815466ec64d44982ad2583a9e851,
@@ -2924,10 +2955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8980318bca074e41bf231db61569574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDisplayScore: {fileID: 11400000, guid: 31a07a01d09c34f4aa1b017923649371, type: 2}
+  onScoreGenerated: {fileID: 11400000, guid: d663b2a69f03c28408e238944118789c, type: 2}
   averageTime: 480
   scorePerFruit: 1000
   maxFruits: 37
-  onScoreGenerated: {fileID: 11400000, guid: d663b2a69f03c28408e238944118789c, type: 2}
 --- !u!114 &308417901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2968,3 +3000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8283d38f5122e3b40b09ef764cd1dff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8434086584925451487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6686696839842274623, guid: ccd1815466ec64d44982ad2583a9e851,
+    type: 3}
+  m_PrefabInstance: {fileID: 3008420258061543904}
+  m_PrefabAsset: {fileID: 0}
