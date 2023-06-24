@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 11895.549, g: 7231.377, b: 7423.7383, a: 1}
+  m_IndirectSpecularColor: {r: 11900.561, g: 7231.3477, b: 7422.84, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3930,6 +3930,26 @@ PrefabInstance:
       propertyPath: playersParts.Array.data[3]
       value: 
       objectReference: {fileID: 1565901835}
+    - target: {fileID: 3008420259406109327, guid: ed26549cbb2755440a721b8114b392ff,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.4146872
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008420259406109327, guid: ed26549cbb2755440a721b8114b392ff,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.030000031
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008420259406109327, guid: ed26549cbb2755440a721b8114b392ff,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.4775172
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008420259406109327, guid: ed26549cbb2755440a721b8114b392ff,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.43213534
+      objectReference: {fileID: 0}
     - target: {fileID: 3083201393592420306, guid: ed26549cbb2755440a721b8114b392ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24803,37 +24823,37 @@ PrefabInstance:
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.539614
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.739
+      value: 4.521
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.444
+      value: -7.233
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99894667
+      value: 0.99720544
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04588608
+      value: -0.07470858
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 8.203137e-16
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 6.145621e-17
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237888, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
@@ -24858,22 +24878,22 @@ PrefabInstance:
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: far clip plane
-      value: 5000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 440816573573237895, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 981979014805305402, guid: e91166149085e844c879ec52bdffe593,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91166149085e844c879ec52bdffe593, type: 3}
