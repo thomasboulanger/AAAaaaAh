@@ -56,7 +56,9 @@ public class PlayerInputsScript : MonoBehaviour
         if (_playerInput.actions[_colorButtonStr].WasPressedThisFrame()) _colorChangeButton = !_colorChangeButton;
         
         //check if player isnt touching any inputs
-        if (_limbVector2D == Vector2.zero && _grabValue == 0) PlayersAreAFK[_playerInputArray[0] == this ? 0 : 1 + _playerID * 2] = true;
+        if (_limbVector2D == Vector2.zero && _grabValue == 0)
+            PlayersAreAFK[_playerInputArray[0] == this ? 0 : 1 + _playerID * 2] = true;
+        else PlayersAreAFK[_playerInputArray[0] == this ? 0 : 1 + _playerID * 2] = false;
 
         //check game state to know where to call event with player's inputs
         if (GameManager.InGame)
@@ -71,8 +73,11 @@ public class PlayerInputsScript : MonoBehaviour
             //toggle between sending inputs to the limbs or to the cursor (in-game pause menu)
             if (InGamePauseButton)
             {
-                onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
-                onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
+                if (_playerInputArray[0] == this)
+                {
+                    onPlayerUpdateSingleCursor.Raise(this, _limbVector2D, _playerID, null);
+                    onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
+                }
             }
             else
             {
