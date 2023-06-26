@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Mouche : MonoBehaviour
@@ -8,10 +7,8 @@ public class Mouche : MonoBehaviour
     private float playerAdvancement;
 
     public Transform[] limbControllerList = new Transform[4];
-    public Transform[] bouclierList = new Transform[4];
     public float spawnRadius = 10f;
-    private Vector2 _spawnPosition = new Vector2(5f, 5f);
-    private int j = 0;
+    private Vector2 _spawnPosition = new (5f, 5f);
     public MMoucheAMerde moucheAMerde;
     public float intervalle;
     private float _timerLimit = 1;
@@ -20,92 +17,78 @@ public class Mouche : MonoBehaviour
     private float _randomY;
     public Transform player;
     private Rigidbody _playerRB;
-
     private bool _firstTimeCrossedLimitSpawning = false;
-    private bool _spawnFlies = false;
+    private bool _spawnFlies;
     private bool _playerState = false;
-    private string _test;
 
     void Start()
     {
-        //_timerLimit = 1;
         _playerRB = player.GetComponent<Rigidbody>();
         Application.targetFrameRate = 240;
     }
+
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
 
         switch (GameManager.CurrentDifficulty)
         {
-            case GameManager.Difficulty.Nofly:
+            case GameManager.Difficulty.Nofly: //No flies
                 _spawnFlies = false;
                 Physics.IgnoreLayerCollision(16, 3, true);
                 Physics.IgnoreLayerCollision(16, 15, true);
-                _test = "No flies";
                 break;
-            case GameManager.Difficulty.PeacefulFlies:
+            case GameManager.Difficulty.PeacefulFlies: //Peaceful flies
                 intervalle = 0.25f;
                 Physics.IgnoreLayerCollision(16, 3, true);
                 Physics.IgnoreLayerCollision(16, 15, true);
                 _spawnFlies = true;
-                _test = "Peaceful flies";
-
                 break;
-            case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
+            case GameManager.Difficulty.AgressiveFliesNoFruitLoss: //Agressive flies
                 intervalle = 2f;
                 Physics.IgnoreLayerCollision(16, 3, false);
                 Physics.IgnoreLayerCollision(0, 15, false);
                 _spawnFlies = true;
-                _test = "Agressive flies";
-
                 break;
-            case GameManager.Difficulty.AgressiveFliesFruitLoss:
+            case GameManager.Difficulty.AgressiveFliesFruitLoss: //Fruit loss
                 intervalle = 2.5f;
                 Physics.IgnoreLayerCollision(16, 3, false);
                 Physics.IgnoreLayerCollision(16, 15, false);
                 _spawnFlies = true;
-                _test = "fruit loss";
-
                 break;
-            case GameManager.Difficulty.Ganged:
+            case GameManager.Difficulty.Ganged: //Gange level
                 intervalle = 0.5f;
                 Physics.IgnoreLayerCollision(16, 3, false);
                 Physics.IgnoreLayerCollision(16, 15, false);
                 _spawnFlies = true;
-                _test = "Gange";
-
                 break;
         }
-        Debug.Log(_test + " " + data1);
-        if ((int)data1 == 8) //il rentre jamais la alors je le tej depuis launchEndANimation
+
+        if ((int) data1 == 8) //il rentre jamais la alors je le tej depuis launchEndANimation
         {
             _spawnFlies = false;
         }
     }
+
     void Update()
     {
+        if (!_spawnFlies) return;
 
-        if (_spawnFlies == true)
-        {
+        transform.position = limbControllerList[0].position;
+        transform.eulerAngles = limbControllerList[0].eulerAngles + new Vector3(0, 0, 0);
+        _timer += Time.deltaTime;
 
-            transform.position = limbControllerList[j].position;
-            transform.eulerAngles = limbControllerList[j].eulerAngles + new Vector3(0, 0, 0);
-            _timer += Time.deltaTime;
+        if ((!(_timer > _timerLimit) || !(player.position.x > spawnFliesBegining)) &&
+            !Input.GetKeyDown(KeyCode.P)) return;
 
-            if (_timer > _timerLimit && player.position.x > spawnFliesBegining || Input.GetKeyDown(KeyCode.P))
-            {
-                _randomX = Random.Range(-_spawnPosition.x, _spawnPosition.x);
-                _randomY = Random.Range(-_spawnPosition.y, _spawnPosition.y);
-                //MoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + spawnRadius * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
-                MMoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde, transform.position + spawnRadius * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)), Quaternion.identity);
-                moucheAMerdePrefab.body = player;
-                moucheAMerdePrefab.bodyRB = _playerRB;
-                _timer = 0f;
-                //_timerLimit = intervalle;
-                //Debug.Log(intervalle * endLevel / player.position.x + "   " + endLevel);
-                _timerLimit = Random.Range(0f, intervalle * endLevel / player.position.x);
-            }
-        }
+        _randomX = Random.Range(-_spawnPosition.x, _spawnPosition.x);
+        _randomY = Random.Range(-_spawnPosition.y, _spawnPosition.y);
+        MMoucheAMerde moucheAMerdePrefab = Instantiate(moucheAMerde,
+            transform.position + spawnRadius * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)),
+            Quaternion.identity);
+        moucheAMerdePrefab.body = player;
+        moucheAMerdePrefab.bodyRB = _playerRB;
+        _timer = 0f;
+        _timerLimit = Random.Range(0f, intervalle * endLevel / player.position.x);
     }
 }

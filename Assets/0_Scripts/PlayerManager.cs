@@ -50,9 +50,9 @@ public class PlayerManager : MonoBehaviour
     private void Awake() => Init();
     
     public void Init()
-    {       
+    {
         _playerInputManager = GetComponent<PlayerInputManager>();
-
+        AllLimbsAssigned = false;
         for (int i = 0; i < _referenceTableLimbsToPlayerID.Length; i++)
         {
             _referenceTableLimbsToPlayerID[i] = 5;

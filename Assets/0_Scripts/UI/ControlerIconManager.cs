@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,22 +12,21 @@ public class ControlerIconManager : MonoBehaviour
     [SerializeField] private Transform spawnAnchorR;
     [SerializeField] private int playerID = -1;
     [SerializeField] private Material outlineMaterial;
-
     [SerializeField] private List<SpriteRenderer> _fvxGrab = new();
-
-
+    
     private Material _spriteMat;
     private JoystickManager _joystickL;
     private JoystickManager _joystickR;
     private GameObject[] _limbBoxArray;
     private bool _triggerOnce;
 
-    void Awake()
+    private void Start() => Init();
+
+    void Init()
     {
-        foreach (ShockwaveAnimatorControler item in GameObject.FindObjectsOfType<ShockwaveAnimatorControler>())
-        {
+        foreach (ShockwaveAnimatorControler item in FindObjectsOfType<ShockwaveAnimatorControler>())
             _fvxGrab.Add(item.transform.GetChild(0).GetComponent<SpriteRenderer>());
-        }
+        
         SpriteRenderer tempSR = _fvxGrab[1];
         SpriteRenderer tempSR4 = _fvxGrab[2];
 

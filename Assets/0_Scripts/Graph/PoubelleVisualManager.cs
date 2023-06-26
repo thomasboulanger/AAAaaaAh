@@ -365,11 +365,7 @@ public class PoubelleVisualManager : MonoBehaviour
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((GameManager.UIStateEnum)data1 is not GameManager.UIStateEnum.Start)
-        {
-            Debug.Log(data1);
-            return;
-        }
+        if ((GameManager.UIStateEnum)data1 is not GameManager.UIStateEnum.Start) return;
 
         switch (GameManager.CurrentDifficulty)
         {

@@ -17,20 +17,18 @@ public class LimbController : MonoBehaviour
     private static bool[] _tutorialBlocksGrabbed = new bool[4];
     private static GameObject[] _tutorialBlock = new GameObject[4];
 
+    [Header("Game Events")] 
     [SerializeField] private GameEvent onLimbGrabEvent;
     [SerializeField] private GameEvent onLimbGrabShaderEvent;
     [SerializeField] private GameEvent onLimbGrabSoundEvent;
     [SerializeField] private GameEvent onLimbGrabValueEvent;
     [SerializeField] private GameEvent onFirstTutorialPartAchieved;
-
-    [Header("The ID of limb that player with same ID will control")] [SerializeField]
-    private int playerID;
-
+    
+    [Header("The ID of limb that player with same ID will control")] 
+    [SerializeField] private int playerID;
     [SerializeField] private int limbID;
-
-    [Space] [Header("The range that the player can move his limb")] [SerializeField]
-    private float limbLength;
-
+    [Space] [Header("The range that the player can move his limb")]
+    [SerializeField] private float limbLength;
     [SerializeField] private bool limbIsLeg;
     [SerializeField] private float limbSpeed = 10000;
     [SerializeField] private float playerInputSpeedMultiplier = 3;

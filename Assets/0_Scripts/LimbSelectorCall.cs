@@ -15,4 +15,6 @@ public class LimbSelectorCall : MonoBehaviour
     public int currentLimbIndex;
     public int currentPlayerIndexAssigned = 5;
     public string outlineNameStr = "";
+
+    private void Start() => currentPlayerIndexAssigned = 5;
 }

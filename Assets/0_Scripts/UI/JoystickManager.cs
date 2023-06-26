@@ -15,15 +15,15 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class JoystickManager : MonoBehaviour
 {
+    [Header("Game Events")]
     [SerializeField] private GameEvent onPlayerAssignLimb;
     [SerializeField] private GameEvent onCheckCursorOverrideLimbSelector;
-
+    [Space]
     [SerializeField] public GameObject background;
     [SerializeField] private TextMeshPro RLText;
     [SerializeField] private TextMeshPro playerIdText;
     [SerializeField] private HommingTruelle truelle;
     [HideInInspector] public ControlerIconManager controllerRef;
-
     [SerializeField] private bool isLocked;
     [SerializeField] private Transform blackStick;
     [SerializeField] private List<Color> colorsReference = new();
@@ -32,14 +32,10 @@ public class JoystickManager : MonoBehaviour
     [SerializeField] private float startPosRandom = 7.41f;
     [SerializeField] private GameObject cadenaGo;
     [SerializeField] private float rotationLerpSpeed = 5;
-
     [SerializeField] private int cursorID;
     [SerializeField] private int inputID;
-    [SerializeField] private int cursorCanvasState;
-
     [SerializeField] private float speedLerp = 2f;
     [SerializeField] private AnimationCurve animationCurveSnap;
-
 
     private MeshRenderer _backgroundMeshRenderer;
     private Material _material;
@@ -118,7 +114,7 @@ public class JoystickManager : MonoBehaviour
     private Vector4 CalculateScreenBounds()
     {
         Vector4 bounds = new Vector4();
-
+    
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;
@@ -129,7 +125,9 @@ public class JoystickManager : MonoBehaviour
         return bounds;
     }
 
-    void Start()
+    void Start() => Init();
+    
+    private void Init()
     {
         _cadenasRb = cadenaGo.GetComponent<Rigidbody>();
         _joystickAnim = GetComponent<Animator>();

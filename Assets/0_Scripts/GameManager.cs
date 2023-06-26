@@ -14,7 +14,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
     public static bool InGame;
 
     [SerializeField] private GameEvent onUpdateRebindVisual;
@@ -23,7 +22,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private CursorController cursor;
     [SerializeField] private GameObject level;
-   
+    [SerializeField] private float delayBeforeRelaunchCinematic;
+
+    private float _currentDelayLeft;
+
     public enum UIStateEnum
     {
         PressStartToAddPlayers,
@@ -36,7 +38,9 @@ public class GameManager : MonoBehaviour
         RebindInputs,
         PlayerHaveReachEndOfLevel,
         Quit,
-    } public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
+    }
+
+    public static UIStateEnum UICanvaState = UIStateEnum.PressStartToAddPlayers;
 
     public enum Difficulty
     {
@@ -45,18 +49,9 @@ public class GameManager : MonoBehaviour
         AgressiveFliesNoFruitLoss,
         AgressiveFliesFruitLoss,
         Ganged
-    } public static Difficulty CurrentDifficulty;
-
-    private void Awake()
-    {
-        if (Instance != null)
-            Destroy(this);
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(Instance);
-        }
     }
+
+    public static Difficulty CurrentDifficulty;
 
     private void Start() => Init();
 
@@ -64,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
         InGame = false;
         pauseMenu.SetActive(false);
+        _currentDelayLeft = delayBeforeRelaunchCinematic;
 
         // 0 -> press start to add players
         // 1 -> main menu
@@ -82,7 +78,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (UICanvaState == UIStateEnum.Quit) Application.Quit();
+        switch (UICanvaState)
+        {
+            case UIStateEnum.Quit:
+                Application.Quit();
+                break;
+            case UIStateEnum.Play:
+            case UIStateEnum.PreStart:
+            case UIStateEnum.Start:
+            case UIStateEnum.PlayerHaveReachEndOfLevel:
+                return;
+        }
+
+        bool playersAFK = true;
+        foreach (bool element in PlayerInputsScript.PlayersAreAFK)
+            if (!element)
+                playersAFK = false;
+
+        if (!playersAFK) _currentDelayLeft = delayBeforeRelaunchCinematic;
+        else _currentDelayLeft -= Time.deltaTime;
+        if (_currentDelayLeft < 0) SceneManager.LoadScene(0);
     }
 
     public void PlayerChangePanel(Component sender, object data1, object unUsed1, object unUsed2)
@@ -122,23 +137,14 @@ public class GameManager : MonoBehaviour
         PlayerInput[] playerInputs = FindObjectsOfType<PlayerInput>();
         foreach (PlayerInput player in playerInputs)
         {
-            player.SwitchCurrentActionMap("Empty");
             player.DeactivateInput();
             player.enabled = false;
         }
 
+        //clear the playerInputs list
         PlayerManager.Players.Clear();
 
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
-        // re-initialize scripts
-        GetComponent<PlayerManager>().Init();
-        Init();
-        FindObjectOfType<TutorialLauncher>().Init();
-        FindObjectOfType<AudioManager>().Init();
-        FindObjectOfType<CameraManager>().Init();
-        FindObjectOfType<CharacterBodyPhysic>().Init();
-        FindObjectOfType<PoubelleVisualManager>().Init();
     }
 }
