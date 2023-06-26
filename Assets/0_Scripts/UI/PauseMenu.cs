@@ -14,8 +14,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Vector3 offset;
     
-    private GameObject _player;
-    private void Start() =>_player = GameObject.Find("Parpaing").gameObject;
-    private void Update() => transform.position = _player.transform.position + offset;
+    private GameObject _target;
+    private void Start() =>_target = Camera.main.gameObject;
+    private void Update() => transform.position = _target.transform.position + offset;
     
 }

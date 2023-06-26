@@ -54,7 +54,7 @@ public class ControlerIconManager : MonoBehaviour
 
     IEnumerator coroutine()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         SpawnJoysticks(spawnAnchorR, true);
         SpawnJoysticks(spawnAnchorL, false);
     }

@@ -5,6 +5,7 @@
 //You can contact me by email:
 //thomas.boulanger.auditeur@lecnam.net
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameEvent onUpdateRebindVisual;
     [SerializeField] private GameEvent onFlyCanvaToggle;
+    [SerializeField] private GameEvent onFadeScreen;
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private CursorController cursor;
@@ -57,6 +59,9 @@ public class GameManager : MonoBehaviour
 
     public void Init()
     {
+        //fade out the screen at start (the screen should be black at start)
+        onFadeScreen.Raise(this,false,null,null);
+
         InGame = false;
         pauseMenu.SetActive(false);
         _currentDelayLeft = delayBeforeRelaunchCinematic;
@@ -143,7 +148,15 @@ public class GameManager : MonoBehaviour
 
         //clear the playerInputs list
         PlayerManager.Players.Clear();
+        
+        onFadeScreen.Raise(this,true,null,null);
+        StartCoroutine(RestartGameCoroutine());
+    }
 
+    IEnumerator RestartGameCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

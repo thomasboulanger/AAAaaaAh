@@ -42,9 +42,4 @@ public class MainMenu : MonoBehaviour
     }
 
     #endregion
-
-    public void QuitApp()
-    {
-        Application.Quit();
-    }
 }

@@ -31,6 +31,7 @@ public class FadeInOut : MonoBehaviour
         else waitingTimeBetweenFadeInAndOut = 1.5f;
 
         _fadeIn = (bool) data1;
+        _fadeOut = !(bool) data1;
     }
 
     private void Update()
