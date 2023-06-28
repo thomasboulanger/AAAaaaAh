@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -961454718388959353}
   m_Layer: 16
   m_Name: MoucheAMerde
-  m_TagString: Untagged
+  m_TagString: Flies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,12 +145,6 @@ MonoBehaviour:
   linearSpeedChangeTimer: {x: 0.2, y: 0.4}
   linearSpeedLimit: {x: 0.2, y: 1}
   linearSpeedIncrement: {x: 0.5, y: 10}
-  force: 5
-  bouclierList:
-  - {fileID: 7877668205778913485, guid: d0a146c7cb630ef41987ce9a67a33a7b, type: 3}
-  - {fileID: 4686988233272570200, guid: e78118ef9bfbb19459474cda6408dcba, type: 3}
-  - {fileID: 7069420851107850988, guid: 592945d899b8715489e1d0a72f5ff805, type: 3}
-  - {fileID: 6919408987409932536, guid: ef736e9880edf7d4a83f7bce8e5963b4, type: 3}
   forceDoremin: 100
   forceMegaplex: 300
   linearSpeedAdaptator: 7

@@ -2,28 +2,29 @@ using UnityEngine;
 
 public class Mouche : MonoBehaviour
 {
-    [SerializeField] private float endLevel = 120f;
-    [SerializeField] private float spawnFliesBegining = 30f;
-    private float playerAdvancement;
-
     public Transform[] limbControllerList = new Transform[4];
     public float spawnRadius = 10f;
-    private Vector2 _spawnPosition = new (5f, 5f);
     public MMoucheAMerde moucheAMerde;
     public float intervalle;
+    public Transform player;
+
+    [SerializeField] private float endLevel = 120f;
+    [SerializeField] private float spawnFliesBegining = 30f;
+
+    private float _playerAdvancement;
     private float _timerLimit = 1;
     private float _timer;
     private float _randomX;
     private float _randomY;
-    public Transform player;
-    private Rigidbody _playerRB;
-    private bool _firstTimeCrossedLimitSpawning = false;
+    private Vector2 _spawnPosition = new(5f, 5f);
+    private Rigidbody _playerRb;
+    private bool _firstTimeCrossedLimitSpawning;
     private bool _spawnFlies;
-    private bool _playerState = false;
+    private bool _playerState;
 
     void Start()
     {
-        _playerRB = player.GetComponent<Rigidbody>();
+        _playerRb = player.GetComponent<Rigidbody>();
         Application.targetFrameRate = 240;
     }
 
@@ -67,7 +68,14 @@ public class Mouche : MonoBehaviour
 
     void Update()
     {
-        if (!_spawnFlies || GameManager.UICanvaState is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
+        if (GameManager.UICanvaState is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel && _spawnFlies)
+        {
+            GameObject[] flies = GameObject.FindGameObjectsWithTag("Flies");
+            foreach (GameObject element in flies) Destroy(element);
+            _spawnFlies = false;
+        }
+
+        if (!_spawnFlies) return;
 
         transform.position = limbControllerList[0].position;
         transform.eulerAngles = limbControllerList[0].eulerAngles + new Vector3(0, 0, 0);
@@ -82,7 +90,7 @@ public class Mouche : MonoBehaviour
             transform.position + spawnRadius * Vector3.Normalize(new Vector3(_randomX, _randomY, 0)),
             Quaternion.identity);
         moucheAMerdePrefab.body = player;
-        moucheAMerdePrefab.bodyRB = _playerRB;
+        moucheAMerdePrefab.bodyRB = _playerRb;
         _timer = 0f;
         _timerLimit = Random.Range(0f, intervalle * endLevel / player.position.x);
     }
