@@ -15,11 +15,11 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class JoystickManager : MonoBehaviour
 {
-    [Header("Game Events")]
-    [SerializeField] private GameEvent onPlayerAssignLimb;
+    [Header("Game Events")] [SerializeField]
+    private GameEvent onPlayerAssignLimb;
+
     [SerializeField] private GameEvent onCheckCursorOverrideLimbSelector;
-    [Space]
-    [SerializeField] public GameObject background;
+    [Space] [SerializeField] public GameObject background;
     [SerializeField] private TextMeshPro RLText;
     [SerializeField] private TextMeshPro playerIdText;
     [SerializeField] private HommingTruelle truelle;
@@ -76,7 +76,7 @@ public class JoystickManager : MonoBehaviour
 
     public void UpdateCursorPosition(Component sender, object data1, object playerID, object limbID)
     {
-        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
         if (playerID is not int) return;
         if (limbID is not int) return;
         if (cursorID != (int) playerID) return;
@@ -114,7 +114,7 @@ public class JoystickManager : MonoBehaviour
     private Vector4 CalculateScreenBounds()
     {
         Vector4 bounds = new Vector4();
-    
+
         float cameraDistance = transform.position.z - _mainCamera.transform.position.z;
 
         bounds.x = _mainCamera.ScreenToWorldPoint(new Vector3(0, 0, cameraDistance)).x + _objectWidth;
@@ -126,7 +126,7 @@ public class JoystickManager : MonoBehaviour
     }
 
     void Start() => Init();
-    
+
     private void Init()
     {
         _cadenasRb = cadenaGo.GetComponent<Rigidbody>();
@@ -150,13 +150,20 @@ public class JoystickManager : MonoBehaviour
     {
         if (_tLerp < 1.1f && isLocked) Transition();
 
-        if(GameManager.UICanvaState is not GameManager.UIStateEnum.Play) return;
+        if (GameManager.UICanvaState is not GameManager.UIStateEnum.Play) return;
         if (!_inputTrigger || !_triggerOnce) return;
         _triggerOnce = false;
 
-        Vector3 spawnPos = Camera.main.transform.position;
+        Vector3 spawnPos = GameManager.TrowelBouncing
+            ? transform.position + new Vector3
+            (
+                Random.Range(-5, 5),
+                Random.Range(-5, 5),
+                -5
+            )
+            : Camera.main.transform.position;
         Vector3 destination = transform.position;
-        
+
         HommingTruelle truelleGo = Instantiate(truelle, spawnPos, Quaternion.Euler
         (
             Random.Range(-50, 50),
@@ -170,15 +177,15 @@ public class JoystickManager : MonoBehaviour
 
     private void Transition()
     {
-       transform.position = Vector3.LerpUnclamped(_basePos, _targetPos, animationCurveSnap.Evaluate(_tLerp));
-       _tLerp += Time.deltaTime * speedLerp;
+        transform.position = Vector3.LerpUnclamped(_basePos, _targetPos, animationCurveSnap.Evaluate(_tLerp));
+        _tLerp += Time.deltaTime * speedLerp;
         if (_tLerp >= 1f) transform.position = _targetPos;
     }
 
 
     private void FixedUpdate()
     {
-        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
+        if (GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
         if (_rb.angularVelocity.magnitude < 2f)
             _rb.rotation = Quaternion.Lerp(_rb.rotation, Quaternion.Euler(Vector3.zero),
                 Time.deltaTime * rotationLerpSpeed);
@@ -212,7 +219,8 @@ public class JoystickManager : MonoBehaviour
 
         //set joystick position to the center of the check box (init timer)
         _basePos = transform.position;
-        _targetPos = new Vector3(currentObj.transform.position.x, currentObj.transform.position.y,transform.position.z);
+        _targetPos = new Vector3(currentObj.transform.position.x, currentObj.transform.position.y,
+            transform.position.z);
         _tLerp = 0f;
     }
 
