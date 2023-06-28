@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Animator))]
 public class PoubelleVisualManager : MonoBehaviour
 {
-    [Header("Valeurs a set")]
+    [Header("Valeurs a set")] 
     [SerializeField] private Transform topPoint;
     [SerializeField] private Transform dansPoubelle;
     [SerializeField] private Transform couvercle;
@@ -17,7 +17,7 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] private Image gaugeColorSprite;
     [SerializeField] private RectTransform fruitRT;
     [SerializeField] private Color[] gaugeColor = new Color[2];
-    [Header("CinematiqueFin")]
+    [Header("CinematiqueFin")] 
     [SerializeField] private Transform midlePoint;
     [SerializeField] private Transform insideMonster;
     [SerializeField] Animator paparingCinematiqueAnimator;
@@ -26,20 +26,17 @@ public class PoubelleVisualManager : MonoBehaviour
     [SerializeField] Transform poubelleFinalPos;
     [SerializeField] GameEvent onLastFruitThrown;
     [SerializeField] GameEvent toggleGauge;
-
     [Header("Valeurs de tweak")]
-    [SerializeField]
-    private float fruitSpeed = 2f;
-
+    [SerializeField] private float fruitSpeed = 2f;
     [SerializeField] private float couvercleSpeed = 2f;
     [SerializeField] private float randomizeTrajectoryPower = 0.2f;
     [SerializeField] private float randomizeTrajectoryPowerDropping = 1f;
-    [Header("Courbe d'anims")]
+    [Header("Courbe d'anims")] 
     [SerializeField] private AnimationCurve speedCurve;
     [SerializeField] private AnimationCurve speedCurveDropping;
     [SerializeField] private AnimationCurve destinationCurve;
     [SerializeField] private AnimationCurve couvercleAnim;
-    [Header("for debug purpose only")]
+    [Header("for debug purpose only")] 
     [SerializeField] private float timerPoubelle;
     [SerializeField] private List<Transform> fruits = new();
     [SerializeField] private List<float> fruitTimers = new();
@@ -49,15 +46,16 @@ public class PoubelleVisualManager : MonoBehaviour
     public List<Transform> storedFruits = new();
     [FormerlySerializedAs("midlePosesOffsets")] //dont mind that...
     [SerializeField] private List<Vector3> middlePosOffsets = new();
-    [Header("for debug purpose only")]
+    [Header("for debug purpose only")] 
     [SerializeField] private float gaugeSize = 100;
     [SerializeField] private float gaugeIncrementByHit = 50;
     [SerializeField] private float gaugeDecrementOverTime = 10;
     [SerializeField] private float currentGaugeLevel;
-    [SerializeField] private Vector2 minMaxGaugepositions = new (99.9f, -89);
+    [SerializeField] private Vector2 minMaxGaugepositions = new(99.9f, -89);
     [SerializeField] private float gaugeSpeed = 8f;
+    [SerializeField] private float playerInvincibilityDelay = .5f;
 
-    private bool _gaugeActivate;
+    private bool _gaugeIsActive;
     private Animator _animator;
     private Quaternion _openedRotation;
     private Quaternion _closedRotation;
@@ -70,7 +68,9 @@ public class PoubelleVisualManager : MonoBehaviour
     private Cinemachine.CinemachineVirtualCamera endCam;
     private bool[] _isPressed = new bool[8];
     private bool[] _triggerOnceGrab = new bool[8];
-    
+    private bool _playerIsInvincible;
+    private float _remainingInvincibilityTime;
+
     private void Start() => Init();
 
     public void Init()
@@ -99,8 +99,8 @@ public class PoubelleVisualManager : MonoBehaviour
 
         //eject pos faut que ce soit soi poubelle inside soi eject pos soi inside monster si 2 vrai : eject pos, si 2 fau poubelle inside, si dif inside position
         Vector3 middlePos = _ejectSingleFruit == _ejectFruits == false ? midlePoint.position : topPoint.position;
-        
-        if (_gaugeActivate)
+
+        if (_gaugeIsActive)
         {
             currentGaugeLevel -= deltaTime * gaugeDecrementOverTime;
             if (currentGaugeLevel < 0) currentGaugeLevel = 0;
@@ -206,14 +206,14 @@ public class PoubelleVisualManager : MonoBehaviour
 
                 _finished = false;
                 _ejectFruits = false;
-                
+
                 continue;
             }
 
 
             if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
             {
-                Destroy(item.gameObject); 
+                Destroy(item.gameObject);
             }
             else item.gameObject.SetActive(false);
 
@@ -228,12 +228,22 @@ public class PoubelleVisualManager : MonoBehaviour
             if (GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) continue;
             storedFruits.Add(item);
         }
+
+        
+        //invincibility part
+        if (_playerIsInvincible)
+        {
+            _remainingInvincibilityTime -= deltaTime;
+            if (_remainingInvincibilityTime < 0) _playerIsInvincible = false;
+        }
+        else _remainingInvincibilityTime = playerInvincibilityDelay;
     }
 
     public void PlayerHitByFly()
     {
-        if (!_gaugeActivate) return;
-
+        if (!_gaugeIsActive) return;
+        if (_playerIsInvincible) return;
+        
         float gaugeLastlevel = currentGaugeLevel;
         currentGaugeLevel += gaugeIncrementByHit;
         if (currentGaugeLevel >= gaugeSize && gaugeLastlevel < gaugeSize * 0.6f)
@@ -241,12 +251,11 @@ public class PoubelleVisualManager : MonoBehaviour
             currentGaugeLevel = gaugeSize * 0.97f;
         }
 
-        if (currentGaugeLevel >= gaugeSize)
-        {
-            currentGaugeLevel = 0;
-            _fruitScale = 3 * _fruitBaseScale;
-            EjectFruits();
-        }
+        if (!(currentGaugeLevel >= gaugeSize)) return;
+        currentGaugeLevel = 0;
+        _fruitScale = 3 * _fruitBaseScale;
+        EjectFruits();
+        _playerIsInvincible = true;
     }
 
     //deactivate the fruit before sending it here
@@ -291,7 +300,7 @@ public class PoubelleVisualManager : MonoBehaviour
         if (storedFruits.Count == 0) return;
 
         _ejectFruits = true;
-     
+
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
@@ -319,31 +328,30 @@ public class PoubelleVisualManager : MonoBehaviour
 
     public void EjectFruitEndLevelInternalCall()
     {
-        if (storedFruits.Count > 0)
-        {
-            _ejectFruits = true;
-            storedFruits[0].gameObject.SetActive(true);
-            storedFruits[0].transform.position = dansPoubelle.position;
-
-            InitializeFruitThenMoveIt(storedFruits[0], true);
-            storedFruits.RemoveAt(0);
-        }
-        else _finished = true;
+        // if (storedFruits.Count > 0)
+        // {
+        //     _ejectFruits = true;
+        //     storedFruits[0].gameObject.SetActive(true);
+        //     storedFruits[0].transform.position = dansPoubelle.position;
+        //
+        //     InitializeFruitThenMoveIt(storedFruits[0], true);
+        //     storedFruits.RemoveAt(0);
+        // }
+        // else _finished = true;
     }
 
-    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object limbID)
+    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object isFirstComponent)
     {
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
-        int limbIndex = (int) limbID;
+        int index = (int) playerID * 2 + ((bool) isFirstComponent ? 0 : 1);
 
-        _isPressed[limbIndex] = (float) data1 > .9f;
+        _isPressed[index] = (float) data1 > .9f;
 
-
-        if (_isPressed[limbIndex])
+        if (_isPressed[index])
         {
-            if (_triggerOnceGrab[limbIndex]) return;
+            if (_triggerOnceGrab[index]) return;
 
-            _triggerOnceGrab[limbIndex] = true;
+            _triggerOnceGrab[index] = true;
             if (storedFruits.Count > 0)
             {
                 _ejectFruits = true;
@@ -359,37 +367,38 @@ public class PoubelleVisualManager : MonoBehaviour
                 onLastFruitThrown.Raise(this, null, null, null); //spammmer les fruits casse rour
             }
         }
-        else _triggerOnceGrab[limbIndex] = false;
+        else _triggerOnceGrab[index] = false;
     }
 
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
     {
         if (data1 is not int) return;
-        if ((GameManager.UIStateEnum)data1 is not GameManager.UIStateEnum.Start) return;
+        if ((GameManager.UIStateEnum) data1 is not GameManager.UIStateEnum.Start) return;
 
         switch (GameManager.CurrentDifficulty)
         {
             case GameManager.Difficulty.Nofly:
-                _gaugeActivate = false;
+                _gaugeIsActive = false;
                 break;
             case GameManager.Difficulty.PeacefulFlies:
-                _gaugeActivate = false;
+                _gaugeIsActive = false;
                 break;
             case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
-                _gaugeActivate = false;
+                _gaugeIsActive = false;
                 break;
             case GameManager.Difficulty.AgressiveFliesFruitLoss:
-                _gaugeActivate = true;
+                _gaugeIsActive = true;
                 break;
             case GameManager.Difficulty.Ganged:
-                _gaugeActivate = true;
+                _gaugeIsActive = true;
                 break;
         }
-        if ((GameManager.UIStateEnum)data1 is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
-        {
-            _gaugeActivate = false;
-        }
-        toggleGauge.Raise(this, _gaugeActivate, null, null);
+
+        if ((GameManager.UIStateEnum) data1 is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
+            _gaugeIsActive = false;
+
+
+        toggleGauge.Raise(this, _gaugeIsActive, null, null);
     }
 
     IEnumerator RandomDelayedFruits()
@@ -405,7 +414,8 @@ public class PoubelleVisualManager : MonoBehaviour
 
         _finished = true;
     }
-    private float Remap(float value, float to1,  float from1, float to2, float from2)
+
+    private float Remap(float value, float to1, float from1, float to2, float from2)
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }

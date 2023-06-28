@@ -5,12 +5,13 @@ using UnityEngine;
 public class HommingTruelle : MonoBehaviour
 {
     [SerializeField] private GameEvent onTruelleHitJoystickSound;
-    
+
     [SerializeField] private int matIndex = 1;
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private float selfDestructTimer = 2;
     [SerializeField] private float selfDestructSecurityTimer = 5;
     [SerializeField] private float animationDuration = 2;
+    [SerializeField] private float force = 175;
     [SerializeField] private Transform truelleMesh;
     [SerializeField] private AnimationCurve scaleCurve;
 
@@ -23,12 +24,10 @@ public class HommingTruelle : MonoBehaviour
     private float _truelleMeshScale;
     private bool animating = true;
     private bool sens = true;
+    private bool _isStuckInUI;
+    private float _timerBeforeDestroy;
 
-    public void Init(Vector3 truelleTargetPoint, Color actualColor)
-    {
-        _destination = truelleTargetPoint;
-        _playerColor = actualColor;
-    }
+    public void Init(Vector3 targetDestination) => _destination = targetDestination;
 
     private void Start()
     {
@@ -41,28 +40,32 @@ public class HommingTruelle : MonoBehaviour
         _truelleMat = meshRenderer.materials[matIndex];
         _truelleMat.SetColor("_BaseColor", _playerColor);
 
-        transform.rotation = Quaternion.Euler
-        (
-            Random.Range(-50,50),
-            Random.Range(-50,50),
-            Random.Range(-50,50)
-        );
-        _rb.AddForce((_destination - _rb.transform.position) * 175);
+        _rb.AddForce((_destination - transform.position) * force);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Cursor"))
         {
-            onTruelleHitJoystickSound.Raise(this,null,null,null);
+            if (!GameManager.TrowelBouncing) StopTruelle();
+            onTruelleHitJoystickSound.Raise(this, null, null, null);
             JoystickManager joystickComp = collision.gameObject.GetComponent<JoystickManager>();
             joystickComp.HitByTruelle(this);
-        } 
-        if (collision.transform.CompareTag("UIInteractable"))
+        }
+        else if (collision.transform.CompareTag("UIInteractable"))
         {
-            onTruelleHitJoystickSound.Raise(this,null,null,null);
+            if (!GameManager.TrowelBouncing) StopTruelle();
+            onTruelleHitJoystickSound.Raise(this, null, null, null);
             collision.transform.GetComponent<UIButtonInfo>().ChangePanelButton();
         }
+    }
+
+    public void StopTruelle()
+    {
+        _isStuckInUI = true;
+        _timerBeforeDestroy = 3.5f;
+        GetComponent<Collider>().enabled = false;
+        _rb.isKinematic = true;
     }
 
     public void InitiateDiscontrol()
@@ -76,27 +79,41 @@ public class HommingTruelle : MonoBehaviour
 
     private void Update()
     {
+        float deltaTime = Time.deltaTime;
+
+        if (_isStuckInUI)
+        {
+            _timerBeforeDestroy -= deltaTime;
+            if (!(_timerBeforeDestroy < 0)) return;
+            _rb.isKinematic = false;
+            _rb.useGravity = true;
+            Destroy(gameObject, 2);
+            return;
+        }
+
         if (!animating) return;
-        if (_time < 1 && sens)
-        {
-            _time += Time.deltaTime * animationDuration;
 
-            truelleMesh.localScale =
-                Vector3.LerpUnclamped(Vector3.zero, Vector3.one * _truelleMeshScale, scaleCurve.Evaluate(_time));
-        }
-        else if (_time < 1 && !sens)
+        switch (_time)
         {
-            _time += Time.deltaTime * animationDuration;
-
-            truelleMesh.localScale =
-                Vector3.LerpUnclamped(Vector3.one * _truelleMeshScale, Vector3.zero, scaleCurve.Evaluate(_time));
-        }
-        else
-        {
-            animating = false;
-            if (!sens)
+            case < 1 when sens:
+                _time += deltaTime * animationDuration;
+                truelleMesh.localScale =
+                    Vector3.LerpUnclamped(Vector3.zero, Vector3.one * _truelleMeshScale, scaleCurve.Evaluate(_time));
+                break;
+            case < 1 when !sens:
+                _time += deltaTime * animationDuration;
+                truelleMesh.localScale =
+                    Vector3.LerpUnclamped(Vector3.one * _truelleMeshScale, Vector3.zero, scaleCurve.Evaluate(_time));
+                break;
+            default:
             {
-                Destroy(gameObject);
+                animating = false;
+                if (!sens)
+                {
+                    Destroy(gameObject);
+                }
+
+                break;
             }
         }
     }
