@@ -328,31 +328,30 @@ public class PoubelleVisualManager : MonoBehaviour
 
     public void EjectFruitEndLevelInternalCall()
     {
-        if (storedFruits.Count > 0)
-        {
-            _ejectFruits = true;
-            storedFruits[0].gameObject.SetActive(true);
-            storedFruits[0].transform.position = dansPoubelle.position;
-
-            InitializeFruitThenMoveIt(storedFruits[0], true);
-            storedFruits.RemoveAt(0);
-        }
-        else _finished = true;
+        // if (storedFruits.Count > 0)
+        // {
+        //     _ejectFruits = true;
+        //     storedFruits[0].gameObject.SetActive(true);
+        //     storedFruits[0].transform.position = dansPoubelle.position;
+        //
+        //     InitializeFruitThenMoveIt(storedFruits[0], true);
+        //     storedFruits.RemoveAt(0);
+        // }
+        // else _finished = true;
     }
 
-    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object limbID)
+    public void EjectFruitAtEndLevel(Component sender, object data1, object playerID, object isFirstComponent)
     {
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
-        int limbIndex = (int) limbID;
+        int index = (int) playerID * 2 + ((bool) isFirstComponent ? 0 : 1);
 
-        _isPressed[limbIndex] = (float) data1 > .9f;
+        _isPressed[index] = (float) data1 > .9f;
 
-
-        if (_isPressed[limbIndex])
+        if (_isPressed[index])
         {
-            if (_triggerOnceGrab[limbIndex]) return;
+            if (_triggerOnceGrab[index]) return;
 
-            _triggerOnceGrab[limbIndex] = true;
+            _triggerOnceGrab[index] = true;
             if (storedFruits.Count > 0)
             {
                 _ejectFruits = true;
@@ -368,7 +367,7 @@ public class PoubelleVisualManager : MonoBehaviour
                 onLastFruitThrown.Raise(this, null, null, null); //spammmer les fruits casse rour
             }
         }
-        else _triggerOnceGrab[limbIndex] = false;
+        else _triggerOnceGrab[index] = false;
     }
 
     public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)

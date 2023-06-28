@@ -97,7 +97,7 @@ public class PlayerInputsScript : MonoBehaviour
             onPlayerUpdateSingleCursor.Raise(this, _grabValue, _playerID, null);
         }
         if (!GameManager.InGame && GameManager.UICanvaState == GameManager.UIStateEnum.PlayerHaveReachEndOfLevel && inputScriptID != 5)
-            onPlayerGrabAfterEndOfLevel.Raise(this, _grabValue, _playerID, inputScriptID);
+            onPlayerGrabAfterEndOfLevel.Raise(this, _grabValue, _playerID, _playerInputArray[0] == this);
     }
 
     public void Init(string moveInputStr, string grabInputStr, string colorChangeButtonStr, int playerID,
