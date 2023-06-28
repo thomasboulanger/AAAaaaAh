@@ -13,6 +13,8 @@ using UnityEngine;
 /// </summary>
 public class ChangeDifficulty : MonoBehaviour
 {
+    [SerializeField] private GameEvent onUpdateDifficulty;
+    
     [SerializeField] private TMP_Text difficultyText;
     [SerializeField] private TMP_Text description1;
     [SerializeField] private TMP_Text description2;
@@ -35,6 +37,8 @@ public class ChangeDifficulty : MonoBehaviour
     private void UpdateDifficulty()
     {
         GameManager.CurrentDifficulty = (GameManager.Difficulty) _currentState;
+        onUpdateDifficulty.Raise(this,null,null,null);
+        
         switch (GameManager.CurrentDifficulty)
         {
             case GameManager.Difficulty.Nofly:

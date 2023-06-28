@@ -28,10 +28,8 @@ public class Mouche : MonoBehaviour
         Application.targetFrameRate = 240;
     }
 
-    public void PlayerState(Component sender, object data1, object unUsed1, object unUsed2)
+    public void OnUpdateDifficulty(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
-        if (data1 is not int) return;
-
         switch (GameManager.CurrentDifficulty)
         {
             case GameManager.Difficulty.Nofly: //No flies
