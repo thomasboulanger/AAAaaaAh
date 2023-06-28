@@ -16,6 +16,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool InGame;
+    public static bool TrowelBouncing;
 
     [SerializeField] private GameEvent onUpdateRebindVisual;
     [SerializeField] private GameEvent onFlyCanvaToggle;
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
         onFadeScreen.Raise(this,false,null,null);
 
         InGame = false;
+        TrowelBouncing = true;
         pauseMenu.SetActive(false);
         _currentDelayLeft = delayBeforeRelaunchCinematic;
 
@@ -122,12 +124,15 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive((bool) isActive);
         cursor.cursorID = (int) data1;
     }
+    
 
     public void PlayerHasReachEndOfLevel(Component sender, object unUsed1, object unUsed2, object unUsed3)
     {
         PlayerChangePanel(this, 8, null, null);
         InGame = false;
     }
+
+    public void ToggleTrowelBounciness(Component sender, object unUsed1, object unUsed2, object unUsed3) => TrowelBouncing = !TrowelBouncing;
 
     public void LoadLevel()
     {

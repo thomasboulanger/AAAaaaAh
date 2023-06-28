@@ -150,23 +150,22 @@ public class JoystickManager : MonoBehaviour
     {
         if (_tLerp < 1.1f && isLocked) Transition();
 
-        if(GameManager.UICanvaState != GameManager.UIStateEnum.Play) return;
-        if (_inputTrigger && _triggerOnce)
-        {
-            _triggerOnce = false;
+        if(GameManager.UICanvaState is not GameManager.UIStateEnum.Play) return;
+        if (!_inputTrigger || !_triggerOnce) return;
+        _triggerOnce = false;
 
-            //instantiate truelle and target our cursor
-            Vector3 unitSphere = Random.insideUnitSphere * unitSphereRandomRadius;
+        Vector3 spawnPos = Camera.main.transform.position;
+        Vector3 destination = transform.position;
+        
+        HommingTruelle truelleGo = Instantiate(truelle, spawnPos, Quaternion.Euler
+        (
+            Random.Range(-50, 50),
+            Random.Range(-50, 50),
+            Random.Range(-50, 50)
+        ));
 
-            _truelleTargetPoint = new Vector3(unitSphere.x, unitSphere.y, 0);
 
-            _truelleApparitionPoint = transform.position + new Vector3(Random.Range(-startPosRandom, startPosRandom),
-                Random.Range(-startPosRandom, startPosRandom), startPosZ);
-
-            HommingTruelle truelleObj = Instantiate(truelle, _truelleApparitionPoint, Quaternion.identity);
-
-            truelleObj.Init(_truelleTargetPoint + transform.position, _actualColor);
-        }
+        truelleGo.Init(destination);
     }
 
     private void Transition()
