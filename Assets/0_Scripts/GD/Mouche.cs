@@ -63,16 +63,11 @@ public class Mouche : MonoBehaviour
                 _spawnFlies = true;
                 break;
         }
-
-        if ((int) data1 == 8) //il rentre jamais la alors je le tej depuis launchEndANimation
-        {
-            _spawnFlies = false;
-        }
     }
 
     void Update()
     {
-        if (!_spawnFlies) return;
+        if (!_spawnFlies || GameManager.UICanvaState is GameManager.UIStateEnum.PlayerHaveReachEndOfLevel) return;
 
         transform.position = limbControllerList[0].position;
         transform.eulerAngles = limbControllerList[0].eulerAngles + new Vector3(0, 0, 0);

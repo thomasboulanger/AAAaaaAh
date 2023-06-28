@@ -39,33 +39,33 @@ public class ChangeDifficulty : MonoBehaviour
         {
             case GameManager.Difficulty.Nofly:
                 difficultyText.text = "Rookiest";
-                description1.text = "Fly: no";
-                description2.text = "Fly aggressive what fly?";
-                description3.text = "Fly steal fruits what fly?";
+                description1.text = "Flies: no";
+                description2.text = "Flies aggressive what fly?";
+                description3.text = "Flies steal fruits what fly?";
                 return;
             case GameManager.Difficulty.PeacefulFlies:
                 difficultyText.text = "Rookie";
-                description1.text = "Fly: yes";
-                description2.text = "Fly aggressive no";
-                description3.text = "Fly steal fruits no";
+                description1.text = "Flies: yes";
+                description2.text = "Flies aggressive no";
+                description3.text = "Flies steal fruits no";
                 return;
             case GameManager.Difficulty.AgressiveFliesNoFruitLoss:
                 difficultyText.text = "Fun";
-                description1.text = "Fly: yes";
-                description2.text = "Fly aggressive yes";
-                description3.text = "Fly steal fruits no";
+                description1.text = "Flies: yes";
+                description2.text = "Flies aggressive yes";
+                description3.text = "Flies steal fruits no";
                 return;
             case GameManager.Difficulty.AgressiveFliesFruitLoss:
                 difficultyText.text = "Now we talk";
-                description1.text = "Fly: yes";
-                description2.text = "Fly aggressive yes";
-                description3.text = "Fly steal fruits yes";
+                description1.text = "Flies: yes";
+                description2.text = "Flies aggressive yes";
+                description3.text = "Flies steal fruits yes";
                 return;
             case GameManager.Difficulty.Ganged:
                 difficultyText.text = "Well, good luck";
-                description1.text = "Fly: lot";
-                description2.text = "Fly aggressive yes";
-                description3.text = "Fly steal fruits yes";
+                description1.text = "Flies: lot";
+                description2.text = "Flies aggressive yes";
+                description3.text = "Flies steal fruits yes";
                 return;
         }
     }
