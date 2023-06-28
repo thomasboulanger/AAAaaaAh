@@ -103,6 +103,8 @@ Material:
     - _ZWrite: 1
     - _alphaClipThreshold: 0.072
     - _contrastAlpha: 0.45
+    - _max: 0.951
+    - _min: 1
     - _noiseScale: 6.64
     - _noiseSpeed: 0.2
     m_Colors:
@@ -115,6 +117,7 @@ Material:
     - _TexturesToUse: {r: 1, g: 1, b: 0, a: 0}
     - _Tilling: {r: 1, g: 1, b: 0, a: 0}
     - _TillingText: {r: 1, g: 7, b: 0, a: 0}
+    - _tilling: {r: 0.1, g: 6.82, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3997262826556643990
 MonoBehaviour:

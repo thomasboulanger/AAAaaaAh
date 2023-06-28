@@ -95,13 +95,15 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
-    - _Xpos: 0.883
+    - _Xpos: 0.927
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 0
     - _alphaClipThreshold: 0.072
     - _contrastAlpha: 0.45
+    - _max: 0.839
+    - _min: 1
     - _noiseScale: 6.64
     - _noiseSpeed: 0.2
     m_Colors:
@@ -114,6 +116,7 @@ Material:
     - _TexturesToUse: {r: 1, g: 1, b: 0, a: 0}
     - _Tilling: {r: 1, g: 1, b: 0, a: 0}
     - _TillingText: {r: 1, g: 7, b: 0, a: 0}
+    - _tilling: {r: 0.1, g: 5.04, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3997262826556643990
 MonoBehaviour:
