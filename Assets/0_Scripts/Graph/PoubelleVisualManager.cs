@@ -291,8 +291,6 @@ public class PoubelleVisualManager : MonoBehaviour
         hasBouped.Clear();
         middlePosOffsets.Clear();
         hasBoupedMonster.Clear();
-
-        Debug.Log("ENTER EMPTY FRUIT LISTS METHOD");
     }
 
     public void EjectFruits()
@@ -304,7 +302,6 @@ public class PoubelleVisualManager : MonoBehaviour
         if (GameManager.UICanvaState != GameManager.UIStateEnum.PlayerHaveReachEndOfLevel)
         {
             _ejectSingleFruit = true;
-            Debug.Log("insgleFruit");
             storedFruits[0].gameObject.SetActive(true);
             InitializeFruitThenMoveIt(storedFruits[0], true);
             _finished = true;

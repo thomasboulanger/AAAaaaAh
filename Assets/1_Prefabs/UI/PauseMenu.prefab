@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 48435146093203209}
   - component: {fileID: 8078711541392362668}
   - component: {fileID: 8312093900426992633}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 684490637881085427}
   - component: {fileID: 8416545025285720841}
   - component: {fileID: 7192413537918131101}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 6219195030224621456}
   - component: {fileID: 6577917412208743180}
   - component: {fileID: 5965308099818899610}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 4893059028323743501}
   - component: {fileID: 4667993051204760255}
   - component: {fileID: 5876741932989734341}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 7098300701840078054}
   - component: {fileID: 4213935191163063680}
   - component: {fileID: 3237157577044742805}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Description (3)
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 1471684892590459287}
   - component: {fileID: 7336254639662393347}
   - component: {fileID: 3833769834631613210}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,8 +630,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.3
-  m_fontSizeBase: 25.3
+  m_fontSize: 23.5
+  m_fontSizeBase: 23.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1291,7 +1291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4541906518747125950}
   m_LocalRotation: {x: 0.97921854, y: 0.2028079, z: -0, w: 0}
-  m_LocalPosition: {x: 0.43093234, y: 7.0449624, z: 0}
+  m_LocalPosition: {x: 0.08549437, y: 5.887609, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1939,7 +1939,6 @@ GameObject:
   - component: {fileID: 4541906519482793458}
   - component: {fileID: 4541906519482793456}
   - component: {fileID: 1556440267}
-  - component: {fileID: 7651485657416770704}
   m_Layer: 16
   m_Name: ReturnToFirstCheckPoint
   m_TagString: UIInteractable
@@ -2028,21 +2027,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onReturnToFirstCheckPoint: {fileID: 11400000, guid: 1227e8b5ef67ac045abb6a980e5c11ec,
     type: 2}
+  onPlayerChangePanel: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2,
+    type: 2}
 --- !u!64 &1556440267
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4541906519482793454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 870155248676805875, guid: ff76fa0e567f04e40bf2ae34447fc2dd, type: 3}
---- !u!64 &7651485657416770704
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2084,7 +2071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4541906520033278052}
   m_LocalRotation: {x: -0.3848888, y: 0.92296296, z: -0, w: 0}
-  m_LocalPosition: {x: 2.9994736, y: 3.3735304, z: 0}
+  m_LocalPosition: {x: 3.2983198, y: 2.4910643, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2183,7 +2170,7 @@ GameObject:
   - component: {fileID: 4398425430608927440}
   - component: {fileID: 1159789886258969502}
   - component: {fileID: 6318263818719690888}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Description (2)
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -2283,7 +2270,7 @@ GameObject:
   - component: {fileID: 6847913903754456809}
   - component: {fileID: 1827704594166915668}
   - component: {fileID: 851926816884983832}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: ChangeDifficulty
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -2403,7 +2390,7 @@ GameObject:
   - component: {fileID: 4332000956764928344}
   - component: {fileID: 4938923206594606965}
   - component: {fileID: 7498195815571619837}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SM_panneauMetal (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2486,7 +2473,7 @@ GameObject:
   - component: {fileID: 673267358159869016}
   - component: {fileID: 8750008506013314161}
   - component: {fileID: 6384120301151547913}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2623,7 +2610,7 @@ GameObject:
   - component: {fileID: 8612719291306226530}
   - component: {fileID: 7579968007958491156}
   - component: {fileID: 7512358102770487981}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2705,8 +2692,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.5
-  m_fontSizeBase: 26.5
+  m_fontSize: 23.5
+  m_fontSizeBase: 23.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2759,7 +2746,7 @@ GameObject:
   - component: {fileID: 3455416477079845290}
   - component: {fileID: 7682993134868634957}
   - component: {fileID: 5201917665231184203}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2860,7 +2847,7 @@ GameObject:
   - component: {fileID: 103820881295310384}
   - component: {fileID: 4757652498967632221}
   - component: {fileID: 1874683723413747175}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Description (1)
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -2959,7 +2946,7 @@ GameObject:
   - component: {fileID: 6038754575198738847}
   - component: {fileID: 1444642923583059035}
   - component: {fileID: 232202944353071617}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text
   m_TagString: UIInteractable
   m_Icon: {fileID: 0}
@@ -3056,7 +3043,7 @@ GameObject:
   - component: {fileID: 8794505536250261023}
   - component: {fileID: 772027205998188974}
   - component: {fileID: 5944928585137613461}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3192,7 +3179,7 @@ GameObject:
   - component: {fileID: 3360434608345601162}
   - component: {fileID: 2844284128024268380}
   - component: {fileID: 8681117266774878121}
-  m_Layer: 5
+  m_Layer: 16
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

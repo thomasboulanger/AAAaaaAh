@@ -13,10 +13,12 @@ using UnityEngine;
 public class ReturnToFirstCheckPoint : MonoBehaviour
 {
     [SerializeField] private GameEvent onReturnToFirstCheckPoint;
+    [SerializeField] private GameEvent onPlayerChangePanel;
    
     private void OnCollisionEnter(Collision collision)
     {
         if (!collision.transform.CompareTag("UIInteractable")) return;
         onReturnToFirstCheckPoint.Raise(this,null,null,null);
+        onPlayerChangePanel.Raise(this, 6, null, null);
     }
 }

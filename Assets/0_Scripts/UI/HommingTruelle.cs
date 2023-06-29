@@ -5,7 +5,7 @@ using UnityEngine;
 public class HommingTruelle : MonoBehaviour
 {
     [SerializeField] private GameEvent onTruelleHitJoystickSound;
-    
+
     [SerializeField] private int matIndex = 1;
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private float selfDestructTimer = 2;
@@ -21,9 +21,8 @@ public class HommingTruelle : MonoBehaviour
     private Material _truelleMat;
     private float _time;
     private float _truelleMeshScale;
-    private bool animating = true;
+    private bool _animating = true;
     private bool _sens = true;
-    private bool _hasCollided;
 
     public void Init(Vector3 truelleTargetPoint, Color actualColor)
     {
@@ -44,9 +43,9 @@ public class HommingTruelle : MonoBehaviour
 
         transform.rotation = Quaternion.Euler
         (
-            Random.Range(-50,50),
-            Random.Range(-50,50),
-            Random.Range(-50,50)
+            Random.Range(-50, 50),
+            Random.Range(-50, 50),
+            Random.Range(-50, 50)
         );
         _rb.AddForce((_destination - _rb.transform.position) * 175);
     }
@@ -55,15 +54,15 @@ public class HommingTruelle : MonoBehaviour
     {
         if (collision.transform.CompareTag("Cursor"))
         {
-            _hasCollided = true;
-            onTruelleHitJoystickSound.Raise(this,null,null,null);
+            if (!GameManager.TrowelBouncing) Destroy(gameObject);
+            onTruelleHitJoystickSound.Raise(this, null, null, null);
             JoystickManager joystickComp = collision.gameObject.GetComponent<JoystickManager>();
             joystickComp.HitByTruelle(this);
         }
 
         if (!collision.transform.CompareTag("UIInteractable")) return;
-        _hasCollided = true;
-        onTruelleHitJoystickSound.Raise(this,null,null,null);
+        if (!GameManager.TrowelBouncing) Destroy(gameObject);
+        onTruelleHitJoystickSound.Raise(this, null, null, null);
         collision.transform.GetComponent<UIButtonInfo>().ChangePanelButton();
     }
 
@@ -78,8 +77,7 @@ public class HommingTruelle : MonoBehaviour
 
     private void Update()
     {
-        if (_hasCollided && !GetComponent<Collider>().isTrigger) GetComponent<Collider>().isTrigger = true; 
-        if (!animating) return;
+        if (!_animating) return;
         switch (_time)
         {
             case < 1 when _sens:
@@ -96,7 +94,7 @@ public class HommingTruelle : MonoBehaviour
                 break;
             default:
             {
-                animating = false;
+                _animating = false;
                 if (!_sens)
                 {
                     Destroy(gameObject);
@@ -110,7 +108,7 @@ public class HommingTruelle : MonoBehaviour
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(selfDestructTimer);
-        animating = true;
+        _animating = true;
         _time = 0;
         _sens = false;
     }

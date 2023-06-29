@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6972927d6eb7a14eb58b24f01aca03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 78211b9b53151cc439ea7c1019f97fe2, type: 2}
+  gameEvent: {fileID: 11400000, guid: a0cc1ca7b162ad64aae002c92a54458c, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3329380337374217551}
         m_TargetAssemblyTypeName: Mouche, Assembly-CSharp
-        m_MethodName: PlayerState
+        m_MethodName: OnUpdateDifficulty
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -73,14 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c334a820b9d4b94ca29955a0e711a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endLevel: 120
-  spawnFliesBegining: 30
   limbControllerList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  bouclierList:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -90,3 +83,5 @@ MonoBehaviour:
     type: 3}
   intervalle: 1.25
   player: {fileID: 0}
+  endLevel: 120
+  spawnFliesBegining: 30
