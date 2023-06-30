@@ -144,7 +144,7 @@ public class CharacterBodyPhysic : MonoBehaviour
         }
 
         //applying the final force to the rigidbody
-        _charRb.AddForce(addForceToBody);
+        _charRb.AddForce(addForceToBody * (Time.deltaTime));
         _charRb.AddForce(_gravityForce, ForceMode.Acceleration);
 
         //update last frame array
