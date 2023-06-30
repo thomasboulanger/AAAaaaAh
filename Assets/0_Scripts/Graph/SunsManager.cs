@@ -36,8 +36,7 @@ public class SunsManager : MonoBehaviour
 
             sunForest.intensity = forestVal * sunForestIntensity;
 
-            Debug.Log("intensity "+ sunForest.intensity +" "+forestVal);
-
+            //Debug.Log("intensity "+ sunForest.intensity +" "+forestVal);
         }
         else if (transition)
         {

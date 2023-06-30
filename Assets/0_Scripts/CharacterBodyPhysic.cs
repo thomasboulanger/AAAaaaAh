@@ -110,7 +110,8 @@ public class CharacterBodyPhysic : MonoBehaviour
                 for (int j = 0; j < _limbsGrabbed.Length; j++)
                 {
                     if (!_limbsGrabbed[j] || i == j) continue;
-                    _destinationTargetForBody[i] = virtualTransforms[j].InverseTransformPoint(_destinationTargetForBody[i]);
+                    _destinationTargetForBody[i] =
+                        virtualTransforms[j].InverseTransformPoint(_destinationTargetForBody[i]);
                     _destinationTargetForBody[i] = Vector3.ClampMagnitude(_destinationTargetForBody[i], range);
                     _destinationTargetForBody[i] = virtualTransforms[j].TransformPoint(_destinationTargetForBody[i]);
                 }
@@ -119,7 +120,7 @@ public class CharacterBodyPhysic : MonoBehaviour
                 Vector3 addedForce = (_destinationTargetForBody[i] - LimbsCenterTransforms[i].position) * force;
 
                 //adding the force to a sum
-                addForceToBody += addedForce * Time.fixedTime;
+                addForceToBody += addedForce;
             }
         }
 

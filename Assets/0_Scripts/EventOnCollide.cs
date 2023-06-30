@@ -13,14 +13,10 @@ using UnityEngine;
 public class EventOnCollide : MonoBehaviour
 {
     [SerializeField] private GameEvent eventTrigered;
-    [SerializeField] private bool parameter1;
-    [SerializeField] private object parameter2;
-    [SerializeField] private object parameter3;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.transform.CompareTag("Player")) return;
-        Debug.Log("passed the end wall");
-        eventTrigered.Raise(this, parameter1, parameter2, parameter3);
+        eventTrigered.Raise(this, null, null, null);
     }
 }
